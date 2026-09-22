@@ -60,7 +60,7 @@ Para cada b, seja w₀ = primeiro não-coberto em T (ramo ativo).
 | R_w identidade+sentinela | **TESTADO — PASSA** (com (C)) |
 | Predicado original 14 §5 | **REFINADO** (faltava caso ALL_COV) |
 | Condição (C) | **Ad hoc?** Não: é exatamente RBT 0000→ALL_COV (exp.10) |
-| PPR-3 (Θ provas) | **ABERTO** (08 R3, 14 §4) |
+| PPR-3 (Θ provas) | **FEITO** (PR19, `19_...`, CC-Θ 32/32) |
 | PPR completo | **ABERTO** |
 
 **Limitação:** teste é no modelo κ/σ (proporcional/estrutural), não sobre provas PA reais. Coerente com caveats 09/10/13.
@@ -80,5 +80,6 @@ PPR-2-ramo mostra: o ramo ativo w₀ de T transfere para T' via R com progresso 
 1. ~~Implementar R_w~~ — **FEITO** (PR17)
 2. ~~Verificar PPR-2 ramos~~ — **FEITO** (3/3 TRUE)
 3. Generalizar (C): caracterizar quando ALL_COV é inevitável (σ_T' ≥ max κ)
-4. PPR-3: Θ sobre provas de ramos (14 §4) — ABERTO
+4. ~~PPR-3: Θ sobre provas de ramos (14 §4)~~ — **FEITO** (PR19, CC-Θ 32/32)
 5. ~~Testar R_w nos cenários E0–E3 do 16 (RCS robusta)~~ — **FEITO** (PR20, `18_...`, 4/4 PASSA)
+6. **ABERTO:** cond. (B) RBT explícito (w* ≠ w₀')

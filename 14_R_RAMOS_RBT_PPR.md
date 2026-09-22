@@ -70,7 +70,9 @@ Se π prova "w coberto em T", Θ(π) deve provar "R(w) coberto em T'"?
 Na direção τ (fora da imagem): se b ∉ rng(g_T) porque ramo w* é o escolhido,
 então para T', ramo pode ser ALL → τ(g_T')_0 verdadeiro trivialmente?
 
-**Muito delicado** — não formalizado. ABERTO.
+**Status:** **CONSTRUÍDO e TESTADO** — `19_PPR3_THETA_RAMOS.md` (PR19):
+CC-Θ **32/32**; \|Θ(π)\|=\|π\|+O(log\|W\|) polinomial. Cond. (B) 0 disparos
+(cenário RBT explícito pendente).
 
 ---
 
@@ -90,12 +92,12 @@ RCS mostra δ_S ≠ δ_F com **mesma Φ**. A diferença está **quais w** são c
 | Item | Status |
 |------|--------|
 | suffix0 | **REFUTADO** (11) |
-| R_w identidade+sentinela | **TESTADO — PASSA PPR-2** (17, com cond. C) |
-| Θ sobre provas de ramos | **ABERTO** (14 §4) |
+| R_w identidade+sentinela | **TESTADO — PASSA PPR-2** (17, com cond. C) + **E0–E3 4/4** (18) |
+| Θ sobre provas de ramos | **CONSTRUÍDO — CC-Θ 32/32** (19, PR19) |
 | PPR completo | **ABERTO** (08 R3) |
 
-**Não é resultado.** É o candidato correto após o fracasso de suffix0 —
-agora com predicado refinado (17 §2) e teste 3/3.
+**Não é resultado de PA.** É o candidato correto após o fracasso de suffix0 —
+agora com predicado refinado (17), teste 4/4 (18) e Θ polinomial (19).
 
 ---
 
@@ -104,5 +106,6 @@ agora com predicado refinado (17 §2) e teste 3/3.
 1. ~~Implementar R_w no modelo 10/13~~ — **FEITO** (PR17, `test_Rw_ppr2.py`)
 2. ~~Verificar PPR-2 em termos de cobertura de ramos~~ — **FEITO** (3/3 TRUE, 17)
 3. Se falhar: ~~buscar outra R_w~~ — **não necessário** com cond. (C)
-4. **ABERTO:** PPR-3 (Θ sobre provas de ramos, 14 §4)
+4. ~~PPR-3 (Θ sobre provas de ramos, 14 §4)~~ — **FEITO** (PR19, CC-Θ 32/32)
 5. ~~Testar R_w nos cenários E0–E3 do 16~~ — **FEITO** (PR20, `18_...`, **4/4 PASSA**)
+6. **ABERTO:** cond. (B) com cenário RBT explícito (w* ≠ w₀')

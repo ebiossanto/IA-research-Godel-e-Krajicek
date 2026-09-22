@@ -51,7 +51,7 @@ Predicado: **(A)** R(w₀)∈uncov(T') ∨ **(B)** transição RBT com R(w₀)=w
 |------|--------|
 | R_w + predicado (A∨B∨C) | **TESTADO em 4/4 configs** (PR17+PR20) |
 | Robustez a κ/razão/\|W\| | **SIM** — não artefato de config única |
-| PPR-3 (Θ sobre provas) | **ABERTO** (14 §4) |
+| PPR-3 (Θ provas) | **FEITO** (19, PR19: CC-Θ 32/32) |
 | PPR completo (R3) | **ABERTO** (08) |
 | Natureza | Modelo κ/σ estrutural — **não** PA real |
 
@@ -70,9 +70,10 @@ Predicado: **(A)** R(w₀)∈uncov(T') ∨ **(B)** transição RBT com R(w₀)=w
 ## 6. Próximos
 
 1. ~~Testar R_w em E0–E3~~ — **FEITO** (PR20)
-2. PPR-3: Θ sobre provas de ramos (14 §4) — PR19
+2. ~~PPR-3: Θ sobre provas de ramos (14 §4)~~ — **FEITO** (PR19, CC-Θ 32/32)
 3. Caracterizar quando ALL_COV é inevitável (σ ≥ max κ)
-4. Fechar sorries Lean (theorem4, rcs); Foundation lemma3
+4. Cond. (B) RBT explícito (w* ≠ w₀')
+5. Fechar sorries Lean (theorem4, rcs); Foundation lemma3
 
 ---
 

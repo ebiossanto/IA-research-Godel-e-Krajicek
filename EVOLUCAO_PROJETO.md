@@ -269,7 +269,7 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 
 ---
 
-## Fase 9 — PR12+PR16+PR15+R_w+PR17+PR18+PR20 (22/09/2026, tarde)
+## Fase 9 — PR12+PR16+PR15+R_w+PR17+PR18+PR20+PR19 (22/09/2026, tarde)
 
 ### PR12 — Correções 01/06/03 APLICADAS
 
@@ -325,6 +325,14 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 - **PPR-2 genérico** (σ→σ+step): 65/65, 65/65, 95/95, 65/65 — **todos PASSAM**
 - **Veredito: R_w VÁLIDO em todas as variações de κ/razão/\|W\|**
 
+### PR19 — Θ sobre provas de ramos (`19_...` + `ppr3_ramos_theta.py`)
+
+- Θ construído: decide (A)/(B)/(C) e emite certificado-alvo válido
+- **CC-Θ VERIFICADO 32/32** (3 cenários PR17 + 4 configs E0–E3)
+- **Cota polinomial:** \|Θ(π)\| = \|π\| + O(log \|W\|); máx ratio 1.11
+- Condições: A=14, C=18, B=0 (RBT explícito a testar), FAIL=0
+- **Sucessor legítimo de suffix0** (11: vácuo/exponencial → 19: não-vácuo/polinomial)
+
 ---
 
 ## Fase 10 — O que está em aberto (agora)
@@ -343,14 +351,15 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 3. ρ_b vs Pakhomov–Walsh → **PRÓXIMO mas DISTINTO** — posicionar explicitamente
 4. FP-K equivalente publicado? → **ainda não verificado**
 
-### Aberto experimental (pós-PR12/15/16/17/18/20)
+### Aberto experimental (pós-PR12/15/16/17/18/19/20)
 
 - ~~Correções 01/06/03~~ → **PR12 APLICADAS**
 - ~~RCS slow vs fast~~ → **CONFIRMADA + ROBUSTA (13/16)**
 - ~~Lean delta_mono~~ → **PR18 PROVADO**; lemma3=axiom; theorem4/rcs=sorry
 - ~~R_w PPR-2~~ → **PR17: 3/3 PASSA** (predicado refinado A∨B∨C)
 - ~~R_w em E0–E3~~ → **PR20: 4/4 PASSA** (κ/razão/\|W\|)
-- **PR19:** PPR-3 — Θ sobre provas de ramos (11 §3.3 / CC-Θ)
+- ~~Θ sobre provas de ramos~~ → **PR19: CC-Θ 32/32, polinomial**
+- **Cond. (B) RBT explícito:** testar cenário w* ≠ w₀' (0 disparos em 19)
 - **Foundation:** lemma3_con axiom → prova (Prf/pad aritmético)
 - **`lake build`:** toolchain Lean não instalada localmente — verificar via CI
 - **Estender 16:** comparar com Freund–Pakhomov (comprimento vs δ)
@@ -378,7 +387,8 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 | 22/09/2026 | **PR17 R_w PPR-2** | predicado refinado; **3/3 PASSA** |
 | 22/09/2026 | **PR18 delta_mono** | **PROVADO sem sorry**; lemma3=axiom |
 | 22/09/2026 | **PR20 R_w E0–E3** | **4/4 PASSA PPR-2** (κ/razão/\|W\|) |
-| Próximo | PR19 Θ ramos; sorries; Foundation | — |
+| 22/09/2026 | **PR19 Θ ramos** | **CC-Θ 32/32**; Θ polinomial |
+| Próximo | Cond. (B) RBT; sorries; Foundation | — |
 
 ---
 
@@ -395,7 +405,7 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 
 ## Próximo passo (a atualizar)
 
-> **Próximo:** (a) **PR19:** Θ sobre provas de ramos / CC-Θ polinomial (11 §3.3); (b) fechar sorries `theorem4_strict`/`rcs_exists` e integrar Foundation para `lemma3_con`; (c) `lake build` quando toolchain Lean disponível; (d) comparar com Freund–Pakhomov (comprimento vs δ). Depois: atualizar este documento.
+> **Próximo:** (a) testar condição **(B) RBT** com cenário explícito w* ≠ w₀' (0 disparos em PR19); (b) fechar sorries `theorem4_strict`/`rcs_exists` e integrar Foundation para `lemma3_con`; (c) `lake build` quando toolchain Lean disponível; (d) comparar com Freund–Pakhomov (comprimento vs δ). Depois: atualizar este documento.
 
 ---
 
