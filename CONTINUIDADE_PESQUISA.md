@@ -216,14 +216,16 @@ Pergunta testavel: "A reflexao produz assinatura mensuravel na complexidade prop
 3. **Ler Freund-Pakhomov (2020)** "Short proofs for slow consistency" NDJFL 61(1)
 4. **NAO adicionar mais conjecturas** ao repositorio
 
-### 6.3. Curto prazo (1-3 meses) — seguir 08_PROGRAMA...
+### 6.3. Curto prazo (1-3 meses) — seguir 08_PROGRAMA... (versão revisada)
 
-1. Definir formalmente g_T, TG_T^n, precequiv_ppr
-2. Provar lema de composicao de reducoes
-3. Casos T_0=PA e T_1=PA+RFN(PA)
-4. Tentar provar T_0 ≼_int T_1 => g_0 ≼_ppr g_1
-5. Tentar construir contraexemplo
-6. SOMENTE DEPOIS, lower bounds
+1. ~~Definir formalmente g_T, TG_T^n, precequiv_ppr~~ **FEITO** (τ-fórmulas corrigidas; PPR definido)
+2. ~~Provar lema de composicao~~ **FEITO** (Lemas 7.1-7.2: pre-ordem)
+3. ~~Casos T_0=PA e T_1=PA+RFN(PA)~~ **ANALISADO** (R1/R2 provados, R3 aberto)
+4. **ETAPA A:** fixar apresentação canônica (codificação de fórmulas, provas, τ)
+5. **ETAPA B:** calcular explicitamente g_{PA,n}, g_{T_1,n} para n pequeno
+6. **ETAPA C-D:** buscar R e Θ candidatos; testar PPR
+7. **ETAPA E:** só então generalizar / tentar prova assintótica
+8. Próximo arquivo: `09_EXPERIMENTO_PPR_PA_RFNPA.md`
 
 ### 6.4. Medio prazo (3-6 meses)
 
@@ -285,7 +287,7 @@ Pergunta testavel: "A reflexao produz assinatura mensuravel na complexidade prop
 | CONTINUIDADE_PESQUISA.md | Este arquivo |
 | CONJECTURA_FP_K.md | Rebaixado para PERGUNTA DE PESQUISA |
 | 07_pontos_fixos_incompletude.md | Parte 2: pontos fixos, fisica, analogias |
-| 08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md | **NOVO: programa de pesquisa pos-auditoria** |
+| 08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md | **ATIVO: PPR, caso PA→PA+RFN(PA), R1/R2/R3 (versão revisada 22/09)** |
 
 ---
 

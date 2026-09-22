@@ -1,256 +1,1705 @@
-# Programa de Pesquisa: Interpretabilidade vs. Geradores
+# 08 — PROGRAMA: INTERPRETABILIDADE vs. GERADORES
+## Definição formal de \(\preceq_{\mathrm{ppr}}\), caso \(T_0=PA\), \(T_1=PA+\mathrm{RFN}(PA)\) e tentativa de prova/refutação
 
-**Status:** PROGRAMA DE PESQUISA (nenhum resultado e' teorema ate' cada hipotese estar especificada)
-**Data:** Setembro 2026
-**Origem:** Auditoria rigorosa (22/09/2026) + reconstrucao propria
-**Aviso:** Nenhum resultado abaixo e' chamado de teorema sem especificacao formal completa de hipoteses, dominio, codificacao, reducao e medida de tamanho.
-
----
-
-## 1. Principio de Research
-
-> Nenhum resultado sera' chamado de teorema ate' que cada hipotese, dominio, codificacao, reducao e medida de tamanho esteja formalmente especificada.
+**Projeto:** IA-research-Godel-e-Krajicek  
+**Autor:** Euzebio Soares  
+**Data:** 22/09/2026  
+**Status:** programa matemático em investigação — nenhum resultado novo abaixo é declarado como teorema sem prova completa.
 
 ---
 
-## 2. Definicoes Formais
+## 0. Objetivo
 
-### 2.1. Gerador g_T
+A pergunta central desta etapa é:
 
-**Definicao (baseada em Krajicek 2023/2025).** Seja T uma teoria r.e. consistente com axiomas recursivamente enumeraveis. O gerador g_T : {0,1}* -> {0,1} e' definido como segue:
+\[
+\boxed{
+T\preceq_{\mathrm{int}}S
+\quad\stackrel{?}{\Longrightarrow}\quad
+g_T\preceq_{\mathrm{ppr}} g_S
+}
+\]
 
-Para entrada x com |x| = n:
-1. Achar a primeira formula Phi com |Phi| <= b(n) tal que... (construcao de Krajicek)
-2. Para cada w, verificar se existe T-prova de tamanho <= b(n) de ...
-3. O bit de saida e' definido pela primeira w sem prova
+onde:
 
-**Restricoes:**
-- b(n) = log n (ou qualquer funcao omega(1) time-constructible, ver Krajicek rodape 3)
-- g_T e' computavel em tempo polinomial
-- stretch de um bit
+- \(T\preceq_{\mathrm{int}}S\) é uma relação adequada de interpretabilidade entre teorias aritméticas;
+- \(g_T\) é o gerador de Krajíček associado a \(T\);
+- \(\preceq_{\mathrm{ppr}}\) será uma nova relação operacional, explicitamente definida abaixo, baseada em **range-avoidance tautologies** e transformação polinomial de provas.
 
-**Nota:** A observacao b(n) -> omega(1) JA EXISTE em Krajicek (2023), rodape 3, Secao 3. NAO e' contribuicao original.
+O primeiro caso concreto é:
 
-### 2.2. Tautologia TG_T^n
+\[
+T_0=PA,
+\qquad
+T_1=PA+\mathrm{RFN}(PA).
+\]
 
-**Definicao.** Para cada n, a tautologia TG_T^n afirma que g_T e' computavel por um circuito/maquina C_n especificada.
+A meta desta etapa não é presumir a implicação. É tentar:
 
-- |TG_T^n| = 2^n + O(n) (comprimento exponencial na entrada)
-- TG_T^n e' tautologia (por construcao do gerador)
-
-### 2.3. Tamanho de Prova s_P
-
-**Definicao.** Seja P um sistema de prova Cook-Reckhow. Para tautologia phi:
-
-s_P(phi) = min{|pi| : pi e' P-prova de phi}
-
-se existe; caso contrario s_P(phi) = infinity.
-
-s_P(TG_T^n) = max{|x|=n} s_P(TG_T^n para a entrada x) -- ou outro maximo conveniente.
+1. prová-la sob hipóteses mínimas;
+2. descobrir exatamente onde a prova quebra;
+3. procurar um contraexemplo;
+4. classificar o resultado como teorema, refutação, implicação condicional ou problema aberto.
 
 ---
 
-## 3. A Ordem Operacional ≼_ppr
+# 1. Correção preliminar: qual é a tautologia associada a um gerador?
 
-### 3.1. Definicao
+Há uma correção importante ao formalismo atual do repositório.
 
-Defina T ≼_ppr S se e' somente se existe uma familia de transformacoes {R_n} tal que:
+O objeto padrão na teoria de proof complexity generators não é, em geral,
 
-1. **R_n e' polinomial:** R_n e' computavel em tempo polinomial
-2. **Preserva tautologia:** R_n mapeia tautologias em tautologias
-3. **Reducao de prova:** existe transformacao pi_S |-> pi_T tal que:
-   - Se pi_S e' S-prova de R_n(TG_S^{p(n)}), entao pi_T e' T-prova de TG_T^n
-   - |pi_T| <= |pi_S|^{O(1)} (blow-up polinomial)
+\[
+\bigwedge_{x\in\{0,1\}^n}[C_n(x)=g(x)].
+\]
 
-### 3.2. Interpretacao
+Essa expressão é uma afirmação de **correção do circuito que calcula o próprio gerador** e, tomada literalmente, não é a família padrão de tautologias usada para medir hardness do gerador.
 
-T ≼_ppr S significa: **"TG_T^n e' polinomialmente redutivel a TG_S"** no sentido de proof complexity.
+Na literatura de Krajíček, para
 
-Isto e' uma ordem de dificuldade **operacional**, observavel no mundo proposicional.
+\[
+g_n:\{0,1\}^n\to\{0,1\}^{m(n)},\qquad m(n)>n,
+\]
 
-### 3.3. Propriedades
+e para cada
 
-- ≼_ppr e' uma pre-ordem (reflexiva e transitiva) -- **a ser verificado formalmente**
-- Composicao de reducoes preserva ≼_ppr -- **a ser provado como lema**
+\[
+b\in\{0,1\}^{m(n)}\setminus\operatorname{rng}(g_n),
+\]
 
----
+usa-se uma \(\tau\)-fórmula
 
-## 4. A Ordem de Interpretabilidade ≼_int
+\[
+\boxed{\tau(g_n)_b}
+\]
 
-### 4.1. Definicao (classica)
+que expressa proposicionalmente:
 
-T ≼_int S se e' somente se T e' interpretavel em S (traducao uniforme de teoremas de T para teoremas de S).
+\[
+\boxed{
+b\notin\operatorname{rng}(g_n)
+}
+\]
 
-### 4.2. Hierarquia de Reflexao
+ou, equivalentemente,
 
-T_0 = T
-T_{alpha+1} = T_alpha + RFN(T_alpha)
-T_lambda = union_{alpha<lambda} T_alpha
+\[
+\forall x\in\{0,1\}^n,\qquad g_n(x)\neq b.
+\]
 
-**Nota:** RFN precisa de especificacao formal:
-- classe de formulas
-- representacao aritmetica de verdade
-- reflexao uniforme vs. local
-- fragmento utilizado
+Krajíček define a família exatamente dessa forma e define a hardness do gerador por meio das \(\tau(g)_b\), para \(b\) fora da imagem. citeturn128981search0turn151226search59
 
-Ver audit: definicao informal "Pr_T(x) -> True(x)" NAO e' aceitavel literalmente.
+Portanto, daqui em diante:
 
----
+\[
+\boxed{
+\mathcal T(g)
+=
+\left\{
+\tau(g_n)_b:
+n\ge 1,\;
+b\notin\operatorname{rng}(g_n)
+\right\}.
+}
+\]
 
-## 5. A Pergunta Central
-
-### 5.1. Enunciado
-
-$$T \preceq_{int} S \stackrel{?}{\Longrightarrow} g_T \preceq_{ppr} g_S$$
-
-### 5.2. Tres Possibilidades
-
-**Caso A (preservacao):**
-T ≼_int S => T ≼_ppr S
-Teriamos um teorema de transferencia.
-
-**Caso B (restricao):**
-A implicacao vale apenas para T, S em alguma classe C.
-Isto produziria uma nova classe de teorias.
-
-**Caso C (quebra):**
-Existe contraexemplo: T ≼_int S mas T NÃO ≼_ppr S.
-Isto revelaria uma **quebra entre hierarquia proof-theoretic e hierarquia proposicional**.
-
-### 5.3. Por que Caso C seria Interessante
-
-Se precequiv_ppr NAO e' redutivel a precequiv_int, entao:
-- A hierarquia de reflexao e a hierarquia de complexidade de geradores sao **estruturalmente diferentes**
-- Isto e' uma contribuicao conceitual importante
+Essa correção é necessária para que a nova relação \(\preceq_{\mathrm{ppr}}\) seja compatível com a literatura de proof complexity generators.
 
 ---
 
-## 6. Medida Operacional Gamma_P
+# 2. Geradores \(g_T\) de Krajíček
 
-### 6.1. Definicao
+Para uma teoria \(T\) suficientemente forte, sound e p-time no sentido utilizado por Krajíček, o gerador \(g_T\) é construído assim, em linhas gerais:
 
-$$\Gamma_P(T, n) = \log s_P(TG_T^n)$$
+- recebe \(u\in\{0,1\}^n\);
+- procura um código inicial de fórmula \(\Phi\) de tamanho no máximo \(\log n\);
+- considera os padrões \(w\) de tamanho \(O(\log n)\);
+- procura \(T\)-provas de comprimento no máximo \(\log n\) para certas sentenças \(\Phi^w\);
+- escolhe o primeiro \(w_0\) para o qual tal prova não é encontrada;
+- produz uma saída de comprimento \(n+1\).
 
-quando s_P e' finito.
+Krajíček prova que o algoritmo é p-time, que há stretch de um bit e que o complemento da imagem é infinito. A construção usa \(S^1_2\) como teoria-base e requer as propriedades de soundness e p-time formalization usadas no artigo. citeturn655306view0
 
-### 6.2. Diferenca
-
-$$\Delta_P(T, S; n) = \Gamma_P(S, n) - \Gamma_P(T, n)$$
-
-### 6.3. Hipotese de Pesquisa
-
-A diferenca Delta_P pode carregar informacao sobre a progressao de reflexao T -> T + RFN(T).
-
-**Pergunta testavel:** "A transformacao por reflexao produz uma assinatura mensuravel na complexidade proposicional?"
+A questão de saber se algum \(g_T\) é hard para todos os sistemas de prova permanece aberta na formulação de Krajíček. citeturn655306view0turn565792search0
 
 ---
 
-## 7. Programa Experimental
+# 3. Hipóteses exatas para \(T_0\) e \(T_1\)
 
-### Fase 1: Niveis Finitos
+## 3.1 \(T_0=PA\)
 
-- T_0 = PA
-- T_1 = PA + RFN(PA)
-- NAO usar ordinais gerais ainda
-- Construir explicitamente g_0, g_1
-- Construir TG_0^n, TG_1^n
+Temos:
 
-### Fase 2: Sistema de Prova Fixado
+\[
+S^1_2\subseteq PA.
+\]
 
-Escolher UM sistema:
-- Resolution, OU
-- Cutting Planes, OU
-- Frege, OU
-- Extended Frege
+Logo \(PA\) possui a força sintática necessária para a construção de \(g_T\).
 
-NAO falar em "qualquer P" inicialmente.
+Também é uma teoria efetivamente axiomatizável.
 
-### Fase 3: Reducao
-
-Tentar provar:
-$$TG_0^n \le_{ppr} TG_1^{p(n)}$$
-
-ou a direcao inversa.
-
-### Fase 4: Lower Bound
-
-SO DEPOIS procurar:
-$$s_P(TG_1^n) \ge L(n)$$
-
-Aqui podem entrar tecnicas reais de Krajicek:
-- interpolation
-- communication complexity
-- circuit lower bounds
-- proof search
-- bounded arithmetic
+A utilização de \(g_{PA}\) como gerador correto exige a soundness de \(PA\) no modelo padrão. Esta é uma hipótese metamatemática; não deve ser confundida com um fato provado dentro de PA.
 
 ---
 
-## 8. Resultado Negativo Importante
+## 3.2 \(T_1=PA+\mathrm{RFN}(PA)\)
 
-$$\boxed{\text{"ordem ordinal" NAO pode ser identificada automaticamente com "complexidade de prova"."}}$$
+Aqui é essencial distinguir:
 
-A nova formulação e':
+\[
+\mathrm{RFN}_\Gamma(PA)
+\]
 
-$$\boxed{\text{ordem de reflexao} \stackrel{?}{\longrightarrow} \text{ordem operacional de geradores} \stackrel{?}{\longrightarrow} \text{separacao de prova}}$$
+de uma reflexão uniforme sem especificação de classe \(\Gamma\).
 
-Esta formulação e' mais defensavel e abre espaco real para um resultado novo.
+Uma versão formal deve fixar a classe de fórmulas e a codificação da reflexão. Em termos esquemáticos:
 
----
+\[
+\mathrm{RFN}_\Gamma(PA)
+=
+\left\{
+\forall \vec x
+\left(
+\operatorname{Pr}_{PA}(\ulcorner\varphi(\dot{\vec x})\urcorner)
+\rightarrow
+\varphi(\vec x)
+\right):
+\varphi\in\Gamma
+\right\}.
+\]
 
-## 9. Estado dos Resultados Anteriores (apos auditoria)
+Não é aceitável escrever simplesmente um predicado externo `True(x)` como se fosse uma fórmula aritmética comum.
 
-| Resultado | Estado |
-|-----------|--------|
-| Mecanismo g_T de Krajicek | EXISTENTE NA LITERATURA |
-| Substituicao log n -> omega(1) | EXISTENTE EM KRAJICEK (rodape 3) |
-| Teorema 4: 2^{c|T_alpha|n} | **REJEITADO COMO PROVADO** |
-| Teorema 5: cortes estritos | **NAO PROVADO** |
-| Teorema 6(a)(b)(c) | **NAO PROVADO** |
-| Pergunta slow consistency x g_T | **PERGUNTA DE PESQUISA** |
-| Relacao interpretabilidade x dificuldade de gerador | **CANDIDATO A NOVO PROBLEMA FORMAL** |
-| Assinatura Gamma_P(T,n) | **NOVA DEFINICAO PROPOSTA; NAO RESULTADO** |
+Beklemishev trabalha precisamente com versões restritas e uniformes de reflexão, e mostra resultados de equivalência e análise ordinal dependentes da classe de reflexão escolhida. citeturn880383academia1turn565792search34
 
----
+Neste documento, \(T_1\) significa:
 
-## 10. Erros Identificados (para nao repetir)
+\[
+\boxed{
+T_1=PA+\mathrm{RFN}_{\Gamma}(PA)
+}
+\]
 
-### Teorema 4
-1. "N candidatos => tempo minimo Omega(N)" e' FALSO em geral
-2. Segundo Teorema de Goedel NAO produz lower bound quantitativo
-3. |T_alpha| e' ambiguo para ordinais
-4. Gerador nao especificado no nivel necessario
+com \(\Gamma\) fixada em toda a argumentação.
 
-### Teorema 5
-1. T_alpha subseteq T_beta NAO implica C(alpha) proper subset C(beta)
-2. Interpretabilidade e' entre teorias; sistemas de prova sao proposicionais -- falta traducao
-
-### Teorema 6
-1. T_* = union{r.e., consistente, supseteq PA} NAO e' r.e.
-2. "Conter informacao inacessivel" NAO e' prova de hardness
-3. Universal hardness NAO cria completude automaticamente
+Quando não for relevante qual classe específica está sendo usada, escreveremos apenas \(\mathrm{RFN}(PA)\).
 
 ---
 
-## 11. Proximo Passo Concreto
+# 4. A relação de interpretabilidade
 
-Criar arquivo formal contendo SOMENTE:
-1. definicao formal de g_T
-2. definicao formal de TG_T^n
-3. definicao de precequiv_ppr
-4. lema de composicao de reducoes
-5. casos T_0=PA e T_1=PA+RFN(PA)
-6. tentativa de provar T_0 ≼_int T_1 => g_0 ≼_ppr g_1
-7. tentativa de construir contraexemplo
-8. SOMENTE DEPOIS, lower bounds
+A notação do repositório atual,
+
+\[
+T\preceq_{\mathrm{int}}S,
+\]
+
+precisa de uma definição mais precisa.
+
+Para esta etapa, usaremos a relação semântica padrão:
+
+\[
+\boxed{
+T\preceq_{\mathrm{int}}S
+}
+\]
+
+quando existe uma interpretação aritmética \(I\) de \(T\) em \(S\).
+
+No caso particular em estudo:
+
+\[
+T_0=PA\subseteq T_1,
+\]
+
+portanto a inclusão fornece imediatamente uma interpretação trivial de \(PA\) em \(T_1\).
+
+Assim:
+
+\[
+\boxed{
+T_0\preceq_{\mathrm{int}}T_1.
+}
+\]
+
+Isso é a parte fácil.
+
+O problema real começa ao passar de teorias para geradores proposicionais.
 
 ---
 
-## Referencias Centrais (verificadas)
+# 5. Definição formal de \(\preceq_{\mathrm{ppr}}\)
 
-1. Krajicek, J. "A Proof Complexity Conjecture and the Incompleteness Theorem." JSL 90(3), 2025, pp. 1206-1210. arXiv:2303.10637
-2. Krajicek, J. "Proof Complexity Generators." Cambridge UP, LMS Lecture Notes 497, 2025.
-3. Beklemishev, L.D. "Reflection principles and provability algebras in formal arithmetic." Russian Math. Surveys 60(2), 2005, pp. 197-268.
-4. Freund, A. & Pakhomov, F. "Short proofs for slow consistency." Notre Dame J. Formal Logic 61(1), 2020, pp. 31-49.
-5. Krajicek, J. "Interpolation theorems, lower bounds for proof systems, and independence results for bounded arithmetic." JSL 62(2), 1997, pp. 457-486.
-6. Cook, S. & Reckhow, R. "Propositional proof systems." JCSS, 1979.
+A relação proposta aqui será explicitamente uma relação entre **famílias de geradores e suas \(\tau\)-fórmulas**, e não simplesmente entre funções.
+
+## 5.1 Prova em um sistema de prova
+
+Seja \(P\) um sistema de prova proposicional no sentido de Cook–Reckhow.
+
+Para uma tautologia \(\varphi\),
+
+\[
+s_P(\varphi)
+=
+\min\{|\pi|:P(\pi,\varphi)\}.
+\]
+
+Um sistema de prova é p-time verificável por definição. Essa é a base padrão da teoria de Cook–Reckhow. citeturn565792search0turn128981search24
+
+---
+
+## 5.2 Dados de uma instância de gerador
+
+Para \(g\), uma instância é um par:
+
+\[
+(n,b)
+\]
+
+com
+
+\[
+b\notin\operatorname{rng}(g_n).
+\]
+
+A fórmula associada é
+
+\[
+\tau(g_n)_b.
+\]
+
+---
+
+## 5.3 Definição
+
+Fixe um sistema de prova \(P\).
+
+Dizemos que
+
+\[
+\boxed{
+g\preceq_{\mathrm{ppr}}^P h
+}
+\]
+
+quando existem:
+
+- um polinômio \(p\);
+- uma função total p-time
+  \[
+  R:\{(n,b)\}\to\{(m,\beta)\};
+  \]
+- uma função total p-time de tradução de provas
+  \[
+  \Theta;
+  \]
+
+tais que, para todo \(n\) e todo
+
+\[
+b\notin\operatorname{rng}(g_n),
+\]
+
+valem:
+
+### (PPR-1) crescimento de tamanho controlado
+
+Se
+
+\[
+R(n,b)=(m,\beta),
+\]
+
+então
+
+\[
+m\le p(n)
+\]
+
+e
+
+\[
+|\beta|\le p(n+|b|).
+\]
+
+### (PPR-2) preservação semântica da range-avoidance
+
+\[
+b\notin\operatorname{rng}(g_n)
+\Longrightarrow
+\beta\notin\operatorname{rng}(h_m).
+\]
+
+Logo:
+
+\[
+\tau(g_n)_b,\quad \tau(h_m)_\beta
+\in\mathrm{TAUT}.
+\]
+
+### (PPR-3) tradução de provas
+
+Para toda prova \(P\)-válida
+
+\[
+P(\pi,\tau(h_m)_\beta),
+\]
+
+temos
+
+\[
+P\left(
+\Theta(n,b,\pi),
+\tau(g_n)_b
+\right),
+\]
+
+e existe polinômio \(q\) tal que
+
+\[
+\boxed{
+|\Theta(n,b,\pi)|
+\le
+q\!\left(
+n+|b|+|\pi|
+\right).
+}
+\]
+
+Essa é a propriedade que justifica o nome:
+
+\[
+\boxed{\text{proof-preserving reduction}}
+\]
+
+ou **PPR**.
+
+---
+
+# 6. Variante mais forte: equivalência de tautologicidade
+
+Para alguns resultados será útil exigir:
+
+\[
+\boxed{
+b\in\operatorname{rng}(g_n)
+\iff
+\beta\in\operatorname{rng}(h_m).
+}
+\]
+
+Equivalente:
+
+\[
+\tau(g_n)_b\in\mathrm{TAUT}
+\iff
+\tau(h_m)_\beta\in\mathrm{TAUT}.
+\]
+
+Chamaremos isto de
+
+\[
+g\preceq_{\mathrm{bppr}}^P h
+\]
+
+(**bidirectional semantic PPR**).
+
+A definição principal do programa continuará sendo \(\preceq_{\mathrm{ppr}}\), que só exige a direção necessária à transferência de provas.
+
+---
+
+# 7. Lemas elementares sobre \(\preceq_{\mathrm{ppr}}^P\)
+
+## Lema 7.1 — reflexividade
+
+Para todo gerador \(g\),
+
+\[
+g\preceq_{\mathrm{ppr}}^P g.
+\]
+
+### Prova
+
+Tome:
+
+\[
+R(n,b)=(n,b)
+\]
+
+e
+
+\[
+\Theta(\pi)=\pi.
+\]
+
+Todos os três requisitos são imediatos.
+
+\[
+\boxed{\square}
+\]
+
+---
+
+## Lema 7.2 — transitividade
+
+Se
+
+\[
+g\preceq_{\mathrm{ppr}}^P h
+\]
+
+e
+
+\[
+h\preceq_{\mathrm{ppr}}^P k,
+\]
+
+então
+
+\[
+g\preceq_{\mathrm{ppr}}^P k.
+\]
+
+### Prova
+
+Componha:
+
+\[
+R_{g\to h}
+\quad\text{e}\quad
+R_{h\to k}
+\]
+
+e, para provas,
+
+\[
+\Theta_{g\leftarrow h}
+\circ
+\Theta_{h\leftarrow k}.
+\]
+
+A composição de funções p-time é p-time, e a composição de polinômios é polinomial.
+
+\[
+\boxed{\square}
+\]
+
+Portanto, para \(P\) fixo,
+
+\[
+\boxed{
+\preceq_{\mathrm{ppr}}^P
+\text{ é uma pré-ordem.}
+}
+\]
+
+---
+
+# 8. Consequência fundamental para hardness
+
+## Proposição 8.1
+
+Se
+
+\[
+g\preceq_{\mathrm{ppr}}^P h
+\]
+
+e a família \(\mathcal T(h)\) possui provas \(P\) de tamanho polinomial para todos os seus elementos, então \(\mathcal T(g)\) também possui provas \(P\) de tamanho polinomial.
+
+### Demonstração
+
+Para cada
+
+\[
+\tau(g_n)_b,
+\]
+
+a redução produz
+
+\[
+\tau(h_m)_\beta
+\]
+
+com
+
+\[
+m,|\beta|\le\operatorname{poly}(n).
+\]
+
+Se a segunda possui prova
+
+\[
+|\pi|\le m^c,
+\]
+
+então PPR-3 produz prova da primeira com comprimento
+
+\[
+\le q(n+|b|+m^c)
+=
+\operatorname{poly}(n).
+\]
+
+\[
+\boxed{\square}
+\]
+
+---
+
+## Corolário 8.2
+
+Pela contraposição:
+
+\[
+\boxed{
+g\text{ é hard para }P
+\Longrightarrow
+h\text{ é hard para }P
+}
+\]
+
+sempre que
+
+\[
+g\preceq_{\mathrm{ppr}}^P h.
+\]
+
+Essa é exatamente a direção que torna a relação útil para o projeto.
+
+---
+
+# 9. Tentativa de provar a implicação para \(T_0\) e \(T_1\)
+
+Queremos:
+
+\[
+\boxed{
+PA\preceq_{\mathrm{int}}
+PA+\mathrm{RFN}(PA)
+}
+\]
+
+e tentar concluir
+
+\[
+\boxed{
+g_{PA}
+\preceq_{\mathrm{ppr}}
+g_{PA+\mathrm{RFN}(PA)}.
+}
+\]
+
+A primeira afirmação é verdadeira.
+
+A segunda não decorre automaticamente.
+
+---
+
+# 10. Por que a inclusão \(T_0\subseteq T_1\) não basta?
+
+A construção de \(g_T\) depende da pergunta:
+
+> existe uma \(T\)-prova curta da sentença \(\Phi^w\)?
+
+Escrevendo:
+
+\[
+A_T(n,\Phi,w)
+\equiv
+\exists\pi
+\left(
+|\pi|\le\log n
+\land
+\operatorname{Proof}_T(\pi,\Phi^w)
+\right).
+\]
+
+Como
+
+\[
+PA\subseteq PA+\mathrm{RFN}(PA),
+\]
+
+temos a monotonicidade local:
+
+\[
+A_{T_0}(n,\Phi,w)
+\Longrightarrow
+A_{T_1}(n,\Phi,w).
+\]
+
+Portanto:
+
+\[
+\boxed{
+\operatorname{Proof}_{T_0}^{\le\log n}
+\subseteq
+\operatorname{Proof}_{T_1}^{\le\log n}.
+}
+\]
+
+Isto é verdadeiro.
+
+---
+
+# 11. Mas o que acontece com o bit \(w_0\)?
+
+O gerador escolhe o primeiro \(w\) sem prova curta.
+
+Defina:
+
+\[
+w_0^T(n,\Phi)
+=
+\min_{\mathrm{lex}}
+\{w:
+\neg A_T(n,\Phi,w)\}.
+\]
+
+Como \(A_{T_0}\Rightarrow A_{T_1}\), temos:
+
+\[
+\{w:A_{T_1}(n,\Phi,w)\}
+\supseteq
+\{w:A_{T_0}(n,\Phi,w)\}.
+\]
+
+Logo, quando ambas as coleções de provas deixam algum \(w\) sem prova,
+
+\[
+\boxed{
+w_0^{T_1}(n,\Phi)
+\ge_{\mathrm{lex}}
+w_0^{T_0}(n,\Phi).
+}
+\]
+
+Esta desigualdade local é um resultado real.
+
+### Porém:
+
+\[
+w_0^{T_1}
+\ge_{\mathrm{lex}}
+w_0^{T_0}
+\]
+
+**não fornece uma função p-time**
+
+\[
+w_0^{T_0}
+=
+F(w_0^{T_1})
+\]
+
+nem produz automaticamente uma relação entre as imagens de \(g_{T_0}\) e \(g_{T_1}\).
+
+Esse é o primeiro ponto onde a prova da implicação quebra.
+
+---
+
+# 12. O bloqueio estrutural
+
+A construção de \(g_T\) não é monotônica como uma função de \(T\).
+
+Ela é monotônica apenas no **predicado auxiliar de existência de prova curta**:
+
+\[
+A_{T_0}\Rightarrow A_{T_1}.
+\]
+
+A função final envolve uma operação de mínimo lexicográfico:
+
+\[
+g_T(u)
+=
+w_0^T u_0.
+\]
+
+A operação
+
+\[
+A_T
+\mapsto
+\min\{w:\neg A_T(w)\}
+\]
+
+não é uma operação que preserve uma relação de redução eficiente entre os predicados.
+
+Formalmente:
+
+\[
+A\subseteq B
+\]
+
+não implica, em geral, a existência de função p-time
+
+\[
+\min(\overline A)
+\le_p
+\min(\overline B).
+\]
+
+Portanto a inclusão de teorias não é suficiente.
+
+---
+
+# 13. Por que não podemos simplesmente usar a reflexão
+
+Uma tentativa natural seria:
+
+\[
+PA+\mathrm{RFN}(PA)
+\]
+
+“conhece” a correção das provas de PA.
+
+Talvez, portanto, um raciocínio em \(T_1\) possa ser convertido em algo que \(g_{PA}\) reconheça.
+
+Mas isso exigiria uma transformação:
+
+\[
+\pi_{T_1}
+\longmapsto
+\pi_{PA}
+\]
+
+para as sentenças relevantes.
+
+Isso é impossível em geral se a sentença for genuinamente nova para \(PA\).
+
+Por exemplo, sob hipóteses usuais de consistência/soundness,
+
+\[
+T_1\vdash \mathrm{Con}(PA)
+\]
+
+enquanto
+
+\[
+PA\nvdash\mathrm{Con}(PA).
+\]
+
+Logo não existe uma transformação geral que elimine \(\mathrm{RFN}(PA)\) e conserve a prova dentro de PA.
+
+O máximo que podemos esperar é uma **tradução proposicional local para a família específica \(\tau(g_T)\)**, com controle quantitativo de tamanho.
+
+Essa é precisamente a parte que ainda precisa ser demonstrada.
+
+---
+
+# 14. Tentativa de produzir PPR por simulação
+
+Uma segunda estratégia:
+
+1. tomar uma prova de
+   \[
+   \tau(g_1)_\beta;
+   \]
+2. interpretar a prova na teoria \(T_1\);
+3. eliminar as instâncias de reflexão;
+4. obter uma prova de
+   \[
+   \tau(g_0)_b.
+   \]
+
+Problema:
+
+\[
+\text{interpretação aritmética}
+\neq
+\text{p-simulação proposicional}.
+\]
+
+Krajíček enfatiza que relações entre sistemas de prova, reflexão e simulações precisam de construções proposicionais explícitas; reflexão é uma das formas clássicas de obter simulações, mas isso não fornece automaticamente uma tradução entre os \(\tau\)-tautologies de dois geradores diferentes. citeturn128981search24turn128981search26
+
+Portanto esta tentativa também falha como prova geral.
+
+---
+
+# 15. Tentativa de refutação
+
+A alternativa seria provar:
+
+\[
+g_{PA}
+\npreceq_{\mathrm{ppr}}
+g_{PA+\mathrm{RFN}(PA)}.
+\]
+
+Também não conseguimos provar isso com as ferramentas disponíveis.
+
+Por quê?
+
+Porque uma não-reduzibilidade PPR suficientemente geral já exige uma separação proposicional quantitativa entre duas famílias de tautologias.
+
+Isso se aproxima da fronteira de problemas abertos de proof complexity.
+
+A própria teoria de Krajíček trata como problema fundamental encontrar geradores hard para sistemas fortes e, em particular, um gerador hard para todos os sistemas. citeturn565792search0turn128981search0
+
+Logo uma refutação incondicional forte seria, por si só, um resultado importante de complexidade de provas.
+
+---
+
+# 16. Resultado intermediário rigoroso
+
+Podemos, entretanto, separar três afirmações:
+
+### R1 — verdadeiro
+
+\[
+\boxed{
+T_0\subseteq T_1
+\Longrightarrow
+A_{T_0}\subseteq A_{T_1}.
+}
+\]
+
+### R2 — verdadeiro condicionalmente no ponto de saída
+
+Sempre que a construção produz ambos os mínimos,
+
+\[
+\boxed{
+w_0^{T_1}\ge_{\mathrm{lex}} w_0^{T_0}.
+}
+\]
+
+### R3 — não demonstrado
+
+\[
+\boxed{
+A_{T_0}\subseteq A_{T_1}
+\Longrightarrow
+g_{T_0}\preceq_{\mathrm{ppr}}g_{T_1}.
+}
+\]
+
+Portanto:
+
+\[
+\boxed{
+\text{monotonicidade do predicado de prova}
+\not\Rightarrow
+\text{monotonicidade PPR do gerador}.
+}
+\]
+
+Essa distinção é o primeiro resultado estrutural relevante do novo programa.
+
+---
+
+# 17. Formulação do problema aberto correto
+
+Em vez do enunciado antigo:
+
+> interpretabilidade implica aumento de dureza;
+
+formulamos:
+
+## Problema PPR-Reflection-1
+
+Sejam
+
+\[
+T_0=PA,
+\qquad
+T_1=PA+\mathrm{RFN}_\Gamma(PA).
+\]
+
+Pergunta:
+
+\[
+\boxed{
+g_{T_0}
+\preceq_{\mathrm{ppr}}^P
+g_{T_1}\;?
+}
+\]
+
+para um sistema de prova \(P\) fixado.
+
+Depois:
+
+\[
+\boxed{
+g_{T_0}
+\preceq_{\mathrm{ppr}}
+g_{T_1}\;?
+}
+\]
+
+em uma noção uniforme sobre uma classe de sistemas de prova.
+
+---
+
+# 18. Uma versão ainda mais forte e potencialmente interessante
+
+Podemos perguntar se a altura de reflexão é refletida por uma pré-ordem operacional.
+
+Considere:
+
+\[
+T_0=PA,
+\]
+
+\[
+T_1=PA+\mathrm{RFN}(PA),
+\]
+
+\[
+T_2=T_1+\mathrm{RFN}(T_1),
+\]
+
+etc.
+
+Defina:
+
+\[
+T_\alpha\preceq_{\mathrm{gen}}T_\beta
+\]
+
+quando
+
+\[
+g_{T_\alpha}
+\preceq_{\mathrm{ppr}}
+g_{T_\beta}.
+\]
+
+A questão geral torna-se:
+
+\[
+\boxed{
+\alpha<\beta
+\quad\stackrel{?}{\Longrightarrow}\quad
+T_\alpha\preceq_{\mathrm{gen}}T_\beta.
+}
+\]
+
+Isso é uma reformulação muito mais precisa da antiga “escala ordinal da dureza”.
+
+Não assumimos que seja verdadeira.
+
+---
+
+# 19. Uma possibilidade de contraexemplo estrutural
+
+Há uma razão para levar a sério a possibilidade de falha.
+
+A hierarquia de reflexão controla uma noção de força aritmética:
+
+\[
+T_0
+<
+T_1
+<
+T_2
+<
+\cdots
+\]
+
+sob relações proof-theoretic apropriadas.
+
+Mas o gerador \(g_T\) contém uma escolha adicional:
+
+\[
+\boxed{
+\text{ordenação lexicográfica + limite de prova + codificação sintática}.
+}
+\]
+
+Essas escolhas podem produzir efeitos que não são invariantes sob interpretabilidade.
+
+Portanto pode existir:
+
+\[
+T\preceq_{\mathrm{int}}S
+\]
+
+mas
+
+\[
+g_T\npreceq_{\mathrm{ppr}}g_S.
+\]
+
+Não temos um exemplo concreto ainda.
+
+Mas a possibilidade não é descartável.
+
+---
+
+# 20. Conexão com a literatura de Krajíček
+
+A teoria contemporânea de proof complexity generators já introduz uma diferença importante entre:
+
+1. hardness para um sistema \(P\);
+2. search-hardness;
+3. \(\bigvee\)-hardness / W-hardness;
+4. condições de pseudo-surjectividade.
+
+Krajíček mostrou que essas propriedades se relacionam com proof search, bounded arithmetic, circuit complexity e determinadas classes de geradores. citeturn565792search0turn151226search0
+
+O trabalho de 2026 sobre \(NP\cap coNP\) generators reforça que a análise de geradores está ligada a problemas de busca \(\Sigma^p_2\), modelos student–teacher e hipóteses criptográficas; portanto é importante não reduzir a teoria a uma única noção de “tamanho da prova”. citeturn741325academia24turn151226search58
+
+Isso sugere uma extensão natural do nosso programa:
+
+\[
+\preceq_{\mathrm{ppr}}
+\quad\longrightarrow\quad
+\preceq_{\mathrm{search}}
+\quad\longrightarrow\quad
+\preceq_{\vee}.
+\]
+
+---
+
+# 21. Relação com reflection principles e jump operators
+
+Há uma linha da literatura que trata diretamente da produção de um sistema de prova mais forte \(Q\) a partir de \(P\), com a propriedade de que certas reflection principles de \(Q\) não têm provas polinomiais em \(P\).
+
+Isso é estudado na teoria de **jump operators**. O trabalho de FOCS 2024 descreve exatamente esse tipo de procedimento: dado \(P\), construir \(Q\) mais forte de modo que \(P\) não simule \(Q\) eficientemente. citeturn128981search26
+
+Isso é relevante porque oferece uma alternativa ao nosso caminho:
+
+Em vez de
+
+\[
+T_0\to T_1\to g_{T_0}\to g_{T_1},
+\]
+
+poderíamos estudar
+
+\[
+P\to J(P)
+\]
+
+e comparar:
+
+\[
+\tau(g_{T_0})
+\quad\text{com}\quad
+\mathrm{RFN}(J(P)).
+\]
+
+Talvez a conexão correta não seja
+
+\[
+\text{teoria}\to\text{gerador},
+\]
+
+mas
+
+\[
+\boxed{
+\text{reflexão}
+\to
+\text{jump proposicional}
+\to
+\text{gerador}.
+}
+\]
+
+Esta é uma direção concreta para a segunda fase.
+
+---
+
+# 22. Relação com slow consistency
+
+O programa de slow consistency mostra que pequenas alterações na forma como a consistência é iterada podem mudar drasticamente a viabilidade de provas.
+
+Freund–Pakhomov obtiveram provas polinomiais em PA para determinadas afirmações de slow consistency, apesar de que a progressão “rápida” correspondente apresenta comportamento diferente. citeturn880383academia0
+
+Isso dá uma motivação forte para estudar uma versão:
+
+\[
+g_{T^{\mathrm{slow}}_1}
+\]
+
+versus
+
+\[
+g_{T^{\mathrm{fast}}_1}.
+\]
+
+A pergunta é:
+
+\[
+\boxed{
+T^{\mathrm{slow}}_1
+\preceq_{\mathrm{int}}
+T^{\mathrm{fast}}_1
+\quad\text{implica alguma relação PPR?}
+}
+\]
+
+Novamente, isso é problema aberto nesta formulação.
+
+---
+
+# 23. Resultado negativo sobre o antigo Teorema 3.3 do repositório
+
+O repositório afirma, em essência:
+
+\[
+P\text{ prova }TG_\beta^n\text{ em tamanho polinomial}
+\Longrightarrow
+P\text{ prova }TG_\alpha^n
+\]
+
+porque \(T_\alpha\) é mais fraca que \(T_\beta\). citeturn382456view0
+
+A auditoria atual permite afirmar de modo mais preciso:
+
+\[
+\boxed{
+\text{isso não segue da interpretação apenas.}
+}
+\]
+
+Para torná-lo verdadeiro é necessário um lema separado do tipo:
+
+\[
+T_\alpha\preceq_{\mathrm{int}}T_\beta
+\Longrightarrow
+g_{T_\alpha}
+\preceq_{\mathrm{ppr}}g_{T_\beta}.
+\]
+
+E justamente esse lema é o objeto do presente programa.
+
+Assim, a antiga “prova” circular:
+
+\[
+\text{Teorema 3.3}
+\Rightarrow
+\text{monotonicidade de geradores}
+\]
+
+não pode ser usada para provar o próprio Teorema PPR.
+
+---
+
+# 24. O que já podemos afirmar sobre \(T_0,T_1\)
+
+Sob as hipóteses metamatemáticas de soundness apropriadas:
+
+\[
+\boxed{
+T_0=PA
+}
+\]
+
+e
+
+\[
+\boxed{
+T_1=PA+\mathrm{RFN}_\Gamma(PA)
+}
+\]
+
+são candidatos legítimos à construção de \(g_T\).
+
+Além disso:
+
+\[
+T_0\subseteq T_1
+\]
+
+e, portanto:
+
+\[
+T_0\preceq_{\mathrm{int}}T_1.
+\]
+
+Também temos a inclusão dos predicados de prova curta:
+
+\[
+A_{T_0}\subseteq A_{T_1}.
+\]
+
+E, no caso em que os mínimos são definidos:
+
+\[
+w_0^{T_1}\ge_{\mathrm{lex}}w_0^{T_0}.
+\]
+
+**Não temos ainda:**
+
+\[
+g_{T_0}\preceq_{\mathrm{ppr}}g_{T_1}.
+\]
+
+---
+
+# 25. Classificação rigorosa do resultado desta etapa
+
+| Afirmação | Estado |
+|---|---|
+| \(PA\subseteq PA+\mathrm{RFN}(PA)\) | PROVADO |
+| \(T_0\preceq_{\mathrm{int}}T_1\) | PROVADO sob a definição padrão de interpretação |
+| Predicados de provas curtas são monotônicos | PROVADO |
+| \(w_0^{T_1}\ge_{\rm lex}w_0^{T_0}\) | PROVADO quando ambos os mínimos são definidos na mesma instância |
+| \(g_{T_0}\preceq_{\mathrm{ppr}}g_{T_1}\) | ABERTO |
+| \(g_{T_0}\npreceq_{\mathrm{ppr}}g_{T_1}\) | ABERTO |
+| Interpretabilidade \(\Rightarrow\) PPR para todos \(T,S\) | ABERTO |
+| Monotonicidade ordinal da dureza dos \(g_T\) | NÃO PROVADA |
+| Escala exponencial do antigo Teorema 4 | REJEITADA |
+| Cobertura de todos os geradores por uma hierarquia ordinal | NÃO PROVADA |
+
+---
+
+# 26. Nova conjectura central
+
+Propomos substituir a antiga conjectura informal por:
+
+## Conjectura PPR-Reflection
+
+Para cada classe de reflexão \(\Gamma\), seja
+
+\[
+T_{k+1}
+=
+T_k+\mathrm{RFN}_\Gamma(T_k).
+\]
+
+Então:
+
+\[
+\boxed{
+g_{T_k}
+\preceq_{\mathrm{ppr}}
+g_{T_{k+1}}
+}
+\]
+
+para todo \(k\), ou, mais fracamente, existe uma subsequência cofinal de níveis em que essa relação ocorre.
+
+### Importante
+
+Esta conjectura é **nova no âmbito deste projeto e não deve ser atribuída à literatura**.
+
+Isto não significa que seja inédita no sentido bibliográfico absoluto. Uma busca bibliográfica específica de equivalentes em termos de redução de geradores/proof-search seria necessária antes de qualquer reivindicação de prioridade.
+
+---
+
+# 27. Conjectura alternativa de quebra
+
+A outra possibilidade é:
+
+\[
+\boxed{
+\exists k:
+g_{T_k}
+\npreceq_{\mathrm{ppr}}
+g_{T_{k+1}}.
+}
+\]
+
+Esta conjectura representaria uma separação conceitual:
+
+\[
+\boxed{
+\text{força proof-theoretic}
+\neq
+\text{força operacional do gerador}.
+}
+\]
+
+Se um contraexemplo concreto puder ser provado, isso seria matematicamente relevante.
+
+---
+
+# 28. Estratégia concreta para decidir entre as duas
+
+O próximo passo não deve ser tentar provar diretamente a conjectura geral.
+
+Fixe:
+
+\[
+T_0=PA,
+\qquad
+T_1=PA+\mathrm{RFN}_\Gamma(PA).
+\]
+
+Depois:
+
+### Etapa A — fixar uma apresentação canônica
+
+Escolher uma codificação única de:
+
+- fórmulas \(L\);
+- provas;
+- comprimento de prova;
+- \(\Phi^w\);
+- circuitos \(C_n\);
+- \(\tau(g_n)_b\).
+
+Sem isso, \(g_T\) não é um objeto único, mas uma família dependente de escolhas de codificação.
+
+### Etapa B — calcular explicitamente instâncias pequenas
+
+Para pequenos \(n\):
+
+\[
+n=4,5,6,\ldots
+\]
+
+enumerar:
+
+\[
+g_{PA,n},
+\qquad
+g_{T_1,n},
+\]
+
+e suas imagens.
+
+Não para “provar” nada assintótico, mas para procurar invariantes.
+
+### Etapa C — testar candidatos \(R\)
+
+Procurar transformações de baixa complexidade:
+
+\[
+\beta=R(b,n)
+\]
+
+tais que
+
+\[
+b\notin Rng(g_0)
+\Rightarrow
+\beta\notin Rng(g_1).
+\]
+
+### Etapa D — testar transformações de prova
+
+Para cada candidato \(R\), investigar se existe:
+
+\[
+\Theta:
+\mathrm{Proof}_P(\tau(g_1)_\beta)
+\to
+\mathrm{Proof}_P(\tau(g_0)_b)
+\]
+
+com blow-up:
+
+\[
+O(s^c).
+\]
+
+### Etapa E — somente então generalizar
+
+Se o padrão sobreviver:
+
+\[
+PA\to T_1\to T_2,
+\]
+
+buscar uma prova por indução no nível.
+
+---
+
+# 29. Uma possível nova invariante
+
+A construção sugere medir a diferença entre teorias por:
+
+\[
+\Delta_T(n,\Phi)
+=
+w_0^T(n,\Phi).
+\]
+
+Para \(T_0\subseteq T_1\),
+
+\[
+\Delta_{T_0}(n,\Phi)
+\le_{\mathrm{lex}}
+\Delta_{T_1}(n,\Phi).
+\]
+
+Podemos definir:
+
+\[
+\boxed{
+D_{T_0,T_1}(n,\Phi)
+=
+\operatorname{rank}_{lex}
+\left(
+w_0^{T_1}
+\right)
+-
+\operatorname{rank}_{lex}
+\left(
+w_0^{T_0}
+\right).
+}
+\]
+
+A pergunta:
+
+\[
+D_{T_0,T_1}(n,\Phi)
+\]
+
+possui crescimento controlável por uma função simples?
+
+Se:
+
+\[
+D(n,\Phi)
+\]
+
+tiver uma estrutura universal ligada à reflexão, poderemos ter encontrado uma assinatura computacional da subida proof-theoretic.
+
+Isso é apenas uma definição exploratória.
+
+---
+
+# 30. Uma ponte ainda mais forte
+
+A ordem poderia ser estudada em três níveis:
+
+\[
+\boxed{
+T
+\stackrel{\mathrm{int}}{\longrightarrow}
+g_T
+\stackrel{\mathrm{ppr}}{\longrightarrow}
+\tau(g_T)
+}
+\]
+
+com duas perguntas independentes:
+
+### Ponte I
+
+\[
+T\preceq_{\mathrm{int}}S
+\stackrel{?}{\Longrightarrow}
+g_T\preceq_{\mathrm{ppr}}g_S.
+\]
+
+### Ponte II
+
+\[
+g_T\preceq_{\mathrm{ppr}}g_S
+\stackrel{?}{\Longrightarrow}
+\text{alguma relação proof-theoretic entre }T,S.
+\]
+
+A Ponte I tenta transportar força aritmética para complexidade proposicional.
+
+A Ponte II tenta recuperar informação da teoria a partir do comportamento do gerador.
+
+A combinação:
+
+\[
+\boxed{
+T
+\longleftrightarrow
+[g_T]_{\mathrm{ppr}}
+}
+\]
+
+seria uma forma de **invariante operacional de teorias**.
+
+Este conceito é um candidato interessante para desenvolvimento posterior.
+
+---
+
+# 31. Relação com o programa de Beklemishev
+
+Beklemishev mostra que iterações de reflexão podem ser organizadas por operadores e notações ordinais; para níveis adequados de reflexão, essas estruturas codificam força proof-theoretic e relações de conservatividade. citeturn565792search34turn565792academia36
+
+O nosso programa não deve afirmar:
+
+\[
+\alpha<\beta
+\Rightarrow
+g_{T_\alpha}\text{ é mais hard}.
+\]
+
+A formulação correta é investigar se a ordem ordinal/proof-theoretic deixa uma sombra operacional:
+
+\[
+\boxed{
+\alpha<\beta
+\Rightarrow
+[g_{T_\alpha}]_{\mathrm{ppr}}
+\preceq
+[g_{T_\beta}]_{\mathrm{ppr}}.
+}
+\]
+
+Essa é a conjectura matemática que vale a pena atacar.
+
+---
+
+# 32. Conclusão desta etapa
+
+O ataque aos casos
+
+\[
+T_0=PA,
+\qquad
+T_1=PA+\mathrm{RFN}(PA)
+\]
+
+produziu uma separação nítida:
+
+\[
+\boxed{
+T_0\preceq_{\mathrm{int}}T_1
+}
+\]
+
+é simples e estabelecido.
+
+Também estabelecemos:
+
+\[
+\boxed{
+A_{T_0}\subseteq A_{T_1}
+}
+\]
+
+e, para as instâncias em que o mecanismo produz ambos os mínimos,
+
+\[
+\boxed{
+w_0^{T_0}\le_{\mathrm{lex}}w_0^{T_1}.
+}
+\]
+
+Mas não conseguimos concluir:
+
+\[
+\boxed{
+g_{T_0}\preceq_{\mathrm{ppr}}g_{T_1}.
+}
+\]
+
+Nem conseguimos provar a negação.
+
+Portanto, **o problema concreto \(PA\to PA+\mathrm{RFN}(PA)\) permanece aberto nesta formulação**.
+
+Isso não é uma falha do programa. Ao contrário: o problema agora está formulado em uma linguagem suficientemente precisa para ser atacado sem esconder os saltos lógicos.
+
+---
+
+# 33. Resultado novo efetivamente obtido nesta etapa
+
+O resultado que pode ser preservado como contribuição metodológica do projeto é:
+
+\[
+\boxed{
+\text{Inclusão de teorias}
+\Rightarrow
+\text{monotonicidade do predicado de prova curta}
+}
+\]
+
+mas:
+
+\[
+\boxed{
+\text{monotonicidade do predicado}
+\nRightarrow
+\text{PPR do gerador}.
+}
+\]
+
+A razão estrutural é o operador:
+
+\[
+A_T
+\mapsto
+\min_{\mathrm{lex}}(\neg A_T),
+\]
+
+que não possui, por si só, uma transformação polinomial inversa/preservadora.
+
+Esta é uma distinção que deve substituir as antigas provas de monotonicidade do repositório.
+
+---
+
+# 34. Agenda imediata
+
+O próximo arquivo deveria ser:
+
+\[
+\boxed{
+09\_EXPERIMENTO\_PPR\_PA\_RFNPA.md
+}
+\]
+
+com uma implementação matemática/computacional das versões finitas de \(g_{PA}\) e \(g_{T_1}\).
+
+A prioridade é:
+
+\[
+\boxed{
+\text{enumerar }g_{PA,n},g_{T_1,n}
+\rightarrow
+\text{enumerar complementos de imagem}
+\rightarrow
+\text{buscar }R
+\rightarrow
+\text{testar PPR}.
+}
+\]
+
+Só depois devemos tentar uma prova assintótica.
+
+---
+
+# 35. Bibliografia essencial
+
+1. **Krajíček, J.** “A Proof Complexity Conjecture and the Incompleteness Theorem.” *Journal of Symbolic Logic* 90(3), 2025, pp. 1206–1210. Preprint 2023.  
+   https://arxiv.org/abs/2303.10637
+
+2. **Krajíček, J.** *Proof Complexity Generators*. Cambridge University Press / LMS Lecture Note Series 497, 2025.  
+   https://www.cambridge.org/core/books/proof-complexity-generators/
+
+3. **Krajíček, J.** “On the Existence of Strong Proof Complexity Generators.” *Bulletin of Symbolic Logic*, 2024.  
+   https://www.cambridge.org/core/journals/bulletin-of-symbolic-logic/article/on-the-existence-of-strong-proof-complexity-generators/84EA24D938C0775C59BE4D54E5E645B5
+
+4. **Krajíček, J.** “On \(NP\cap coNP\) Proof Complexity Generators.” *Logical Methods in Computer Science* 22(2), 2026.  
+   https://lmcs.episciences.org/18158
+
+5. **Beklemishev, L. D.** “Reflection Principles and Provability Algebras in Formal Arithmetic.” *Russian Mathematical Surveys* 60(2), 2005.  
+   https://www.mathnet.ru/links/4b1b1c98a0a27ce025c80ebb198e65a1/rm1401_eng.pdf
+
+6. **Beklemishev, L. D.** “Positive Provability Logic for Uniform Reflection Principles.” 2013.  
+   https://arxiv.org/abs/1304.4396
+
+7. **Freund, A.; Pakhomov, F.** “Short Proofs for Slow Consistency.” 2017/2020.  
+   https://arxiv.org/abs/1712.03251
+
+8. **Jump Operators, Interactive Proofs and Proof Complexity Generators.** FOCS 2024.  
+   https://ieee-focs.org/FOCS-2024-Papers/pdfs/FOCS2024-1oojWxXs5YAKfs3z3lBRMF/167400a573/167400a573.pdf
+
+---
+
+## Registro de status
+
+\[
+\boxed{
+\begin{array}{ll}
+\text{Definição PPR} & \text{NOVA / proposta deste projeto}\\
+T_0\preceq_{\rm int}T_1 & \text{ESTABELECIDO}\\
+A_{T_0}\subseteq A_{T_1} & \text{ESTABELECIDO}\\
+w_0^{T_0}\le_{\rm lex}w_0^{T_1} & \text{ESTABELECIDO localmente}\\
+g_{T_0}\preceq_{\rm ppr}g_{T_1} & \text{ABERTO}\\
+g_{T_0}\npreceq_{\rm ppr}g_{T_1} & \text{ABERTO}\\
+\text{interpretabilidade}\Rightarrow\text{PPR} & \text{ABERTO}\\
+\text{escala ordinal automática de dureza} & \text{NÃO DEMONSTRADA}
+\end{array}
+}
+\]
+
+**Regra para o repositório:** até que uma redução \(R\) e um transformador \(\Theta\) sejam efetivamente construídos e suas cotas polinomiais provadas, nenhum enunciado de monotonicidade de \(g_T\) deve ser rotulado como teorema.

@@ -1,7 +1,7 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 5.0 (Setembro 2026, pós-auditoria)
-**Status:** Honestidade intelectual — teoremas 4-6 rejeitados, FP-K rebaixada, novo programa ≼_ppr
+**Versão:** 5.1 (Setembro 2026, pós-auditoria + versão revisada 08_PROGRAMA)
+**Status:** Honestidade intelectual — teoremas 4-6 rejeitados, FP-K rebaixada, programa ≼_ppr ativo (PPR definido, R1/R2 provados, R3 aberto)
 
 ---
 
@@ -18,7 +18,7 @@
 
 | Arquivo | Conteúdo | Status |
 |---------|----------|--------|
-| `08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md` | **NOVO: programa ≼_int vs ≼_ppr (pós-auditoria)** | **PROGRAMA ATIVO** |
+| `08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md` | **ATIVO: PPR definido (τ-corrigido), lemas 7.1-7.2, R1/R2 provados, R3 aberto, PPR-Reflection-1** | **PROGRAMA ATIVO (v. revisada 22/09)** |
 | `CONJECTURA_FP_K.md` | FP-K: análogo Freund–Pakhomov para geradores | **PERGUNTA DE PESQUISA** (rebaixada) |
 | `07_pontos_fixos_incompletude.md` | Pontos fixos, incompletude e física — Parte 2 | Teoremas + analogias + conjecturas separados |
 | `CONTINUIDADE_PESQUISA.md` | Documento de continuidade completo | Atualizado pós-auditoria |
@@ -72,8 +72,10 @@
 
 | # | Problema | Status | Documento |
 |---|----------|--------|-----------|
-| **PR1** | **T ≼_int S ⟹? g_T ≼_ppr g_S** | **PROBLEMA FORMAL ABERTO** | `08_PROGRAMA_...` |
-| PR2 | Γ_P(T,n) = log s_P(TG_T^n): assinatura da reflexão? | DEFINIÇÃO PROPOSTA | `08_PROGRAMA_...` |
+| **PR1** | **g_PA ≼_ppr g_{PA+RFN(PA)}?** (PPR-Reflection-1) | **ABERTO** — R1/R2 provados, R3 aberto | `08_PROGRAMA_...` §17, §25 |
+| PR2 | Conjectura PPR-Reflection: g_{T_k} ≼_ppr g_{T_{k+1}} | CONJECTURA (nova no projeto) | `08_...` §26 |
+| PR3 | Conjectura de quebra: ∃k tal que g_{T_k} ⋠_ppr g_{T_{k+1}} | CONJECTURA alternativa | `08_...` §27 |
+| PR4 | Γ_P(T,n) = log s_P(TG_T^n): assinatura da reflexão? | DEFINIÇÃO PROPOSTA | `08_...` (anterior) |
 
 ### DESCARTADOS / REJEITADOS (não usar)
 
@@ -89,20 +91,41 @@
 
 ---
 
-## Pergunta de Pesquisa Principal (pós-auditoria)
+## Pergunta de Pesquisa Principal (pós-auditoria, versão revisada)
 
 **ANTES (rebaixada):**
 > ~~Conjectura FP-K~~ → **PERGUNTA DE PESQUISA** — originalidade não estabelecida.
 
-**AGORA (mais promissora):**
+**AGORA (PPR-Reflection-1, formulado com precisão):**
 
-$$T \preceq_{int} S \stackrel{?}{\Longrightarrow} g_T \preceq_{ppr} g_S$$
+Sejam T₀=PA e T₁=PA+RFN_Γ(PA). Pergunta:
 
-A ordem proof-theoretic de interpretabilidade é refletida pela ordem operacional de dificuldade de geradores?
+$$g_{T_0} \preceq_{\mathrm{ppr}}^P g_{T_1}\;?$$
 
-**Três casos:** (A) teorema de transferência · (B) classe restrita · (C) contraexemplo = quebra entre hierarquias.
+**Status parcial (08_PROGRAMA §25):**
 
-**Documento:** `08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md`
+| Afirmação | Estado |
+|-----------|--------|
+| T₀ ⊆ T₁ | PROVADO |
+| T₀ ≼_int T₁ | PROVADO |
+| A_{T₀} ⊆ A_{T₁} (predicados de prova curta) | PROVADO |
+| w₀^{T₁} ≥_lex w₀^{T₀} | PROVADO (local) |
+| g_{T₀} ≼_ppr g_{T₁} | **ABERTO** |
+| g_{T₀} ⋠_ppr g_{T₁} | **ABERTO** |
+
+**Resultado metodológico novo (§33):**
+
+$$\text{Inclusão de teorias} \Rightarrow \text{monotonicidade do predicado de prova}$$
+
+mas
+
+$$\text{monotonicidade do predicado} \nRightarrow \text{PPR do gerador}$$
+
+Razão: o operador $A_T \mapsto \min_{\mathrm{lex}}(\neg A_T)$ não preserva redução polinomial.
+
+**Documento:** `08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md` (versão revisada 22/09/2026)
+
+**Próximo arquivo:** `09_EXPERIMENTO_PPR_PA_RFNPA.md`
 
 ---
 
