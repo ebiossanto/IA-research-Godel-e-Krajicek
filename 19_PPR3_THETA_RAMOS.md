@@ -62,7 +62,7 @@
 |------|--------|
 | Θ sobre provas de ramos | **CONSTRUÍDO e CORRETO** (32/32) |
 | Cota | **POLINOMIAL:** \|Θ(π)\| = \|π\| + O(log \|W\|) |
-| Condição (B) RBT | **0 disparos** neste setup — testar com w* ≠ w₀' explícito |
+| Condição (B) RBT | **FECHO (PR23):** 10 disparos explícitos w*≠w₀' (`23_...`) |
 | PA real / provas de FOL | **ABERTO** — modelo κ/σ, não pad-Prf |
 | suffix0 (11) | **VÁCUO/abandonado** — Θ de ramos é o sucessor |
 | PPR completo (08 R3) | **ABERTO** |
@@ -86,7 +86,7 @@
 ## 6. Próximos
 
 1. ~~Θ sobre provas de ramos~~ — **FEITO** (PR19, CC-Θ 32/32)
-2. Testar (B) com cenário RBT explícito (w* ≠ w₀')
+2. ~~Testar (B) com cenário RBT explícito (w* ≠ w₀')~~ — **FEITO** (PR23)
 3. Formalizar π/Θ em Lean (sequentes de cobertura)
 4. Fechar sorries theorem4/rcs; Foundation lemma3
 

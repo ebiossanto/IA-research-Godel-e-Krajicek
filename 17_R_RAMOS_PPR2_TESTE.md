@@ -82,4 +82,4 @@ PPR-2-ramo mostra: o ramo ativo w₀ de T transfere para T' via R com progresso 
 3. Generalizar (C): caracterizar quando ALL_COV é inevitável (σ_T' ≥ max κ)
 4. ~~PPR-3: Θ sobre provas de ramos (14 §4)~~ — **FEITO** (PR19, CC-Θ 32/32)
 5. ~~Testar R_w nos cenários E0–E3 do 16 (RCS robusta)~~ — **FEITO** (PR20, `18_...`, 4/4 PASSA)
-6. **ABERTO:** cond. (B) RBT explícito (w* ≠ w₀')
+6. ~~**ABERTO:** cond. (B) RBT explícito (w* ≠ w₀')~~ — **FEITO** (PR23, `23_...`, B não-vácuo)

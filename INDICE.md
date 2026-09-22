@@ -1,7 +1,7 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.10 (Setembro 2026 — PR22 lake build LIMPO)
-**Status:** delta_mono + theorem4 + rcs VERIFICADOS por `lake build` (0 sorry; lemma3=axiom); CC-Θ 32/32; R_w PPR-2 4/4
+**Versão:** 6.11 (Setembro 2026 — PR23 cond. (B) RBT explícita)
+**Status:** cond. (B) NÃO-VÁCIA (10 disparos, 6 puros); lake build LIMPO; CC-Θ 32/32+20/20; R_w 4/4
 
 ---
 
@@ -24,8 +24,9 @@
 | **`17_R_RAMOS_PPR2_TESTE.md`** | **PPR-2 refinado 3/3 (cond. C)** | **EXECUTADO** |
 | **`18_R_W_E0_E3_PPR2.md`** | **R_w PPR-2 em E0–E3: 4/4 PASSA** | **EXECUTADO** |
 | **`19_PPR3_THETA_RAMOS.md`** | **Θ ramos: CC-Θ 32/32, polinomial** | **EXECUTADO** |
+| **`23_COND_B_RBT_EXPLICITO.md`** | **cond. (B) NÃO-VÁCIA: 10 disparos, PPR-2 20/20, CC-Θ 20/20** | **EXECUTADO** |
 | `01/06/03` | **PR12: banners REJEITADO/histórico** | **CORRIGIDO** |
-| Scripts | exp10, ppr3, reimpl, slow_vs_fast, **_ext**, test_Rw, **_E0E3**, **ppr3_ramos** | SCRIPTS |
+| Scripts | exp10, ppr3, reimpl, slow_vs_fast, **_ext**, test_Rw, **_E0E3**, **ppr3_ramos**, **_RBT_B** | SCRIPTS |
 | `lean4/Gothic_Generators/Core.lean` | **VERIFICADO `lake build` (0 sorry; lemma3=axiom)**; Lean 4.34.0 | **OK** |
 | `lean-toolchain`, `lakefile.toml` | Toolchain Lean 4.34 + Lake | **OK** |
 
@@ -212,9 +213,9 @@ ao longo de uma hierarquia de reflexão $T_0 \subseteq T_1 \subseteq \cdots$?
 - ρ_b independente de codificação?
 - Transferência δ ⟹ PPR?
 
-**Documentos:** 09 (núcleo), 08 (PPR), 10–19 (exp+nota+**RCS**+R_w+Lean+PPR-2+**E0–E3**+**Θ ramos**), 01/06/03 **corrigidos**, EVOLUCAO
+**Documentos:** 09 (núcleo), 08 (PPR), 10–23 (exp+nota+**RCS**+R_w+Lean+PPR-2+**E0–E3**+**Θ ramos**+**cond.B**), 01/06/03 **corrigidos**, EVOLUCAO
 
-**Próximo passo:** testar cond. (B) RBT explícito; `lake build` (verificar PR18/PR21); Foundation p/ lemma3
+**Próximo passo:** Foundation p/ lemma3; generalizar (C) ALL_COV; Freund–Pakhomov
 
 ---
 

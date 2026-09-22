@@ -72,7 +72,7 @@ Predicado: **(A)** R(w₀)∈uncov(T') ∨ **(B)** transição RBT com R(w₀)=w
 1. ~~Testar R_w em E0–E3~~ — **FEITO** (PR20)
 2. ~~PPR-3: Θ sobre provas de ramos (14 §4)~~ — **FEITO** (PR19, CC-Θ 32/32)
 3. Caracterizar quando ALL_COV é inevitável (σ ≥ max κ)
-4. Cond. (B) RBT explícito (w* ≠ w₀')
+4. ~~Cond. (B) RBT explícito (w* ≠ w₀')~~ — **FEITO** (PR23, `23_...`, 10 disparos)
 5. Fechar sorries Lean (theorem4, rcs); Foundation lemma3
 
 ---

@@ -71,8 +71,7 @@ Na direção τ (fora da imagem): se b ∉ rng(g_T) porque ramo w* é o escolhid
 então para T', ramo pode ser ALL → τ(g_T')_0 verdadeiro trivialmente?
 
 **Status:** **CONSTRUÍDO e TESTADO** — `19_PPR3_THETA_RAMOS.md` (PR19):
-CC-Θ **32/32**; \|Θ(π)\|=\|π\|+O(log\|W\|) polinomial. Cond. (B) 0 disparos
-(cenário RBT explícito pendente).
+CC-Θ **32/32**; \|Θ(π)\|=\|π\|+O(log\|W\|) polinomial. Cond. (B) 0 disparos **nestes cenários** — fechada em PR23 (`23_...`).
 
 ---
 
@@ -108,4 +107,4 @@ agora com predicado refinado (17), teste 4/4 (18) e Θ polinomial (19).
 3. Se falhar: ~~buscar outra R_w~~ — **não necessário** com cond. (C)
 4. ~~PPR-3 (Θ sobre provas de ramos, 14 §4)~~ — **FEITO** (PR19, CC-Θ 32/32)
 5. ~~Testar R_w nos cenários E0–E3 do 16~~ — **FEITO** (PR20, `18_...`, **4/4 PASSA**)
-6. **ABERTO:** cond. (B) com cenário RBT explícito (w* ≠ w₀')
+6. ~~**ABERTO:** cond. (B) com cenário RBT explícito (w* ≠ w₀')~~ — **FEITO** (PR23, `23_...`, 10 disparos)

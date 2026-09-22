@@ -349,6 +349,16 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 
 ---
 
+### PR23 — Condição (B) RBT explícita (`23_COND_B_RBT_EXPLICITO.md`)
+
+- Cenário: W={0,1}⁴, **w*='1000'** (palavra completa), κ: 0xxx→0, w*→1, 1xxx\{w*}→2
+- **RBT parcial** σ 0→1: w₀='1000'=w* → w₀'='1001' ≠ w* (sem ALL)
+- **Resultado:** PPR-2 **20/20**; cond. **(B): 10 disparos** (6 puros + 4 B+C); CC-Θ **20/20**
+- Causa raiz do B=0 anterior: prefixo '00' vs palavra completa + R identidade
+- Script: `test_Rw_ppr2_RBT_B.py` (EXIT=0)
+
+---
+
 ## Fase 10 — O que está em aberto (agora)
 
 ### Aberto matemático
@@ -375,8 +385,9 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 - ~~R_w PPR-2~~ → **PR17: 3/3 PASSA** (predicado refinado A∨B∨C)
 - ~~R_w em E0–E3~~ → **PR20: 4/4 PASSA** (κ/razão/\|W\|)
 - ~~Θ sobre provas de ramos~~ → **PR19: CC-Θ 32/32, polinomial**
-- **Cond. (B) RBT explícito:** testar cenário w* ≠ w₀' (0 disparos em 19)
+- ~~Cond. (B) RBT explícito~~ → **PR23: 10 disparos, 6 puros** (`23_...`)
 - **Foundation:** lemma3_con axiom → prova (Prf/pad aritmético)
+- **Generalizar (C):** quando ALL_COV é inevitável (σ_T' ≥ max κ)
 - **Estender 16:** comparar com Freund–Pakhomov (comprimento vs δ)
 
 ---
@@ -421,7 +432,7 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 
 ## Próximo passo (a atualizar)
 
-> **Próximo:** (a) testar condição **(B) RBT** com cenário explícito w* ≠ w₀' (0 disparos em PR19); (b) **`lake build`** para verificar PR18/PR21 (toolchain não instalada); (c) integrar Foundation para `lemma3_con`; (d) comparar com Freund–Pakhomov (comprimento vs δ). Depois: atualizar este documento.
+> **Próximo:** (a) integrar Foundation para `lemma3_con` (axiom → prova); (b) generalizar (C): quando ALL_COV é inevitável; (c) comparar com Freund–Pakhomov (comprimento vs δ). ~~(B) RBT~~ e ~~lake build~~ **FEITOS** (PR22/PR23). Depois: atualizar este documento.
 
 ---
 

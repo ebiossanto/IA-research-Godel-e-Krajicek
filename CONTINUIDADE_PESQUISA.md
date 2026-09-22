@@ -243,7 +243,8 @@ Pergunta testavel: "A reflexao produz assinatura mensuravel na complexidade prop
 21. **PR19 `19_...` + `ppr3_ramos_theta.py`:** Θ sobre provas de ramos; **CC-Θ 32/32**; \|Θ(π)\|=\|π\|+O(log\|W\|)
 22. **PR21 `Core.lean`:** `theorem4_strict` e `rcs_exists` **PROVADOS sem sorry** (h1–h8; α=⌈κ/fastStep⌉, b=κ+1)
 23. **PR22 toolchain + `lake build` LIMPO:** Lean 4.34.0 instalado; `delta_mono`/`theorem4_strict`/`rcs_exists`/`native_decide` **VERIFICADOS**; 0 sorry; lemma3=axiom
-24. **PRÓXIMO:** testar cond. (B) RBT explícito; Foundation lemma3; Freund–Pakhomov
+24. **PR23 cond. (B) RBT explícita:** w*='1000' ≠ w₀'; 10 disparos (6 puros B); PPR-2 20/20; CC-Θ 20/20 (`23_...` + `test_Rw_ppr2_RBT_B.py`)
+25. **PRÓXIMO:** Foundation lemma3; generalizar (C) ALL_COV inevitável; Freund–Pakhomov
 
 ### 6.4. Medio prazo (3-6 meses)
 
@@ -301,7 +302,7 @@ Pergunta testavel: "A reflexao produz assinatura mensuravel na complexidade prop
 | Arquivo | Status |
 |---------|--------|
 | README.md | Atualizado |
-| INDICE.md | Atualizado (v6.0) |
+| INDICE.md | Atualizado (v6.11) |
 | **EVOLUCAO_PROJETO.md** | **NOVO: histórico vivo (ideia→provas→aberto→mudanças de rumo)** |
 | CONTINUIDADE_PESQUISA.md | Este arquivo |
 | CONJECTURA_FP_K.md | Rebaixada para PERGUNTA DE PESQUISA |
@@ -309,6 +310,8 @@ Pergunta testavel: "A reflexao produz assinatura mensuravel na complexidade prop
 | 08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md | PPR: τ-corrigido, R1/R2 provados, R3 aberto |
 | **09_EVOLUCAO_PERFIL_REFLEXAO_GERADORES.md** | **NÚCLEO ATUAL: g^{a,b}, δ, 𝒢, ρ_b, RBT (Teo. 2, Lema 3, Teo. 4)** |
 | **10_EXPERIMENTO_GERADORES_FINITOS.md** | **EXPERIMENTO: enumeração n=8..16, δ/𝒢/RBT, busca R; varredura bib. δ/RBT=Não encontrado** |
+| **14–19, 23** | **R_w, PPR-2, E0–E3, Θ ramos, cond.(B) RBT** |
+| **lean4/** + toolchain | **lake build LIMPO (PR22); 0 sorry; lemma3=axiom** |
 
 ---
 
