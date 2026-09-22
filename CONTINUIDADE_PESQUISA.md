@@ -23,19 +23,21 @@ Conectar:
 4. **Provas** continham erros (enumeracao exponencial)
 5. **Teoremas 4, 5, 6** NAO estao provados na forma escrita (auditoria 22/09/2026)
 
-### 1.3. O Que Sobrou (apos auditoria)
+### 1.3. O Que Sobrou (apos auditoria + nucleo 09)
 
-A **pergunta de pesquisa FP-K** foi REBAIXADA (originalidade nao estabelecida):
+A **pergunta de pesquisa FP-K** foi REBAIXADA (originalidade nao estabelecida).
 
-> Existe um analogo do fenomeno Freund-Pakhomov dentro do esquema g_T de Krajicek?
+A **nova linha mais promissora** evoluiu em duas camadas:
 
-**STATUS:** PERGUNTA DE PESQUISA — buscar bibliografia antes de reivindicar prioridade.
+1. **08 (PPR):** T ≼_int S ⟹? g_T ≼_ppr g_S — bloqueio estrutural identificado (min_lex nao preserva reducao)
+2. **09 (Espectro de Reflexao) — NUCLEO ATUAL:** nivel intermediario observavel:
+   - deficit delta_T(Φ,b) (monotonico, Teo. 2)
+   - ganho de reflexao 𝒢 ≥ 0 (telescoping)
+   - rank rho_b, transicao RBT
+   - Lema 3: Φ_T^{w*} ↔ Con(T)
+   - Teorema 4: reflexao da δ_T=1 → δ_T'=0
 
-A **nova linha mais promissora** (apos auditoria) e' o problema de preservacao:
-
-$$T \preceq_{int} S \stackrel{?}{\Longrightarrow} g_T \preceq_{ppr} g_S$$
-
-Ver `08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md`.
+**Documentos:** `09_EVOLUCAO_...` (nucleo), `08_PROGRAMA_...` (PPR), `EVOLUCAO_PROJETO.md` (historico vivo).
 
 ---
 
@@ -216,16 +218,18 @@ Pergunta testavel: "A reflexao produz assinatura mensuravel na complexidade prop
 3. **Ler Freund-Pakhomov (2020)** "Short proofs for slow consistency" NDJFL 61(1)
 4. **NAO adicionar mais conjecturas** ao repositorio
 
-### 6.3. Curto prazo (1-3 meses) — seguir 08_PROGRAMA... (versão revisada)
+### 6.3. Curto prazo (1-3 meses) — seguir 09 (nucleo) + 08 (PPR)
 
-1. ~~Definir formalmente g_T, TG_T^n, precequiv_ppr~~ **FEITO** (τ-fórmulas corrigidas; PPR definido)
-2. ~~Provar lema de composicao~~ **FEITO** (Lemas 7.1-7.2: pre-ordem)
-3. ~~Casos T_0=PA e T_1=PA+RFN(PA)~~ **ANALISADO** (R1/R2 provados, R3 aberto)
-4. **ETAPA A:** fixar apresentação canônica (codificação de fórmulas, provas, τ)
-5. **ETAPA B:** calcular explicitamente g_{PA,n}, g_{T_1,n} para n pequeno
-6. **ETAPA C-D:** buscar R e Θ candidatos; testar PPR
-7. **ETAPA E:** só então generalizar / tentar prova assintótica
-8. Próximo arquivo: `09_EXPERIMENTO_PPR_PA_RFNPA.md`
+1. ~~Definir formalmente g_T, TG_T^n, precequiv_ppr~~ **FEITO** (08: τ-fórmulas, PPR)
+2. ~~Provar lema de composicao~~ **FEITO** (08: Lemas 7.1-7.2)
+3. ~~Casos T_0=PA e T_1=PA+RFN(PA)~~ **ANALISADO** (08: R1/R2 provados, R3 aberto)
+4. ~~Nivel intermediario delta~~ **FEITO** (09: Teo. 2, Lema 3, Teo. 4, telescoping)
+5. **ETAPA A:** fixar apresentacao canonica (codificacao de formulas, provas, tau)
+6. **ETAPA B:** calcular explicitamente g_{PA,n}, g_{T_1,n} para n pequeno
+7. **ETAPA C-D:** buscar R e Theta candidatos; testar PPR
+8. **ETAPA E:** so depois generalizar / tentar prova assintotica
+9. Proximo arquivo: `10_EXPERIMENTO_...` (ou 09_EXPERIMENTO_PPR_PA_RFNPA)
+10. **EM PARALELO:** busca bibliografica sobre delta/RBT vs. Pudlak/Krajicek
 
 ### 6.4. Medio prazo (3-6 meses)
 
@@ -283,11 +287,13 @@ Pergunta testavel: "A reflexao produz assinatura mensuravel na complexidade prop
 | Arquivo | Status |
 |---------|--------|
 | README.md | Atualizado |
-| INDICE.md | Atualizado (v4.0+) |
+| INDICE.md | Atualizado (v6.0) |
+| **EVOLUCAO_PROJETO.md** | **NOVO: histórico vivo (ideia→provas→aberto→mudanças de rumo)** |
 | CONTINUIDADE_PESQUISA.md | Este arquivo |
-| CONJECTURA_FP_K.md | Rebaixado para PERGUNTA DE PESQUISA |
-| 07_pontos_fixos_incompletude.md | Parte 2: pontos fixos, fisica, analogias |
-| 08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md | **ATIVO: PPR, caso PA→PA+RFN(PA), R1/R2/R3 (versão revisada 22/09)** |
+| CONJECTURA_FP_K.md | Rebaixada para PERGUNTA DE PESQUISA |
+| 07_pontos_fixos_incompletude.md | Parte 2: pontos fixos, física, analogias |
+| 08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md | PPR: τ-corrigido, R1/R2 provados, R3 aberto |
+| **09_EVOLUCAO_PERFIL_REFLEXAO_GERADORES.md** | **NÚCLEO ATUAL: g^{a,b}, δ, 𝒢, ρ_b, RBT (Teo. 2, Lema 3, Teo. 4)** |
 
 ---
 
@@ -303,24 +309,20 @@ Se este trabalho for publicado, CITAR:
 
 ---
 
-## 10. Nota Final (apos auditoria 22/09/2026)
+## 10. Nota Final (apos auditoria + nucleo 09)
 
-Este projeto comecou tentando criar algo novo, mas descobriu que:
+Este projeto percorreu 4 fases:
 
-1. **Krajicek (2023)** ja faz corretamente o que tentavamos fazer
-2. **Nossa observacao** ja existe no paper dele (rodape 3)
-3. **Teoremas 4, 5, 6** NAO estao provados (auditoria rigorosa)
-4. **FP-K** foi rebaixada para pergunta de pesquisa (originalidade nao certificada)
+1. **Ideia original** (ordinal ⟹ escala exponencial) — DESCARTADA
+2. **Auditoria** (22/09) — Teoremas 4-6 rejeitados, FP-K rebaixada
+3. **Programa PPR** (08) — ≼_ppr definido; bloqueio min_lex identificado; R1/R2 provados
+4. **Espectro de Reflexao** (09) — nivel intermediario: δ, 𝒢, ρ_b, RBT; Teo. 2, Lema 3, Teo. 4 provados
 
-**Honestidade:** Nao inventamos nada novo ainda. O que fizemos foi:
-- Entender o trabalho de Krajicek
-- Conectar com slow consistency
-- Formalizar a pergunta FP-K (rebaixada)
-- Separar teorema/analogueia/conjectura na Parte 2
-- **Receber e incorporar auditoria rigorosa**
-- **Formular novo programa: ≼_int vs ≼_ppr**
+**Honestidade:** Temos provas elementares novas (T9-T15 no INDICE), nao um teorema grandioso. O nucleo atual e falsificavel e verificavel.
 
-**Proximo passo real:** Seguir `08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md`.
+**Proximo passo real:** `10_EXPERIMENTO_...` + busca bibliografica sobre δ/RBT.
+
+**Historico vivo:** `EVOLUCAO_PROJETO.md` (atualizar a cada passo).
 
 **Principio:** Nenhum resultado sera' teorema sem especificacao formal completa.
 

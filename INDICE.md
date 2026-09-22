@@ -1,27 +1,29 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 5.1 (Setembro 2026, pós-auditoria + versão revisada 08_PROGRAMA)
-**Status:** Honestidade intelectual — teoremas 4-6 rejeitados, FP-K rebaixada, programa ≼_ppr ativo (PPR definido, R1/R2 provados, R3 aberto)
+**Versão:** 6.0 (Setembro 2026, núcleo 09 — Espectro de Reflexão)
+**Status:** Honestidade intelectual — teoremas 4-6 rejeitados, FP-K rebaixada, núcleo atual = δ/𝒢/ρ_b/RBT
 
 ---
 
 ## Estrutura dos Documentos
 
-### Papers Reescritos (estado atual honesto)
+### NÚCLEO ATUAL (começar por aqui)
 
 | Arquivo | Conteúdo | Status |
 |---------|----------|--------|
-| `papers/paper1_barreira_interpretabilidade.md` | "Barateando a Diagonalização" — extensão de Krajíček (2023) | Nota exploratória |
+| `EVOLUCAO_PROJETO.md` | **HISTÓRICO VIVO: ideia→provas→aberto→mudanças de rumo** | **ATUALIZAR A CADA PASSO** |
+| `09_EVOLUCAO_PERFIL_REFLEXAO_GERADORES.md` | **NÚCLEO MATEMÁTICO: g_T^{a,b}, δ, 𝒢, ρ_b, RBT (Teo. 2, Lema 3, Teo. 4 provados)** | **ATIVO** |
+| `08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md` | PPR: τ-corrigido, ≼_ppr, lemas, R1/R2 provados, R3 aberto | ATIVO (complementar) |
+
+### Papers e Conjecturas
+
+| Arquivo | Conteúdo | Status |
+|---------|----------|--------|
+| `papers/paper1_barreira_interpretabilidade.md` | "Barateando a Diagonalização" | Nota exploratória |
 | `papers/paper2_hierarquia_ordinal.md` | Hierarquia ordinal e consistência lenta | Nota exploratória |
-
-### Conjecturas, Programa e Continuidade
-
-| Arquivo | Conteúdo | Status |
-|---------|----------|--------|
-| `08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md` | **ATIVO: PPR definido (τ-corrigido), lemas 7.1-7.2, R1/R2 provados, R3 aberto, PPR-Reflection-1** | **PROGRAMA ATIVO (v. revisada 22/09)** |
-| `CONJECTURA_FP_K.md` | FP-K: análogo Freund–Pakhomov para geradores | **PERGUNTA DE PESQUISA** (rebaixada) |
-| `07_pontos_fixos_incompletude.md` | Pontos fixos, incompletude e física — Parte 2 | Teoremas + analogias + conjecturas separados |
-| `CONTINUIDADE_PESQUISA.md` | Documento de continuidade completo | Atualizado pós-auditoria |
+| `CONJECTURA_FP_K.md` | FP-K | **PERGUNTA DE PESQUISA** (rebaixada; ver 09 §18 para versão δ) |
+| `07_pontos_fixos_incompletude.md` | Parte 2: pontos fixos, física | Teoremas+analogias+conjecturas separados |
+| `CONTINUIDADE_PESQUISA.md` | Documento de continuidade | Atualizado |
 
 ### Documentos de Apoio (em `support/`) — CONTÊM AFIRMAÇÕES DESATUALIZADAS/REJEITADAS
 
@@ -58,6 +60,13 @@
 | T6 | Markov (1958): homeomorfismo indecidível (dim ≥ 4) | PROVADO | Clássico |
 | T7 | Tarski: geometria real decidível | PROVADO | Clássico |
 | T8 | Corolário Gödel–Turing: laco paradoxal irreconhecível | PROVADO | Corolário |
+| **T9** | **Prop. 1 (09): \|g_T^{a,b}(u)\|=\|u\|+1** | **PROVADO** | **Novo, elementar** |
+| **T10** | **Teo. 2 (09): δ_S ≤ δ_T se T⊆S** | **PROVADO** | **Novo, elementar** |
+| **T11** | **Telescoping (09 §10): δ_{T_0}−δ_{T_m}=Σ𝒢** | **PROVADO** | **Novo, elementar** |
+| **T12** | **Lema 3 (09): Φ_T^{w*}↔Con(T)** | **PROVADO** | **Novo, sob formalização** |
+| **T13** | **Teo. 4 (09): δ_T=1, δ_{T'}=0** | **PROVADO** | **Novo, sob hipóteses** |
+| **T14** | **08 Lemas 7.1-7.2: ≼_ppr é pré-ordem** | **PROVADO** | **Novo, elementar** |
+| **T15** | **08 Prop 8.1/Cor 8.2: transferência de hardness** | **PROVADO** | **Novo, elementar** |
 
 ### CONJECTURAS / PERGUNTAS (não provadas)
 
@@ -68,14 +77,17 @@
 | C3 | Física necessariamente codifica aritmética | ESPECULATIVA | `07_...` |
 | C4 | Teorema da Incompletude Cosmológica | ESPECULATIVA | `07_...` |
 
-### PROGRAMA ATIVO (pós-auditoria)
+### PROGRAMA ATIVO (pós-auditoria + núcleo 09)
 
 | # | Problema | Status | Documento |
 |---|----------|--------|-----------|
-| **PR1** | **g_PA ≼_ppr g_{PA+RFN(PA)}?** (PPR-Reflection-1) | **ABERTO** — R1/R2 provados, R3 aberto | `08_PROGRAMA_...` §17, §25 |
+| **PR0** | **Espectro de Reflexão: δ, 𝒢, ρ_b, RBT** | **NÚCLEO — Teo. 2, Lema 3, Teo. 4 PROVADOS** | `09_...` |
+| **PR1** | **g_PA ≼_ppr g_{PA+RFN(PA)}?** (PPR-Reflection-1) | **ABERTO** — R1/R2 provados, R3 aberto | `08_...` §17, §25 |
 | PR2 | Conjectura PPR-Reflection: g_{T_k} ≼_ppr g_{T_{k+1}} | CONJECTURA (nova no projeto) | `08_...` §26 |
-| PR3 | Conjectura de quebra: ∃k tal que g_{T_k} ⋠_ppr g_{T_{k+1}} | CONJECTURA alternativa | `08_...` §27 |
-| PR4 | Γ_P(T,n) = log s_P(TG_T^n): assinatura da reflexão? | DEFINIÇÃO PROPOSTA | `08_...` (anterior) |
+| PR3 | Conjectura de quebra: ∃k tal que g_{T_k} ⋠_ppr g_{T_{k+1}} | CONJECTURA alternativa | `08_...` §27 |
+| PR4 | Hipótese RCS: α ↦ δ_{T_α}(Φ,b) contém info não ordinal? | HIPÓTESE falsificável | `09_...` §28 |
+| PR5 | ρ_b: independente de codificação? | ABERTO | `09_...` §32 |
+| PR6 | Transferência: δ_S ≤ δ_T ⟹? g_T ≼_ppr g_S | ABERTO | `09_...` §23 |
 
 ### DESCARTADOS / REJEITADOS (não usar)
 
@@ -91,41 +103,37 @@
 
 ---
 
-## Pergunta de Pesquisa Principal (pós-auditoria, versão revisada)
+## Pergunta de Pesquisa Principal (núcleo 09)
 
-**ANTES (rebaixada):**
-> ~~Conjectura FP-K~~ → **PERGUNTA DE PESQUISA** — originalidade não estabelecida.
+**ANTECESSORES (superados/rebaixados):**
+> ~~Ordinal ⟹ escala exponencial~~ → REJEITADO (auditoria)
+> ~~Conjectura FP-K como "nova"~~ → REBAIXADA (originalidade não certificada)
+> ~~PPR-Reflection-1 como única saída~~ → bloqueio estrutural identificado (min_lex)
 
-**AGORA (PPR-Reflection-1, formulado com precisão):**
+**NÚCLEO ATUAL — Espectro de Reflexão:**
 
-Sejam T₀=PA e T₁=PA+RFN_Γ(PA). Pergunta:
+Como evolui o déficit de cobertura diagonal
 
-$$g_{T_0} \preceq_{\mathrm{ppr}}^P g_{T_1}\;?$$
+$$\delta_{T_\alpha}(\Phi,b)$$
 
-**Status parcial (08_PROGRAMA §25):**
+ao longo de uma hierarquia de reflexão $T_0 \subseteq T_1 \subseteq \cdots$?
 
-| Afirmação | Estado |
-|-----------|--------|
-| T₀ ⊆ T₁ | PROVADO |
-| T₀ ≼_int T₁ | PROVADO |
-| A_{T₀} ⊆ A_{T₁} (predicados de prova curta) | PROVADO |
-| w₀^{T₁} ≥_lex w₀^{T₀} | PROVADO (local) |
-| g_{T₀} ≼_ppr g_{T₁} | **ABERTO** |
-| g_{T₀} ⋠_ppr g_{T₁} | **ABERTO** |
+**O que já é PROVADO (09):**
+- δ é monotônico (Teo. 2)
+- 𝒢 ≥ 0 e telescopa (§10)
+- Φ_T^{w*} ↔ Con(T) (Lema 3)
+- Reflexão dá δ_T=1 → δ_{T'}=0 (Teorema 4)
+- Ganho unitário 𝒢=1 (corolário)
 
-**Resultado metodológico novo (§33):**
+**O que está ABERTO:**
+- g_PA ≼_ppr g_{PA+RFN(PA)}? (R3)
+- Hipótese RCS (informação além do ordinal?)
+- ρ_b independente de codificação?
+- Transferência δ ⟹ PPR?
 
-$$\text{Inclusão de teorias} \Rightarrow \text{monotonicidade do predicado de prova}$$
+**Documentos:** `09_EVOLUCAO_...` (núcleo), `08_PROGRAMA_...` (PPR), `EVOLUCAO_PROJETO.md` (histórico)
 
-mas
-
-$$\text{monotonicidade do predicado} \nRightarrow \text{PPR do gerador}$$
-
-Razão: o operador $A_T \mapsto \min_{\mathrm{lex}}(\neg A_T)$ não preserva redução polinomial.
-
-**Documento:** `08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md` (versão revisada 22/09/2026)
-
-**Próximo arquivo:** `09_EXPERIMENTO_PPR_PA_RFNPA.md`
+**Próximo arquivo:** `10_EXPERIMENTO_...` (instâncias finitas)
 
 ---
 
