@@ -1,64 +1,109 @@
-# Indice da Pasta Gödel — Framework de Barreiras Godelianas em Complexidade de Provas
+# Indice da Pesquisa Gödel–Krajíček
+
+**Versão:** 4.0 (Setembro 2026)
+**Status:** Honestidade intelectual — teoremas descartados, conjecturas separadas
+
+---
 
 ## Estrutura dos Documentos
 
-### Paper 1 (Original)
-- `goedel_complexity_paper.md` — Paper completo com 3 teoremas:
-  - Teorema 1: Barreira de Interpretabilidade
-  - Teorema 2: Hierarquia de Separacao Godeliana
-  - Teorema 3: Funcao de Complexidade Godeliana g(P)
+### Papers Reescritos (estado atual honesto)
 
-### Paper 2 (Estendido — Continuacao)
-- `00_avaliacao_novelidade.md` — O que ja existe vs. o que e novo (honestidade intelectual)
-- `01_framework_estendido.md` — Hierarquia ordinal de geradores godelianos
-- `02_teoremas_principais.md` — Teoremas 4, 5, 6 com provas completas
-- `03_meta_complexidade_aplicacoes.md` — Conexao MCSP, IPS, limites algebricos
-- `04_questoes_abertas_referencias.md` — Questoes abertas, programa de pesquisa, referencias
+| Arquivo | Conteúdo | Status |
+|---------|----------|--------|
+| `papers/paper1_barreira_interpretabilidade.md` | "Barateando a Diagonalização" — extensão de Krajíček (2023) | Nota exploratória |
+| `papers/paper2_hierarquia_ordinal.md` | Hierarquia ordinal e consistência lenta | Nota exploratória |
 
-### Paper 2 (Preprint - Setembro 2026)
-- `06_paper2_hierarquia_ordinal.md` — Paper completo com formalizacao Lean 4:
-  - Teorema 3.3: Monotonicidade Ordinal
-  - Teorema 4.1: Escala Ordinal da Dureza
-  - Formalizacao Lean 4 (14-22 semanas estimadas)
+### Conjecturas e Continuidade
 
-### Documento 5: Verificacao e Formalizacao
-- `05_verificacao_lean4.md` — Verificacao da literatura + plano de mecanizacao Lean 4
+| Arquivo | Conteúdo | Status |
+|---------|----------|--------|
+| `CONJECTURA_FP_K.md` | Conjectura FP-K: análogo Freund–Pakhomov para geradores g_T | **Conjectura** (não provada) |
+| `07_pontos_fixos_incompletude.md` | Pontos fixos, incompletude e física — Parte 2 | Teoremas + analogias + conjecturas separados |
+| `CONTINUIDADE_PESQUISA.md` | Documento de continuidade completo | Ativo |
 
-### Documentos de Apoio
-- `goedel_complexity_original_contributions.md` — Resumo executivo de novelidade
-- `INDICE.md` — Este arquivo
+### Documentos de Apoio (em `support/`) — CONTÊM AFIRMAÇÕES DESATUALIZADAS
 
----
+| Arquivo | Status |
+|---------|--------|
+| `00_avaliacao_novelidade.md` | Parcialmente válido |
+| `01_framework_estendido.md` | **DESCARTADO** (framework anterior) |
+| `02_teoremas_principais.md` | **DESCARTADO** (teoremas 4-6 inválidos/especulativos) |
+| `03_meta_complexidade_aplicacoes.md` | **DESCARTADO** (especulativo) |
+| `04_questoes_abertas_referencias.md` | Desatualizado |
+| `05_verificacao_lean4.md` | Plano Lean 4 ainda útil |
 
-## Resumo dos Teoremas (todos os papers)
+### Documentos Originais (raiz) — DESATUALIZADOS
 
-| # | Teorema | Status | Novelidade |
-|---|---------|--------|------------|
-| 1 | Barreira de Interpretabilidade | Completo | MEDIA (possivelmente consequence de Krajicek) |
-| 2 | Hierarquia de Separacao Godeliana | Completo | ALTA |
-| 3 | Funcao de Complexidade g(P) | Completo | ALTA |
-| 4 | Escala Ordinal da Dureza | Completo | ALTA |
-| 5 | Hierarquia de Reflexao como Complexidade | Completo | ALTA |
-| 6 | Gerador Canonico (condicional) | Completo | ALTA (condicionada a conjectura de Krajicek) |
-| 7 | Reducao MCSP -> Geradores | Sketch | MEDIA |
-| 8 | Limite Inferior para IPS (condicional) | Sketch | MEDIA-ALTA |
+| Arquivo | Status |
+|---------|--------|
+| `goedel_complexity_paper pnp.md` | **DESCARTADO** (Teorema 1 inválido) |
+| `06_paper2_hierarquia_ordinal.md` | Substituído por `papers/paper2_...` |
+| `goedel_complexity_original_contributions.md` | Desatualizado |
 
 ---
 
-## Avisos Importantes
+## Status dos Resultados (versão honesta)
 
-1. **Resultados condicionais:** Teorema 6 depende da conjectura de Krajicek (2004). Teorema 8 depende de aritmetizacao algebrica funcionar.
+### TEOREMAS (provados, na literatura ou elementares)
 
-2. **Verificacao CONCLUIDA:** A ponte "hierarquia de reflexao <-> geradores de Krajicek" e GENUINAMENTE NOVA (ver `05_verificacao_lean4.md`).
+| # | Resultado | Status | Fonte |
+|---|-----------|--------|-------|
+| T1 | Completude da lógica proposicional | PROVADO | Clássico |
+| T2 | Proposição 1: pontos fixos ↔ status lógico | PROVADO | Elementar, novo |
+| T3 | Proposição 2: distribuições invariantes (caso finito) | PROVADO | Deutsch (1991) |
+| T4 | Proposição 3: Fix(f) ≠ ∅ ≡ problema da parada | PROVADO | Elementar, novo |
+| T5 | Choquet-Bruhat–Geroch (1969) | PROVADO | Clássico |
+| T6 | Markov (1958): homeomorfismo indecidível (dim ≥ 4) | PROVADO | Clássico |
+| T7 | Tarski: geometria real decidível | PROVADO | Clássico |
+| T8 | Corolário Gödel–Turing: laco paradoxal irreconhecível | PROVADO | Corolário |
 
-3. **Verificacao CONCLUIDA:** A ponte "hierarquia de reflexao <-> geradores de Krajicek" e GENUINAMENTE NOVA (ver `05_verificacao_lean4.md`). Pudlák (2020) foi completamente analisado e NAO tem sobreposicao.
+### CONJECTURAS (não provadas)
 
-4. **Mecanizacao:** Plano detalhado em `05_verificacao_lean4.md`. Biblioteca Foundation (Saitou & Noguchi) ja tem Gödel mecanizado. Esforco estimado: 8-16 semanas.
+| # | Conjectura | Status | Documento |
+|---|------------|--------|-----------|
+| C1 | **FP-K**: análogo Freund–Pakhomov para g_T com ordinal crítico α_* | ABERTA | `CONJECTURA_FP_K.md` |
+| C2 | Censura cósmica exclui estruturas Malament–Hogarth | ABERTA | `07_...` |
+| C3 | Física necessariamente codifica aritmética | ESPECULATIVA | `07_...` |
+| C4 | Teorema da Incompletude Cosmológica | ESPECULATIVA | `07_...` |
+
+### DESCARTADOS (não usar)
+
+| # | Resultado antigo | Motivo |
+|---|------------------|--------|
+| D1 | Teorema 1 original (barreira de interpretabilidade) | Enumeração exponencial ≠ polinomial; Krajíček (2023) já faz |
+| D2 | Tabela de bounds duplamente exponenciais | Especulativa, sem derivação |
+| D3 | Cortes ordinais C(α) | Não sabemos se hierarquia é suficiente |
+| D4 | Teoremas 4–6 (framework estendido) | Descartados na reescrita |
+| D5 | Observação b(n) genérico | **JÁ EXISTE** — Krajíček (2023), rodapé 3, Seção 3 |
 
 ---
 
-## Contato e Versao
+## Pergunta de Pesquisa Principal
 
-Versao: 3.0 (Setembro 2026) — Paper 2 completo com formalizacao Lean 4
-Autor: Contribuicao original
-Status: Documento de trabalho — sujeito a revisao
+> **Conjectura FP-K:** Existe um análogo do fenômeno Freund–Pakhomov dentro do esquema g_T de Krajíček? Isto é, existe ordinal crítico α_* tal que g_{T_α}^{(b)} recupera a força diagonalizadora de g_T?
+
+**Status:** Conjectura plausível, não provada, não encontrada na literatura.
+**Próximo passo:** Verificar literatura + MathOverflow (tag proof-theory).
+
+---
+
+## Referências Obrigatórias
+
+1. **Krajíček, J. (2023).** "A proof complexity conjecture and the Incompleteness theorem." arXiv:2303.10637; JSL 90(3), 2025, 1206–1210.
+2. **Krajíček, J. (2025).** *Proof Complexity Generators.* Cambridge UP (LMS Lecture Notes 497).
+3. **Friedman–Rathjen–Weiermann (2013).** Slow consistency. APAL.
+4. **Freund–Pakhomov (2020).** Provability algebras. NDJFL.
+5. **Beklemishev (2003).** Proof-theoretic analysis by iterated reflection.
+6. **Deutsch (1991).** Quantum mechanics near closed timelike lines.
+7. **Choquet-Bruhat–Geroch (1969).** Global solutions of nonlinear hyperbolic equations.
+8. **Markov (1958).** The insolubility of the problem of homeomorphy.
+9. **Lawvere (1969).** Diagonal arguments and cartesian closed categories.
+10. **Hogarth (1992); Etesi–Németi (2002).** Malament–Hogarth spacetimes.
+
+---
+
+## Contato
+
+- **Autor:** Euzebio Santos (ebiossanto)
+- **Repositório:** https://github.com/ebiossanto/IA-research-Godel-e-Krajicek

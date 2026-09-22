@@ -140,6 +140,8 @@ A "hierarquia ordinal" que tentavamos criar ja existe como **slow consistency**:
 - Seja T_alpha a hierarquia de consistencia lenta
 - Pergunta: quantas iteracoes de reflexao limitada sao necessarias pra recuperar o poder de diagonalizacao da versao "rapida"?
 
+**Status atual:** Formalizada como **Conjectura FP-K** em `CONJECTURA_FP_K.md`.
+
 **Por que e importante:**
 1. Conecta dois programas (slow consistency e geradores)
 2. E genuinamente nova (nao vi na literatura)
@@ -221,8 +223,10 @@ A "hierarquia ordinal" que tentavamos criar ja existe como **slow consistency**:
 | Arquivo | Status |
 |---------|--------|
 | README.md | Atualizado |
-| INDICE.md | Atualizado |
+| INDICE.md | Atualizado (v4.0) |
 | CONTINUIDADE_PESQUISA.md | Este arquivo |
+| CONJECTURA_FP_K.md | Conjectura FP-K formalizada |
+| 07_pontos_fixos_incompletude.md | Parte 2: pontos fixos, física, analogias |
 
 ---
 
@@ -243,15 +247,32 @@ Se este trabalho for publicado, CITAR:
 Este projeto comecou tentando criar algo novo, mas descobriu que:
 
 1. **Krajicek (2023)** ja faz corretamente o que tentavamos fazer
-2. **Nossa observacao** ja existe no paper dele
-3. **A unica contribuicao potencial** e uma pergunta de pesquisa
+2. **Nossa observacao** ja existe no paper dele (rodape 3)
+3. **A unica contribuicao potencial** e a Conjectura FP-K
 
-**Honestidade:** Nao inventamos nada novo. O que fizemos foi:
+**Honestidade:** Nao inventamos nada novo no eixo Krajicek. O que fizemos foi:
 - Entender o trabalho de Krajicek
 - Conectar com slow consistency
-- Formular uma pergunta em aberto
+- Formalizar a Conjectura FP-K (`CONJECTURA_FP_K.md`)
+- Separar rigorosamente teorema/analogueia/conjectura na Parte 2 (`07_pontos_fixos_incompletude.md`)
 
-**Proximo passo real:** Levar a pergunta a um especialista.
+**Proximo passo real:** Levar a Conjectura FP-K a um especialista (MathOverflow ou Krajicek).
+
+---
+
+## 11. Parte 2: Pontos Fixos e Fisica (adicionado)
+
+Nova linha de trabalho separada da Parte 1:
+
+| Status | Itens |
+|--------|-------|
+| **TEOREMAS** | Prop. 1-3, Choquet-Bruhat-Geroch, Markov, Tarski, corolario Goedel-Turing |
+| **ANALOGIAS** | Incompletude geodesica ~ logica; universo de Goedel ~ fisica real; Stone ~ espaco-tempo |
+| **CONJECTURAS** | Censura ~ Malament-Hogarth; fisica ~ aritmetica; Teorema da Incompletude Cosmologica |
+
+**Documento:** `07_pontos_fixos_incompletude.md`
+
+**Proximo passo da Parte 2:** Checar a idealizacao de memoria ilimitada na Proposicao 3 na literatura; discutir papel do observador Malament-Hogarth.
 
 ---
 
