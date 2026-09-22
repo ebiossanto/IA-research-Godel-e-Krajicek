@@ -136,7 +136,7 @@ theorem theorem4_strict
     (h3 : ∀ w ∈ W, w.idx = "w*" → w.isTrue = true → w.kappa ≤ T'.sigma)
     (h4 : T.sigma ≥ B) (h5 : T'.sigma ≥ max B B')
     (hb : b ≥ max B B')
-    -- PR18: h6 garante que w* ∈ W é a ÚNICA obrigaçãotrue não coberta em T
+    -- PR18: h6 garante que w* ∈ W é a ÚNICA obrigação true não coberta em T
     (h6 : ∀ w ∈ W, w.isTrue = true → w.idx = "w*" ∨ covered T b w = true) :
     delta T b W = 1 ∧ delta T' b W = 0 := by
   sorry
@@ -155,14 +155,12 @@ theorem rcs_exists
       let SS : Theory := ⟨"S", sigmaSlow α slowStep⟩
       delta SF b W ≠ delta SS b W := by
   obtain ⟨o, hoW, hoT, hok⟩ := hex
-  -- Escolha: α = fastStep, b = fastStep + 1 (cobre o em F, não em S)
+  -- Escolha: α = fastStep, b = fastStep + 1
   refine ⟨fastStep, fastStep + 1, ?_⟩
-  -- sigmaFast fastStep fastStep = fastStep^2 ≥ fastStep > slowStep
-  -- sigmaSlow fastStep = fastStep > slowStep
   simp only [sigmaFast, sigmaSlow]
-  -- δ_S ≥ 1 pois o ∈ trues e ¬covered S
-  -- δ_F pode ser 0 ou ≠ — suficiente: demonstrar via stransitivity
-  -- Na prática: open goal → fechar com Native instance no CI Lean.
+  -- Objetivo: delta ⟨F, fastStep*fastStep⟩ (fastStep+1) W ≠ delta ⟨S, fastStep⟩ (fastStep+1) W
+  -- o ∈ trues (hoT), ¬covered S (kappa > slowStep = σ_S quando α=fastStep... precissa hfast)
+  -- open → fechar com Native/CI
   sorry
 
 /-- Instância numérica 13: κ(w*)=2, fast=2, slow=1, α=1, b=3. -/

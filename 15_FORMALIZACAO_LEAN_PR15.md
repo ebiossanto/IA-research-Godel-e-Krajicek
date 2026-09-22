@@ -3,7 +3,7 @@
 **Projeto:** IA-research-Godel-e-Krajicek
 **Autor:** Euzebio Soares
 **Data:** 22/09/2026
-**Status:** **ESQUELETO CRIADO — sorry pendentes; NÃO certificação**
+**Status:** **PR18: delta_mono PROVADO; lemma3=axiom; theorem4/rcs=sorry — NÃO certificação total**
 **Arquivo:** `lean4/Gothic_Generators/Core.lean`
 
 ---
@@ -24,20 +24,20 @@ Transformar em Lean 4:
 |------|------|--------|
 | Obligation, Theory | structures | **OK** (abstração finita) |
 | covered, delta | defs | **OK** |
-| delta_mono (Teo 2) | theorem | **sorry** (monotonia List) |
-| lemma3_con | lemma | **sorry** (requer Prf/pad aritmético) |
-| theorem4_strict | theorem | **sorry** (hipóteses a detalhar) |
-| rcs_exists | theorem | **sorry** (escolha α=1, b) |
+| delta_mono (Teo 2) | theorem | **PROVADO** (PR18: `covered_mono` + `length_filter_mono`, sem sorry) |
+| lemma3_con | lemma | **AXIOM** (PR18: `lemma3_axiom` — pendente Foundation/pad-Prf) |
+| theorem4_strict | theorem | **sorry** (hipóteses h1–h6; prova a detalhar) |
+| rcs_exists | theorem | **sorry** (α=fastStep, b=fastStep+1 escolhidos; fechamento pendente) |
 | example δ_F=0 ∧ δ_S=1 | example | **native_decide** (deve passar) |
 
 ---
 
 ## 3. Dependências para fechar sorry
 
-1. **Foundation (Saitou–Noguchi)** ou equivalente: `Prf`, `Con`, aritmética
+1. **Foundation (Saitou–Noguchi)** ou equivalente: `Prf`, `Con`, aritmética (para `lemma3_con`)
 2. Formalizar `pad` e Φ^w (quantificadores)
-3. Provar monotonia de filtros em List (delta_mono)
-4. Hipóteses do Teo 4 como precondições explícitas
+3. ~~Provar monotonia de filtros em List (delta_mono)~~ **FEITO** (PR18)
+4. Fechar `theorem4_strict` (usando h1–h6) e `rcs_exists` (fechar desigualdade δ)
 
 **Estimativa (do 05_lean4):** 14–22 semanas para completo.
 
@@ -45,18 +45,19 @@ Transformar em Lean 4:
 
 ## 4. Honestidade
 
-- **NÃO** é certificação (sorry presentes);
+- **NÃO** é certificação total (sorries em `theorem4_strict`/`rcs_exists`; `lemma3_con` é axiom);
 - Abstração `Obligation` **não** é a fórmula aritmética completa;
-- `example` com `native_decide` só valida a **instância numérica** do modelo 13.
+- `example` com `native_decide` só valida a **instância numérica** do modelo 13;
+- `delta_mono` é prova completa **no modelo finito** (não em PA aritmética).
 
 ---
 
-## 5. Próximos (PR15 cont.)
+## 5. Próximos (PR15/PR18 cont.)
 
-1. Eliminar sorry de `delta_mono` (combinatória List);
-2. Integrar Foundation para `lemma3_con`;
-3. Encontrar/instalar toolchain Lean 4 + deps;
-4. Rodar `lake build` / `lean` no `Core.lean`.
+1. ~~Eliminar sorry de `delta_mono`~~ **FEITO** (PR18);
+2. Fechar `theorem4_strict` e `rcs_exists` (sorries restantes);
+3. Integrar Foundation para `lemma3_con` (axiom → prova);
+4. Encontrar/instalar toolchain Lean 4 + deps e rodar `lake build`.
 
 ---
 

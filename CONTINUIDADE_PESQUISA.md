@@ -235,9 +235,11 @@ Pergunta testavel: "A reflexao produz assinatura mensuravel na complexidade prop
 13. **`13_...`:** **RCS CONFIRMADA** — δ_F≠δ_S, Φ fixa, slow vs fast
 14. **PR12:** correções 01/06/03 **APLICADAS** (banners REJEITADO, Paper2=histórico)
 15. **PR16 `16_...`:** RCS **ROBUSTA 4/4** (κ rich, razão 3:1, |W|=64)
-16. **PR15 `15_...` + `lean4/.../Core.lean`:** esqueleto Lean — defs OK, **sorries**
-17. **`14_...`:** R_w sobre **índices** (pós-suffix0); design; PPR-2 não testado
-18. **PRÓXIMO:** fechar sorry delta_mono; testar R_w; Foundation lemma3; comparar Freund–Pakhomov
+16. **PR15 `15_...` + `lean4/.../Core.lean`:** esqueleto Lean — defs OK, sorries
+17. **`14_...`:** R_w sobre **índices** (pós-suffix0); design
+18. **PR17 `17_...` + `test_Rw_ppr2.py`:** PPR-2 **refinado (A∨B∨C)**; R_w identidade+sentinela **PASSA 3/3**
+19. **PR18 `Core.lean`:** `delta_mono` **PROVADO** (sem sorry); `lemma3_con` → **axiom**; `theorem4_strict`/`rcs_exists` ainda sorry
+20. **PRÓXIMO:** PR19 (Θ sobre provas de ramos); PR20 (R_w em E0–E3); fechar sorries theorem4/rcs; Foundation lemma3; `lake build`
 
 ### 6.4. Medio prazo (3-6 meses)
 

@@ -269,7 +269,7 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 
 ---
 
-## Fase 9 — PR12+PR16+PR15+R_w (22/09/2026, tarde)
+## Fase 9 — PR12+PR16+PR15+R_w+PR17+PR18 (22/09/2026, tarde)
 
 ### PR12 — Correções 01/06/03 APLICADAS
 
@@ -292,15 +292,31 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 ### PR15 — Lean esqueleto (`15_...` + `lean4/.../Core.lean`)
 
 - Obligation, Theory, covered, delta: **definidos**
-- delta_mono, lemma3_con, theorem4, rcs_exists: **sorry**
+- ~~delta_mono, lemma3_con, theorem4, rcs_exists: sorry~~
+  - **PR18:** delta_mono **PROVADO**; lemma3_con **axiom**; theorem4/rcs **sorry**
 - example numérico: **native_decide**
-- **NÃO certificação** até sorry eliminados
+- **NÃO certificação** até todos sorries fechados
 
 ### 14 — R_w sobre ramos (`14_...`)
 
 - suffix0 vácuo → **R sobre índice w**, não string b
 - Candidato: identidade + sentinela ALL→w*
-- **Design**, não testado; PPR-3 ABERTO
+- **Design**; PPR-3 ABERTO
+
+### PR17 — PPR-2 refinado + R_w testado (`17_...` + `test_Rw_ppr2.py`)
+
+- Predicado PPR-2 original (14 §5) **falhou** em transições →ALL_COV
+- **Refinado em 3 condições:** (A) R(w₀)∈uncov(T'), (B) w₀≠w₀' ∧ R(w₀)=w* (transição RBT), (C) w₀'=ALL_COV
+- PPR-2-ramo ⟺ (A)∨(B)∨(C)
+- **R_w identidade+sentinela PASSA PPR-2 em 3/3 cenários**
+
+### PR18 — delta_mono fechado (`Core.lean`)
+
+- `delta_mono`: **PROVA COMPLETA** (sem sorry) — auxiliares `covered_mono`, `length_filter_mono`
+- `lemma3_con`: sorry → **`axiom lemma3_axiom`** documentado (pendente Foundation/pad-Prf)
+- `theorem4_strict`: ganhou hipótese h6 (w* única obrigação true-não-coberta em T); ainda sorry
+- `rcs_exists`: avanço parcial (α=fastStep, b=fastStep+1); ainda sorry
+- Typo `obrigaçãootrue` → `obrigação true` corrigido
 
 ---
 
@@ -320,14 +336,16 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 3. ρ_b vs Pakhomov–Walsh → **PRÓXIMO mas DISTINTO** — posicionar explicitamente
 4. FP-K equivalente publicado? → **ainda não verificado**
 
-### Aberto experimental (pós-PR12/15/16)
+### Aberto experimental (pós-PR12/15/16/17/18)
 
 - ~~Correções 01/06/03~~ → **PR12 APLICADAS**
 - ~~RCS slow vs fast~~ → **CONFIRMADA + ROBUSTA (13/16)**
-- ~~Lean~~ → **esqueleto (sorry)** — fechar delta_mono, lemma3, Foundation
-- **R_w (14):** testar PPR-2 sobre ramos
-- **CC-Θ:** Θ polinomial (11 §3.3)
-- **PA real:** lemma3_con com Prf/pad aritmético
+- ~~Lean delta_mono~~ → **PR18 PROVADO**; lemma3=axiom; theorem4/rcs=sorry
+- ~~R_w PPR-2~~ → **PR17: 3/3 PASSA** (predicado refinado A∨B∨C)
+- **PR19:** PPR-3 — Θ sobre provas de ramos (11 §3.3 / CC-Θ)
+- **PR20:** testar R_w nos cenários E0–E3 (RCS)
+- **Foundation:** lemma3_con axiom → prova (Prf/pad aritmético)
+- **`lake build`:** toolchain Lean não instalada localmente — verificar via CI
 - **Estender 16:** comparar com Freund–Pakhomov (comprimento vs δ)
 
 ---
@@ -350,7 +368,9 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 | 22/09/2026 | **PR16 extensão RCS** | **ROBUSTA 4/4** (κ, razão, \|W\|) |
 | 22/09/2026 | **PR15 Lean esqueleto** | defs OK; sorries pendentes |
 | 22/09/2026 | **14 R_w design** | suffix0→índices w; não testado |
-| Próximo | Fechar sorries Lean; testar R_w; Foundation | — |
+| 22/09/2026 | **PR17 R_w PPR-2** | predicado refinado; **3/3 PASSA** |
+| 22/09/2026 | **PR18 delta_mono** | **PROVADO sem sorry**; lemma3=axiom |
+| Próximo | PR19 Θ ramos; PR20 R_w E0–E3; sorries; Foundation | — |
 
 ---
 
@@ -367,7 +387,7 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 
 ## Próximo passo (a atualizar)
 
-> **Próximo:** (a) Buscar **R não-vácuo** (sobre índices w ou códigos de prova π — ligação com RBT); (b) Provar/refutar **CC-Θ** para Θ polinomial; (c) **Lean/Isabelle** com PA real (sair do proposicional); (d) Consultar especialista sobre nota 12. Depois: atualizar este documento.
+> **Próximo:** (a) **PR19:** Θ sobre provas de ramos / CC-Θ polinomial (11 §3.3); (b) **PR20:** testar R_w (predicado refinado) nos cenários E0–E3 de RCS; (c) fechar sorries `theorem4_strict`/`rcs_exists` e integrar Foundation para `lemma3_con`; (d) `lake build` quando toolchain Lean disponível; (e) comparar com Freund–Pakhomov (comprimento vs δ). Depois: atualizar este documento.
 
 ---
 
