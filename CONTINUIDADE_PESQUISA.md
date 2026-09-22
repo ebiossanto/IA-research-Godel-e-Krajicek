@@ -228,8 +228,8 @@ Pergunta testavel: "A reflexao produz assinatura mensuravel na complexidade prop
 6. **ETAPA B:** calcular explicitamente g_{PA,n}, g_{T_1,n} para n pequeno
 7. **ETAPA C-D:** buscar R e Theta candidatos; testar PPR
 8. **ETAPA E:** so depois generalizar / tentar prova assintotica
-9. Proximo arquivo: `10_EXPERIMENTO_...` (ou 09_EXPERIMENTO_PPR_PA_RFNPA)
-10. **EM PARALELO:** busca bibliografica sobre delta/RBT vs. Pudlak/Krajicek
+9. **PROXIMO: RODAR** `10_EXPERIMENTO_GERADORES_FINITOS.md` (enumeração, tabelas, RBT, R)
+10. **EM PARALELO:** varredura inicial 10 §1: δ/RBT **NÃO encontrados**; ρ_b ≠ Pakhomov–Walsh; profundizar com especialistas
 
 ### 6.4. Medio prazo (3-6 meses)
 
@@ -294,6 +294,7 @@ Pergunta testavel: "A reflexao produz assinatura mensuravel na complexidade prop
 | 07_pontos_fixos_incompletude.md | Parte 2: pontos fixos, física, analogias |
 | 08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md | PPR: τ-corrigido, R1/R2 provados, R3 aberto |
 | **09_EVOLUCAO_PERFIL_REFLEXAO_GERADORES.md** | **NÚCLEO ATUAL: g^{a,b}, δ, 𝒢, ρ_b, RBT (Teo. 2, Lema 3, Teo. 4)** |
+| **10_EXPERIMENTO_GERADORES_FINITOS.md** | **EXPERIMENTO: enumeração n=8..16, δ/𝒢/RBT, busca R; varredura bib. δ/RBT=Não encontrado** |
 
 ---
 

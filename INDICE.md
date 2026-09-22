@@ -1,7 +1,7 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.0 (Setembro 2026, núcleo 09 — Espectro de Reflexão)
-**Status:** Honestidade intelectual — teoremas 4-6 rejeitados, FP-K rebaixada, núcleo atual = δ/𝒢/ρ_b/RBT
+**Versão:** 6.1 (Setembro 2026, núcleo 09 + varredura bib. + experimento 10)
+**Status:** Honestidade intelectual — teoremas 4-6 rejeitados, FP-K rebaixada, núcleo = δ/𝒢/ρ_b/RBT, δ/RBT não encontrados na bib. inicial
 
 ---
 
@@ -14,6 +14,7 @@
 | `EVOLUCAO_PROJETO.md` | **HISTÓRICO VIVO: ideia→provas→aberto→mudanças de rumo** | **ATUALIZAR A CADA PASSO** |
 | `09_EVOLUCAO_PERFIL_REFLEXAO_GERADORES.md` | **NÚCLEO MATEMÁTICO: g_T^{a,b}, δ, 𝒢, ρ_b, RBT (Teo. 2, Lema 3, Teo. 4 provados)** | **ATIVO** |
 | `08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md` | PPR: τ-corrigido, ≼_ppr, lemas, R1/R2 provados, R3 aberto | ATIVO (complementar) |
+| `10_EXPERIMENTO_GERADORES_FINITOS.md` | **EXPERIMENTO: enumeração n=8..16, tabelas δ/𝒢/RBT, busca R; varredura bib.** | **PRÓXIMO A RODAR** |
 
 ### Papers e Conjecturas
 
@@ -88,6 +89,8 @@
 | PR4 | Hipótese RCS: α ↦ δ_{T_α}(Φ,b) contém info não ordinal? | HIPÓTESE falsificável | `09_...` §28 |
 | PR5 | ρ_b: independente de codificação? | ABERTO | `09_...` §32 |
 | PR6 | Transferência: δ_S ≤ δ_T ⟹? g_T ≼_ppr g_S | ABERTO | `09_...` §23 |
+| PR7 | Freund–Pakhomov: Con*(PA) aparece em δ? | **PERGUNTA GERADA** (varredura) | `10_...` §1.4 |
+| PR8 | δ/RBT: prioridade vs. Pudlák/Krajíček | **BUSCA INICIAL: NÃO encontrado**; profundizar | `10_...` §1.1-1.2 |
 
 ### DESCARTADOS / REJEITADOS (não usar)
 
@@ -100,6 +103,18 @@
 | D5 | **Teorema 5: cortes estritos** | **NÃO PROVADO** (auditoria): falta ponte teorias↔sistemas |
 | D6 | **Teorema 6(a)(b)(c)** | **NÃO PROVADO** (auditoria): T_* não é r.e.; hardness ≠ completude |
 | D7 | Observação b(n) genérico | **JÁ EXISTE** — Krajíček (2023), rodapé 3, Seção 3 |
+| D8 | "g_T hard para sistemas que interpretam T" | **NÃO AFIRMADO** por Krajíček — hardness universal é aberta |
+
+---
+
+## Varredura Bibliográfica (22/09/2026) — resumo
+
+| Conceito nosso | Encontrado? | Posicionamento |
+|----------------|-------------|----------------|
+| δ (déficit de cobertura) | **NÃO** (busca inicial) | Candidato a novidade; profundizar |
+| RBT (transição de ramo) | **NÃO** (busca inicial) | Nome proposto; candidato |
+| ρ_b (rank de cobertura) | **PRÓXIMO: Pakhomov–Walsh reflection rank** | DISTINTO: eles=ordinal; nós=δ=0 |
+| g^{a,b} (dois orçamentos) | **NÃO explícito** em Krajíček | Refinamento; verificar livro 2025 |
 
 ---
 
@@ -131,9 +146,9 @@ ao longo de uma hierarquia de reflexão $T_0 \subseteq T_1 \subseteq \cdots$?
 - ρ_b independente de codificação?
 - Transferência δ ⟹ PPR?
 
-**Documentos:** `09_EVOLUCAO_...` (núcleo), `08_PROGRAMA_...` (PPR), `EVOLUCAO_PROJETO.md` (histórico)
+**Documentos:** `09_EVOLUCAO_...` (núcleo), `08_PROGRAMA_...` (PPR), `10_EXPERIMENTO_...` (instâncias), `EVOLUCAO_PROJETO.md` (histórico)
 
-**Próximo arquivo:** `10_EXPERIMENTO_...` (instâncias finitas)
+**Próximo passo:** RODAR `10_EXPERIMENTO_GERADORES_FINITOS.md` (enumeração e tabelas §4)
 
 ---
 

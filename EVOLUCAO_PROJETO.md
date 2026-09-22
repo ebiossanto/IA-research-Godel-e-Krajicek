@@ -143,7 +143,35 @@ $$\delta_{S_\alpha}(\Phi,b) \stackrel{?}{=} \delta_{F_\alpha}(\Phi,b)$$
 
 ---
 
-## Fase 5 — O que está em aberto (agora)
+## Fase 5 — Varredura bibliográfica e experimento (22/09/2026)
+
+### Busca δ vs. Pudlák/Krajíček
+
+| Conceito | Encontrado? | Detalhe |
+|----------|-------------|---------|
+| δ (déficit de cobertura) | **NÃO** | Krajíček: τ pontuais; Pudlák: comprimento de provas de princípios fixos — não contam obrigações não cobertas com orçamento b |
+| RBT (transição de ramo) | **NÃO** | Nome proposto; "missing reflection" (Kra11) é conceito próximo mas diferente |
+| ρ_b (rank de cobertura) | **PRÓXIMO: Pakhomov–Walsh "reflection rank"** | DIFERENTES: eles = ordinal de prova; nós = primeiro nível com δ=0 |
+
+**Status:** δ e RBT são **candidatos a novidade** (busca especializada pendente). ρ_b precisa de posicionamento explícito vs. Pakhomov–Walsh.
+
+### Perguntas geradas pela varredura
+
+1. Freund–Pakhomov: PA prova polinomialmente Con(PA+Con*(PA))↾n — **isso aparece em δ?**
+2. Henk–Pakhomov: 3 variantes com ε₀, ω, 2 passos — **assinatura em δ?**
+
+### Experimento criado
+
+**`10_EXPERIMENTO_GERADORES_FINITOS.md`:**
+- Setup: T₀=PA, T₁=PA+RFN_{Π₁}(PA) truncada em L
+- Enumeração n=8..16, b∈{4,...,64}
+- Tabelas: imagens, δ, 𝒢, RBT, candidatos R
+- Pseudocódigo Python-like
+- Critérios de sucesso/refutação
+
+---
+
+## Fase 6 — O que está em aberto (agora)
 
 ### Aberto matemático
 
@@ -152,15 +180,16 @@ $$\delta_{S_\alpha}(\Phi,b) \stackrel{?}{=} \delta_{F_\alpha}(\Phi,b)$$
 3. **Transferência:** δ_S ≤ δ_T + hipóteses ⟹ g_T ≼_ppr g_S?
 4. **ρ_b:** é independente das escolhas de codificação?
 
-### Aberto bibliográfico (antes de reivindicar prioridade)
+### Aberto bibliográfico (após varredura 22/09)
 
-1. δ e 𝒢 são novos vs. Pudlák (2020) / Krajíček?
-2. RBT já aparece na literatura?
-3. FP-K tem equivalente publicado?
+1. ~~δ vs Pudlák/Krajíček?~~ → **busca inicial: NÃO encontrado** (profundizar com especialistas)
+2. ~~RBT já existe?~~ → **busca inicial: NÃO encontrado**
+3. ρ_b vs Pakhomov–Walsh → **PRÓXIMO mas DISTINTO** — posicionar explicitamente
+4. FP-K equivalente publicado? → **ainda não verificado**
 
 ### Aberto experimental
 
-- `09_EXPERIMENTO_PPR_PA_RFNPA.md`: calcular g_{PA,n}, g_{T_1,n} para n pequeno; buscar R e Θ candidatos.
+- `10_EXPERIMENTO_GERADORES_FINITOS.md`: rodar enumeração; preencher tabelas §4; classificar RBT; buscar R.
 
 ---
 
@@ -172,7 +201,8 @@ $$\delta_{S_\alpha}(\Phi,b) \stackrel{?}{=} \delta_{F_\alpha}(\Phi,b)$$
 | 22/09/2026 | Auditoria rejeita Teoremas 4-6 | **SIM** — abandona escala exponencial |
 | 22/09/2026 | Programa PPR (08): ≼_ppr definido, R1/R2 provados | **SIM** — foco em ordem operacional |
 | 22/09/2026 | Núcleo 09: δ, 𝒢, ρ_b, RBT | **SIM** — nível intermediário observável |
-| Próximo | Experimento 09/10: instâncias finitas | — |
+| 22/09/2026 | Varredura bib. + 10_EXPERIMENTO | δ/RBT não encontrados; ρ_b ≠ Pakhomov–Walsh |
+| Próximo | Rodar experimento 10; preencher tabelas | — |
 
 ---
 
@@ -189,7 +219,7 @@ $$\delta_{S_\alpha}(\Phi,b) \stackrel{?}{=} \delta_{F_\alpha}(\Phi,b)$$
 
 ## Próximo passo (a atualizar)
 
-> Criar `10_EXPERIMENTO_...` com implementação finita de g_{PA,n} e g_{T_1,n}, enumerar complementos de imagem, buscar R candidatos, testar PPR.
+> Rodar `10_EXPERIMENTO_GERADORES_FINITOS.md`: enumeração n=8..16, preencher tabelas δ/𝒢/RBT, classificar se RBT ocorre, buscar R candidato. Depois: atualizar este documento com resultados.
 
 ---
 
