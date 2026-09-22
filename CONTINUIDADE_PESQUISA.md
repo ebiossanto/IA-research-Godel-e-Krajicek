@@ -232,7 +232,8 @@ Pergunta testavel: "A reflexao produz assinatura mensuravel na complexidade prop
 10. **`11_PPR3` + `ppr3_suffix0.py`:** suffix0 **VÁCUO/abandonado**; Θ enum OK; CC-Θ aberta
 11. **`reimplementacao_provas_reais.py`:** resolução real confirma δ=4/0, G=4, RBT, Con T0/T1
 12. **`12_NOTA_CURTA_...`:** δ/RBT=NR busca inicial; ρ_b≠P–W; ressalvas explícitas
-13. **PRÓXIMO:** R não-vácuo (índices/π); CC-Θ; Lean/Isabelle PA real; consulta especialista
+13. **`13_EXPERIMENTO_SLOW_VS_FAST_DELTA.md` + `slow_vs_fast_delta.py`:** **RCS CONFIRMADA** — δ_F≠δ_S (α=1, b≥3: 0 vs 4), Φ fixa, slow vs fast
+14. **PRÓXIMO:** PR15 Lean/Isabelle (Lema 3+Teo 4+resultado 13); estender 13; R não-vácuo; correções 01/06/03
 
 ### 6.4. Medio prazo (3-6 meses)
 

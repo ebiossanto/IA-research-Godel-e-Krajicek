@@ -1,7 +1,7 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.3 (Setembro 2026 — exp.10 + PPR-3 + reimpl. real + nota 12)
-**Status:** Honestidade intelectual — teoremas 4-6 rejeitados, FP-K rebaixada, suffix0 vácuo/abandonado, δ/RBT=NR (busca inicial), reimpl. proposicional confirma mecânica
+**Versão:** 6.4 (Setembro 2026 — exp.13: **RCS CONFIRMADA** slow vs fast)
+**Status:** Honestidade intelectual — teoremas 4-6 rejeitados, suffix0 vácuo, **RCS confirmada no modelo (13)**, δ/RBT=NR busca inicial
 
 ---
 
@@ -12,12 +12,13 @@
 | Arquivo | Conteúdo | Status |
 |---------|----------|--------|
 | `EVOLUCAO_PROJETO.md` | **HISTÓRICO VIVO: ideia→provas→aberto→mudanças de rumo** | **ATUALIZAR A CADA PASSO** |
-| `09_EVOLUCAO_PERFIL_REFLEXAO_GERADORES.md` | **NÚCLEO: g^{a,b}, δ, 𝒢, ρ_b, RBT + §35–40 (plano PA, iteração, meta, tabela, veredicto)** | **ATIVO** |
-| `08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md` | PPR: τ-corrigido, ≼_ppr, lemas, R1/R2 provados, R3 aberto | ATIVO (complementar) |
-| `10_EXPERIMENTO_GERADORES_FINITOS.md` | **EXPERIMENTO EXECUTADO: RBT=SIM, suffix0 (depois: vácuo)** | **EXECUTADO** |
-| `11_PPR3_THETA_SUFFIX0.md` | **PPR-3: suffix0 VÁCUO/abandonado; Θ enum OK; CC-Θ aberta** | **EXECUTADO** |
-| `12_NOTA_CURTA_POSICIONAMENTO_DELTA_RBT.md` | **NOTA: δ/RBT vs Pudlák/Krajíček; ρ_b vs P–W** | **NOTA** |
-| `experimento_10.py`, `ppr3_suffix0.py`, `reimplementacao_provas_reais.py` | Scripts (resolução real confirma δ/G/RBT) | **SCRIPTS** |
+| `09_EVOLUCAO_PERFIL_REFLEXAO_GERADORES.md` | **NÚCLEO: g^{a,b}, δ, 𝒢, ρ_b, RBT + §35–40** | **ATIVO** |
+| `08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md` | PPR: τ-corrigido, ≼_ppr, lemas, R1/R2 provados, R3 aberto | ATIVO |
+| `10_EXPERIMENTO_GERADORES_FINITOS.md` | EXPERIMENTO: RBT=SIM, suffix0 (depois: vácuo) | EXECUTADO |
+| `11_PPR3_THETA_SUFFIX0.md` | PPR-3: suffix0 VÁCUO/abandonado; CC-Θ aberta | EXECUTADO |
+| `12_NOTA_CURTA_POSICIONAMENTO_DELTA_RBT.md` | NOTA: δ/RBT vs Pudlák/Krajíček; ρ_b vs P–W | NOTA |
+| **`13_EXPERIMENTO_SLOW_VS_FAST_DELTA.md`** | **EXP.13: RCS CONFIRMADA (δ_F≠δ_S, α=1, Φ fixa)** | **NOVO — EXECUTADO** |
+| Scripts (.py) | experimento_10, ppr3, reimplementacao, **slow_vs_fast** | SCRIPTS |
 
 ### Papers e Conjecturas
 
@@ -100,6 +101,8 @@
 | PR12 | Aplicar correções 01/06/03 (09 §33) | **PENDENTE** | `09_...` §33 |
 | PR13 | Plano 09 §35: prova formal Φ_PA↔Con(PA), δ_PA=1/δ_T1=0 | **ABERTO** (plano) | `09_...` §35 |
 | PR14 | Iteração 09 §36: mesma Φ em T_0,T_1,T_2,... | **ABERTO** (plano) | `09_...` §36 |
+| PR15 | Formalizar Lema 3 + Teo 4 + **resultado 13** em Lean/Isabelle | **PRÓXIMO ALTO** | `13_...` |
+| PR16 | Estender 13: mais κ, Φ rica, comparar Freund–Pakhomov | ABERTO | `13_...` §6 |
 
 ### DESCARTADOS / REJEITADOS (não usar)
 
@@ -146,6 +149,15 @@
 | Con T0 / Con T1 | False / True ✓ |
 | Natureza | **proposicional** (não PA aritmética) |
 
+## Experimento 13 — Slow vs Fast (RCS) — 22/09/2026
+
+| Verificação | Resultado |
+|-------------|-----------|
+| Mesma Φ, hierarquias lenta/rápida | **SIM** |
+| ∃α,b: δ_F ≠ δ_S | **SIM** — 3/30 pares (α=1, b≥3: δ_F=0, δ_S=4) |
+| **RCS** | **CONFIRMADA no modelo** |
+| Ressalva | modelo estrutural (σ,κ), não PA real |
+
 ---
 
 ## Pergunta de Pesquisa Principal (núcleo 09)
@@ -176,9 +188,9 @@ ao longo de uma hierarquia de reflexão $T_0 \subseteq T_1 \subseteq \cdots$?
 - ρ_b independente de codificação?
 - Transferência δ ⟹ PPR?
 
-**Documentos:** 09 (núcleo), 08 (PPR), 10+11+12 (exp+PPR3+nota), scripts (.py), EVOLUCAO
+**Documentos:** 09 (núcleo), 08 (PPR), 10–13 (exp+nota+**slow/fast RCS**), scripts, EVOLUCAO
 
-**Próximo passo:** PR10 (R não-vácuo) ou PR11 (CC-Θ) ou Lean/Isabelle com PA real
+**Próximo passo:** **PR15 Lean/Isabelle** (Lema 3+Teo 4+resultado 13) — transforma RCS confirmada em certificada
 
 ---
 

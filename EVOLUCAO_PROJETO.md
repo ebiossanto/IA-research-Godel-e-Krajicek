@@ -241,7 +241,35 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 
 ---
 
-## Fase 8 — O que está em aberto (agora)
+## Fase 8 — Experimento 13: Slow vs Fast, RCS CONFIRMADA (22/09/2026)
+
+### Setup
+- **Φ fixa** (Φ_PA^{w*} ↔ Con(PA)), mesma para ambas hierarquias
+- Rápida F_α: +2σ/pass (Con); Lenta S_α: +1σ/pass (Con_s < Con)
+- |W|=16, w* = 4 obrigações κ=2; genéricas κ∈{0,1}
+- Script: `slow_vs_fast_delta.py`
+
+### Resultado
+
+| α=1, b≥3 | δ_F | δ_S | Diferença |
+|-----------|-----|-----|-----------|
+| | **0** | **4** | **−4** |
+
+- **3/30 pares (α,b) com δ_F ≠ δ_S**
+- Rápida cobre tudo em α=1; lenta ainda com w* descoberto (κ=2>σ=1)
+- Lenta alcança em α=2
+
+### VEREDITO
+
+\[\boxed{\text{RCS CONFIRMADA no modelo (slow vs fast, Φ fixa)} }\]
+
+- **Nomeável:** primeiro observável de cobertura que separa progressões lentas/rápidas
+- **Ponte:** slow consistency (FRW/Freund–Pakhomov) ↔ proof complexity generators (Krajíček) via δ
+- **Ressalva:** modelo estrutural (σ,κ fixados), não PA real — formalização Lean/Isabelle pendente (PR15)
+
+---
+
+## Fase 9 — O que está em aberto (agora)
 
 ### Aberto matemático
 
@@ -257,14 +285,15 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 3. ρ_b vs Pakhomov–Walsh → **PRÓXIMO mas DISTINTO** — posicionar explicitamente
 4. FP-K equivalente publicado? → **ainda não verificado**
 
-### Aberto experimental
+### Aberto experimental (pós-13)
 
 - ~~PPR-3 suffix0~~ → **vácuo; abandonado** (11 §4.3)
+- ~~RCS slow vs fast~~ → **CONFIRMADA no modelo** (13) — formalizar em Lean/Isabelle
 - **R não-vácuo:** índices w ou códigos π
 - **CC-Θ:** Θ polinomial (11 §3.3)
-- **PA real:** Lean/Isabelle (sair do proposicional)
+- **PA real:** Lema 3 + Teo 4 + resultado 13 em Lean/Isabelle (PR15)
 - **Correções 01/06/03:** aplicar (09 §33, PENDENTE)
-- **Plano 09 §35–36:** prova formal Φ_PA↔Con(PA) e iteração T_k
+- **Estender 13:** mais κ variado, Φ mais rica, comparar com Freund–Pakhomov (comprimento vs δ)
 
 ---
 
@@ -281,7 +310,8 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 | 22/09/2026 | **PPR-3 suffix0: VÁCUO; abandonado** | R real = índices/obrigações |
 | 22/09/2026 | **Reimplementação resolução real** | confirma δ/G/RBT; proposicional |
 | 22/09/2026 | **Nota 12 posicionamento** | δ/RBT não encontrados; ρ_b≠P–W |
-| Próximo | R não-vácuo (índices/π); CC-Θ; Lean/Isabelle | — |
+| 22/09/2026 | **Exp.13 slow vs fast** | **RCS CONFIRMADA** (δ_F≠δ_S em α=1) |
+| Próximo | Lean/Isabelle (PR15); estender 13; R não-vácuo | — |
 
 ---
 
