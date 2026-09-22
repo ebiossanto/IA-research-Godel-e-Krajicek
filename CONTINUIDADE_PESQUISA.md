@@ -241,8 +241,9 @@ Pergunta testavel: "A reflexao produz assinatura mensuravel na complexidade prop
 19. **PR18 `Core.lean`:** `delta_mono` **PROVADO** (sem sorry); `lemma3_con` → **axiom**; theorem4/rcs ainda sorry (fechados em PR21)
 20. **PR20 `18_...` + `test_Rw_ppr2_E0E3.py`:** R_w + PPR-2 **PASSA 4/4** cenários E0–E3 (κ/razão/\|W\|)
 21. **PR19 `19_...` + `ppr3_ramos_theta.py`:** Θ sobre provas de ramos; **CC-Θ 32/32**; \|Θ(π)\|=\|π\|+O(log\|W\|)
-22. **PR21 `Core.lean`:** `theorem4_strict` e `rcs_exists` **PROVADOS sem sorry** (h1–h8; α=⌈κ/fastStep⌉, b=κ+1); `lake build` pendente
-23. **PRÓXIMO:** testar cond. (B) RBT explícito; `lake build`; Foundation lemma3
+22. **PR21 `Core.lean`:** `theorem4_strict` e `rcs_exists` **PROVADOS sem sorry** (h1–h8; α=⌈κ/fastStep⌉, b=κ+1)
+23. **PR22 toolchain + `lake build` LIMPO:** Lean 4.34.0 instalado; `delta_mono`/`theorem4_strict`/`rcs_exists`/`native_decide` **VERIFICADOS**; 0 sorry; lemma3=axiom
+24. **PRÓXIMO:** testar cond. (B) RBT explícito; Foundation lemma3; Freund–Pakhomov
 
 ### 6.4. Medio prazo (3-6 meses)
 

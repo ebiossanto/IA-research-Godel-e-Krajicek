@@ -339,7 +339,13 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 - `theorem4_strict`: **PROVA COMPLETA** (sem sorry) — hipóteses h1–h8 (unicidade de w* em h8, h7 b≥κ+1)
 - `rcs_exists`: **PROVA COMPLETA** (sem sorry) — hipóteses 2≤fastStep, 1≤slowStep; α=⌈κ/fastStep⌉, b=κ+1
 - Auxiliares: `length_filter_sub`, `length_filter_strict`, `huncov_count`
-- **Ressalva:** toolchain Lean não instalada — **`lake build` pendente** (não verificado por máquina)
+
+### PR22 — `lake build` LIMPO (`Core.lean` + toolchain)
+
+- Toolchain **Lean 4.34.0 + Lake 5.0.0** instalados (`lean-toolchain`, `lakefile.toml`)
+- **Build limpo:** `delta_mono`, `theorem4_strict`, `rcs_exists`, `example native_decide` — **verificados pela máquina**
+- **0 `sorry`**; único axioma: `lemma3_axiom` (pendente Foundation)
+- Ajustes API Lean 4.34 core (sem Mathlib): `filter_cons_of_pos/neg`, `decide_eq_true_iff`, `Nat.ne_of_lt`, sem `set`/`by_contra`/`push_neg`
 
 ---
 
@@ -363,14 +369,14 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 
 - ~~Correções 01/06/03~~ → **PR12 APLICADAS**
 - ~~RCS slow vs fast~~ → **CONFIRMADA + ROBUSTA (13/16)**
-- ~~Lean delta_mono~~ → **PR18 PROVADO**; lemma3=axiom; theorem4/rcs=sorry
-- ~~Lean theorem4/rcs~~ → **PR21 PROVADOS sem sorry** (lake build pendente)
+- ~~Lean delta_mono~~ → **PR18 PROVADO**; lemma3=axiom
+- ~~Lean theorem4/rcs~~ → **PR21 PROVADOS sem sorry**
+- ~~`lake build`~~ → **PR22 LIMPO** (Lean 4.34.0; 0 sorry; lemma3=axiom)
 - ~~R_w PPR-2~~ → **PR17: 3/3 PASSA** (predicado refinado A∨B∨C)
 - ~~R_w em E0–E3~~ → **PR20: 4/4 PASSA** (κ/razão/\|W\|)
 - ~~Θ sobre provas de ramos~~ → **PR19: CC-Θ 32/32, polinomial**
 - **Cond. (B) RBT explícito:** testar cenário w* ≠ w₀' (0 disparos em 19)
 - **Foundation:** lemma3_con axiom → prova (Prf/pad aritmético)
-- **`lake build`:** toolchain Lean não instalada localmente — verificar via CI
 - **Estender 16:** comparar com Freund–Pakhomov (comprimento vs δ)
 
 ---

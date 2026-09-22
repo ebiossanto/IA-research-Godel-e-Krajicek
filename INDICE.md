@@ -1,7 +1,7 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.9 (Setembro 2026 — PR21 Lean theorem4/rcs provados)
-**Status:** delta_mono + theorem4 + rcs PROVADOS sem sorry (lake build pendente); lemma3=axiom; CC-Θ 32/32; R_w PPR-2 4/4
+**Versão:** 6.10 (Setembro 2026 — PR22 lake build LIMPO)
+**Status:** delta_mono + theorem4 + rcs VERIFICADOS por `lake build` (0 sorry; lemma3=axiom); CC-Θ 32/32; R_w PPR-2 4/4
 
 ---
 
@@ -19,14 +19,15 @@
 | `12_NOTA_CURTA_POSICIONAMENTO_DELTA_RBT.md` | δ/RBT vs Pudlák/Krajíček; ρ_b vs P–W | NOTA |
 | **`13_EXPERIMENTO_SLOW_VS_FAST_DELTA.md`** | **RCS CONFIRMADA** | **EXECUTADO** |
 | **`14_R_RAMOS_RBT_PPR.md`** | **R_w design + testado (PPR-2)** | **TESTADO** |
-| **`15_FORMALIZACAO_LEAN_PR15.md`** | **Lean: delta_mono+theorem4+rcs PROVADOS; lemma3=axiom** | **ATIVO** |
+| **`15_FORMALIZACAO_LEAN_PR15.md`** | **Lean VERIFICADO (lake build limpo); lemma3=axiom** | **ATIVO** |
 | **`16_EXTENSAO_EXPERIMENTO13_RCS.md`** | **RCS ROBUSTA 4/4** | **EXECUTADO** |
 | **`17_R_RAMOS_PPR2_TESTE.md`** | **PPR-2 refinado 3/3 (cond. C)** | **EXECUTADO** |
 | **`18_R_W_E0_E3_PPR2.md`** | **R_w PPR-2 em E0–E3: 4/4 PASSA** | **EXECUTADO** |
 | **`19_PPR3_THETA_RAMOS.md`** | **Θ ramos: CC-Θ 32/32, polinomial** | **EXECUTADO** |
 | `01/06/03` | **PR12: banners REJEITADO/histórico** | **CORRIGIDO** |
 | Scripts | exp10, ppr3, reimpl, slow_vs_fast, **_ext**, test_Rw, **_E0E3**, **ppr3_ramos** | SCRIPTS |
-| `lean4/Gothic_Generators/Core.lean` | **delta_mono+theorem4+rcs PROVADOS (sem sorry)**; lemma3=axiom; lake build pendente | PARCIAL |
+| `lean4/Gothic_Generators/Core.lean` | **VERIFICADO `lake build` (0 sorry; lemma3=axiom)**; Lean 4.34.0 | **OK** |
+| `lean-toolchain`, `lakefile.toml` | Toolchain Lean 4.34 + Lake | **OK** |
 
 ### Papers e Conjecturas
 
