@@ -269,7 +269,42 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 
 ---
 
-## Fase 9 — O que está em aberto (agora)
+## Fase 9 — PR12+PR16+PR15+R_w (22/09/2026, tarde)
+
+### PR12 — Correções 01/06/03 APLICADAS
+
+- `01_framework`: banner PR12; §4.4 paridade **REJEITADA**; tabela \(2^{\Omega(n)}\) riscada
+- `06_paper2`: status → **HISTÓRICO**; §2.5 REJEITADO; §4 escala **REJEITADA**; resumo corrigido
+- `03_meta`: Teoremas 7/8 → **SKETCH**; "Teorema 4 incondicional" removido
+- 09 §33 status: **APLICADAS**
+
+### PR16 — Extensão RCS (`16_...` + `slow_vs_fast_delta_ext.py`)
+
+| Config | Pares δ_F≠δ_S | RCS |
+|--------|---------------|-----|
+| E0 base | 4/42 | SIM |
+| E1 κ rich | **7/42** | SIM |
+| E2 razão 3:1 | 4/42 | SIM |
+| E3 \|W\|=64 | 4/42 | SIM |
+
+**RCS ROBUSTA** em 4/4 — não artefato de κ/razão/|W|.
+
+### PR15 — Lean esqueleto (`15_...` + `lean4/.../Core.lean`)
+
+- Obligation, Theory, covered, delta: **definidos**
+- delta_mono, lemma3_con, theorem4, rcs_exists: **sorry**
+- example numérico: **native_decide**
+- **NÃO certificação** até sorry eliminados
+
+### 14 — R_w sobre ramos (`14_...`)
+
+- suffix0 vácuo → **R sobre índice w**, não string b
+- Candidato: identidade + sentinela ALL→w*
+- **Design**, não testado; PPR-3 ABERTO
+
+---
+
+## Fase 10 — O que está em aberto (agora)
 
 ### Aberto matemático
 
@@ -285,15 +320,15 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 3. ρ_b vs Pakhomov–Walsh → **PRÓXIMO mas DISTINTO** — posicionar explicitamente
 4. FP-K equivalente publicado? → **ainda não verificado**
 
-### Aberto experimental (pós-13)
+### Aberto experimental (pós-PR12/15/16)
 
-- ~~PPR-3 suffix0~~ → **vácuo; abandonado** (11 §4.3)
-- ~~RCS slow vs fast~~ → **CONFIRMADA no modelo** (13) — formalizar em Lean/Isabelle
-- **R não-vácuo:** índices w ou códigos π
+- ~~Correções 01/06/03~~ → **PR12 APLICADAS**
+- ~~RCS slow vs fast~~ → **CONFIRMADA + ROBUSTA (13/16)**
+- ~~Lean~~ → **esqueleto (sorry)** — fechar delta_mono, lemma3, Foundation
+- **R_w (14):** testar PPR-2 sobre ramos
 - **CC-Θ:** Θ polinomial (11 §3.3)
-- **PA real:** Lema 3 + Teo 4 + resultado 13 em Lean/Isabelle (PR15)
-- **Correções 01/06/03:** aplicar (09 §33, PENDENTE)
-- **Estender 13:** mais κ variado, Φ mais rica, comparar com Freund–Pakhomov (comprimento vs δ)
+- **PA real:** lemma3_con com Prf/pad aritmético
+- **Estender 16:** comparar com Freund–Pakhomov (comprimento vs δ)
 
 ---
 
@@ -311,7 +346,11 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 | 22/09/2026 | **Reimplementação resolução real** | confirma δ/G/RBT; proposicional |
 | 22/09/2026 | **Nota 12 posicionamento** | δ/RBT não encontrados; ρ_b≠P–W |
 | 22/09/2026 | **Exp.13 slow vs fast** | **RCS CONFIRMADA** (δ_F≠δ_S em α=1) |
-| Próximo | Lean/Isabelle (PR15); estender 13; R não-vácuo | — |
+| 22/09/2026 | **PR12 correções 01/06/03** | REJEITADOS aplicados; Paper2=histórico |
+| 22/09/2026 | **PR16 extensão RCS** | **ROBUSTA 4/4** (κ, razão, \|W\|) |
+| 22/09/2026 | **PR15 Lean esqueleto** | defs OK; sorries pendentes |
+| 22/09/2026 | **14 R_w design** | suffix0→índices w; não testado |
+| Próximo | Fechar sorries Lean; testar R_w; Foundation | — |
 
 ---
 

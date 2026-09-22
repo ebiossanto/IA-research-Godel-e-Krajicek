@@ -1,5 +1,9 @@
 # Framework Estendido: Hierarquia Ordinal de Geradores Godelianos
 
+> **STATUS (22/09/2026 — CORREÇÃO PR12):** Este documento contém **AFIRMAÇÕES REJEITADAS**
+> pela auditoria (09 §33). Mantido como **histórico/conjectural**. Ver `09_...` §33,
+> `INDICE.md` D1–D8. NÃO usar §4.4 e tabela §5.3 como teorema.
+
 ## 4. Preliminares Estendidos
 
 ### 4.1. Principios de Reflexao (Beklemishev)
@@ -55,21 +59,19 @@ onde C_n(x) denota os n+1 bits de saida de C_n na entrada x, e g(x) e o bit extr
 
 **Propriedade fundamental:** Se g e um gerador pseudo-aleatorio (ciclo), entao TG_g^n e uma tautologia (porque C_n e injetiva e g(x) e o bit de paridade, entao a disjuncao cobre todas as saidas possiveis).
 
-### 4.4. Gerador Godeliano (Nossa Construcao)
+### 4.4. Gerador Godeliano — VERSÃO ANTIGA (REJEITADA PR12)
 
-**Definicao 4.6 (Gerador Godeliano).** Seja T uma teoria r.e. consistente. O gerador godeliano g_T: {0,1}^* -> {0,1}^* e definido por:
+> **REJEITADO:** Definição por paridade **não** é a de Krajíček (arXiv:2303.10637).
+> "Hard para P que interpreta T" **não** é afirmado por Krajíček — hardness universal
+> é **problema em aberto** (09 §33; `INDICE.md` D8). Construção correta: `09_...` §4.
 
-g_T(x) = paridade{y : T |- Prf_T(y, |x nao-satisfazivel|)}
+~~**Definicao 4.6.** g_T(x) = paridade{y : T |- Prf_T(y, ...)}~~
 
-onde Prf_T(y, phi) afirma "y e o numero de Goedel de uma prova de phi em T".
-
-**Propriedade (Krajicek 2004):** g_T e computavel em tempo polinomial (porque T e r.e. e我们可以枚举 provas em tempo polinomial no comprimento da prova).
-
-**Propriedade (Krajicek 2025):** g_T e um gerador hard para qualquer sistema de prova P que interpreta T. A tautologia TG_{g_T}^n requer provas super-polinomiais em P.
+~~**Propriedade:** g_T e hard para qualquer sistema P que interpreta T.~~
 
 ---
 
-## 5. Framework Estendido: A Ponte Ordinal-Complexidade
+## 5. Framework Estendido: A Ponte Ordinal-Complexidade (HISTÓRICO)
 
 ### 5.1. Construcao: Geradores Indexados por Ordinais
 

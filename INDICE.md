@@ -1,7 +1,7 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.4 (Setembro 2026 — exp.13: **RCS CONFIRMADA** slow vs fast)
-**Status:** Honestidade intelectual — teoremas 4-6 rejeitados, suffix0 vácuo, **RCS confirmada no modelo (13)**, δ/RBT=NR busca inicial
+**Versão:** 6.5 (Setembro 2026 — PR12 correções + PR16 RCS robusta + PR15 Lean + 14 R_w)
+**Status:** correções APLICADAS; RCS robusta; Lean=sorries; suffix0→R_w design
 
 ---
 
@@ -11,14 +11,19 @@
 
 | Arquivo | Conteúdo | Status |
 |---------|----------|--------|
-| `EVOLUCAO_PROJETO.md` | **HISTÓRICO VIVO: ideia→provas→aberto→mudanças de rumo** | **ATUALIZAR A CADA PASSO** |
+| `EVOLUCAO_PROJETO.md` | **HISTÓRICO VIVO** | **ATUALIZAR A CADA PASSO** |
 | `09_EVOLUCAO_PERFIL_REFLEXAO_GERADORES.md` | **NÚCLEO: g^{a,b}, δ, 𝒢, ρ_b, RBT + §35–40** | **ATIVO** |
-| `08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md` | PPR: τ-corrigido, ≼_ppr, lemas, R1/R2 provados, R3 aberto | ATIVO |
-| `10_EXPERIMENTO_GERADORES_FINITOS.md` | EXPERIMENTO: RBT=SIM, suffix0 (depois: vácuo) | EXECUTADO |
-| `11_PPR3_THETA_SUFFIX0.md` | PPR-3: suffix0 VÁCUO/abandonado; CC-Θ aberta | EXECUTADO |
-| `12_NOTA_CURTA_POSICIONAMENTO_DELTA_RBT.md` | NOTA: δ/RBT vs Pudlák/Krajíček; ρ_b vs P–W | NOTA |
-| **`13_EXPERIMENTO_SLOW_VS_FAST_DELTA.md`** | **EXP.13: RCS CONFIRMADA (δ_F≠δ_S, α=1, Φ fixa)** | **NOVO — EXECUTADO** |
-| Scripts (.py) | experimento_10, ppr3, reimplementacao, **slow_vs_fast** | SCRIPTS |
+| `08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md` | PPR, ≼_ppr, R1/R2, R3 aberto | ATIVO |
+| `10_EXPERIMENTO_GERADORES_FINITOS.md` | RBT=SIM, suffix0 (depois: vácuo) | EXECUTADO |
+| `11_PPR3_THETA_SUFFIX0.md` | suffix0 VÁCUO; CC-Θ aberta | EXECUTADO |
+| `12_NOTA_CURTA_POSICIONAMENTO_DELTA_RBT.md` | δ/RBT vs Pudlák/Krajíček; ρ_b vs P–W | NOTA |
+| **`13_EXPERIMENTO_SLOW_VS_FAST_DELTA.md`** | **RCS CONFIRMADA** | **EXECUTADO** |
+| **`14_R_RAMOS_RBT_PPR.md`** | **R_w design (pós-suffix0)** | **DESIGN** |
+| **`15_FORMALIZACAO_LEAN_PR15.md`** | **Lean esqueleto (sorry)** | **ESQUELETO** |
+| **`16_EXTENSAO_EXPERIMENTO13_RCS.md`** | **RCS ROBUSTA 4/4** | **EXECUTADO** |
+| `01/06/03` | **PR12: banners REJEITADO/histórico** | **CORRIGIDO** |
+| Scripts | exp10, ppr3, reimpl, slow_vs_fast, **_ext** | SCRIPTS |
+| `lean4/Gothic_Generators/Core.lean` | defs + sorries | ESQUELETO |
 
 ### Papers e Conjecturas
 
@@ -98,11 +103,13 @@
 | PR9 | PPR-3: Θ para `suffix0` | **FALHOU: suffix0 vácuo** — abandonado | `11_...` §4.3 |
 | PR10 | R não-vácuo (índices w ou códigos π) | **ABERTO** | `11_...` §7 |
 | PR11 | CC-Θ: Θ polinomial | **ABERTO** | `11_...` §3.3 |
-| PR12 | Aplicar correções 01/06/03 (09 §33) | **PENDENTE** | `09_...` §33 |
-| PR13 | Plano 09 §35: prova formal Φ_PA↔Con(PA), δ_PA=1/δ_T1=0 | **ABERTO** (plano) | `09_...` §35 |
-| PR14 | Iteração 09 §36: mesma Φ em T_0,T_1,T_2,... | **ABERTO** (plano) | `09_...` §36 |
-| PR15 | Formalizar Lema 3 + Teo 4 + **resultado 13** em Lean/Isabelle | **PRÓXIMO ALTO** | `13_...` |
-| PR16 | Estender 13: mais κ, Φ rica, comparar Freund–Pakhomov | ABERTO | `13_...` §6 |
+| PR12 | Aplicar correções 01/06/03 (09 §33) | **APLICADAS** (PR12) | `01/06/03` |
+| PR13 | Plano 09 §35: prova formal Φ_PA↔Con(PA) | **ABERTO** (plano) | `09_...` §35 |
+| PR14 | Iteração 09 §36: mesma Φ em T_0,T_1,... | **ABERTO** (plano) | `09_...` §36 |
+| PR15 | Formalização Lean Lema 3+Teo 4+RCS | **ESQUELETO** (sorry) | `15_...` |
+| PR16 | Estender 13 (κ, razão, \|W\|) | **FEITO — RCS ROBUSTA 4/4** | `16_...` |
+| PR17 | Testar R_w (índices) PPR-2 | **DESIGN** | `14_...` |
+| PR18 | Fechar sorry delta_mono em Lean | **ABERTO** | `Core.lean` |
 
 ### DESCARTADOS / REJEITADOS (não usar)
 
@@ -154,9 +161,19 @@
 | Verificação | Resultado |
 |-------------|-----------|
 | Mesma Φ, hierarquias lenta/rápida | **SIM** |
-| ∃α,b: δ_F ≠ δ_S | **SIM** — 3/30 pares (α=1, b≥3: δ_F=0, δ_S=4) |
+| ∃α,b: δ_F ≠ δ_S | **SIM** — 3–4/30 pares (α=1, b≥3) |
 | **RCS** | **CONFIRMADA no modelo** |
-| Ressalva | modelo estrutural (σ,κ), não PA real |
+
+## PR16 — Extensão RCS (robustez) — 22/09/2026
+
+| Config | Pares δ_F≠δ_S | RCS |
+|--------|---------------|-----|
+| E0 base | 4/42 | **SIM** |
+| E1 κ rich | 7/42 | **SIM** |
+| E2 3:1 | 4/42 | **SIM** |
+| E3 \|W\|=64 | 4/42 | **SIM** |
+
+**Veredito: RCS ROBUSTA 4/4.**
 
 ---
 
@@ -188,9 +205,9 @@ ao longo de uma hierarquia de reflexão $T_0 \subseteq T_1 \subseteq \cdots$?
 - ρ_b independente de codificação?
 - Transferência δ ⟹ PPR?
 
-**Documentos:** 09 (núcleo), 08 (PPR), 10–13 (exp+nota+**slow/fast RCS**), scripts, EVOLUCAO
+**Documentos:** 09 (núcleo), 08 (PPR), 10–16 (exp+nota+**RCS robusta**+R_w+Lean), 01/06/03 **corrigidos**, EVOLUCAO
 
-**Próximo passo:** **PR15 Lean/Isabelle** (Lema 3+Teo 4+resultado 13) — transforma RCS confirmada em certificada
+**Próximo passo:** Fechar sorry `delta_mono` (PR18); testar R_w (PR17); Foundation p/ lemma3
 
 ---
 

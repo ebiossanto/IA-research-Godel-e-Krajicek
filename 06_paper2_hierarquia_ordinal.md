@@ -2,13 +2,24 @@
 
 **Autor:** Contribuicao original
 **Data:** Setembro 2026
-**Status:** Preprint
+**Status:** ~~Preprint~~ → **HISTÓRICO/CONJECTURAL (PR12, 22/09/2026)**
+
+> **CORREÇÃO PR12:** Teoremas 3.3, 3.4, 4.1, 5.2, 6.2, 8.1, 8.2 **não provados**
+> com rigor aceitável (09 §33; `INDICE.md` D1–D6). Escala exponencial
+> \(2^{\Omega(n)}, 2^{2^{\Omega(n)}}, \ldots\) **removida do status de teorema**.
+> Núcleo ativo: `09_...` (δ, 𝒢, ρ_b, RBT).
 
 ---
 
 ## Resumo
 
-Estabelecemos uma ponte formal entre a hierarquia de reflexao ordinal de Beklemishev (que indexa teorias de 1a ordem por ordinais recursivos) e os geradores de complexidade de provas de Krajicek (que produzem familias de tautologias proposicionais). Definimos *geradores godelianos indexados por ordinais* g_alpha, onde cada nivel ordinal alpha corresponde a um gerador derivado da teoria T_alpha na hierarquia de reflexao. Provamos que (1) a dureza dos geradores escala monotonamente com o ordinal subjacente; (2) a hierarquia induz uma classificacao estrita dos sistemas de prova por sua posicao ordinal; e (3) sob a conjectura de Krajicek, existe um gerador canonico maximo g* correspondente a uniao de todas as teorias r.e. consistentes. Formalizamos parte deste framework em Lean 4 usando a biblioteca Foundation de Saitou & Noguchi (2026).
+Estabelecemos uma ponte ~~formal~~ **conjectural** entre a hierarquia de reflexão ordinal de Beklemishev e os geradores de Krajíček.
+
+> **AVISO PR12:** O resumo abaixo afirma "Provamos (1)... (2)... (3)" — **isto NÃO é
+> verdadeiro** com o rigor do projeto. Teoremas correspondentes estão **REJEITADOS**
+> (09 §33). Ler apenas como **programa histórico**, não como resultado estabelecido.
+
+Estabelecemos uma ponte ~~formal~~ entre ... ~~Provamos~~ *Propúnhamos* que (1) ... (2) ... (3) ...
 
 ---
 
