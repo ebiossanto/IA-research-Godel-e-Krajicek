@@ -1,5 +1,11 @@
 # Conexoes com Meta-Complexidade e Aplicacoes
 
+> **STATUS (22/09/2026 — CORREÇÃO PR12):** Teoremas 7 e 8 abaixo são **SKETCHES**,
+> não teoremas provados (09 §33; `INDICE.md` D5). Mantidos como **programa de pesquisa**.
+> "Teorema 4" referenciado é o **antigo Teorema 4 (escala ordinal), REJEITADO**.
+
+---
+
 ## 9. Conexoes com Meta-Complexidade
 
 ### 9.1. MCSP e Geradores Godelianos
@@ -8,9 +14,12 @@ O Minimum Circuit Size Problem (MCSP) e o problema meta-complexidade classico:
 
 MCSP = {(f, s) : a funcao Booleana f tem circuito de tamanho <= s}
 
-**Teorema 7 (Reducao MCSP -> Geradores Godelianos).** MCSP e redutivel (em tempo polinomial) ao problema de decidir se TG_alpha^n tem prova polinomial em um sistema P.
+**Teorema 7 (SKETCH — NÃO PROVADO).** *Proposta:* MCSP é redutível (em tempo polinomial) ao problema de decidir se TG_alpha^n tem prova polinomial em um sistema P.
 
-**Prova sketch.** Dada uma instancia (f, s) de MCSP:
+> **STATUS PR12:** Apenas **sketch** (passos 1–4 abaixo). **NÃO classificar como teorema**
+> até prova completa com dominios, codificações e cotas explicitadas.
+
+**Prova sketch (incompleto).** Dada uma instancia (f, s) de MCSP:
 
 1. Considere a funcao g definida por g(x) = f(x) XOR bit_extra(x)
 2. Se f tem circuito de tamanho s, entao g pode ser computado por um circuito de tamanho s + O(1)
@@ -21,7 +30,10 @@ A reducao e polinomial porque:
 - A construcao de TG_g^n a partir de (f, s) e polinomial
 - A verificacao de que a prova e correta e polinomial
 
-**Corolario 9.1.** Se MCSP e NP-hard, entao existir geradores godelianos hard para todos os sistemas implicaria NP != coNP.
+**Corolario 9.1 (condicionais).** Se MCSP e NP-hard, entao existir geradores godelianos hard para todos os sistemas implicaria NP != coNP.
+
+> **Nota PR12:** Condicional ao **Teorema 7 (sketch)** e a "geradores hard para todos"
+> (conjectura de Krajíček, **em aberto**). Não é resultado estabelecido.
 
 ### 9.2. Conexao com Santhanam (2025): Meta-Complexidade como Ferramenta
 
@@ -32,7 +44,10 @@ Santhanam (2025, CCR) identifica tres usos de meta-complexidade:
 
 Nosso framework se encaixa no terceiro uso: geradores godelianos fornecem uma fonte de limites inferiores derivada de incompletude (nao de hipoteses criptograficas).
 
-**Diferenca fundamental:** Usos 1 e 2 de Santhanam dependem de hipoteses (one-way functions, etc.). Nosso Teorema 4 e INCONDICIONAL (a nao ser que a hierarquia de interpretabilidade colapse, o que e considerado improvavel).
+**Diferenca fundamental:** Usos 1 e 2 de Santhanam dependem de hipoteses (one-way functions, etc.).
+
+> **CORREÇÃO PR12:** "Nosso Teorema 4" (escala ordinal) **está REJEITADO** (09 §33).
+> NÃO afirmar incondicionalidade deste teorema — ele não está provado.
 
 ### 9.3. Conexao com Monroe (2026): Hardness como Restricao Informacional
 
@@ -82,7 +97,7 @@ onde a subtracao e feita modulo 2 (ou no corpo finito relevante).
 
 ### 10.3. Resultado Condicional
 
-**Teorema 8 (Limite Inferior Condicional para IPS).** Se o gerador g_0 (nivel PA) pode ser aritmetizado em IPS de profundidade constante, entao:
+**Teorema 8 (SKETCH CONDICIONAL — NÃO PROVADO).** *Proposta:* Se o gerador g_0 (nivel PA) pode ser aritmetizado em IPS de profundidade constante, entao:
 
 s_{IPS-d}(F_{g_0}) >= 2^{Omega(n)}
 

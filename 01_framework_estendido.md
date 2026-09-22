@@ -102,12 +102,16 @@ g_beta e "mais dificil" que g_alpha no seguinte sentido:
 
 ### 5.3. Tabela de Especificacao
 
-| Nivel alpha | Teoria T_alpha | |T_alpha| (ord) | g_alpha | s_P(TG_alpha) para P que interpreta T_alpha |
-|---|---|---|---|---|
-| 0 | PA | epsilon_0 | g_{PA} | 2^{Omega(n)} |
-| 1 | PA + RFN(PA) | omega^{epsilon_0+1} | g_{PA+RFN} | 2^{2^{Omega(n)}} |
-| 2 | PA + RFN(PA) + RFN(PA+RFN) | omega^{omega^{epsilon_0+1}+1} | g_{PA+RFN^2} | 2^{2^{2^{Omega(n)}}} |
-| omega | union_{n<omega} T_n | epsilon_0^omega | g_{lim} | hiper-exponencial |
-| epsilon_0 | PA (ordem-teorica) | epsilon_0 | g_{PA} (canonical) | maximo para PA |
+> **REJEITADO (PR12):** Coluna \(s_P(TG_\alpha)\) com \(2^{\Omega(n)}\), \(2^{2^{\Omega(n)}}\), etc.
+> **NÃO PROVADA** neste repositório (09 §33; `INDICE.md` D2–D4). Valores hipotéticos.
 
-**Nota:** A coluna s_P mostra o comprimento MINIMO de prova da tautologia TG_alpha^n em qualquer sistema P que interpreta T_alpha. Estes valores sao limites inferiores (pelo Teorema 4 abaixo).
+| Nivel alpha | Teoria T_alpha | \|T_alpha\| (ord) | g_alpha | s_P(TG_alpha) — **NÃO PROVADO** |
+|---|---|---|---|---|
+| 0 | PA | epsilon_0 | g_{PA} | ~~2^{Omega(n)}~~ **(rejeitado)** |
+| 1 | PA + RFN(PA) | omega^{epsilon_0+1} | g_{PA+RFN} | ~~2^{2^{Omega(n)}}~~ **(rejeitado)** |
+| 2 | PA + RFN + RFN^2 | ... | g_{PA+RFN^2} | ~~2^{2^{2^{Omega(n)}}}~~ **(rejeitado)** |
+| omega | union T_n | epsilon_0^omega | g_{lim} | ~~hiper-exponencial~~ **(rejeitado)** |
+| epsilon_0 | PA (ordem-teorica) | epsilon_0 | g_{PA} | ~~maximo para PA~~ **(rejeitado)** |
+
+**Nota (PR12):** Estes limites **não podem ser mantidos como teorema**. A única
+afirmação provada neste projeto sobre cobertura é δ monotônica (09 Teo. 2).

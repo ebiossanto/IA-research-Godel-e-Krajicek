@@ -1543,7 +1543,8 @@ MCSP\le_p\text{"ter prova polinomial de }TG_\alpha"
 
 continua apenas como sketch e não deve ser classificado como teorema.
 
-**Status destas correções (22/09/2026):** AINDA PENDENTES de aplicação nos arquivos 01, 06, 03 — registradas em `INDICE.md` (D1–D6) e `EVOLUCAO_PROJETO.md`.
+**Status destas correções (22/09/2026):** ~~PENDENTES~~ → **APLICADAS (PR12, commit posterior)**
+em `01_framework_estendido.md`, `06_paper2_hierarquia_ordinal.md`, `03_meta_complexidade_aplicacoes.md` — banners REJEITADO/PR12 inseridos; tabelas \(2^{\Omega(n)}\) riscadas; Teoremas 7/8 = sketch.
 
 ---
 

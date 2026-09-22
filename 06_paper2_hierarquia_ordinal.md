@@ -91,13 +91,13 @@ A *ordem-teorica* |T| de uma teoria T e o ordinal recursivo associado a T:
 
 **Definicao 2.4 (Tautologia do Gerador).** TG_g^n = AND_{x in {0,1}^n} [C_n(x) = g(x)].
 
-### 2.5. Gerador Godeliano
+### 2.5. Gerador Gödeliano — VERSÃO ANTIGA (REJEITADA PR12)
 
-**Definicao 2.5 (Gerador Godeliano - Krajicek 2004).** Seja T uma teoria r.e. consistente. O gerador godeliano g_T e definido por:
+> **REJEITADO:** Definição por paridade **não** é a de Krajíček; "hard para P que
+> interpreta T" **não** é afirmado por Krajíček (ver `09_...` §33).
 
-g_T(x) = paridade{y : T |- Prf_T(y, |x nao-satisfazivel|)}
-
-**Propriedade (Krajicek 2025):** g_T e hard para qualquer sistema P que interpreta T.
+~~**Definição 2.5.** g_T(x) = paridade{y : T ⊢ Prf_T(y, ...)}~~
+~~**Propriedade:** g_T é hard para qualquer sistema P que interpreta T.~~
 
 ---
 
@@ -132,18 +132,24 @@ Explicitamente:
 
 ### 3.3. Tabela de Especificacao
 
-| Nivel alpha | Teoria T_alpha | \|T_alpha\| | s_P(TG_alpha) para P que interpreta T_alpha |
+> **REJEITADO (PR12):** Coluna \(s_P\) com \(2^{\Omega(n)}\) etc. — **não provada** (09 §33).
+
+| Nivel alpha | Teoria T_alpha | \|T_alpha\| | s_P(TG_alpha) — **NÃO PROVADO** |
 |---|---|---|---|
-| 0 | PA | epsilon_0 | 2^{Omega(n)} |
-| 1 | PA + RFN(PA) | omega^{epsilon_0+1} | 2^{2^{Omega(n)}} |
-| 2 | PA + RFN(PA) + RFN(PA+RFN) | omega^{omega^{epsilon_0+1}+1} | 2^{2^{2^{Omega(n)}}} |
-| omega | union_{n<omega} T_n | epsilon_0^omega | hiper-exponencial |
+| 0 | PA | epsilon_0 | ~~2^{Omega(n)}~~ **(rejeitado)** |
+| 1 | PA + RFN(PA) | omega^{epsilon_0+1} | ~~2^{2^{Omega(n)}}~~ **(rejeitado)** |
+| 2 | PA + RFN + RFN^2 | ... | ~~2^{2^{2^{Omega(n)}}}~~ **(rejeitado)** |
+| omega | union T_n | epsilon_0^omega | ~~hiper-exponencial~~ **(rejeitado)** |
 
 ---
 
-## 4. Teorema Principal: Escala Ordinal da Dureza
+## 4. Teorema Principal: Escala Ordinal da Dureza — **REJEITADO (PR12)**
 
-### 4.1. Enunciado
+> **REJEITADO:** Enunciado \(s_P(TG_\alpha^n) \ge 2^{c \cdot |T_\alpha| \cdot n}\)
+> **não tem derivação válida** neste arquivo (09 §33; `INDICE.md` D3).
+> "Prova" abaixo é **sketch incompleto** — não mantido como teorema.
+
+### 4.1. Enunciado (ORIGINAL — REJEITADO)
 
 **Teorema 4.1 (Escala Ordinal).** Seja P um sistema de prova e T uma teoria r.e. consistente que P interpreta. Seja alpha o menor ordinal tal que T_alpha >=_int T. Entao:
 
