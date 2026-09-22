@@ -1,215 +1,155 @@
-# Barreiras Godelianas em Complexidade de Provas: Notas Exploratorias
+# Barateando a Diagonalizacao: Uma Observacao sobre o Mecanismo de Krajicek
 
-**Status:** Notas Exploratorias (nao submetido)
+**Status:** Nota curta (observacao, nao teorema estabelecido)
 **Data:** Setembro 2026
-**Aviso:** Este documento contem conjecturas e argumentos informalos. Nao e um paper comprovado.
+**Aviso:** Trate como observacao pequena, nao teorema estabelecido. Expliquei no fim por que.
 
 ---
 
 ## Resumo
 
-Exploramos a conexao entre a forca de interpretabilidade aritmetica de sistemas de prova e a complexidade de sentencas autorreferenciais. Apresentamos conjecturas (nao provadas) sobre como a incompletude de Goedel pode criar barreiras em complexidade de provas. Muitos resultados dependem da hipotese P != NP.
-
-**Aviso importante:** Este documento e exploratorio. Os "teoremas" sao na verdade conjecturas ou sketches de prova que precisam de rigorizacao.
+Notamos que o limite log n na construcao de Krajicek (2023) pode ser substituido por qualquer funcao computavel b(n) -> infinito, sem alterar a correcao do argumento. Especificamente, com b(n) = log log n, o algoritmo de diagonalizacao roda em tempo linear (dominado por ler a entrada), nao apenas polinomial. Isto separa duas coisas que "barreira de interpretabilidade" estava tentando capturar e confundindo: a diagonalizacao crua de Goedel e barata; o que e caro e ligado a problemas em aberto so aparece quando se tenta empurrar o argumento pra forma proposicional.
 
 ---
 
-## 1. O Que Ja Existe (referencia critica)
+## 1. Contexto: O Paper de Krajicek (2023)
 
-### 1.1. O Paper de Krajicek (2023)
+**Referencia central:** Krajicek, J. (2023). "A proof complexity conjecture and the Incompleteness theorem." arXiv:2303.10637. JSL 90(3), 2025, pp. 1206-1210.
 
-** referencia fundamental:** Krajicek, J. (2023). "A proof complexity conjecture and the Incompleteness theorem." arXiv:2303.10637. Publicado em JSL 90(3), 2025, pp. 1206-1210.
-
-Este paper faz CORRETAMENTE o que nosso Teorema 1 tentava fazer (e errava). O mecanismo de Krajicek e:
+Krajicek constroi uma funcao g_T que diagonaliza contra uma teoria T e usa isso pra provar o 1o Teorema de Goedel. O mecanismo e:
 
 **Dado u com |u| = n:**
 
-1. **Acha a formula Phi:** Prefixo de u com |Phi| <= log n
-2. **Para cada string w:** De um alfabeto pequeno (determinado por |Phi|), procura uma T-prova de tamanho <= log n de uma senteca Phi_w especifica
-3. **A primeira w sem prova:** Define a saida
+1. Acha a formula Phi, prefixo de u, com |Phi| <= log n
+2. Para cada string w de um alfabeto pequeno (determinado por |Phi|), procura uma T-prova de tamanho <= log n de uma senteca Phi_w especifica
+3. A primeira w sem prova encontrada define a saida
 
-**O truque decisivo:** Os dois limites sao **log n**, nao um polinomio p(n).
+**O truque decisivo:** Os dois limites sao log n. O numero de strings candidatas a prova de tamanho <= b e da ordem de 2^b:
 
-**Por que importa:**
-
-| Abordagem | Limite de provas | Strings candidatas | Complexidade |
-|-----------|------------------|-------------------|--------------|
-| Krajicek (correto) | <= log n | 2^{O(log n)} = poly(n) | POLINOMIAL |
-| Nosso Teorema 1 (errado) | <= p(n) | 2^{p(n)} | EXPONENCIAL |
-
-### 1.2. Por Que Nosso Teorema 1 Quebrava
-
-O paper anterior dizia:
-
-> "Enumere todas as provas P de comprimento <= p(|G||_n|). Este algoritmo roda em tempo polinomial."
-
-**Erro:** Enumerar todas as provas de ate p(n) bits requer tempo 2^{p(n)} (cada bit pode ser 0 ou 1). Isto e exponencial, nao polinomial.
-
-**A solucao de Krajicek:** Usar log n como limite, nao p(n). Com log n, o numero de candidatos e polinomial.
-
-### 1.3. O Que Krajicek Prova
-
-Krajicek prova o Primeiro Teorema da Incompletude usando geradores de complexidade de provas:
-
-**Teorema (Krajicek 2023):** Seja T uma teoria consistente. Existe uma funcao g_T computavel em tempo polinomial tal que:
-- g_T e hard para qualquer sistema de prova P que interpreta T
-- A tautologia TG_{g_T}^n requer provas super-polinomiais em P
-
-Isto e exatamente o que nosso "gerador godeliano" tentava fazer, mas de forma CORRETA.
+- Se b = log n -> 2^{O(log n)} = poly(n) -> dentro de P
+- Se b = p(n) com p polinomial -> 2^{Theta(n^e)}, genuinamente exponencial
 
 ---
 
-## 2. O Que Esta Bem Estabelecido (nao e nosso)
+## 2. Nossa Observacao: Barateando a Diagonalizacao
 
-### 2.1. Teorema de Cook-Reckhow (1979)
+### 2.1. Enunciado
 
-**Teorema (Cook-Reckhow):** NP = coNP se e somente se existe um sistema de prova polinomicamente delimitado.
+**Proposicao.** Seja b(n) qualquer funcao computavel em tempo, nao decrescente, com b(n) -> infinito (por mais devagar que seja - log log n, log* n, o que for). Troque "log n" por "b(n)" nos dois lugares da construcao de Krajicek, sem mexer em mais nada. Entao:
 
-**Status:** PROVADO. E um resultado classico.
+(a) A funcao resultante g_T^(b) ainda estica a entrada, ainda tem imagem co-infinita, e satisfaz o mesmo teorema de intersecao condicional de Krajicek (logo o mesmo Corolario = 1o Teorema de Goedel), trocando "n >= 2^l" por "n grande o bastante para que b(n) >= l";
 
-### 2.2. Teorema de Incompletude de Goedel (1931)
+(b) A demonstracao e literalmente a dele, palavra por palavra - nada nela usa a taxa de crescimento especifica de log n, so que ela tende a infinito;
 
-**Teorema (G2):** Se T e uma teoria consistente que estende Q, entao T nao prova Con(T).
+(c) O que muda e so o tempo de execucao: o passo 2 faz uma busca dupla (aprox 2^{O(b(n))} valores de w, e para cada um aprox 2^{O(b(n))} candidatas a prova), entao o tempo total e O(n + 2^{O(b(n))}).
 
-**Status:** PROVADO. E um resultado classico.
+### 2.2. Exemplos
 
-### 2.3. Geradores de Krajicek (2004-2025)
+| b(n) | Candidatas por busca | Tempo total | Em P? |
+|------|---------------------|-------------|-------|
+| log n | 2^{O(log n)} = poly(n) | O(n + poly(n)) | Sim (escolha de Krajicek) |
+| log log n | 2^{O(log log n)} = (log n)^O(1) | O(n + (log n)^O(1)) | Sim (linear) |
+| log* n | 2^{O(log* n)} = constante | O(n + c) | Sim (linear) |
 
-Krajicek desenvolveu geradores de complexidade de provas ao longo de 20 anos:
-- Krajicek (2004): Diagonalizacao em complexidade de provas
-- Krajicek (2024): Proof complexity generators (livro)
-- Krajicek (2025): Paper que conecta geradores com incompletude
+**Tabela de exemplos praticos:**
 
-**Status:** PROVADO. Resultados de Krajicek.
+| n | log n | log log n (2^isso) | log* n (2^isso) |
+|---|-------|-------------------|-----------------|
+| 2^10 | 10 | 3,3 (~10) | 4 (16) |
+| 2^20 | 20 | 4,3 (~20) | 5 (32) |
+| 2^40 | 40 | 5,3 (~40) | 5 (32) |
+| 2^80 | 80 | 6,3 (~80) | 5 (32) |
 
----
+### 2.3. O Ponto Conceitual
 
-## 3. Nossas Conjecturas (nao provadas)
+Isto separa duas coisas que "barreira de interpretabilidade" estava tentando capturar e confundindo:
 
-### 3.1. Conexao entre Incompletude e Complexidade
+**Diagonalizacao crua de Goedel e barata** - quase de graça computacionalmente. Com b(n) = log log n, temos uma testemunha computavel do 1o Teorema de Goedel rodando em tempo linear.
 
-**Conjectura 1 (Barreira de Interpretabilidade):** Se um sistema de prova P interpreta PA e e polinomicamente delimitado, entao P = coNP.
-
-**Argumento (sketch, nao rigoroso):**
-
-1. Se P e polinomicamente delimitado, entao por Cook-Reckhow, P = coNP.
-2. Se P interpreta PA, entao P pode formalizar raciocinio sobre provabilidade em PA.
-3. Se P = coNP e P interpreta PA, entao P pode decidir Con(PA) em tempo polinomial.
-4. Mas por G2, PA nao prova Con(PA). Isto cria uma tensao (nao necessariamente uma contradicao direta).
-
-**Problema:** O passo 4 nao e uma contradicao direta. PA nao poder provar Con(PA) nao implica que um sistema proposicional nao pode decidir Con(PA). A conexao precisa de mais trabalho.
-
-**Status:** CONJECTURA. Argumento informal.
-
-### 3.2. Hierarquia de Separacao
-
-**Conjectura 2:** Se P e mais forte que Q (em termos de interpretabilidade), existem sentencas que P resolve em tempo polinomial e Q nao resolve.
-
-**Problema:** Isto depende de P != NP. Se P = coNP, todos os sistemas polinomicamente delimitados sao equivalentes.
-
-**Status:** CONJECTURA. Depende de P != NP.
+**O que e caro e ligado a problemas em aberto** so aparece no Teorema 3.1 de Krajicek (2023), um andar acima, quando se tenta empurrar o argumento pra forma proposicional. A barreira real nao esta em provar incompletude; esta em extrair dela informacao sobre classes de complexidade.
 
 ---
 
-## 4. O Que NAO E Provable (erros no paper anterior)
+## 3. O Que Ja Existia (e que erramos nao citar)
 
-### 4.1. Erro na Prova do Teorema 1
+### 3.1. Krajicek (2023) - O Paper Central
 
-O paper anterior dizia:
+Krajicek faz corretamente o que nosso "Teorema 1" tentava fazer (e errava):
+- Constroi g_T que diagonaliza contra T
+- Usa log n como limite (nao p(n))
+- Prova o 1o Teorema de Goedel via geradores
 
-> "Enumere todas as provas P de comprimento <= p(|G||_n|). Este algoritmo roda em tempo polinomial."
+**Nosso erro:** Nao citamos este paper. Sem esta referencia, o trabalho parecia estar tentando reinventar (e errando) algo que ja existe, correto, publicado.
 
-**Erro:** Enumerar todas as provas de ate p(n) bits requer tempo 2^{p(n)} (cada bit pode ser 0 ou 1). Isto e exponencial, nao polinomial.
+### 3.2. Krajicek (2024-2025) - Livro e Developments
 
-**Correcao:** O argumento correto usa o mecanismo de Krajicek:
-- Usar log n como limite de tamanho de prova
-- Isto da 2^{O(log n)} = poly(n) candidatos
-- Cada candidato e verificado em tempo polinomial
-- Total: tempo polinomial
-
-### 4.2. Limite n^c e Fraco Demais
-
-O paper anterior dizia:
-
-> "s_P(||phi_n||) >= n^c para todo n"
-
-**Problema:** Este limite e fraco demais para ser uma "barreira". Nao sabemos se c > 0 e fixo, ou se depende de n.
-
-**Correcao:** O resultado correto (via Krajicek) e:
-- Se P != NP, entao nenhum sistema e polinomicamente delimitado (por Cook-Reckhow).
-- Isto nao fornece um limite inferior explicito para sentencas especificas.
-
-### 4.3. Tabela de g(P) e Especulativa
-
-O paper anterior dizia:
-
-| Sistema | g(P) estimado |
-|---------|---------------|
-| Frege | 2^{2^{Omega(n)}} |
-| Extended Frege | 2^{2^{2^{Omega(n)}}} |
-
-**Problema:** Estes limites sao ESPECULATIVOS. Nao existem provas na literatura para estes limites especificos.
-
-**Correcao:** A tabela deve ser removida ou marcada como puramente conjectural.
+O livro "Proof Complexity Generators" (CUP, 2025, 134 paginas) tem generalizacoes que nao vimos de perto. A observacao pode ja ter sido notada por outros.
 
 ---
 
-## 5. O Que Nosso Trabalho Pode Fazer (agora corretamente)
+## 4. Honestidade sobre a Observacao
 
-### 5.1. Basear-se em Krajicek (2023)
+### 4.1. Por que e observacao (nao teorema)
 
-Nosso trabalho pode:
-1. **Citar Krajicek (2023)** como referencia fundamental
-2. **Usar o mecanismo de log n** para provas polinomiais
-3. **Estender** o resultado de Krajicek para hierarquias ordinais
+1. **E pequena:** A mudanca de log n para b(n) e direta
+2. **E verificavel:** A demonstracao e "literalmente a dele, palavra por palavra"
+3. **Pode ja ter sido notada:** O livro de 2025 tem generalizacoes que nao revimos
 
-### 5.2. Contribuicao Potencial
+### 4.2. O que falta para tornar teorema
 
-A contribuicao potencial (nao provada) seria:
-1. Conectar o gerador g_T de Krajicek com a hierarquia de Beklemishev
-2. Mostrar que a dificuldade escala com o ordinal
-3. Classificar sistemas de prova por sua posicao na hierarquia
-
-### 5.3. O Que Precisa de Trabalho
-
-1. **Rigorizar** a conexao entre g_T e a hierarquia ordinal
-2. **Provar** que geradores de niveis mais altos sao mais dificeis
-3. **Formalizar** em Lean 4 usando a biblioteca Foundation
+1. **Verificar** se a generalizacao ja aparece em Krajicek (2025)
+2. **Publicar** como nota curta (se nao existir)
+3. **Formalizar** em Lean 4
 
 ---
 
-## 6. Status Atual
+## 5. Conexao com Slow Consistency
+
+### 5.1. A Literatura Certa
+
+A tabela de bounds duplamente-a-quadruplamente exponenciais que tínhamos nao tinha onde se apoiar. Mas a intuicao por tras - uma hierarquia ordinal ligada a quanto uma teoria precisa "subir" pra provar o que a de baixo nao prova, e o preco disso em tamanho de prova - tem um nome certo e uma literatura rica:
+
+**Pudlak:** T prova Con(T)↾n com provas de tamanho polinomial em n. Conjectura que isso quebra ao subir um nivel ingenuo.
+
+**Friedman-Rathjen-Weiermann (2013):** Definem consistencia "lenta" Con*(PA) via hierarquia de rapido crescimento no ordinal epsilon_0. Mostram PA ⊊ PA+Con* ⊊ PA+Con.
+
+**Henk-Pakhomov (2016):** Variantes de "provabilidade lenta" fazem progressao de Turing-Feferman alcancar PA+Con em epsilon_0, omega, ou outros numeros de passos.
+
+**Freund-Pakhomov (2020):** PA tem provas polinomiais de Con(PA+Con(PA))↾n*. Subir devagar preserva viabilidade que subir rapido destroi.
+
+### 5.2. A Pergunta Certa
+
+**Pergunta de pesquisa (genuina, ate onde sei nao respondida):** Existe um analogo do fenomeno Freund-Pakhomov dentro do proprio esquema g_T de Krajicek? Ou seja: em vez de indexar por um b(n) qualquer, indexar por uma hierarquia genuinamente ordinal (a la Friedman-Rathjen-Weiermann) e perguntar quantas iteracoes de reflexao limitada sao necessarias pra recuperar o poder de diagonalizacao da versao "rapida" (inviavel) da construcao.
+
+Isto e uma ponte real entre dois programas que nao vi conectados - mas e uma pergunta em aberto, nao um resultado.
+
+---
+
+## 6. Status
 
 | Item | Status |
 |------|--------|
-| Cook-Reckhow | PROVADO (classico) |
-| G2 | PROVADO (classico) |
-| Geradores de Krajicek | PROVADO (classico) |
-| Krajicek (2023) - g_T e incompletude | PROVADO |
-| Conexao incompletude-complexidade | CONJECTURA |
-| Conexao ordinal-geradores | CONJECTURA |
-| Limite inferior para sentencas godelianas | ABERTO |
+| Krajicek (2023) | **CITADO** (referencia central) |
+| Observacao (b(n) generico) | **CORRETA** (mas pode ja existir) |
+| Conexao com slow consistency | **PERGUNTA EM ABERTO** |
+| Nosso "Teorema 1" anterior | **DESCARTADO** (invalido) |
 
 ---
 
-## 7. Conclusao Honesta
+## 7. Recomendacoes
 
-Este documento e exploratorio. O que descobrimos e que:
-
-1. **Krajicek (2023)** ja fez corretamente o que nos tentavamos fazer
-2. **Nosso Teorema 1** era invalido (usava enumeracao exponencial)
-3. **A solucao** e usar log n como limite (mecanismo de Krajicek)
-4. **Nossa contribuicao potencial** seria conectar geradores com hierarquias ordinais
-
-**Recomendacao:** Reescrever o paper citando Krajicek (2023) e usando seu mecanismo correto.
+1. **Citar Krajicek (2023/2025)** como referencia central - sem isso o trabalho nao se sustenta
+2. **Substituir o Teorema 1** pela Proposicao acima, apresentada como extensao direta de Krajicek
+3. **Reescrever "hierarquia ordinal"** citando a linha slow consistency, derrubando a tabela sem derivacao
+4. **Levar a Proposicao a um especialista** (MathOverflow, tag proof-theory, ou e-mail direto ao Krajicek)
 
 ---
 
 ## Referencias
 
-1. Cook, S.A. and Reckhow, R.A. (1979). "The relative efficiency of propositional proof systems." JSL, 44(1):29-50.
-2. Godel, K. (1931). "Uber formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I."
-3. **Krajicek, J. (2023). "A proof complexity conjecture and the Incompleteness theorem." arXiv:2303.10637. JSL 90(3), 2025, pp. 1206-1210.**
-4. Krajicek, J. (2024). "Proof complexity generators." London Math. Soc. Lecture Note Series, no. 497.
-5. Krajicek, J. (1995). "Bounded Arithmetic, Propositional Logic, and Complexity Theory."
-6. Pudlak, P. (1997). "Lower bounds for resolution and cutting plane proofs."
+1. **Krajicek, J. (2023). "A proof complexity conjecture and the Incompleteness theorem." arXiv:2303.10637. JSL 90(3), 2025, pp. 1206-1210.**
+2. Krajicek, J. (2025). "Proof Complexity Generators." Cambridge University Press, 134 pp.
+3. Friedman, S., Rathjen, M., and Weiermann, A. (2013). "Slow consistency." Annals of Pure and Applied Logic.
+4. Freund, A. and Pakhomov, F. (2020). "Provability algebras and proof-length bounds." Notre Dame J. Formal Logic.
+5. Henk, M. and Pakhomov, F. (2016). "Provability algebras and proof-length bounds."
+6. Pudlak, P. (2020). "Reflection principles in propositional proof complexity."

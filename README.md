@@ -1,100 +1,61 @@
 # IA Research: Godel e Krajicek
 
 **Status:** Notas Exploratorias (nao submetido)
+**Ultima atualizacao:** Setembro 2026
 
-Papers sobre conexao entre incompletude de Godel, complexidade de provas de Krajicek, e hierarquia ordinal de Beklemishev.
+## Sobre Este Projeto
+
+> **Nota:** Estes trabalhos sao estudos de ideias desenvolvidos com ferramentas de inteligencia artificial. O autor e um estudante, entusiasta e pesquisador com um brinquedo nas maos.
+
+**Ferramentas utilizadas:** Gemini MiMo V2.5, GPT 5.6 Copilot, Opencode
+
+**Autor:** Euzebio Santos — Estudante, entusiasta e pesquisador
 
 ## Aviso Importante
 
-Este repositorio contem **notas exploratorias**, nao papers comprovados. Os resultados sao conjecturas ou sketches de prova que precisam de rigorizacao. Muitos resultados dependem da hipotese P != NP.
+Este repositorio contem **notas exploratorias**, nao papers comprovados. Os resultados sao conjecturas ou observacoes que precisam de verificacao por especialistas.
+
+**Referencia central:** Krajicek, J. (2023). "A proof complexity conjecture and the Incompleteness theorem." arXiv:2303.10637. JSL 90(3), 2025, pp. 1206-1210.
 
 ## Resumo
 
-Este repositorio contem dois papers que estabelecem uma ponte formal entre:
+Este repositorio contem dois documentos que exploram a conexao entre:
 
-1. **A incompletude de Godel** (teoremas classicos de 1931)
-2. **A complexidade de provas de Krajicek** (geradores de tautologias duras)
-3. **A hierarquia ordinal de Beklemishev** (analise ordinal de teorias)
+1. **O mecanismo de Krajicek (2023)** para provar o 1o Teorema de Goedel via geradores
+2. **O programa de slow consistency** (Friedman, Pakhomov, Freund)
+3. **Uma observacao** sobre baratear a diagonalizacao
 
-## Papers
+## Documentos
 
-### Paper 1: Barreira de Interpretabilidade
+### Paper 1: Barateando a Diagonalizacao
 
 **Arquivo:** `papers/paper1_barreira_interpretabilidade.md`
 
-Mostra que todo sistema de prova que interpreta PA enfrenta uma "barreira" - existem problemas que ele pode fazer mas nao pode resolver. Quanto mais forte o sistema, mais dificeis sao esses problemas.
+Observacao de que o limite log n na construcao de Krajicek pode ser substituido por qualquer funcao b(n) -> infinito. Com b(n) = log log n, o algoritmo roda em tempo linear.
 
-**Teoremas principais:**
-- Teorema 1 (Barreira): Sistema forte nao e completo E polinomico
-- Teorema 2 (Separacao): Sistemas mais fortes resolvem problemas que sistemas mais fracos nao resolvem
-- Teorema 3 (Funcao g(P)): Funcao que mede a dificuldade godeliana de cada sistema
+**Contribuicao:** Separa diagonalizacao crua (barata) de proposicionalizacao (cara).
 
-### Paper 2: Hierarquia Ordinal de Geradores Godelianos
+### Paper 2: Hierarquia Ordinal e Consistencia Lenta
 
 **Arquivo:** `papers/paper2_hierarquia_ordinal.md`
 
-Conecta a hierarquia de Beklemishev (que indexa teorias por ordinais) com os geradores de Krajicek (que produzem tautologias duras). Mostra que a dificuldade escala exponencialmente com a posicao na hierarquia ordinal.
+Explora conexao entre hierarquia de Beklemishev e slow consistency. Formula pergunta de pesquisa: existe analogo do fenomeno Freund-Pakhomov dentro do esquema g_T de Krajicek?
 
-**Teoremas principais:**
-- Teorema 3.3 (Monotonicidade): Se alpha < beta, sistemas que provam TG_beta tambem provam TG_alpha
-- Teorema 4.1 (Escala Ordinal): s_P(TG_alpha^n) >= 2^{c * |T_alpha| * n}
-
-## Estrutura
-
-```
-IA-research-Godel-e-Krajicek/
-├── README.md                    # Este arquivo
-├── papers/                      # Papers principais
-│   ├── paper1_barreira_interpretabilidade.md
-│   └── paper2_hierarquia_ordinal.md
-├── support/                     # Documentos de apoio
-│   ├── 00_avaliacao_novelidade.md
-│   ├── 01_framework_estendido.md
-│   ├── 02_teoremas_principais.md
-│   ├── 03_meta_complexidade_aplicacoes.md
-│   ├── 04_questoes_abertas_referencias.md
-│   └── 05_verificacao_lean4.md
-├── lean4/                       # Formalizacao Lean 4
-│   └── Gothic_Generators/
-│       └── OrdinalHierarchy.lean
-└── INDICE.md                    # Indice geral
-```
-
-## Conceitos Chave
-
-### Geradores Godelianos
-
-Um gerador godeliano g_T produz tautologias TG_g^n que sao dificeis para qualquer sistema que interpreta T. A construcao usa o Lema do Ponto Fixo de Godel.
-
-### Hierarquia de Beklemishev
-
-Uma progressao de teorias indexadas por ordinais:
-- T_0 = PA
-- T_{alpha+1} = T_alpha + RFN(T_alpha)
-- T_lambda = union_{alpha < lambda} T_alpha
-
-### A Ponte
-
-Cada nivel alpha da hierarquia produz um gerador g_alpha. A dificuldade de provar TG_alpha^n escala com a ordem-teorica |T_alpha|.
+**Contribuicao:** Pergunta de pesquisa (nao respondida).
 
 ## Status
 
 | Item | Status |
 |------|--------|
-| Paper 1 (Barreira) | Notas Exploratorias |
-| Paper 2 (Hierarquia) | Notas Exploratorias |
-| Verificacao de novelidade | Concluida |
-| Formalizacao Lean 4 | Esqueleto (com sorry) |
-| Tightness (limite otimo) | ABERTO |
+| Krajicek (2023) | CITADO |
+| Slow consistency | CITADO |
+| Observacao (b(n)) | CORRETA (mas pode ja existir) |
+| Pergunta de pesquisa | FORMULADA |
+| Tabela de bounds | DESCARTADA |
+| Teorema 4.1 | DESCARTADO |
 
-## Referencias
+## Proximos Passos
 
-- Beklemishev, L.D. (2003). "Proof-theoretic analysis by iterated reflection."
-- Krajicek, J. (2024). "Proof complexity generators."
-- Krajicek, J. (2025). "A proof complexity conjecture and the incompleteness theorem."
-- Saitou, S. and Noguchi, M. (2026). "Mechanizing Godel's Incompleteness Theorems."
-
-## Contato
-
-Autor: ebiossanto
-GitHub: https://github.com/ebiossanto
+1. Verificar se observacao ja aparece em Krajicek (2025)
+2. Levar pergunta a especialista (MathOverflow)
+3. Formalizar em Lean 4
