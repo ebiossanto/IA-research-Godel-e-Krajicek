@@ -200,7 +200,37 @@ Captura mecânica (δ, RBT, PPR) fielmente; não certifica PA real.
 
 ---
 
-## Fase 7 — O que está em aberto (agora)
+## Fase 7 — PPR-3 + reimplementação real + nota (22/09/2026)
+
+### 7.1 PPR-3 para suffix0 (`11_PPR3_THETA_SUFFIX0.md` + `ppr3_suffix0.py`)
+
+- Θ de enumeração: **OK** mas cota O(2^n) (fraca)
+- **DESCOBERTA: suffix0 VÁCUO** — |R(b)|=n+2 vs |rng|=n+1 ⇒ PPR-2 trivial
+- **suffix0 ABANDONADO** como R final; R real deve operar em índices/obrigações
+- Θ polinomial (§3.2): proposto, CC-Θ **não provada**
+
+### 7.2 Reimplementação com busca real (`reimplementacao_provas_reais.py`)
+
+- Busca por **resolução proposicional** (não valores fixos)
+- T0: axiomas de obrigações genéricas; Con não-unitário (indemonstrável)
+- T1: T0 + axioma unitário Con (RFN proposicional)
+- **Resultados (estáveis em max_steps 500–2000):**
+  - δ_T0=4, δ_T1=0, **G=4**
+  - **RBT=SIM** (w0: 0000 → ALL_COV)
+  - Con em T0: False ✓; Con em T1: True ✓
+  - G≥0 ✓; δ_T1≤δ_T0 ✓
+- **Limite honesto:** proposicional, não PA aritmética
+
+### 7.3 Nota de posicionamento (`12_NOTA_CURTA_POSICIONAMENTO_DELTA_RBT.md`)
+
+- δ vs Pudlák (2020): complementar (falhas vs. sucessos) — não encontrada
+- δ/RBT vs Krajíček: agregado/reflexão não aparecem — candidatos
+- ρ_b vs Pakhomov–Walsh: **distintos** (finito-combinatório vs. ordinal)
+- Ressalvas: busca inicial, proposicional, suffix0 vácuo
+
+---
+
+## Fase 8 — O que está em aberto (agora)
 
 ### Aberto matemático
 
@@ -232,7 +262,10 @@ Captura mecânica (δ, RBT, PPR) fielmente; não certifica PA real.
 | 22/09/2026 | Núcleo 09: δ, 𝒢, ρ_b, RBT | **SIM** — nível intermediário observável |
 | 22/09/2026 | Varredura bib. + 10_EXPERIMENTO | δ/RBT não encontrados; ρ_b ≠ Pakhomov–Walsh |
 | 22/09/2026 | **Experimento 10 executado** | RBT=SIM(5/9), R=`suffix0`, δ/T2 confirmados |
-| Próximo | PPR-3: Θ para `suffix0`; ou reimplementação com provas reais | — |
+| 22/09/2026 | **PPR-3 suffix0: VÁCUO; abandonado** | R real = índices/obrigações |
+| 22/09/2026 | **Reimplementação resolução real** | confirma δ/G/RBT; proposicional |
+| 22/09/2026 | **Nota 12 posicionamento** | δ/RBT não encontrados; ρ_b≠P–W |
+| Próximo | R não-vácuo (índices/π); CC-Θ; Lean/Isabelle | — |
 
 ---
 
@@ -249,7 +282,7 @@ Captura mecânica (δ, RBT, PPR) fielmente; não certifica PA real.
 
 ## Próximo passo (a atualizar)
 
-> **Próximo:** (a) Construir Θ e testar PPR-3 para candidato `suffix0`; OU (b) reimplementar `experimento_10.py` com busca real de provas (ou Isabelle/HOL/Lean) para validar resultados; OU (c) posicionar achados vs. Pudlák/Krajíček em nota curta. Depois: atualizar este documento.
+> **Próximo:** (a) Buscar **R não-vácuo** (sobre índices w ou códigos de prova π — ligação com RBT); (b) Provar/refutar **CC-Θ** para Θ polinomial; (c) **Lean/Isabelle** com PA real (sair do proposicional); (d) Consultar especialista sobre nota 12. Depois: atualizar este documento.
 
 ---
 

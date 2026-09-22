@@ -1,7 +1,7 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.2 (Setembro 2026, núcleo 09 + experimento 10 EXECUTADO)
-**Status:** Honestidade intelectual — teoremas 4-6 rejeitados, FP-K rebaixada, núcleo = δ/𝒢/ρ_b/RBT, experimento 10: RBT=SIM, R=`suffix0`
+**Versão:** 6.3 (Setembro 2026 — exp.10 + PPR-3 + reimpl. real + nota 12)
+**Status:** Honestidade intelectual — teoremas 4-6 rejeitados, FP-K rebaixada, suffix0 vácuo/abandonado, δ/RBT=NR (busca inicial), reimpl. proposicional confirma mecânica
 
 ---
 
@@ -14,8 +14,10 @@
 | `EVOLUCAO_PROJETO.md` | **HISTÓRICO VIVO: ideia→provas→aberto→mudanças de rumo** | **ATUALIZAR A CADA PASSO** |
 | `09_EVOLUCAO_PERFIL_REFLEXAO_GERADORES.md` | **NÚCLEO MATEMÁTICO: g_T^{a,b}, δ, 𝒢, ρ_b, RBT (Teo. 2, Lema 3, Teo. 4 provados)** | **ATIVO** |
 | `08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md` | PPR: τ-corrigido, ≼_ppr, lemas, R1/R2 provados, R3 aberto | ATIVO (complementar) |
-| `10_EXPERIMENTO_GERADORES_FINITOS.md` | **EXPERIMENTO EXECUTADO: RBT=SIM(5/9), R=`suffix0`, tabelas §4 preenchidas** | **EXECUTADO 22/09** |
-| `experimento_10.py` | Script da simulação estrutural (rodar: `python experimento_10.py`) | **SCRIPT** |
+| `10_EXPERIMENTO_GERADORES_FINITOS.md` | **EXPERIMENTO EXECUTADO: RBT=SIM, suffix0 (depois: vácuo)** | **EXECUTADO** |
+| `11_PPR3_THETA_SUFFIX0.md` | **PPR-3: suffix0 VÁCUO/abandonado; Θ enum OK; CC-Θ aberta** | **EXECUTADO** |
+| `12_NOTA_CURTA_POSICIONAMENTO_DELTA_RBT.md` | **NOTA: δ/RBT vs Pudlák/Krajíček; ρ_b vs P–W** | **NOTA** |
+| `experimento_10.py`, `ppr3_suffix0.py`, `reimplementacao_provas_reais.py` | Scripts (resolução real confirma δ/G/RBT) | **SCRIPTS** |
 
 ### Papers e Conjecturas
 
@@ -91,8 +93,10 @@
 | PR5 | ρ_b: independente de codificação? | ABERTO | `09_...` §32 |
 | PR6 | Transferência: δ_S ≤ δ_T ⟹? g_T ≼_ppr g_S | ABERTO | `09_...` §23 |
 | PR7 | Freund–Pakhomov: Con*(PA) aparece em δ? | **PERGUNTA GERADA** (varredura) | `10_...` §1.4 |
-| PR8 | δ/RBT: prioridade vs. Pudlák/Krajíček | **BUSCA INICIAL: NÃO encontrado**; profundizar | `10_...` §1.1-1.2 |
-| PR9 | PPR-3: Θ para candidato `suffix0` | **PRÓXIMO** (experimento 10 §5) | `10_...` §5 |
+| PR8 | δ/RBT: prioridade vs. Pudlák/Krajíček | **NOTA 12: busca inicial NÃO**; profundizar | `12_...` |
+| PR9 | PPR-3: Θ para `suffix0` | **FALHOU: suffix0 vácuo** — abandonado | `11_...` §4.3 |
+| PR10 | R não-vácuo (índices w ou códigos π) | **ABERTO** | `11_...` §7 |
+| PR11 | CC-Θ: Θ polinomial | **ABERTO** | `11_...` §3.3 |
 
 ### DESCARTADOS / REJEITADOS (não usar)
 
@@ -126,9 +130,18 @@
 |----------|-----------|
 | δ diminui T₀→T₁? | **SIM** (𝒢=4, b≥20) |
 | RBT ocorre? | **SIM** (5/9 b: `0000→ALL_COV`) |
-| Candidato R? | **`suffix0`** (passa PPR-2, n=12,14,16) |
+| Candidato R? | ~~`suffix0`~~ **VÁCUO/abandonado** (11 §4.3) |
 | δ decresce com b? | **SIM** [16,16,16,5,4,4,4,4,4] |
 | Teo. 4 (δ₀=1,δ₁=0)? | **Parcial** (δ₀=4, δ₁=0, b≥20) |
+
+## Reimplementação (busca real, resolução) — 22/09/2026
+
+| Verificação | Resultado |
+|-------------|-----------|
+| δ_T0, δ_T1, G | 4, 0, **4** (estável) |
+| RBT | **SIM** |
+| Con T0 / Con T1 | False / True ✓ |
+| Natureza | **proposicional** (não PA aritmética) |
 
 ---
 
@@ -160,9 +173,9 @@ ao longo de uma hierarquia de reflexão $T_0 \subseteq T_1 \subseteq \cdots$?
 - ρ_b independente de codificação?
 - Transferência δ ⟹ PPR?
 
-**Documentos:** `09_EVOLUCAO_...` (núcleo), `08_PROGRAMA_...` (PPR), `10_EXPERIMENTO_...` + `experimento_10.py` (executado), `EVOLUCAO_PROJETO.md` (histórico)
+**Documentos:** 09 (núcleo), 08 (PPR), 10+11+12 (exp+PPR3+nota), scripts (.py), EVOLUCAO
 
-**Próximo passo:** PPR-3 (Θ para `suffix0`) OU reimplementação com provas reais OU nota curta vs. Pudlák/Krajíček
+**Próximo passo:** PR10 (R não-vácuo) ou PR11 (CC-Θ) ou Lean/Isabelle com PA real
 
 ---
 
