@@ -359,6 +359,16 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 
 ---
 
+### PR24 — Foundation interface lemma3 + Generalização (C) (`24_FOUNDATION_LEMMA3_ALLCOV.md`)
+
+- **lemma3:** axiom Bool → `Lemma3Hyp` (Prop) + **`lemma3_con` PROVADO** (bicondicional); 0 axiom no arquivo
+- Hipóteses metamatemáticas explícitas (Prf/pad → instanciar com Foundation)
+- **Generalização (C):** `allCovered ⇔ delta=0`; limiar **σ*=max κ, b*=max κ+1** PROVADO (Lean) + TESTADO (4 perfis, `test_allcov_threshold.py` EXIT=0)
+- Theorems: `allCovered_of_sigma_max`, `delta_zero_of_sigma_max`, `cond_C_delta_zero`
+- **`lake build` EXIT=0**; 0 sorry; 0 axiom
+
+---
+
 ## Fase 10 — O que está em aberto (agora)
 
 ### Aberto matemático

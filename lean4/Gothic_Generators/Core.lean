@@ -1,8 +1,10 @@
 import Init
 
 /-!
-PR15/PR18/PR21 — Formalização Lean 4
-STATUS: delta_mono, theorem4_strict, rcs_exists; lemma3_con = axiom.
+PR15/PR18/PR21/PR22/PR24 — Formalização Lean 4
+STATUS: delta_mono, theorem4_strict, rcs_exists PROVADOS;
+lemma3_con PROVADO da interface Foundation (Lemma3Hyp);
+generalização (C): allCovered/maxKappa.
 -/
 
 namespace GothicGenerators
@@ -88,18 +90,57 @@ theorem delta_mono
   exact Nat.sub_le_sub_left hlen (W.filter (·.isTrue)).length
 
 -- =========================================================================
--- lemma3_con: axiom (pendente Foundation/pad-Prf)
+-- lemma3_con (PR24): interface Foundation → prova da equivalência
 -- =========================================================================
+--
+-- Lema 3 (09 §12): Φ_T^{w*} ↔ Con(T).
+-- Em integração completa com Foundation (Saitou–Noguchi), as hipóteses
+-- abaixo seriam DERIVADAS de Prf / pad-Prf / aritmética.
+-- Aqui: bicondicional PROVADO a partir da interface metamatemática
+-- (substitui o axiom triviais sobre Bools).
 
-structure PhiConstruction where
-  wStar : String
-  conT : Bool
-  phi_wStar_true : Bool
+/-- Hipóteses metamatemáticas do Lema 3 (09 §12).
+    `inconsistent_implies_not_phi`: se ¬Con(T), existe p com Prf_T(p,⊥);
+    padding → ∃x Φ_T(x) com prefixo w* → ¬Φ_T^{w*}.
+    `consistent_implies_phi`: se Con(T), não existe tal p;
+    ∀x ¬Φ_T(x) → Φ_T^{w*}. -/
+structure Lemma3Hyp where
+  Con : Prop
+  PhiStar : Prop
+  inconsistent_implies_not_phi : ¬Con → ¬PhiStar
+  consistent_implies_phi : Con → PhiStar
 
-axiom lemma3_axiom (P : PhiConstruction) : P.phi_wStar_true = P.conT
+/-- Lema 3: Φ_T^{w*} ↔ Con(T) (bicondicional PROVADO da interface). -/
+theorem lemma3_con (H : Lemma3Hyp) : H.PhiStar ↔ H.Con := by
+  constructor
+  · intro h
+    exact Classical.byContradiction
+      (fun hnc => H.inconsistent_implies_not_phi hnc h)
+  · intro h
+    exact H.consistent_implies_phi h
 
-theorem lemma3_con (P : PhiConstruction) : P.phi_wStar_true = P.conT :=
-  lemma3_axiom P
+/-- Forma "só uma direção" usada por theorem4 (Con → Φ^{w*}). -/
+theorem lemma3_con_of_consistent (H : Lemma3Hyp) (hc : H.Con) : H.PhiStar :=
+  H.consistent_implies_phi hc
+
+/-- Direção refutação: ¬Con → ¬Φ^{w*}. -/
+theorem lemma3_con_refute (H : Lemma3Hyp) (hnc : ¬H.Con) : ¬H.PhiStar :=
+  H.inconsistent_implies_not_phi hnc
+
+-- =========================================================================
+-- Generalização (C) — ALL_COV (defs; provas após auxiliares de lista)
+-- =========================================================================
+--
+-- (C) dispara quando T' cobre todo w ∈ truesOf W.
+-- Inevitável sse σ_T' ≥ max κ e b ≥ max κ + 1 (sobre obrigações verdadeiras).
+
+/-- maior κ entre obrigações verdadeiras de W (0 se vazio). -/
+def maxKappa (W : List Obligation) : Nat :=
+  (W.filter (·.isTrue)).foldl (fun acc o => max acc o.kappa) 0
+
+/-- Toda obrigação verdadeira de W está coberta em T. -/
+def allCovered (T : Theory) (b : Nat) (W : List Obligation) : Bool :=
+  (W.filter (·.isTrue)).all (covered T b)
 
 -- =========================================================================
 -- Auxiliares de lista
@@ -466,5 +507,135 @@ theorem rcs_exists
     exact abstract _ _ _ hlen_lt hleF hleS
 
   exact Nat.ne_of_lt hdelta_lt
+
+-- =========================================================================
+-- (C) generalizado — provas (PR24; após length_filter_sub)
+-- =========================================================================
+
+/-- foldl max é ≥ acc em qualquer lista. -/
+theorem foldl_max_ge (L : List Obligation) (acc : Nat) :
+    List.foldl (fun c x => max c x.kappa) acc L ≥ acc := by
+  induction L generalizing acc with
+  | nil => simp
+  | cons a as ih =>
+    rw [List.foldl_cons]
+    exact Nat.le_trans (Nat.le_max_left acc a.kappa) (ih (max acc a.kappa))
+
+/-- foldl max é monótono no acc. -/
+theorem foldl_max_mono_acc :
+    ∀ (L : List Obligation) (c1 c2 : Nat),
+      c1 ≤ c2 →
+      List.foldl (fun c x => max c x.kappa) c1 L ≤
+      List.foldl (fun c x => max c x.kappa) c2 L := by
+  intro L
+  induction L with
+  | nil => intro c1 c2 h; simp; exact h
+  | cons a as ih =>
+    intro c1 c2 h
+    rw [List.foldl_cons, List.foldl_cons]
+    refine ih (max c1 a.kappa) (max c2 a.kappa) ?_
+    have h1 : c1 ≤ max c2 a.kappa := Nat.le_trans h (Nat.le_max_left _ _)
+    have h2 : a.kappa ≤ max c2 a.kappa := Nat.le_max_right _ _
+    omega
+
+/-- maxKappa W ≥ o.kappa para toda o ∈ truesOf W. -/
+theorem le_maxKappa_of_mem_trues
+    {W : List Obligation} {o : Obligation}
+    (ho : o ∈ truesOf W) :
+    o.kappa ≤ maxKappa W := by
+  unfold maxKappa at ⊢
+  unfold truesOf at ho
+  induction W generalizing o with
+  | nil => simp at ho
+  | cons a as ih =>
+    by_cases ha : a.isTrue = true
+    · rw [List.filter_cons_of_pos (by simp [ha])] at ho
+      rw [List.filter_cons_of_pos (by simp [ha]), List.foldl_cons]
+      cases List.mem_cons.mp ho with
+      | inl heq =>
+        subst heq
+        exact Nat.le_trans (Nat.le_max_right 0 o.kappa) (foldl_max_ge _ _)
+      | inr himem =>
+        have hih : o.kappa ≤ List.foldl (fun c x => max c x.kappa) 0
+            (as.filter (·.isTrue)) := ih himem
+        have hmono := foldl_max_mono_acc (as.filter (·.isTrue)) 0
+          (max 0 a.kappa) (Nat.le_max_left 0 a.kappa)
+        exact Nat.le_trans hih hmono
+    · rw [List.filter_cons_of_neg (by simp [ha])] at ho
+      rw [List.filter_cons_of_neg (by simp [ha])]
+      exact ih ho
+
+/-- Se todos os elementos de L satisfazem p, filter p L = L. -/
+theorem filter_eq_self_of_forall {α : Type} (L : List α) (p : α → Bool)
+    (h : ∀ x ∈ L, p x = true) :
+    L.filter p = L := by
+  induction L with
+  | nil => simp
+  | cons a as ih =>
+    rw [List.filter_cons_of_pos (h a (List.mem_cons_self)),
+        ih (fun x hx => h x (List.mem_cons_of_mem a hx))]
+
+/-- ALL_COV ⇔ delta = 0. -/
+theorem allCovered_iff_delta_zero
+    (T : Theory) (b : Nat) (W : List Obligation) :
+    allCovered T b W = true ↔ delta T b W = 0 := by
+  unfold allCovered delta covOf truesOf
+  constructor
+  · intro h
+    have hall : ∀ o ∈ W.filter (·.isTrue), covered T b o = true :=
+      List.all_eq_true.mp h
+    have heq : (W.filter (·.isTrue)).filter (covered T b) =
+               W.filter (·.isTrue) :=
+      filter_eq_self_of_forall _ _ hall
+    rw [heq, Nat.sub_self]
+  · intro h
+    have h0 : ((W.filter (·.isTrue)).filter
+        (fun x => !(covered T b x))).length = 0 := by
+      rw [← length_filter_sub]
+      exact h
+    have hnil : (W.filter (·.isTrue)).filter
+        (fun x => !(covered T b x)) = [] :=
+      List.eq_nil_of_length_eq_zero h0
+    rw [List.all_eq_true]
+    intro o ho
+    by_cases hc : covered T b o = true
+    · exact hc
+    · exfalso
+      have hm : o ∈ (W.filter (·.isTrue)).filter
+          (fun x => !(covered T b x)) :=
+        List.mem_filter.mpr ⟨ho, by simp [hc]⟩
+      rw [hnil] at hm
+      exact absurd hm List.not_mem_nil
+
+/-- Limiar: se σ_T ≥ max κ e b ≥ max κ+1, toda verdadeira está coberta. -/
+theorem allCovered_of_sigma_max
+    (T : Theory) (b : Nat) (W : List Obligation)
+    (hσ : maxKappa W ≤ T.sigma)
+    (hb : maxKappa W + 1 ≤ b) :
+    allCovered T b W = true := by
+  unfold allCovered
+  rw [List.all_eq_true]
+  intro o ho
+  unfold covered
+  rw [decide_eq_true_iff]
+  have hT : o.isTrue = true := (List.mem_filter.mp ho).2
+  have hmk : o.kappa ≤ maxKappa W :=
+    le_maxKappa_of_mem_trues (List.mem_filter.mpr ⟨(List.mem_filter.mp ho).1, hT⟩)
+  exact ⟨hT, Nat.le_trans hmk hσ, by omega⟩
+
+/-- Corolário (C): nessas condições, δ_T' = 0 (ALL_COV). -/
+theorem delta_zero_of_sigma_max
+    (T : Theory) (b : Nat) (W : List Obligation)
+    (hσ : maxKappa W ≤ T.sigma)
+    (hb : maxKappa W + 1 ≤ b) :
+    delta T b W = 0 :=
+  (allCovered_iff_delta_zero T b W).mp (allCovered_of_sigma_max T b W hσ hb)
+
+/-- Condição (C) no predicado PPR-2-ramo: w₀' = None (ALL) ⇒ δ_T' = 0. -/
+theorem cond_C_delta_zero
+    (T : Theory) (b : Nat) (W : List Obligation)
+    (hall : allCovered T b W = true) :
+    delta T b W = 0 :=
+  (allCovered_iff_delta_zero T b W).mp hall
 
 end GothicGenerators

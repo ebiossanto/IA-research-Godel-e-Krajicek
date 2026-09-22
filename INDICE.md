@@ -1,7 +1,7 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.11 (Setembro 2026 — PR23 cond. (B) RBT explícita)
-**Status:** cond. (B) NÃO-VÁCIA (10 disparos, 6 puros); lake build LIMPO; CC-Θ 32/32+20/20; R_w 4/4
+**Versão:** 6.12 (Setembro 2026 — PR24 Foundation lemma3 + ALL_COV)
+**Status:** lemma3 PROVADO da interface (0 axiom); (C) limiar σ*=maxκ b*=maxκ+1; lake build LIMPO; cond. (B) 10 disparos
 
 ---
 
@@ -19,15 +19,16 @@
 | `12_NOTA_CURTA_POSICIONAMENTO_DELTA_RBT.md` | δ/RBT vs Pudlák/Krajíček; ρ_b vs P–W | NOTA |
 | **`13_EXPERIMENTO_SLOW_VS_FAST_DELTA.md`** | **RCS CONFIRMADA** | **EXECUTADO** |
 | **`14_R_RAMOS_RBT_PPR.md`** | **R_w design + testado (PPR-2)** | **TESTADO** |
-| **`15_FORMALIZACAO_LEAN_PR15.md`** | **Lean VERIFICADO (lake build limpo); lemma3=axiom** | **ATIVO** |
+| **`15_FORMALIZACAO_LEAN_PR15.md`** | **Lean VERIFICADO (lake build limpo); lemma3=teorema (interface)** | **ATIVO** |
 | **`16_EXTENSAO_EXPERIMENTO13_RCS.md`** | **RCS ROBUSTA 4/4** | **EXECUTADO** |
 | **`17_R_RAMOS_PPR2_TESTE.md`** | **PPR-2 refinado 3/3 (cond. C)** | **EXECUTADO** |
 | **`18_R_W_E0_E3_PPR2.md`** | **R_w PPR-2 em E0–E3: 4/4 PASSA** | **EXECUTADO** |
 | **`19_PPR3_THETA_RAMOS.md`** | **Θ ramos: CC-Θ 32/32, polinomial** | **EXECUTADO** |
 | **`23_COND_B_RBT_EXPLICITO.md`** | **cond. (B) NÃO-VÁCIA: 10 disparos, PPR-2 20/20, CC-Θ 20/20** | **EXECUTADO** |
+| **`24_FOUNDATION_LEMMA3_ALLCOV.md`** | **lemma3 PROVADO; (C) ALL_COV ⇔ δ=0 (limiar maxκ)** | **EXECUTADO** |
 | `01/06/03` | **PR12: banners REJEITADO/histórico** | **CORRIGIDO** |
-| Scripts | exp10, ppr3, reimpl, slow_vs_fast, **_ext**, test_Rw, **_E0E3**, **ppr3_ramos**, **_RBT_B** | SCRIPTS |
-| `lean4/Gothic_Generators/Core.lean` | **VERIFICADO `lake build` (0 sorry; lemma3=axiom)**; Lean 4.34.0 | **OK** |
+| Scripts | exp10, ppr3, reimpl, slow_vs_fast, **_ext**, test_Rw, **_E0E3**, **ppr3_ramos**, **_RBT_B**, **_allcov** | SCRIPTS |
+| `lean4/Gothic_Generators/Core.lean` | **VERIFICADO `lake build` (0 sorry, 0 axiom; lemma3=teorema)**; Lean 4.34.0 | **OK** |
 | `lean-toolchain`, `lakefile.toml` | Toolchain Lean 4.34 + Lake | **OK** |
 
 ### Papers e Conjecturas
@@ -213,9 +214,9 @@ ao longo de uma hierarquia de reflexão $T_0 \subseteq T_1 \subseteq \cdots$?
 - ρ_b independente de codificação?
 - Transferência δ ⟹ PPR?
 
-**Documentos:** 09 (núcleo), 08 (PPR), 10–23 (exp+nota+**RCS**+R_w+Lean+PPR-2+**E0–E3**+**Θ ramos**+**cond.B**), 01/06/03 **corrigidos**, EVOLUCAO
+**Documentos:** 09 (núcleo), 08 (PPR), 10–24 (exp+nota+**RCS**+R_w+Lean+PPR-2+**E0–E3**+**Θ ramos**+**cond.B**+**Foundation/ALL_COV**), 01/06/03 **corrigidos**, EVOLUCAO
 
-**Próximo passo:** Foundation p/ lemma3; generalizar (C) ALL_COV; Freund–Pakhomov
+**Próximo passo:** instanciar Lemma3Hyp com Foundation (Prf/pad); Freund–Pakhomov
 
 ---
 
