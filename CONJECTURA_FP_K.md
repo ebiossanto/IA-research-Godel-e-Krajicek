@@ -1,8 +1,10 @@
 # Conjectura FP-K: Fenomeno Freund-Pakhomov para Geradores de Krajicek
 
-**Status:** Conjectura (nao provada)
+**Status:** PERGUNTA DE PESQUISA — originalidade ainda NAO estabelecida (apos auditoria 22/09/2026)
 **Data:** Setembro 2026
-**Aviso:** Este documento formaliza uma conjectura baseada em analise matematica. Nao e um teorema.
+**Aviso:** Este documento formaliza uma pergunta de pesquisa. NAO e um teorema, NAO e uma conjectura comprovadamente nova. Rebaixado de "conjectura" para "pergunta de pesquisa" apos auditoria rigorosa.
+
+> **Correcao pos-auditoria:** A afirmacao de que a pergunta e' "genuinamente nova" NAO esta certificada. A literatura de geradores, reflexao e slow consistency e' suficientemente proxima para exigir busca bibliografica especializada antes de qualquer prioridade de descoberta.
 
 ---
 
@@ -208,62 +210,67 @@ O novo invariante seria baseado em:
 
 ### 8.4. Novidade Conceitual
 
-Isso seria conceitualmente novo.
+Se existir, seria conceitualmente novo -- MAS A NOVELIDADE NAO FOI CERTIFICADA (ver Secao 9).
 
 ---
 
-## 9. Veredicto Honesto
+## 9. Veredicto Honesto (apos auditoria 22/09/2026)
 
 ### 9.1. Sobre a Pergunta
 
-A mais promissora para pesquisa original.
-
-Nao conheco nenhum resultado classico que faca explicitamente a ponte:
+A pergunta e' boa e bem motivada. Nao reconheco nenhum resultado classico que faca explicitamente a ponte:
 
 ```
 Freund-Pakhomov <-> g_T de Krajicek
 ```
 
-### 9.2. Sobre a Novidade
+### 9.2. Sobre a Novidade (CORRIGIDO)
 
-Isso nao significa que seja novo; apenas que nao reconheco uma referencia padrao onde essa interacao tenha sido estudada.
+**STATUS REBAIXADO:** A originalidade NAO esta estabelecida.
 
-### 9.3. A Aposta Matematica
+A literatura de geradores, reflexao e slow consistency e' suficientemente proxima para exigir busca bibliografica especializada antes de qualquer prioridade de descoberta.
 
-Existe sim um análogo do fenomeno Freund-Pakhomov para os geradores g_T, e ele deve manifestar-se como um ordinal critico de reflexao a partir do qual a capacidade de diagonalizacao de g_{T_alpha}^{(b)} se torna equivalente a da versao "rapida".
+$$\boxed{\text{PERGUNTA DE PESQUISA - originalidade ainda nao estabelecida}}$$
+
+### 9.3. A Aposta Matematica (heuristica, nao teorema)
+
+E' plausivel que exista um analogo do fenomeno Freund-Pakhomov para os geradores g_T, manifestando-se como um ordinal critico de reflexao. Mas isto e' uma aposta, nao um resultado.
 
 ### 9.4. Status
 
-Isso ainda nao e um teorema. E uma conjectura razoavel baseada na arquitetura comum dos dois programas, ambos profundamente enraizados nas ideias de autorreferencia e reflexao inauguradas por Goedel.
+Nao e' teorema. Nao e' conjectura comprovadamente nova. E' uma pergunta de pesquisa razoavel baseada na arquitetura comum dos dois programas.
 
 ---
 
-## 10. Proximos Passos
+## 10. Proximos Passos (revisados)
 
 ### 10.1. Imediatos
 
-1. Formalizar a conjectura FP-K
-2. Verificar se ja existe na literatura
-3. Postar no MathOverflow
+1. **BUSCA BIBLIOGRAFICA ESPECIALIZADA** antes de qualquer reivindicacao de prioridade
+2. Verificar se a interacao Freund-Pakhomov x g_T ja foi estudada
+3. Postar no MathOverflow (tag proof-theory) -- como PERGUNTA, nao como conjectura nova
 
-### 10.2. Curto Prazo
+### 10.2. Alternativa (recomendada pela auditoria)
 
-1. Atacar o teorema intermediario D(alpha)
-2. Calcular alpha_* para casos simples
-3. Colaborar com especialista
+Em vez de insistir na FP-K como "nova", seguir o programa de:
+`08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md`
 
-### 10.3. Medio Prazo
+que formula um problema formal mais preciso:
 
-1. Provar (ou refutar) a conjectura
-2. Publicar como nota curta
-3. Mecanizar em Lean 4
+$$T \preceq_{int} S \stackrel{?}{\Longrightarrow} g_T \preceq_{ppr} g_S$$
+
+### 10.3. NAO fazer ainda
+
+- Nao adicionar mais conjecturas ao repositorio
+- Nao reivindicar prioridade sem busca bibliografica
+- Nao tratar teoremas 4-6 como provados
 
 ---
 
-## Referencias
+## Referencias (corrigidas pos-auditoria)
 
-1. Krajicek, J. (2023). "A proof complexity conjecture and the Incompleteness theorem." arXiv:2303.10637.
-2. Freund, A. and Pakhomov, F. (2020). "Provability algebras and proof-length bounds."
-3. Friedman, S., Rathjen, M., and Weiermann, A. (2013). "Slow consistency."
-4. Beklemishev, L.D. (2003). "Proof-theoretic analysis by iterated reflection."
-5. Krajicek, J. (2025). "Proof Complexity Generators." Cambridge University Press.
+1. Krajicek, J. (2025). "A Proof Complexity Conjecture and the Incompleteness Theorem." JSL 90(3), 2025, pp. 1206-1210. arXiv:2303.10637. https://doi.org/10.1017/jsl.2023.69
+2. Freund, A. and Pakhomov, F. (2020). "Short proofs for slow consistency." Notre Dame Journal of Formal Logic 61(1), pp. 31-49. https://doi.org/10.1215/00294527-2019-0031
+3. Friedman, S., Rathjen, M., and Weiermann, A. (2013). "Slow complexity." Archive for Mathematical Logic.
+4. Beklemishev, L.D. (2005). "Reflection principles and provability algebras in formal arithmetic." Russian Mathematical Surveys 60(2), pp. 197-268.
+5. Krajicek, J. (2025). "Proof Complexity Generators." Cambridge University Press, LMS Lecture Note Series 497.

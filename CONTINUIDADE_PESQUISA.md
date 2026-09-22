@@ -21,12 +21,21 @@ Conectar:
 2. **Nossa observacao** ja existe no rodape 3 do paper dele
 3. **Tabelas de bounds** eram especulativas (sem derivacao)
 4. **Provas** continham erros (enumeracao exponencial)
+5. **Teoremas 4, 5, 6** NAO estao provados na forma escrita (auditoria 22/09/2026)
 
-### 1.3. O Que Sobrou
+### 1.3. O Que Sobrou (apos auditoria)
 
-A **unica contribuicao potencial** e uma pergunta de pesquisa:
+A **pergunta de pesquisa FP-K** foi REBAIXADA (originalidade nao estabelecida):
 
 > Existe um analogo do fenomeno Freund-Pakhomov dentro do esquema g_T de Krajicek?
+
+**STATUS:** PERGUNTA DE PESQUISA — buscar bibliografia antes de reivindicar prioridade.
+
+A **nova linha mais promissora** (apos auditoria) e' o problema de preservacao:
+
+$$T \preceq_{int} S \stackrel{?}{\Longrightarrow} g_T \preceq_{ppr} g_S$$
+
+Ver `08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md`.
 
 ---
 
@@ -127,58 +136,107 @@ A "hierarquia ordinal" que tentavamos criar ja existe como **slow consistency**:
 
 **Correcao:** Removido.
 
+### 4.4. Teoremas 4, 5, 6 (auditoria 22/09/2026)
+
+**Teorema 4 (s_P >= 2^{c|T_alpha|n}):**
+- "N candidatos => tempo minimo Omega(N)" e' FALSO em geral
+- 2o Teorema de Goedel NAO produz lower bound quantitativo
+- |T_alpha| e' ambiguo para ordinais
+- **STATUS: NAO PROVADO / REJEITADO**
+
+**Teorema 5 (cortes estritos C(alpha)):**
+- T_alpha subseteq T_beta NAO implica C(alpha) proper subset C(beta)
+- Interpretabilidade e' entre teorias; sistemas de prova sao proposicionais -- falta traducao
+- **STATUS: NAO PROVADO**
+
+**Teorema 6 (gerador universal T_*):**
+- T_* = union{r.e., consistente, supseteq PA} NAO e' r.e.
+- "Conter informacao inacessivel" NAO e' prova de hardness
+- Universal hardness NAO cria completude automaticamente
+- **STATUS: NAO PROVADO**
+
+**Leitor completo:** `AUDITORIA_RIGOROSA_GODEL_KRAJICEK.md` (downloads) ou verificacao propria.
+
 ---
 
 ## 5. O Que Pode Ser Explorado (perguntas em aberto)
 
-### 5.1. Pergunta Principal
+### 5.1. Pergunta Principal (STATUS REBAIXADO)
 
 > Existe um analogo do fenomeno Freund-Pakhomov dentro do esquema g_T de Krajicek?
 
-**Formalizacao:**
-- Seja g_T^(b) o gerador de Krajicek com parametro b(n)
-- Seja T_alpha a hierarquia de consistencia lenta
-- Pergunta: quantas iteracoes de reflexao limitada sao necessarias pra recuperar o poder de diagonalizacao da versao "rapida"?
+**Status atual:** **PERGUNTA DE PESQUISA** — originalidade NAO estabelecida (auditoria 22/09/2026). Formalizada em `CONJECTURA_FP_K.md`.
 
-**Status atual:** Formalizada como **Conjectura FP-K** em `CONJECTURA_FP_K.md`.
+**Antes se dizia:** "e genuinamente nova" — **CORRIGIDO:** nao certificado; exige busca bibliografica especializada.
 
-**Por que e importante:**
+**Por que e' importante:**
 1. Conecta dois programas (slow consistency e geradores)
-2. E genuinamente nova (nao vi na literatura)
-3. E respondivel (pergunta precisa)
+2. E' respondivel (pergunta precisa)
+3. NAO ha confirmacao de que seja nova
 
-**Por que e uma pergunta (nao teorema):**
-1. Nao sei a resposta
-2. Pode ja ter sido investigada
-3. Precisa de especialista
+### 5.2. NOVA Pergunta Principal (apos auditoria)
 
-### 5.2. Perguntas Secundarias
+**Mais promissora e formalmente mais precisa:**
 
-1. **Tightness:** O limite de Krajicek e otimo?
-2. **Formalizacao:** Os resultados podem ser mecanizados em Lean 4?
+$$T \preceq_{int} S \stackrel{?}{\Longrightarrow} g_T \preceq_{ppr} g_S$$
+
+A interpretacao proof-theoretic preserva a ordem operacional de geradores?
+
+**Tres casos:**
+- **A:** implicacao vale -> teorema de transferencia
+- **B:** vale sob restricoes -> nova classe de teorias
+- **C:** contraexemplo -> quebra entre hierarquias (interessante!)
+
+**Documento:** `08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md`
+
+### 5.3. Medida Operacional (nova)
+
+$$\Gamma_P(T, n) = \log s_P(TG_T^n)$$
+
+Pergunta testavel: "A reflexao produz assinatura mensuravel na complexidade proposicional?"
+
+### 5.4. Perguntas Secundarias
+
+1. **Tightness:** O limite de Krajicek e' otimo?
+2. **Formalizacao:** Podem ser mecanizados em Lean 4?
 3. **Aplicacoes:** Slow consistency pode separar sistemas de prova?
 
 ---
 
-## 6. Proximos Passos Concretos
+## 6. Proximos Passos Concretos (revisados pos-auditoria)
 
-### 6.1. Imediatos (1-2 semanas)
+### 6.1. PRINCIPIO
+
+> Nenhum resultado sera' chamado de teorema ate' que cada hipotese, dominio, codificacao, reducao e medida de tamanho esteja formalmente especificada.
+
+### 6.2. Imediatos (1-2 semanas)
 
 1. **Ler Krajicek (2023) COMPLETO** (6 paginas)
 2. **Ler Krajicek (2025) capitulos 3 e 9**
-3. **Ler Freund-Pakhomov (2020)** sobre slow consistency
+3. **Ler Freund-Pakhomov (2020)** "Short proofs for slow consistency" NDJFL 61(1)
+4. **NAO adicionar mais conjecturas** ao repositorio
 
-### 6.2. Curto prazo (1-3 meses)
+### 6.3. Curto prazo (1-3 meses) — seguir 08_PROGRAMA...
 
-1. **Formular** a pergunta de pesquisa formalmente
-2. **Verificar** se ja existe na literatura
-3. **Postar** no MathOverflow (tag proof-theory)
+1. Definir formalmente g_T, TG_T^n, precequiv_ppr
+2. Provar lema de composicao de reducoes
+3. Casos T_0=PA e T_1=PA+RFN(PA)
+4. Tentar provar T_0 ≼_int T_1 => g_0 ≼_ppr g_1
+5. Tentar construir contraexemplo
+6. SOMENTE DEPOIS, lower bounds
 
-### 6.3. Medio prazo (3-6 meses)
+### 6.4. Medio prazo (3-6 meses)
 
-1. **Investigar** a pergunta de pesquisa
-2. **Colaborar** com especialista (se possivel)
-3. **Publicar** como nota curta (se houver resultado)
+1. **Busca bibliografica especializada** sobre FP-K antes de reivindicar prioridade
+2. **Postar** no MathOverflow (tag proof-theory) — como PERGUNTA
+3. **Colaborar** com especialista (se possivel)
+4. **Publicar** apenas se houver resultado formal verificado
+
+### 6.5. NAO fazer
+
+- Nao tratar Teoremas 4-6 como provados
+- Nao reivindicar originalidade da FP-K sem busca
+- Nao adicionar conjecturas novas sem necessidade
 
 ---
 
@@ -223,40 +281,46 @@ A "hierarquia ordinal" que tentavamos criar ja existe como **slow consistency**:
 | Arquivo | Status |
 |---------|--------|
 | README.md | Atualizado |
-| INDICE.md | Atualizado (v4.0) |
+| INDICE.md | Atualizado (v4.0+) |
 | CONTINUIDADE_PESQUISA.md | Este arquivo |
-| CONJECTURA_FP_K.md | Conjectura FP-K formalizada |
-| 07_pontos_fixos_incompletude.md | Parte 2: pontos fixos, física, analogias |
+| CONJECTURA_FP_K.md | Rebaixado para PERGUNTA DE PESQUISA |
+| 07_pontos_fixos_incompletude.md | Parte 2: pontos fixos, fisica, analogias |
+| 08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md | **NOVO: programa de pesquisa pos-auditoria** |
 
 ---
 
-## 9. Citacoes Obrigatorias
+## 9. Citacoes Obrigatorias (corrigidas pos-auditoria)
 
 Se este trabalho for publicado, CITAR:
 
-1. **Krajicek (2023)** - paper central
-2. **Krajicek (2025)** - livro de referencia
-3. **Friedman-Rathjen-Weiermann (2013)** - slow consistency
-4. **Freund-Pakhomov (2020)** - resultado sobre PA
-5. **Beklemishev (2003)** - hierarquia de reflexao
+1. **Krajicek, J. (2025).** "A Proof Complexity Conjecture and the Incompleteness Theorem." JSL 90(3), pp. 1206-1210. arXiv:2303.10637
+2. **Krajicek, J. (2025).** "Proof Complexity Generators." Cambridge UP, LMS Lecture Notes 497
+3. **Beklemishev, L.D. (2005).** "Reflection principles and provability algebras..." Russian Math. Surveys 60(2), pp. 197-268
+4. **Freund, A. & Pakhomov, F. (2020).** "Short proofs for slow consistency." Notre Dame J. Formal Logic 61(1), pp. 31-49
+5. **Krajicek, J. (1997).** "Interpolation theorems, lower bounds..." JSL 62(2), pp. 457-486
 
 ---
 
-## 10. Nota Final
+## 10. Nota Final (apos auditoria 22/09/2026)
 
 Este projeto comecou tentando criar algo novo, mas descobriu que:
 
 1. **Krajicek (2023)** ja faz corretamente o que tentavamos fazer
 2. **Nossa observacao** ja existe no paper dele (rodape 3)
-3. **A unica contribuicao potencial** e a Conjectura FP-K
+3. **Teoremas 4, 5, 6** NAO estao provados (auditoria rigorosa)
+4. **FP-K** foi rebaixada para pergunta de pesquisa (originalidade nao certificada)
 
-**Honestidade:** Nao inventamos nada novo no eixo Krajicek. O que fizemos foi:
+**Honestidade:** Nao inventamos nada novo ainda. O que fizemos foi:
 - Entender o trabalho de Krajicek
 - Conectar com slow consistency
-- Formalizar a Conjectura FP-K (`CONJECTURA_FP_K.md`)
-- Separar rigorosamente teorema/analogueia/conjectura na Parte 2 (`07_pontos_fixos_incompletude.md`)
+- Formalizar a pergunta FP-K (rebaixada)
+- Separar teorema/analogueia/conjectura na Parte 2
+- **Receber e incorporar auditoria rigorosa**
+- **Formular novo programa: ≼_int vs ≼_ppr**
 
-**Proximo passo real:** Levar a Conjectura FP-K a um especialista (MathOverflow ou Krajicek).
+**Proximo passo real:** Seguir `08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md`.
+
+**Principio:** Nenhum resultado sera' teorema sem especificacao formal completa.
 
 ---
 
