@@ -55,7 +55,11 @@ e para obrigação w genérica: R(w) = w (identidade).
 > Se w não coberto em T (ramo ativo), então R(w) não coberto em T' **ou**
 > R(w) = w* e a "falta" em T' é exatamente a obrigação que RBT registra.
 
-**Status:** não executado — design inicial.
+**Status:** **REFINADO e TESTADO** — ver `17_R_RAMOS_PPR2_TESTE.md` (PR17).
+
+Predicado original insuficiente para T'=ALL_COV; refinado com condição (C):
+cobertura total em T' resolve w₀ de T (caso RBT 0000→ALL). Com (C), R_w
+identidade+sentinela **PASSA PPR-2 em 3/3 cenários** (`test_Rw_ppr2.py`).
 
 ---
 
@@ -86,16 +90,19 @@ RCS mostra δ_S ≠ δ_F com **mesma Φ**. A diferença está **quais w** são c
 | Item | Status |
 |------|--------|
 | suffix0 | **REFUTADO** (11) |
-| R_w identidade+sentinela | **design**, não testado |
-| Θ sobre provas de ramos | **ABERTO** |
+| R_w identidade+sentinela | **TESTADO — PASSA PPR-2** (17, com cond. C) |
+| Θ sobre provas de ramos | **ABERTO** (14 §4) |
 | PPR completo | **ABERTO** (08 R3) |
 
-**Não é resultado.** É o candidato correto após o fracasso de suffix0.
+**Não é resultado.** É o candidato correto após o fracasso de suffix0 —
+agora com predicado refinado (17 §2) e teste 3/3.
 
 ---
 
 ## 7. Próximo teste
 
-1. Implementar R_w no modelo 10/13;
-2. Verificar PPR-2 em termos de **cobertura de ramos**;
-3. Se falhar: buscar outra R_w (ex.: baseada em κ/σ de 13).
+1. ~~Implementar R_w no modelo 10/13~~ — **FEITO** (PR17, `test_Rw_ppr2.py`)
+2. ~~Verificar PPR-2 em termos de cobertura de ramos~~ — **FEITO** (3/3 TRUE, 17)
+3. Se falhar: ~~buscar outra R_w~~ — **não necessário** com cond. (C)
+4. **ABERTO:** PPR-3 (Θ sobre provas de ramos, 14 §4)
+5. **ABERTO:** testar R_w nos cenários E0–E3 do 16
