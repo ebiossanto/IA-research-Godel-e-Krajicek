@@ -43,6 +43,14 @@ Krajicek constroi uma funcao g_T que diagonaliza contra uma teoria T e usa isso 
 
 (c) O que muda e so o tempo de execucao: o passo 2 faz uma busca dupla (aprox 2^{O(b(n))} valores de w, e para cada um aprox 2^{O(b(n))} candidatas a prova), entao o tempo total e O(n + 2^{O(b(n))}).
 
+### 2.2. Status: JA EXISTE NA LITERATURA
+
+**Descoberta importante:** Krajicek (2023) ja faz essa observacao no **rodape 3 da Secao 3**:
+
+> "Note that the function log log n bounding ℓ can be replaced by any ω(1) time-constructible function, making the time needed to compute function h closer to quasi-polynomial."
+
+Portanto, a observacao NAO e nova. Ja esta publicada no paper de referencia.
+
 ### 2.2. Exemplos
 
 | b(n) | Candidatas por busca | Tempo total | Em P? |
@@ -130,18 +138,21 @@ Isto e uma ponte real entre dois programas que nao vi conectados - mas e uma per
 | Item | Status |
 |------|--------|
 | Krajicek (2023) | **CITADO** (referencia central) |
-| Observacao (b(n) generico) | **CORRETA** (mas pode ja existir) |
+| Observacao (b(n) generico) | **JA EXISTE** (rodape 3, Secao 3 do paper) |
 | Conexao com slow consistency | **PERGUNTA EM ABERTO** |
 | Nosso "Teorema 1" anterior | **DESCARTADO** (invalido) |
 
 ---
 
-## 7. Recomendacoes
+## 7. Conclusao Honesta
 
-1. **Citar Krajicek (2023/2025)** como referencia central - sem isso o trabalho nao se sustenta
-2. **Substituir o Teorema 1** pela Proposicao acima, apresentada como extensao direta de Krajicek
-3. **Reescrever "hierarquia ordinal"** citando a linha slow consistency, derrubando a tabela sem derivacao
-4. **Levar a Proposicao a um especialista** (MathOverflow, tag proof-theory, ou e-mail direto ao Krajicek)
+Este documento e exploratorio. O que descobrimos foi:
+
+1. **Krajicek (2023)** ja faz corretamente o que nosso Teorema 1 tentava fazer
+2. **Nossa observacao** ja existe no rodape 3 da Secao 3 do paper
+3. **Nao temos contribuicao nova** neste ponto
+
+**Recomendacao:** Nao publicar esta observacao como contribuicao, pois ja existe. Focar na conexao com slow consistency (pergunta em aberto).
 
 ---
 
