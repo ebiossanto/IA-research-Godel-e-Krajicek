@@ -238,10 +238,11 @@ Pergunta testavel: "A reflexao produz assinatura mensuravel na complexidade prop
 16. **PR15 `15_...` + `lean4/.../Core.lean`:** esqueleto Lean — defs OK, sorries
 17. **`14_...`:** R_w sobre **índices** (pós-suffix0); design
 18. **PR17 `17_...` + `test_Rw_ppr2.py`:** PPR-2 **refinado (A∨B∨C)**; R_w identidade+sentinela **PASSA 3/3**
-19. **PR18 `Core.lean`:** `delta_mono` **PROVADO** (sem sorry); `lemma3_con` → **axiom**; `theorem4_strict`/`rcs_exists` ainda sorry
+19. **PR18 `Core.lean`:** `delta_mono` **PROVADO** (sem sorry); `lemma3_con` → **axiom**; theorem4/rcs ainda sorry (fechados em PR21)
 20. **PR20 `18_...` + `test_Rw_ppr2_E0E3.py`:** R_w + PPR-2 **PASSA 4/4** cenários E0–E3 (κ/razão/\|W\|)
 21. **PR19 `19_...` + `ppr3_ramos_theta.py`:** Θ sobre provas de ramos; **CC-Θ 32/32**; \|Θ(π)\|=\|π\|+O(log\|W\|)
-22. **PRÓXIMO:** testar cond. (B) RBT explícito; fechar sorries theorem4/rcs; Foundation lemma3; `lake build`
+22. **PR21 `Core.lean`:** `theorem4_strict` e `rcs_exists` **PROVADOS sem sorry** (h1–h8; α=⌈κ/fastStep⌉, b=κ+1); `lake build` pendente
+23. **PRÓXIMO:** testar cond. (B) RBT explícito; `lake build`; Foundation lemma3
 
 ### 6.4. Medio prazo (3-6 meses)
 

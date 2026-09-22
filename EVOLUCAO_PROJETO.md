@@ -269,7 +269,7 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 
 ---
 
-## Fase 9 — PR12+PR16+PR15+R_w+PR17+PR18+PR20+PR19 (22/09/2026, tarde)
+## Fase 9 — PR12+PR16+PR15+R_w+PR17+PR18+PR20+PR19+PR21 (22/09/2026, tarde)
 
 ### PR12 — Correções 01/06/03 APLICADAS
 
@@ -293,9 +293,10 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 
 - Obligation, Theory, covered, delta: **definidos**
 - ~~delta_mono, lemma3_con, theorem4, rcs_exists: sorry~~
-  - **PR18:** delta_mono **PROVADO**; lemma3_con **axiom**; theorem4/rcs **sorry**
+  - **PR18:** delta_mono **PROVADO**; lemma3_con **axiom**
+  - **PR21:** theorem4_strict e rcs_exists **PROVADOS sem sorry**
 - example numérico: **native_decide**
-- **NÃO certificação** até todos sorries fechados
+- **NÃO certificação** até `lake build` + lemma3 axiom → prova
 
 ### 14 — R_w sobre ramos (`14_...`)
 
@@ -314,8 +315,8 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 
 - `delta_mono`: **PROVA COMPLETA** (sem sorry) — auxiliares `covered_mono`, `length_filter_mono`
 - `lemma3_con`: sorry → **`axiom lemma3_axiom`** documentado (pendente Foundation/pad-Prf)
-- `theorem4_strict`: ganhou hipótese h6 (w* única obrigação true-não-coberta em T); ainda sorry
-- `rcs_exists`: avanço parcial (α=fastStep, b=fastStep+1); ainda sorry
+- `theorem4_strict`: ganhou hipótese h6 (w* única obrigação true-não-coberta em T); fechado em PR21
+- `rcs_exists`: avanço parcial (α=fastStep, b=fastStep+1); fechado em PR21
 - Typo `obrigaçãootrue` → `obrigação true` corrigido
 
 ### PR20 — R_w em E0–E3 (`18_...` + `test_Rw_ppr2_E0E3.py`)
@@ -332,6 +333,13 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 - **Cota polinomial:** \|Θ(π)\| = \|π\| + O(log \|W\|); máx ratio 1.11
 - Condições: A=14, C=18, B=0 (RBT explícito a testar), FAIL=0
 - **Sucessor legítimo de suffix0** (11: vácuo/exponencial → 19: não-vácuo/polinomial)
+
+### PR21 — theorem4_strict e rcs_exists fechados (`Core.lean`)
+
+- `theorem4_strict`: **PROVA COMPLETA** (sem sorry) — hipóteses h1–h8 (unicidade de w* em h8, h7 b≥κ+1)
+- `rcs_exists`: **PROVA COMPLETA** (sem sorry) — hipóteses 2≤fastStep, 1≤slowStep; α=⌈κ/fastStep⌉, b=κ+1
+- Auxiliares: `length_filter_sub`, `length_filter_strict`, `huncov_count`
+- **Ressalva:** toolchain Lean não instalada — **`lake build` pendente** (não verificado por máquina)
 
 ---
 
@@ -351,11 +359,12 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 3. ρ_b vs Pakhomov–Walsh → **PRÓXIMO mas DISTINTO** — posicionar explicitamente
 4. FP-K equivalente publicado? → **ainda não verificado**
 
-### Aberto experimental (pós-PR12/15/16/17/18/19/20)
+### Aberto experimental (pós-PR12/15/16/17/18/19/20/21)
 
 - ~~Correções 01/06/03~~ → **PR12 APLICADAS**
 - ~~RCS slow vs fast~~ → **CONFIRMADA + ROBUSTA (13/16)**
 - ~~Lean delta_mono~~ → **PR18 PROVADO**; lemma3=axiom; theorem4/rcs=sorry
+- ~~Lean theorem4/rcs~~ → **PR21 PROVADOS sem sorry** (lake build pendente)
 - ~~R_w PPR-2~~ → **PR17: 3/3 PASSA** (predicado refinado A∨B∨C)
 - ~~R_w em E0–E3~~ → **PR20: 4/4 PASSA** (κ/razão/\|W\|)
 - ~~Θ sobre provas de ramos~~ → **PR19: CC-Θ 32/32, polinomial**
@@ -388,7 +397,8 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 | 22/09/2026 | **PR18 delta_mono** | **PROVADO sem sorry**; lemma3=axiom |
 | 22/09/2026 | **PR20 R_w E0–E3** | **4/4 PASSA PPR-2** (κ/razão/\|W\|) |
 | 22/09/2026 | **PR19 Θ ramos** | **CC-Θ 32/32**; Θ polinomial |
-| Próximo | Cond. (B) RBT; sorries; Foundation | — |
+| 22/09/2026 | **PR21 theorem4/rcs** | **PROVADOS sem sorry**; lake build pendente |
+| Próximo | Cond. (B) RBT; lake build; Foundation | — |
 
 ---
 
@@ -405,7 +415,7 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 
 ## Próximo passo (a atualizar)
 
-> **Próximo:** (a) testar condição **(B) RBT** com cenário explícito w* ≠ w₀' (0 disparos em PR19); (b) fechar sorries `theorem4_strict`/`rcs_exists` e integrar Foundation para `lemma3_con`; (c) `lake build` quando toolchain Lean disponível; (d) comparar com Freund–Pakhomov (comprimento vs δ). Depois: atualizar este documento.
+> **Próximo:** (a) testar condição **(B) RBT** com cenário explícito w* ≠ w₀' (0 disparos em PR19); (b) **`lake build`** para verificar PR18/PR21 (toolchain não instalada); (c) integrar Foundation para `lemma3_con`; (d) comparar com Freund–Pakhomov (comprimento vs δ). Depois: atualizar este documento.
 
 ---
 
