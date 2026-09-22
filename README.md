@@ -1,6 +1,12 @@
 # IA Research: Godel e Krajicek
 
+**Status:** Notas Exploratorias (nao submetido)
+
 Papers sobre conexao entre incompletude de Godel, complexidade de provas de Krajicek, e hierarquia ordinal de Beklemishev.
+
+## Aviso Importante
+
+Este repositorio contem **notas exploratorias**, nao papers comprovados. Os resultados sao conjecturas ou sketches de prova que precisam de rigorizacao. Muitos resultados dependem da hipotese P != NP.
 
 ## Resumo
 
@@ -75,11 +81,11 @@ Cada nivel alpha da hierarquia produz um gerador g_alpha. A dificuldade de prova
 
 | Item | Status |
 |------|--------|
-| Paper 1 (Barreira) | Completo |
-| Paper 2 (Hierarquia) | Completo |
+| Paper 1 (Barreira) | Notas Exploratorias |
+| Paper 2 (Hierarquia) | Notas Exploratorias |
 | Verificacao de novelidade | Concluida |
-| Formalizacao Lean 4 | Esqueleto |
-| Tightness (limite otimo) | 80% provado |
+| Formalizacao Lean 4 | Esqueleto (com sorry) |
+| Tightness (limite otimo) | ABERTO |
 
 ## Referencias
 
