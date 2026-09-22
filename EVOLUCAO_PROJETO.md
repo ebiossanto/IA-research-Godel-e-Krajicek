@@ -259,7 +259,12 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 
 ### Aberto experimental
 
-- `10_EXPERIMENTO_GERADORES_FINITOS.md`: rodar enumeração; preencher tabelas §4; classificar RBT; buscar R.
+- ~~PPR-3 suffix0~~ → **vácuo; abandonado** (11 §4.3)
+- **R não-vácuo:** índices w ou códigos π
+- **CC-Θ:** Θ polinomial (11 §3.3)
+- **PA real:** Lean/Isabelle (sair do proposicional)
+- **Correções 01/06/03:** aplicar (09 §33, PENDENTE)
+- **Plano 09 §35–36:** prova formal Φ_PA↔Con(PA) e iteração T_k
 
 ---
 
