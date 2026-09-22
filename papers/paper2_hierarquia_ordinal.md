@@ -37,12 +37,19 @@ Geradores de complexidade de provas produzem familias de tautologias:
 
 **Status:** PROVADO. Resultado classico.
 
-### 1.3. Gerador Godeliano (Krajicek 2004)
+### 1.3. Gerador Godeliano (Krajicek 2023)
 
-Seja T uma teoria r.e. consistente. O gerador g_T e definido por:
-g_T(x) = paridade{y : T |- Prf_T(y, |x nao-satisfazivel|)}
+** referencia fundamental:** Krajicek, J. (2023). "A proof complexity conjecture and the Incompleteness theorem." arXiv:2303.10637. JSL 90(3), 2025, pp. 1206-1210.
 
-**Propriedade:** g_T e hard para qualquer sistema P que interpreta T.
+Seja T uma teoria r.e. consistente. Krajicek (2023) prova que existe um gerador g_T computavel em tempo polinomial tal que:
+- g_T e hard para qualquer sistema P que interpreta T
+- A tautologia TG_{g_T}^n requer provas super-polinomiais em P
+
+**Mecanismo (log n):** O truque decisivo e usar log n como limite de tamanho de prova:
+1. Dado u com |u| = n, acha formula Phi com |Phi| <= log n
+2. Para cada string w, procura T-prova de tamanho <= log n
+3. A primeira w sem prova define a saida
+4. Total: 2^{O(log n)} = poly(n) candidatos (POLINOMIAL)
 
 **Status:** PROVADO. Resultado de Krajicek.
 
@@ -249,6 +256,6 @@ Este documento e exploratorio. Nao provamos nenhuma nova barreira. O que temos e
 1. Beklemishev, L.D. (2003). "Proof-theoretic analysis by iterated reflection."
 2. Cook, S.A. and Reckhow, R.A. (1979). "The relative efficiency of propositional proof systems."
 3. Krajicek, J. (2004). "Diagonalization in proof complexity."
-4. Krajicek, J. (2024). "Proof complexity generators."
-5. Krajicek, J. (2025). "A proof complexity conjecture and the incompleteness theorem."
+4. **Krajicek, J. (2023). "A proof complexity conjecture and the Incompleteness theorem." arXiv:2303.10637. JSL 90(3), 2025, pp. 1206-1210.**
+5. Krajicek, J. (2024). "Proof complexity generators."
 6. Pudlak, P. (2020). "Reflection principles in propositional proof complexity."

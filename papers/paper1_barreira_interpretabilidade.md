@@ -14,29 +14,79 @@ Exploramos a conexao entre a forca de interpretabilidade aritmetica de sistemas 
 
 ---
 
-## 1. O Que Esta Bem Estabelecido (nao e nosso)
+## 1. O Que Ja Existe (referencia critica)
 
-### 1.1. Teorema de Cook-Reckhow (1979)
+### 1.1. O Paper de Krajicek (2023)
+
+** referencia fundamental:** Krajicek, J. (2023). "A proof complexity conjecture and the Incompleteness theorem." arXiv:2303.10637. Publicado em JSL 90(3), 2025, pp. 1206-1210.
+
+Este paper faz CORRETAMENTE o que nosso Teorema 1 tentava fazer (e errava). O mecanismo de Krajicek e:
+
+**Dado u com |u| = n:**
+
+1. **Acha a formula Phi:** Prefixo de u com |Phi| <= log n
+2. **Para cada string w:** De um alfabeto pequeno (determinado por |Phi|), procura uma T-prova de tamanho <= log n de uma senteca Phi_w especifica
+3. **A primeira w sem prova:** Define a saida
+
+**O truque decisivo:** Os dois limites sao **log n**, nao um polinomio p(n).
+
+**Por que importa:**
+
+| Abordagem | Limite de provas | Strings candidatas | Complexidade |
+|-----------|------------------|-------------------|--------------|
+| Krajicek (correto) | <= log n | 2^{O(log n)} = poly(n) | POLINOMIAL |
+| Nosso Teorema 1 (errado) | <= p(n) | 2^{p(n)} | EXPONENCIAL |
+
+### 1.2. Por Que Nosso Teorema 1 Quebrava
+
+O paper anterior dizia:
+
+> "Enumere todas as provas P de comprimento <= p(|G||_n|). Este algoritmo roda em tempo polinomial."
+
+**Erro:** Enumerar todas as provas de ate p(n) bits requer tempo 2^{p(n)} (cada bit pode ser 0 ou 1). Isto e exponencial, nao polinomial.
+
+**A solucao de Krajicek:** Usar log n como limite, nao p(n). Com log n, o numero de candidatos e polinomial.
+
+### 1.3. O Que Krajicek Prova
+
+Krajicek prova o Primeiro Teorema da Incompletude usando geradores de complexidade de provas:
+
+**Teorema (Krajicek 2023):** Seja T uma teoria consistente. Existe uma funcao g_T computavel em tempo polinomial tal que:
+- g_T e hard para qualquer sistema de prova P que interpreta T
+- A tautologia TG_{g_T}^n requer provas super-polinomiais em P
+
+Isto e exatamente o que nosso "gerador godeliano" tentava fazer, mas de forma CORRETA.
+
+---
+
+## 2. O Que Esta Bem Estabelecido (nao e nosso)
+
+### 2.1. Teorema de Cook-Reckhow (1979)
 
 **Teorema (Cook-Reckhow):** NP = coNP se e somente se existe um sistema de prova polinomicamente delimitado.
 
-**Prova sketch:**
-- Se NP = coNP, entao TAUT ∈ P. Podemos decidir tautologias em tempo polinomial. Isto da um sistema de prova polinomicamente delimitado.
-- Se existe um sistema de prova P polinomicamente delimitado, entao para toda tautologia φ, podemos encontrar uma prova em tempo polinomial (enumerar todas as strings de ate p(|φ|) bits e verificar cada uma). Isto decide TAUT em tempo polinomial. Como TAUT e coNP-completo, P = coNP.
-
 **Status:** PROVADO. E um resultado classico.
 
-### 1.2. Teorema de Incompletude de Goedel (1931)
+### 2.2. Teorema de Incompletude de Goedel (1931)
 
 **Teorema (G2):** Se T e uma teoria consistente que estende Q, entao T nao prova Con(T).
 
 **Status:** PROVADO. E um resultado classico.
 
+### 2.3. Geradores de Krajicek (2004-2025)
+
+Krajicek desenvolveu geradores de complexidade de provas ao longo de 20 anos:
+- Krajicek (2004): Diagonalizacao em complexidade de provas
+- Krajicek (2024): Proof complexity generators (livro)
+- Krajicek (2025): Paper que conecta geradores com incompletude
+
+**Status:** PROVADO. Resultados de Krajicek.
+
 ---
 
-## 2. Nossas Conjecturas (nao provadas)
+## 3. Nossas Conjecturas (nao provadas)
 
-### 2.1. Conexao entre Incompletude e Complexidade
+### 3.1. Conexao entre Incompletude e Complexidade
 
 **Conjectura 1 (Barreira de Interpretabilidade):** Se um sistema de prova P interpreta PA e e polinomicamente delimitado, entao P = coNP.
 
@@ -51,14 +101,9 @@ Exploramos a conexao entre a forca de interpretabilidade aritmetica de sistemas 
 
 **Status:** CONJECTURA. Argumento informal.
 
-### 2.2. Hierarquia de Separacao
+### 3.2. Hierarquia de Separacao
 
 **Conjectura 2:** Se P e mais forte que Q (em termos de interpretabilidade), existem sentencas que P resolve em tempo polinomial e Q nao resolve.
-
-**Argumento (sketch):**
-
-1. Se P interpreta T1 e Q interpreta T2, com T1 > T2, entao P pode formalizar mais raciocinio que Q.
-2. Sentencas que dependem do raciocinio adicional de T1 serao faceis para P mas dificeis para Q.
 
 **Problema:** Isto depende de P != NP. Se P = coNP, todos os sistemas polinomicamente delimitados sao equivalentes.
 
@@ -66,9 +111,9 @@ Exploramos a conexao entre a forca de interpretabilidade aritmetica de sistemas 
 
 ---
 
-## 3. O Que NAO E Provable (erros no paper anterior)
+## 4. O Que NAO E Provable (erros no paper anterior)
 
-### 3.1. Erro na Prova do Teorema 1
+### 4.1. Erro na Prova do Teorema 1
 
 O paper anterior dizia:
 
@@ -76,12 +121,13 @@ O paper anterior dizia:
 
 **Erro:** Enumerar todas as provas de ate p(n) bits requer tempo 2^{p(n)} (cada bit pode ser 0 ou 1). Isto e exponencial, nao polinomial.
 
-**Correcao:** O argumento correto usa Cook-Reckhow diretamente:
-- Se P e polinomicamente delimitado, entao TAUT ∈ P (por Cook-Reckhow).
-- Se TAUT ∈ P, entao P = coNP.
-- Isto nao usa enumeracao exaustiva.
+**Correcao:** O argumento correto usa o mecanismo de Krajicek:
+- Usar log n como limite de tamanho de prova
+- Isto da 2^{O(log n)} = poly(n) candidatos
+- Cada candidato e verificado em tempo polinomial
+- Total: tempo polinomial
 
-### 3.2. Limite n^c e Fraco Demais
+### 4.2. Limite n^c e Fraco Demais
 
 O paper anterior dizia:
 
@@ -89,11 +135,11 @@ O paper anterior dizia:
 
 **Problema:** Este limite e fraco demais para ser uma "barreira". Nao sabemos se c > 0 e fixo, ou se depende de n.
 
-**Correcao:** O resultado correto e:
+**Correcao:** O resultado correto (via Krajicek) e:
 - Se P != NP, entao nenhum sistema e polinomicamente delimitado (por Cook-Reckhow).
 - Isto nao fornece um limite inferior explicito para sentencas especificas.
 
-### 3.3. Tabela de g(P) e Especulativa
+### 4.3. Tabela de g(P) e Especulativa
 
 O paper anterior dizia:
 
@@ -102,56 +148,33 @@ O paper anterior dizia:
 | Frege | 2^{2^{Omega(n)}} |
 | Extended Frege | 2^{2^{2^{Omega(n)}}} |
 
-**Problema:** Estes limites sao ESPECULATIVOS. Nao existem provas na literatura para estes limites especificos. Sao conjecturas razoaveis mas nao provadas.
+**Problema:** Estes limites sao ESPECULATIVOS. Nao existem provas na literatura para estes limites especificos.
 
-**Correcao:** A tabela deve ser marcada como "conjectural" ou removida.
-
----
-
-## 4. Resultados Validos (com ressalvas)
-
-### 4.1. Cook-Reckhow e Solido
-
-O teorema de Cook-Reckhow e bem estabelecido:
-- NP = coNP iff existe sistema de prova polinomicamente delimitado.
-- Isto e equivalente a: P = coNP iff existe tal sistema.
-
-### 4.2. G2 e Solido
-
-O Segundo Teorema de Goedel e bem estabelecido:
-- T nao prova Con(T) para T consistente estendendo Q.
-
-### 4.3. Conexao e Plausivel
-
-A conexao entre incompletude e complexidade e plausivel:
-- Se P = coNP, entao existem sistemas polinomicamente delimitados.
-- Tais sistemas seriam "metamaticamente fracos" (nao podem formalizar G2).
-- Mas isto nao e uma contradicao direta.
+**Correcao:** A tabela deve ser removida ou marcada como puramente conjectural.
 
 ---
 
-## 5. O Que Precisa de Trabalho
+## 5. O Que Nosso Trabalho Pode Fazer (agora corretamente)
 
-### 5.1. Rigorizar a Conexao
+### 5.1. Basear-se em Krajicek (2023)
 
-A conexao entre incompletude e complexidade precisa de:
-1. Definicao precisa de "forca de interpretabilidade" para sistemas proposicionais.
-2. Prova rigorosa de que sistemas fortes enfrentam sentencas mais dificeis.
-3. Limite inferior explicito para sentencas godelianas.
+Nosso trabalho pode:
+1. **Citar Krajicek (2023)** como referencia fundamental
+2. **Usar o mecanismo de log n** para provas polinomiais
+3. **Estender** o resultado de Krajicek para hierarquias ordinais
 
-### 5.2. Evitar Presuncoes
+### 5.2. Contribuicao Potencial
 
-Nao devemos presumir:
-1. Que enumeracao e polinomial (e exponencial).
-2. Que limites n^c sao "barreiras" (sao fracos).
-3. Que tabelas de g(P) sao provadas (sao conjecturas).
+A contribuicao potencial (nao provada) seria:
+1. Conectar o gerador g_T de Krajicek com a hierarquia de Beklemishev
+2. Mostrar que a dificuldade escala com o ordinal
+3. Classificar sistemas de prova por sua posicao na hierarquia
 
-### 5.3. Marcar Conjecturas
+### 5.3. O Que Precisa de Trabalho
 
-Todo resultado que depende de P != NP deve ser marcado como:
-- "Condicional a P != NP"
-- "Conjectura"
-- "Sketch de prova"
+1. **Rigorizar** a conexao entre g_T e a hierarquia ordinal
+2. **Provar** que geradores de niveis mais altos sao mais dificeis
+3. **Formalizar** em Lean 4 usando a biblioteca Foundation
 
 ---
 
@@ -161,20 +184,24 @@ Todo resultado que depende de P != NP deve ser marcado como:
 |------|--------|
 | Cook-Reckhow | PROVADO (classico) |
 | G2 | PROVADO (classico) |
+| Geradores de Krajicek | PROVADO (classico) |
+| Krajicek (2023) - g_T e incompletude | PROVADO |
 | Conexao incompletude-complexidade | CONJECTURA |
+| Conexao ordinal-geradores | CONJECTURA |
 | Limite inferior para sentencas godelianas | ABERTO |
-| Tabela de g(P) | ESPECULATIVA |
 
 ---
 
 ## 7. Conclusao Honesta
 
-Este documento e exploratorio. Nao provamos nenhuma barreira nova. O que temos e:
-1. Uma conexao plausivel entre incompletude e complexidade.
-2. Conjecturas que precisam de rigorizacao.
-3. Um programa de pesquisa para investigar a conexao.
+Este documento e exploratorio. O que descobrimos e que:
 
-**Recomendacao:** Rebaixar este documento para "notas exploratorias" e nao submeter como paper.
+1. **Krajicek (2023)** ja fez corretamente o que nos tentavamos fazer
+2. **Nosso Teorema 1** era invalido (usava enumeracao exponencial)
+3. **A solucao** e usar log n como limite (mecanismo de Krajicek)
+4. **Nossa contribuicao potencial** seria conectar geradores com hierarquias ordinais
+
+**Recomendacao:** Reescrever o paper citando Krajicek (2023) e usando seu mecanismo correto.
 
 ---
 
@@ -182,6 +209,7 @@ Este documento e exploratorio. Nao provamos nenhuma barreira nova. O que temos e
 
 1. Cook, S.A. and Reckhow, R.A. (1979). "The relative efficiency of propositional proof systems." JSL, 44(1):29-50.
 2. Godel, K. (1931). "Uber formal unentscheidbare Sätze der Principia Mathematica und verwandter Systeme I."
-3. Krajicek, J. (1995). "Bounded Arithmetic, Propositional Logic, and Complexity Theory."
-4. Krajicek, J. (2024). "Proof complexity generators."
-5. Pudlak, P. (1997). "Lower bounds for resolution and cutting plane proofs."
+3. **Krajicek, J. (2023). "A proof complexity conjecture and the Incompleteness theorem." arXiv:2303.10637. JSL 90(3), 2025, pp. 1206-1210.**
+4. Krajicek, J. (2024). "Proof complexity generators." London Math. Soc. Lecture Note Series, no. 497.
+5. Krajicek, J. (1995). "Bounded Arithmetic, Propositional Logic, and Complexity Theory."
+6. Pudlak, P. (1997). "Lower bounds for resolution and cutting plane proofs."
