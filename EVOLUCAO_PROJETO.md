@@ -228,6 +228,17 @@ Captura mecânica (δ, RBT, PPR) fielmente; não certifica PA real.
 - ρ_b vs Pakhomov–Walsh: **distintos** (finito-combinatório vs. ordinal)
 - Ressalvas: busca inicial, proposicional, suffix0 vácuo
 
+### 7.4 Mesclagem de conteúdo em 09 (§35–40)
+
+Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
+- **§35 Plano concreto PA→RFN** (metas formais δ_PA=1, δ_T1=0)
+- **§36 Iteração** T_{k+1} com mesma família Φ
+- **§37 Meta científica** (reflexão ↔ transição de cobertura)
+- **§38 Tabela de classificação** de todos os objetos
+- **§39 Veredicto**
+- **§40 Referências** expandidas
+- Status de correções §33 marcado como **PENDENTES**
+
 ---
 
 ## Fase 8 — O que está em aberto (agora)

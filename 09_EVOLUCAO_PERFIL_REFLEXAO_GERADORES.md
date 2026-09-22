@@ -1509,7 +1509,7 @@ Não manter:
 
 > "\(g_T\) é hard para qualquer sistema \(P\) que interpreta \(T\)".
 
-O artigo de Krajíček não estabelece isso; a hardness universal de algum \(g_T\) é apresentada como problema em aberto.
+O artigo de Krajíček não estabelece isso; a hardness universal de algum \(g_T\) é apresentada como problema em aberto (arXiv:2303.10637).
 
 Também deve ser removida a definição:
 
@@ -1517,7 +1517,7 @@ Também deve ser removida a definição:
 g_T(x)=\operatorname{paridade}\{y:T\vdash\operatorname{Prf}_T(y,\cdots)\}.
 \]
 
-Ela não descreve a construção de \(g_T\) de Krajíček.
+Ela não descreve a construção \(g_T\) de Krajíček.
 
 ### `06_paper2_hierarquia_ordinal.md`
 
@@ -1543,6 +1543,8 @@ MCSP\le_p\text{"ter prova polinomial de }TG_\alpha"
 
 continua apenas como sketch e não deve ser classificado como teorema.
 
+**Status destas correções (22/09/2026):** AINDA PENDENTES de aplicação nos arquivos 01, 06, 03 — registradas em `INDICE.md` (D1–D6) e `EVOLUCAO_PROJETO.md`.
+
 ---
 
 # 34. Arquivo que deve substituir o centro atual da pesquisa
@@ -1560,22 +1562,219 @@ Recomendação estrutural:
 07_pontos_fixos_incompletude.md
 08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md
 09_EVOLUCAO_PERFIL_REFLEXAO_GERADORES.md   <-- novo núcleo
+10_EXPERIMENTO_GERADORES_FINITOS.md
+11_PPR3_THETA_SUFFIX0.md
+12_NOTA_CURTA_POSICIONAMENTO_DELTA_RBT.md
 ```
+
+O antigo Paper 2 deve passar a ser documento histórico/conjectural até que seus teoremas sejam reconstruídos.
 
 ---
 
-# 35. Bibliografia essencial
+# 35. Próximo teste matemático (plano concreto)
 
-1. **Krajíček, J.** "A Proof Complexity Conjecture and the Incompleteness Theorem." *JSL* 90(3), 2025, pp. 1206–1210. arXiv:2303.10637.
-2. **Krajíček, J.** *Proof Complexity Generators*. Cambridge UP / LMS Lecture Note Series 497, 2025.
-3. **Krajíček, J.** "On the Existence of Strong Proof Complexity Generators." *BSL*, 2024.
-4. **Krajíček, J.** "On \(NP\cap coNP\) Proof Complexity Generators." *LMCS* 22(2), 2026.
-5. **Beklemishev, L. D.** "Reflection Principles and Provability Algebras in Formal Arithmetic." *Russian Math. Surveys* 60(2), 2005.
-6. **Beklemishev, L. D.** "Positive Provability Logic for Uniform Reflection Principles." 2013. arXiv:1304.4396.
-7. **Freund, A.; Pakhomov, F.** "Short Proofs for Slow Consistency." 2017/2020. arXiv:1712.03251.
-8. **Friedman, S.; Rathjen, M.; Weiermann, A.** "Slow complexity." *APAL*, 2013.
-9. **Pudlák, P.** "Reflection principles and the complexity of propositional proofs." 2020.
-10. **Jump Operators, Interactive Proofs and Proof Complexity Generators.** FOCS 2024.
+A próxima investigação deve ser feita no menor caso possível:
+
+\[
+T_0=PA, \qquad T_1=PA+\mathrm{RFN}_{\Pi_1}(PA).
+\]
+
+Escolher uma única \(\Phi_{PA}\) construída a partir de:
+
+\[
+\operatorname{Prf}_{PA}(p,\bot).
+\]
+
+Depois provar formalmente (em Lean/Isabelle ou papel com todas as hipóteses):
+
+\[
+\Phi_{PA}^{w^\star} \leftrightarrow \operatorname{Con}(PA),
+\]
+
+\[
+PA\nvdash\Phi_{PA}^{w^\star},
+\]
+
+\[
+T_1\vdash\Phi_{PA}^{w^\star}.
+\]
+
+Em seguida determinar:
+
+\[
+\delta_{PA}(\Phi_{PA},b)
+\quad\text{e}\quad
+\delta_{T_1}(\Phi_{PA},b)
+\]
+
+para \(b\) suficientemente grande.
+
+O objetivo mais interessante é obter:
+
+\[
+\boxed{
+\delta_{PA}=1, \qquad \delta_{T_1}=0.
+}
+\]
+
+Isso seria a primeira instância concreta da assinatura de reflexão proposta.
+
+**Status:** parcialmente atingido no modelo proposicional (`reimplementacao_provas_reais.py`: δ_T0=4, δ_T1=0 — mas com n_wstar=4 obrigações w*, não 1; e proposicional, não PA aritmético).
+
+---
+
+# 36. Depois disso: iterar
+
+Defina:
+
+\[
+T_{k+1} = T_k+\mathrm{RFN}_{\Pi_1}(T_k).
+\]
+
+Para cada \(k\), construir \(\Phi_k\) a partir de \(\operatorname{Prf}_{T_k}(p,\bot)\).
+
+Esperamos verificar:
+
+\[
+\delta_{T_k}(\Phi_k,b)=1
+\quad\text{e}\quad
+\delta_{T_{k+1}}(\Phi_k,b)=0
+\]
+
+acima dos respectivos limiares de prova.
+
+O ponto realmente interessante virá se conseguirmos usar a **mesma família \(\Phi\)** para vários níveis, em vez de trocar a fórmula a cada passo. Aí a sequência:
+
+\[
+\delta_{T_0}(\Phi,b),\ \delta_{T_1}(\Phi,b),\ \delta_{T_2}(\Phi,b),\ldots
+\]
+
+poderá carregar uma assinatura comparável entre níveis.
+
+**Status:** ABERTO — ainda não testado.
+
+---
+
+# 37. Meta de maior valor científico
+
+O objetivo final não deve ser afirmar simplesmente:
+
+\[
+T_1>T_0.
+\]
+
+Isso já é esperado.
+
+A meta deve ser descobrir uma propriedade do tipo:
+
+\[
+\boxed{
+\text{reflexão aritmética}
+\quad\longleftrightarrow\quad
+\text{transição quantitativa de cobertura}
+}
+\]
+
+e, posteriormente, determinar se essa transição é refletida em:
+
+\[
+\tau(g_T)
+\quad\text{e em}\quad
+\preceq_{\mathrm{ppr}}.
+\]
+
+Se uma dessas pontes puder ser demonstrada rigorosamente, o projeto terá avançado da reunião de resultados conhecidos para uma contribuição matemática própria.
+
+---
+
+# 38. Classificação final dos objetos
+
+| Objeto | Status |
+|--------|--------|
+| \(g_T\) de Krajíček | literatura |
+| \(\tau(g)\) | literatura |
+| \(\preceq_{\mathrm{ppr}}\) | definição proposta anteriormente |
+| \(g_T^{a,b}\) | extensão proposta |
+| \(\delta_T(\Phi,b)\) | **novo objeto proposto** |
+| \(\mathcal G_\Gamma(T,\Phi,b)\) | **novo objeto proposto** |
+| \(\rho_b(\Phi;\mathcal H)\) | **novo objeto proposto** |
+| Monotonicidade de \(\delta\) | **provada** (Teo. 2) |
+| Telescopagem do ganho | **provada** (Seção 10) |
+| Codificação de \(\operatorname{Con}(T)\) em \(\Phi_T^{w^\star}\) | construção metamatemática (Lema 3) |
+| Transição RBT | consequência sob hipóteses; **confirmada em experimento proposicional** |
+| PPR a partir de interpretabilidade | aberto |
+| RCS | hipótese |
+| suffix0 como R | **refutado** (vácuo) — ver `11_...` §4.3 |
+| Originalidade absoluta de δ/RBT | **não certificada** (busca inicial: não encontrados) |
+
+---
+
+# 39. Veredicto
+
+A segunda revisão encontra uma direção de contribuição melhor definida que a antiga tese da "escala ordinal da hardness".
+
+O novo núcleo é:
+
+\[
+\boxed{\text{Reflection Coverage Spectrum}}
+\]
+
+com os objetos:
+
+\[
+\boxed{
+\delta_T(\Phi,b), \qquad
+\mathcal G_\Gamma(T,\Phi,b), \qquad
+\rho_b(\Phi;\mathcal H).
+}
+\]
+
+A vantagem matemática é que todos eles podem ser definidos antes de resolver os grandes problemas abertos de proof complexity.
+
+A primeira propriedade já demonstrada é:
+
+\[
+T\subseteq S \Longrightarrow \delta_S(\Phi,b)\le\delta_T(\Phi,b).
+\]
+
+A primeira oportunidade concreta de produzir um fenômeno estrito é:
+
+\[
+PA \to PA+\mathrm{RFN}_{\Pi_1}(PA),
+\]
+
+usando uma \(\Phi_{PA}\) cuja obrigação especial seja equivalente a \(\operatorname{Con}(PA)\).
+
+O resultado desejado:
+
+\[
+\boxed{
+\delta_{PA}(\Phi_{PA},b)=1, \qquad
+\delta_{PA+\mathrm{RFN}_{\Pi_1}(PA)}(\Phi_{PA},b)=0
+}
+\]
+
+é muito mais próximo de uma demonstração realizável do que a antiga afirmação:
+
+\[
+s_P(TG_\alpha^n)\ge2^{\Omega(|T_\alpha|n)}.
+\]
+
+Depois de estabelecer essa primeira instância rigorosamente, o projeto poderá voltar à questão PPR e testar se esse fenômeno de cobertura deixa uma assinatura preservável pelas \(\tau\)-fórmulas.
+
+---
+
+# 40. Referências essenciais
+
+1. Jan Krajíček, "A proof complexity conjecture and the Incompleteness theorem", JSL 90(3), 2025; preprint arXiv:2303.10637. https://arxiv.org/abs/2303.10637
+2. Jan Krajíček, *Proof Complexity Generators*, Cambridge University Press, 2025. https://www.cambridge.org/core/books/proof-complexity-generators/
+3. Jan Krajíček, "On the existence of strong proof complexity generators." BSL 2024.
+4. Pavel Pudlák, "Reflection principles, propositional proof systems, and theories", 2020. arXiv:2007.14835
+5. Sy-David Friedman, Michael Rathjen, Andreas Weiermann, "Slow consistency", APAL 164 (2013), 382–393.
+6. Anton Freund, Fedor Pakhomov, "Short Proofs for Slow Consistency", NDJFL 61(1) (2020), 31–49. arXiv:1712.03251
+7. Fedor Pakhomov, James Walsh, "Reflection Ranks and Ordinal Analysis", JSL 86(4), 2021. arXiv:1805.02095
+8. Lev Beklemishev, "Proof-theoretic analysis by iterated reflection", APAL, 2003.
+9. Repositório do projeto: https://github.com/ebiossanto/IA-research-Godel-e-Krajicek
 
 ---
 
@@ -1591,13 +1790,15 @@ Recomendação estrutural:
 \Phi_T^{w^\star}\leftrightarrow\operatorname{Con}(T) & \text{ESTABELECIDO (Lema 3)}\\
 \text{Teorema 4 (ressposta estrita)} & \text{ESTABELECIDO (sob hipóteses)}\\
 \text{Ganho unitário } \mathcal G=1 & \text{ESTABELECIDO (corolário)}\\
-\text{RBT (transição de ramo)} & \text{DEFINIDO neste projeto}\\
+\text{RBT (transição de ramo)} & \text{DEFINIDO; confirmado em exp. proposicional}\\
 \rho_b \text{ (rank de cobertura)} & \text{DEFINIDO; novidade bibliográfica ABERTA}\\
 \text{Hipótese RCS} & \text{HIPÓTESE de trabalho; falsificável}\\
 g_T\preceq_{\mathrm{ppr}}g_S \Leftarrow T\preceq_{\mathrm{int}}S & \text{ABERTO}\\
-\text{Originalidade de }\delta\text{ vs. Pudlák/Krajíček} & \text{ABERTA (busca necessária)}
+\text{suffix0 como R} & \text{REFUTADO (vácuo) — 11 §4.3}\\
+\text{Originalidade de }\delta\text{ vs. Pudlák/Krajíček} & \text{busca inicial: NÃO; não certificada}\\
+\text{Correções 01/06/03 (Seção 33)} & \text{PENDENTES de aplicação}
 \end{array}
 }
 \]
 
-**Regra para o repositório:** δ, \(\mathcal G\), \(\rho_b\) e RBT são definições/objetos deste projeto; nenhum deve ser rotulado como conhecido na literatura sem verificação bibliográfica. Teoremas 2, Lema 3 e Teorema 4 são provados sob hipóteses explícitas.
+**Regra para o repositório:** δ, \(\mathcal G\), \(\rho_b\) e RBT são definições/objetos deste projeto; nenhum deve ser rotulado como conhecido na literatura sem verificação bibliográfica. Teorema 2, Lema 3 e Teorema 4 são provados sob hipóteses explícitas, **não formalizados em assistente de provas**.
