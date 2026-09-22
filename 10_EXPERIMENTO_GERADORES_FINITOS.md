@@ -3,7 +3,8 @@
 **Projeto:** IA-research-Godel-e-Krajicek
 **Autor:** Euzebio Soares
 **Data:** 22/09/2026
-**Status:** EXPERIMENTO/METODOLOGIA — não prova resultados assintóticos; busca invariantes e candidatos R.
+**Status:** EXPERIMENTO EXECUTADO — resultados preenchidos em §4
+**Script:** `experimento_10.py` (simulação estruturalmente fiel — ver §8)
 
 ---
 
@@ -11,12 +12,113 @@
 
 Calcular explicitamente, para n pequeno:
 
-1. as imagens g_{PA,n} e g_{T_1,n} (T_1 = PA + RFN_{Π_1}(PA));
+1. as imagens g_{PA,n} e g_{T_1,n} (T_1 = PA + RFN_{Π₁}(PA));
 2. os complementos de imagem (candidatos a b para τ(g)_b);
 3. o déficit de cobertura δ_T(Φ, b) para orçamentos b crescentes;
 4. candidatos a redução R: (n, b) ↦ (m, β) testando PPR.
 
 **Não fazemos:** prova assintótica, lower bound, reivindicação de prioridade.
+
+---
+
+## 4. Tabela de coleta (RESULTADOS — 22/09/2026)
+
+**Setup executado:**
+- |Φ| = 12 bits, r = |w| = 4, W^true = {0,1}⁴ = 16 obrigações (T₀ consistente)
+- w* = 00 (4 obrigações com prefixo 00: não-prováveis em T₀ = ∞)
+- s_{T₀}(genéricas) ∈ [8, 24]; s_{T₁}(genéricas) = s_{T₀}; s_{T₁}(Con) = 20
+- n ∈ {8, 10, 12, 14, 16}; b ∈ {4, 8, 12, 16, 20, 24, 32, 48, 64}
+
+### 4.1. Imagens e δ (n=12 exemplo; perfil independe de n para n ≥ |Φ|)
+
+| n | \|Φ\| | \|W^true\| | b | δ_{T₀} | δ_{T₁} | 𝒢 = δ₀−δ₁ | w₀(T₀) | w₀(T₁) |
+|---|-------|------------|---|--------|--------|------------|---------|---------|
+| 12 | 12 | 16 | 4 | 16 | 16 | 0 | 0000 | 0000 |
+| 12 | 12 | 16 | 8 | 16 | 16 | 0 | 0000 | 0000 |
+| 12 | 12 | 16 | 12 | 16 | 16 | 0 | 0000 | 0000 |
+| 12 | 12 | 16 | 16 | 5 | 5 | 0 | 0000 | 0000 |
+| 12 | 12 | 16 | **20** | **4** | **0** | **4** | 0000 | **ALL_COV** |
+| 12 | 12 | 16 | 24 | 4 | 0 | 4 | 0000 | ALL_COV |
+| 12 | 12 | 16 | 32 | 4 | 0 | 4 | 0000 | ALL_COV |
+| 12 | 12 | 16 | 64 | 4 | 0 | 4 | 0000 | ALL_COV |
+
+**Sequência δ_{T₀}(b):** [16, 16, 16, 5, 4, 4, 4, 4, 4] — **não-crescente** ✓
+**n < 12:** Φ não escolhível → δ cheio trivialmente (16, 16).
+
+### 4.2. Complemento de imagem (b_gen = 32)
+
+| n | \|rng g_{T₀}\| | \|comp g_{T₀}\| | \|rng g_{T₁}\| | \|comp g_{T₁}\| |
+|---|----------------|-----------------|----------------|-----------------|
+| 8 | 1 | 511 | 1 | 511 |
+| 10 | 1 | 2047 | 1 | 2047 |
+| 12 | 1 | 8191 | 1 | 8191 |
+| 14 | 4 | 32764 | 1 | 32767 |
+| 16 | 16 | 131056 | 1 | 131071 |
+
+**Observação:** |rng| pequena pois gerador retorna 0^{n+1} para quase toda entrada (mecanismo seletivo); T₁ cobre mais (imagem ainda menor pois todas obrigações cobertas → ramo all-covered = 0^{n+1} constante).
+
+### 4.3. Transição de Ramo (RBT)
+
+| b | w₀(T₀) | w₀(T₁) | RBT ocorre? | Transição |
+|---|---------|---------|-------------|-----------|
+| 4 | 0000 | 0000 | NÃO | — |
+| 8 | 0000 | 0000 | NÃO | — |
+| 12 | 0000 | 0000 | NÃO | — |
+| 16 | 0000 | 0000 | NÃO | — |
+| **20** | 0000 | ALL_COV | **SIM** | 0000 → ALL_COV |
+| 24 | 0000 | ALL_COV | **SIM** | 0000 → ALL_COV |
+| 32 | 0000 | ALL_COV | **SIM** | 0000 → ALL_COV |
+| 48 | 0000 | ALL_COV | **SIM** | 0000 → ALL_COV |
+| 64 | 0000 | ALL_COV | **SIM** | 0000 → ALL_COV |
+
+**RBT ocorre em 5/9 valores de b testados** (b ≥ 20 = s_{T₁}(Con)).
+
+---
+
+## 5. Resultados da busca por R (PPR-2 simplificado)
+
+| n | R candidato | status | \|comp g₀\| |
+|---|-------------|--------|-------------|
+| 12 | id | refuted | 8192 |
+| 12 | xor1 | refuted | 8192 |
+| 12 | prefix0 | refuted | 8192 |
+| 12 | **suffix0** | **CANDIDATE** | 8192 |
+| 14 | id | refuted | 32768 |
+| 14 | xor1 | refuted | 32768 |
+| 14 | prefix0 | refuted | 32768 |
+| 14 | **suffix0** | **CANDIDATE** | 32768 |
+| 16 | id | refuted | 131072 |
+| 16 | xor1 | refuted | 131072 |
+| 16 | prefix0 | refuted | 131072 |
+| 16 | **suffix0** | **CANDIDATE** | 131072 |
+
+**CANDIDATO R: `suffix0`** — R(s) = s ‖ '0' (extensão por sufixo zero).
+PPR-2 vale em todas as amostras (n = 12, 14, 16).
+**Não é prova** — apenas candidato para testar PPR-3 (Θ explícito) em trabalho futuro.
+
+---
+
+## 6. Verificações teóricas (executadas)
+
+| Verificação | Resultado |
+|-------------|-----------|
+| 𝒢 ≥ 0 para todo b | **True** |
+| δ_{T₁} ≤ δ_{T₀} (Teo. 2) | **True** |
+| δ_{T₀} não-crescente em b | **True** [16,16,16,5,4,4,4,4,4] |
+| Obrigações w* (∞ em T₀) | **4** (prefixo 00) |
+| Teo. 4 parcial (δ₀=1, δ₁=0)? | **Parcial:** b≥20: δ₀=4(=n_wstar), δ₁=0 |
+
+---
+
+## 7. VEREDICTO DO EXPERIMENTO
+
+1. **δ diminui de T₀ para T₁?** **SIM** — 𝒢=4 para b≥20
+2. **RBT ocorre?** **SIM** — 5/9 valores de b (transição `0000 → ALL_COV`)
+3. **Candidato R existe?** **SIM — `suffix0`** passa PPR-2 nas amostras
+4. **δ decresce com b (T₀)?** **SIM** — monotonicidade confirmada
+5. **Teo. 4 (δ₀=1, δ₁=0)?** **Parcial** — δ₀ = n_wstar = 4 (não 1), δ₁ = 0
+
+**Ressalva:** simulação estrutural, não busca real de provas em PA (ver §8).
 
 ---
 
@@ -261,18 +363,20 @@ def delta(T, phi, b, proof_search):
 2. **RFN truncada em L** — não é PA+RFN(PA) completo;
 3. **Sistema de prova fixo** — resultados dependem da codificação;
 4. **Busca de provas limitada por b** — não decide verdade aritmética completa;
-5. **Sem reivindicação de originalidade** — ver §1.
+5. **Sem reivindicação de originalidade** — ver §1;
+6. **SIMULAÇÃO ESTRUTURAL** — `experimento_10.py` não busca provas reais em PA; usa valores de complexidade de prova (s_T) que reproduzem a estrutura: Con(PA)=∞ em T₀, finito em T₁. Captura a mecânica (δ, RBT, PPR) fielmente, mas não certifica comportamento de PA real.
 
 ---
 
 ## 9. Próximos passos (após este experimento)
 
-1. Rodar enumeração e preencher §4;
-2. Classificar RBT: ocorre/não ocorre;
-3. Se R candidate: construir Θ e testar PPR-3;
-4. Se resultados estáveis: posicionar vs. Pudlák/Krajíček com cuidado;
-5. Atualizar `EVOLUCAO_PROJETO.md` com achados;
-6. Decidir: nota curta vs. continuar como programa.
+1. ~~Rodar enumeração e preencher §4~~ **[FEITO 22/09/2026]**
+2. ~~Classificar RBT: ocorre/não ocorre~~ **[FEITO: SIM, 5/9 b]**
+3. Se R candidate (`suffix0`): construir Θ e testar PPR-3 — **PRÓXIMO**
+4. Se resultados estáveis: posicionar vs. Pudlák/Krajíček com cuidado
+5. Atualizar `EVOLUCAO_PROJETO.md` com achados — **PRÓXIMO**
+6. Decidir: nota curta vs. continuar como programa
+7. **Ideal:** reimplementar com busca de provas real (ou Isabelle/HOL) para validar
 
 ---
 

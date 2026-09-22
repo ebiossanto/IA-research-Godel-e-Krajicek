@@ -1,7 +1,7 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.1 (Setembro 2026, núcleo 09 + varredura bib. + experimento 10)
-**Status:** Honestidade intelectual — teoremas 4-6 rejeitados, FP-K rebaixada, núcleo = δ/𝒢/ρ_b/RBT, δ/RBT não encontrados na bib. inicial
+**Versão:** 6.2 (Setembro 2026, núcleo 09 + experimento 10 EXECUTADO)
+**Status:** Honestidade intelectual — teoremas 4-6 rejeitados, FP-K rebaixada, núcleo = δ/𝒢/ρ_b/RBT, experimento 10: RBT=SIM, R=`suffix0`
 
 ---
 
@@ -14,7 +14,8 @@
 | `EVOLUCAO_PROJETO.md` | **HISTÓRICO VIVO: ideia→provas→aberto→mudanças de rumo** | **ATUALIZAR A CADA PASSO** |
 | `09_EVOLUCAO_PERFIL_REFLEXAO_GERADORES.md` | **NÚCLEO MATEMÁTICO: g_T^{a,b}, δ, 𝒢, ρ_b, RBT (Teo. 2, Lema 3, Teo. 4 provados)** | **ATIVO** |
 | `08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md` | PPR: τ-corrigido, ≼_ppr, lemas, R1/R2 provados, R3 aberto | ATIVO (complementar) |
-| `10_EXPERIMENTO_GERADORES_FINITOS.md` | **EXPERIMENTO: enumeração n=8..16, tabelas δ/𝒢/RBT, busca R; varredura bib.** | **PRÓXIMO A RODAR** |
+| `10_EXPERIMENTO_GERADORES_FINITOS.md` | **EXPERIMENTO EXECUTADO: RBT=SIM(5/9), R=`suffix0`, tabelas §4 preenchidas** | **EXECUTADO 22/09** |
+| `experimento_10.py` | Script da simulação estrutural (rodar: `python experimento_10.py`) | **SCRIPT** |
 
 ### Papers e Conjecturas
 
@@ -91,6 +92,7 @@
 | PR6 | Transferência: δ_S ≤ δ_T ⟹? g_T ≼_ppr g_S | ABERTO | `09_...` §23 |
 | PR7 | Freund–Pakhomov: Con*(PA) aparece em δ? | **PERGUNTA GERADA** (varredura) | `10_...` §1.4 |
 | PR8 | δ/RBT: prioridade vs. Pudlák/Krajíček | **BUSCA INICIAL: NÃO encontrado**; profundizar | `10_...` §1.1-1.2 |
+| PR9 | PPR-3: Θ para candidato `suffix0` | **PRÓXIMO** (experimento 10 §5) | `10_...` §5 |
 
 ### DESCARTADOS / REJEITADOS (não usar)
 
@@ -115,6 +117,18 @@
 | RBT (transição de ramo) | **NÃO** (busca inicial) | Nome proposto; candidato |
 | ρ_b (rank de cobertura) | **PRÓXIMO: Pakhomov–Walsh reflection rank** | DISTINTO: eles=ordinal; nós=δ=0 |
 | g^{a,b} (dois orçamentos) | **NÃO explícito** em Krajíček | Refinamento; verificar livro 2025 |
+
+---
+
+## Experimento 10 — Resultados (22/09/2026)
+
+| Pergunta | Resultado |
+|----------|-----------|
+| δ diminui T₀→T₁? | **SIM** (𝒢=4, b≥20) |
+| RBT ocorre? | **SIM** (5/9 b: `0000→ALL_COV`) |
+| Candidato R? | **`suffix0`** (passa PPR-2, n=12,14,16) |
+| δ decresce com b? | **SIM** [16,16,16,5,4,4,4,4,4] |
+| Teo. 4 (δ₀=1,δ₁=0)? | **Parcial** (δ₀=4, δ₁=0, b≥20) |
 
 ---
 
@@ -146,9 +160,9 @@ ao longo de uma hierarquia de reflexão $T_0 \subseteq T_1 \subseteq \cdots$?
 - ρ_b independente de codificação?
 - Transferência δ ⟹ PPR?
 
-**Documentos:** `09_EVOLUCAO_...` (núcleo), `08_PROGRAMA_...` (PPR), `10_EXPERIMENTO_...` (instâncias), `EVOLUCAO_PROJETO.md` (histórico)
+**Documentos:** `09_EVOLUCAO_...` (núcleo), `08_PROGRAMA_...` (PPR), `10_EXPERIMENTO_...` + `experimento_10.py` (executado), `EVOLUCAO_PROJETO.md` (histórico)
 
-**Próximo passo:** RODAR `10_EXPERIMENTO_GERADORES_FINITOS.md` (enumeração e tabelas §4)
+**Próximo passo:** PPR-3 (Θ para `suffix0`) OU reimplementação com provas reais OU nota curta vs. Pudlák/Krajíček
 
 ---
 

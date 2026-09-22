@@ -228,7 +228,7 @@ Pergunta testavel: "A reflexao produz assinatura mensuravel na complexidade prop
 6. **ETAPA B:** calcular explicitamente g_{PA,n}, g_{T_1,n} para n pequeno
 7. **ETAPA C-D:** buscar R e Theta candidatos; testar PPR
 8. **ETAPA E:** so depois generalizar / tentar prova assintotica
-9. **PROXIMO: RODAR** `10_EXPERIMENTO_GERADORES_FINITOS.md` (enumeração, tabelas, RBT, R)
+9. **`10_EXPERIMENTO_GERADORES_FINITOS.md` + `experimento_10.py` EXECUTADOS:** RBT=SIM(5/9 b), R=`suffix0`, δ/T2 confirmados; tabelas §4 preenchidas
 10. **EM PARALELO:** varredura inicial 10 §1: δ/RBT **NÃO encontrados**; ρ_b ≠ Pakhomov–Walsh; profundizar com especialistas
 
 ### 6.4. Medio prazo (3-6 meses)

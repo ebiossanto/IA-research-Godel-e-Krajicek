@@ -171,7 +171,36 @@ $$\delta_{S_\alpha}(\Phi,b) \stackrel{?}{=} \delta_{F_\alpha}(\Phi,b)$$
 
 ---
 
-## Fase 6 — O que está em aberto (agora)
+## Fase 6 — Experimento 10 EXECUTADO (22/09/2026)
+
+### Script: `experimento_10.py` (simulação estrutural)
+
+**Setup:** |Φ|=12, r=4, W^true=16, w*=00 (4 obrigações ∞ em T₀), s_{T₁}(Con)=20
+
+### Resultados (tabelas §4 preenchidas)
+
+| Pergunta | Resultado |
+|----------|-----------|
+| δ diminui T₀→T₁? | **SIM** — 𝒢=4 para b≥20 |
+| RBT ocorre? | **SIM** — 5/9 valores b (b≥20): `0000 → ALL_COV` |
+| Candidato R? | **SIM — `suffix0`** (s‖'0') passa PPR-2 em n=12,14,16 |
+| δ decresce com b? | **SIM** — [16,16,16,5,4,4,4,4,4] |
+| Teo. 4 (δ₀=1,δ₁=0)? | **Parcial** — δ₀=4(=n_wstar), δ₁=0 para b≥20 |
+
+### Verificações teóricas executadas
+
+- 𝒢 ≥ 0 sempre ✓
+- δ_{T₁} ≤ δ_{T₀} (Teo. 2) ✓
+- δ_{T₀} não-crescente em b ✓
+
+### Ressalva
+
+Simulação estrutural (complexidades de prova fixadas), não busca real em PA.
+Captura mecânica (δ, RBT, PPR) fielmente; não certifica PA real.
+
+---
+
+## Fase 7 — O que está em aberto (agora)
 
 ### Aberto matemático
 
@@ -202,7 +231,8 @@ $$\delta_{S_\alpha}(\Phi,b) \stackrel{?}{=} \delta_{F_\alpha}(\Phi,b)$$
 | 22/09/2026 | Programa PPR (08): ≼_ppr definido, R1/R2 provados | **SIM** — foco em ordem operacional |
 | 22/09/2026 | Núcleo 09: δ, 𝒢, ρ_b, RBT | **SIM** — nível intermediário observável |
 | 22/09/2026 | Varredura bib. + 10_EXPERIMENTO | δ/RBT não encontrados; ρ_b ≠ Pakhomov–Walsh |
-| Próximo | Rodar experimento 10; preencher tabelas | — |
+| 22/09/2026 | **Experimento 10 executado** | RBT=SIM(5/9), R=`suffix0`, δ/T2 confirmados |
+| Próximo | PPR-3: Θ para `suffix0`; ou reimplementação com provas reais | — |
 
 ---
 
@@ -219,7 +249,7 @@ $$\delta_{S_\alpha}(\Phi,b) \stackrel{?}{=} \delta_{F_\alpha}(\Phi,b)$$
 
 ## Próximo passo (a atualizar)
 
-> Rodar `10_EXPERIMENTO_GERADORES_FINITOS.md`: enumeração n=8..16, preencher tabelas δ/𝒢/RBT, classificar se RBT ocorre, buscar R candidato. Depois: atualizar este documento com resultados.
+> **Próximo:** (a) Construir Θ e testar PPR-3 para candidato `suffix0`; OU (b) reimplementar `experimento_10.py` com busca real de provas (ou Isabelle/HOL/Lean) para validar resultados; OU (c) posicionar achados vs. Pudlák/Krajíček em nota curta. Depois: atualizar este documento.
 
 ---
 
