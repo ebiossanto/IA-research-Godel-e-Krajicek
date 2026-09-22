@@ -1,4 +1,4 @@
-# IA Research: Godel e Krajicek
+﻿# IA Research: Godel e Krajicek
 
 **Status:** Notas Exploratorias (nao submetido)
 **Ultima atualizacao:** Setembro 2026
@@ -9,7 +9,7 @@
 
 **Ferramentas utilizadas:** Gemini MiMo V2.5, GPT 5.6 Copilot, Opencode
 
-**Autor:** Euzebio Santos — Estudante, entusiasta e pesquisador
+**Autor:** Euzébio Soares dos Santos — Estudante, entusiasta e pesquisador
 
 ## Aviso Importante
 
