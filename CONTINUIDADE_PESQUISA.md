@@ -239,7 +239,8 @@ Pergunta testavel: "A reflexao produz assinatura mensuravel na complexidade prop
 17. **`14_...`:** R_w sobre **índices** (pós-suffix0); design
 18. **PR17 `17_...` + `test_Rw_ppr2.py`:** PPR-2 **refinado (A∨B∨C)**; R_w identidade+sentinela **PASSA 3/3**
 19. **PR18 `Core.lean`:** `delta_mono` **PROVADO** (sem sorry); `lemma3_con` → **axiom**; `theorem4_strict`/`rcs_exists` ainda sorry
-20. **PRÓXIMO:** PR19 (Θ sobre provas de ramos); PR20 (R_w em E0–E3); fechar sorries theorem4/rcs; Foundation lemma3; `lake build`
+20. **PR20 `18_...` + `test_Rw_ppr2_E0E3.py`:** R_w + PPR-2 **PASSA 4/4** cenários E0–E3 (κ/razão/\|W\|)
+21. **PRÓXIMO:** PR19 (Θ sobre provas de ramos); fechar sorries theorem4/rcs; Foundation lemma3; `lake build`
 
 ### 6.4. Medio prazo (3-6 meses)
 

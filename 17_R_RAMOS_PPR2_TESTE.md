@@ -81,4 +81,4 @@ PPR-2-ramo mostra: o ramo ativo w₀ de T transfere para T' via R com progresso 
 2. ~~Verificar PPR-2 ramos~~ — **FEITO** (3/3 TRUE)
 3. Generalizar (C): caracterizar quando ALL_COV é inevitável (σ_T' ≥ max κ)
 4. PPR-3: Θ sobre provas de ramos (14 §4) — ABERTO
-5. Testar R_w nos cenários E0–E3 do 16 (RCS robusta)
+5. ~~Testar R_w nos cenários E0–E3 do 16 (RCS robusta)~~ — **FEITO** (PR20, `18_...`, 4/4 PASSA)

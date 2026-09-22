@@ -105,4 +105,4 @@ agora com predicado refinado (17 §2) e teste 3/3.
 2. ~~Verificar PPR-2 em termos de cobertura de ramos~~ — **FEITO** (3/3 TRUE, 17)
 3. Se falhar: ~~buscar outra R_w~~ — **não necessário** com cond. (C)
 4. **ABERTO:** PPR-3 (Θ sobre provas de ramos, 14 §4)
-5. **ABERTO:** testar R_w nos cenários E0–E3 do 16
+5. ~~Testar R_w nos cenários E0–E3 do 16~~ — **FEITO** (PR20, `18_...`, **4/4 PASSA**)

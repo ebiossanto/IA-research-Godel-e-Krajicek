@@ -104,7 +104,7 @@ Com RBT confirmado (10) e RCS confirmado (13/16), pergunta concreta:
 > existe transformação \(R\) em **índices de ramo** w tal que
 > \(\tau(g_T)_b \Rightarrow \tau(g_S)_{R(b)}\) com Θ polinomial?
 
-**Status:** ABERTO — `suffix0` falhou (11); R sobre **w** não testado.
+**Status:** ABERTO — `suffix0` falhou (11); R sobre **w** **TESTADO** (PR17+PR20): PPR-2 3/3 + E0–E3 4/4.
 
 ---
 

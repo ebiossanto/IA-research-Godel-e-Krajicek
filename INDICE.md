@@ -1,7 +1,7 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.6 (Setembro 2026 — PR17 R_w PPR-2 + PR18 delta_mono)
-**Status:** correções APLICADAS; RCS robusta; R_w PPR-2 3/3; delta_mono provado; lemma3=axiom
+**Versão:** 6.7 (Setembro 2026 — PR20 R_w E0–E3 + PR17/PR18)
+**Status:** correções APLICADAS; RCS robusta; R_w PPR-2 3/3 + **E0–E3 4/4**; delta_mono provado; lemma3=axiom
 
 ---
 
@@ -22,8 +22,9 @@
 | **`15_FORMALIZACAO_LEAN_PR15.md`** | **Lean: delta_mono provado; sorries restantes** | **ATIVO** |
 | **`16_EXTENSAO_EXPERIMENTO13_RCS.md`** | **RCS ROBUSTA 4/4** | **EXECUTADO** |
 | **`17_R_RAMOS_PPR2_TESTE.md`** | **PPR-2 refinado 3/3 (cond. C)** | **EXECUTADO** |
+| **`18_R_W_E0_E3_PPR2.md`** | **R_w PPR-2 em E0–E3: 4/4 PASSA** | **EXECUTADO** |
 | `01/06/03` | **PR12: banners REJEITADO/histórico** | **CORRIGIDO** |
-| Scripts | exp10, ppr3, reimpl, slow_vs_fast, **_ext**, **test_Rw_ppr2** | SCRIPTS |
+| Scripts | exp10, ppr3, reimpl, slow_vs_fast, **_ext**, test_Rw_ppr2, **_E0E3** | SCRIPTS |
 | `lean4/Gothic_Generators/Core.lean` | **delta_mono PROVADO**; lemma3=axiom; theorem4/rcs=sorry | PARCIAL |
 
 ### Papers e Conjecturas
@@ -112,7 +113,7 @@
 | PR17 | Testar R_w (índices) PPR-2 | **FEITO — PPR-2 3/3 (cond. A∨B∨C)** | `14_...`, `17_...` |
 | PR18 | Fechar sorry delta_mono em Lean | **FEITO — prova completa (sem sorry)** | `Core.lean` |
 | PR19 | PPR-3: Θ sobre provas de ramos | **ABERTO** | `11_...` §3.3 |
-| PR20 | Testar R_w nos cenários E0–E3 (RCS) | **ABERTO** | `14_...`, `16_...` |
+| PR20 | Testar R_w nos cenários E0–E3 (RCS) | **FEITO — 4/4 PASSA PPR-2** | `18_...` |
 
 ### DESCARTADOS / REJEITADOS (não usar)
 
@@ -208,9 +209,9 @@ ao longo de uma hierarquia de reflexão $T_0 \subseteq T_1 \subseteq \cdots$?
 - ρ_b independente de codificação?
 - Transferência δ ⟹ PPR?
 
-**Documentos:** 09 (núcleo), 08 (PPR), 10–17 (exp+nota+**RCS robusta**+R_w+Lean+PPR-2), 01/06/03 **corrigidos**, EVOLUCAO
+**Documentos:** 09 (núcleo), 08 (PPR), 10–18 (exp+nota+**RCS robusta**+R_w+Lean+PPR-2+**E0–E3**), 01/06/03 **corrigidos**, EVOLUCAO
 
-**Próximo passo:** PR19 (Θ ramos); PR20 (R_w em E0–E3); fechar sorries theorem4/rcs; Foundation p/ lemma3; `lake build`
+**Próximo passo:** PR19 (Θ ramos); fechar sorries theorem4/rcs; Foundation p/ lemma3; `lake build`
 
 ---
 
