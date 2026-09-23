@@ -247,7 +247,8 @@ Pergunta testavel: "A reflexao produz assinatura mensuravel na complexidade prop
 25. **PR24 Foundation lemma3 + (C) ALL_COV:** `Lemma3Hyp` + **`lemma3_con` PROVADO** (0 axiom); `allCovered ⇔ δ=0`; limiar σ*=maxκ, b*=maxκ+1 (Lean+Python 4 perfis, EXIT=0) (`24_...` + `test_allcov_threshold.py`)
 26. **PR25 Foundation instância + PR7:** clone Foundation; `FoundationBridge/FoundationInstance.lean` `lemma3Hyp` 0 sorry (Con/Prf/pad local); `fp_length_vs_delta.py` EXIT=0 — **PR7 SIM no modelo**; papers título FP+Con* corrigidos (`25_...`)
 27. **PR26 revisão externa:** banners REJEITADO/orig. provisória/pseudocódigo aplicados sem redesenhar programa (`26_...`)
-28. **PRÓXIMO:** Φw* Gödel II; bridge δ; teorema de transferência Q; MathOverflow como pergunta
+28. **PR27 Q+Gödel II+bridge+MO:** `TransferQ`/`transfer_lower_bound` em Core; `wStarObl`+`delta_ge_one` (lake EXIT=0); `GodelSecond.lean` Φw*:=T.consistent (build Mathlib pendente); rascunho `27_MATHOVERFLOW_PERGUNTA.md` **não postado** (`27_TEOREMA_Q_...`)
+29. **PRÓXIMO:** `lake build` Foundation/FoundationBridge; rota B padding w*; (τ_n,q) concretos antes de qualquer LB; postar MO só com confirmação
 
 ### 6.4. Medio prazo (3-6 meses)
 
@@ -305,7 +306,7 @@ Pergunta testavel: "A reflexao produz assinatura mensuravel na complexidade prop
 | Arquivo | Status |
 |---------|--------|
 | README.md | Atualizado |
-| INDICE.md | Atualizado (v6.14) |
+| INDICE.md | Atualizado (v6.15) |
 | **EVOLUCAO_PROJETO.md** | **NOVO: histórico vivo (ideia→provas→aberto→mudanças de rumo)** |
 | CONTINUIDADE_PESQUISA.md | Este arquivo |
 | CONJECTURA_FP_K.md | Rebaixada para PERGUNTA DE PESQUISA |

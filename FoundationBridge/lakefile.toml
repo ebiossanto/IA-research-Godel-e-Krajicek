@@ -3,7 +3,7 @@ defaultTargets = ["FoundationBridge"]
 
 [[lean_lib]]
 name = "FoundationBridge"
-roots = ["FoundationInstance"]
+roots = ["FoundationInstance", "GodelSecond"]
 
 [[require]]
 name = "GothicGenerators"

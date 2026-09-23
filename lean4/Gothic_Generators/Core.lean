@@ -638,4 +638,93 @@ theorem cond_C_delta_zero
     delta T b W = 0 :=
   (allCovered_iff_delta_zero T b W).mp hall
 
+-- =========================================================================
+-- PR27 — Teorema Q (transferência aritmético → proposicional)
+-- =========================================================================
+--
+-- Q1 (04, PR26): antes de qualquer limite inferior exponencial, exige-se
+-- (τ_n, q) com: P-prova de τ_n(φ) |π|=m ⇒ T-prova de φ com |π'| ≤ q(n,m).
+-- Classe: o COROLÁRIO condicional é TEOREMA; existência de (τ_n,q) = ABERTO.
+
+/-- Fórmula proposicional (código). -/
+abbrev Form := Nat
+
+/-- Relação abstrata: sistema `S` tem prova de `φ` com comprimento `m`.
+    (Abstrata de propósito — não é um modelo de Krajíček/FP.) -/
+structure SystemProof where
+  proves : Form → Nat → Prop
+
+/-- Hipótese **Q** + corolário de limite inferior (transfer). -/
+structure TransferQ where
+  /-- tradução uniforme computável τ_n(φ) -/
+  tau : Nat → Form → Form
+  /-- limitante q(n, m) -/
+  qbound : Nat → Nat → Nat
+  /-- sistema proposicional P -/
+  p : SystemProof
+  /-- teoria aritmética T (provas por comprimento) -/
+  t : SystemProof
+  /-- toda P-prova de τ_n(φ) de len m gera T-prova de φ com len ≤ q(n,m) -/
+  lifts : ∀ (n : Nat) (φ : Form) (m : Nat),
+    p.proves (tau n φ) m → t.proves φ (qbound n m)
+
+/-- Corolário de Q: se toda T-prova de φ tem comprimento ≥ L(n),
+    então toda P-prova de τ_n(φ) tem m com q(n,m) ≥ L(n). -/
+theorem transfer_lower_bound
+    (Q : TransferQ) (n : Nat) (φ : Form) (L : Nat → Nat)
+    (hT : ∀ len : Nat, Q.t.proves φ len → L n ≤ len)
+    (m : Nat) (hP : Q.p.proves (Q.tau n φ) m) :
+    L n ≤ Q.qbound n m :=
+  hT (Q.qbound n m) (Q.lifts n φ m hP)
+
+-- =========================================================================
+-- PR27 — bridge δ (Φ^{w*} ↔ obrigação finita em Core)
+-- =========================================================================
+--
+-- covered não menciona provabilidade: Gödel II é codificado como κ=σ+1
+-- (não coberto em T; coberto em T' com σ'≥σ+1). Camada Foundation descarrega
+-- Realizes/Lemma3Hyp.PhiStar (FoundationInstance, PR25).
+
+/-- Obrigação canônica de Φ^{w*}: verdadeira; κ = σ_T+1 (acima de T). -/
+def wStarObl (T : Theory) : Obligation :=
+  { idx := "w*", kappa := T.sigma + 1, isTrue := true }
+
+/-- Gödel II finito: não coberta em T (σ+1 ≰ σ). -/
+theorem wStarObl_not_covered (T : Theory) (b : Nat) :
+    covered T b (wStarObl T) = false := by
+  unfold covered wStarObl
+  simp only [true_and]
+  have hle : ¬(T.sigma + 1 ≤ T.sigma) := by omega
+  simp [hle]
+
+/-- Coberta em T' mais forte: σ' ≥ σ+1 e b ≥ σ+2. -/
+theorem wStarObl_covered_of_sigma (T T' : Theory) (b : Nat)
+    (hσ : T.sigma + 1 ≤ T'.sigma) (hb : T.sigma + 1 + 1 ≤ b) :
+    covered T' b (wStarObl T) = true := by
+  unfold covered wStarObl
+  simp only [true_and]
+  rw [decide_eq_true]
+  exact ⟨hσ, hb⟩
+
+/-- Verdadeira + não coberta ⇒ δ_T(b,W) ≥ 1 (sobrevivência da obrigação). -/
+theorem delta_ge_one_of_true_uncovers
+    (T : Theory) (b : Nat) (W : List Obligation)
+    (o : Obligation) (hmem : o ∈ W) (htr : o.isTrue = true)
+    (hcov : covered T b o = false) :
+    1 ≤ delta T b W := by
+  simp only [delta, truesOf, covOf]
+  have htrues : o ∈ W.filter (·.isTrue) :=
+    List.mem_filter.mpr ⟨hmem, htr⟩
+  have hfalse : ¬(covered T b o = true) := by
+    rw [hcov]
+    exact fun h => Bool.noConfusion h
+  have hlt : ((W.filter (·.isTrue)).filter (covered T b)).length <
+      (W.filter (·.isTrue)).length := by
+    rw [List.length_filter_lt_length_iff_exists]
+    exact ⟨o, htrues, hfalse⟩
+  omega
+
+/-- Obrigação w* verdadeira em W (condição de ponte: isTrue lê Φ^{w*}). -/
+theorem wStarObl_isTrue (T : Theory) : (wStarObl T).isTrue = true := rfl
+
 end GothicGenerators

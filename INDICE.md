@@ -1,7 +1,7 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.14 (Setembro 2026 — PR26 revisão externa pontual)
-**Status:** Banners REJEITADO/orig. provisória aplicados; núcleo δ/Lean mantido; T4–6 não usados
+**Versão:** 6.15 (Setembro 2026 — PR27 Q + Gödel II rota A + bridge δ + MO)
+**Status:** Teorema Q condicional em Core; wStarObl/δ≥1; Φw*:=T.consistent; rascunho MO (não postado)
 
 ---
 
@@ -28,12 +28,14 @@
 | **`24_FOUNDATION_LEMMA3_ALLCOV.md`** | **lemma3 PROVADO; (C) ALL_COV ⇔ δ=0 (limiar maxκ)** | **EXECUTADO** |
 | **`25_FOUNDATION_INSTANCE_FP_DELTA.md`** | **Foundation instância Lemma3Hyp; PR7 comprimento vs δ SIM (modelo)** | **EXECUTADO** |
 | **`26_REVISAO_EXTERNA_PONTUAL.md`** | **Revisão externa: só banners/orig./esqueleto — sem redesenhar programa** | **EXECUTADO** |
+| **`27_TEOREMA_Q_GODEL2_BRIDGE_MO.md`** | **PR27: Q condicional; bridge δ; Gödel II rota A; agenda antes de LB** | **EXECUTADO** |
+| **`27_MATHOVERFLOW_PERGUNTA.md`** | **Rascunho MO (EN) — NÃO publicado sem confirmação** | **RASCUNHO** |
 | `00/02/04/05`, `support/*`, `paper2` | **PR26: REJEITADO + novidade provisória + pseudocódigo** | **CORRIGIDO** |
 | `01/06/03` | **PR12: banners REJEITADO/histórico** | **CORRIGIDO** |
 | Scripts | exp10, ppr3, reimpl, slow_vs_fast, **_ext**, test_Rw, **_E0E3**, **ppr3_ramos**, **_RBT_B**, **_allcov**, **fp_length_vs_delta** | SCRIPTS |
 | `lean4/Gothic_Generators/Core.lean` | **VERIFICADO `lake build` (0 sorry, 0 axiom; lemma3=teorema)**; Lean 4.34.0 | **OK** |
 | `lean4/Gothic_Generators/FoundationInstance.lean` | **moved → `FoundationBridge/`** | **OK** |
-| **`FoundationBridge/`** | **instância Foundation isolada (path ../Foundation); 0 sorry no fonte** | **OK** |
+| **`FoundationBridge/`** | **instância Foundation isolada; 0 sorry no fonte; `GodelSecond` rota A** | **OK (build Mathlib pendente)** |
 | `lean-toolchain`, `lakefile.toml` | Toolchain Lean 4.34 + Lake | **OK** |
 
 ### Papers e Conjecturas

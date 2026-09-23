@@ -84,9 +84,10 @@ example (σ : ArithmeticSentence) (k : ℕ) :
   Entailment.padding_iff σ k
 
 /-! ABERTO (documentado, sem sorry):
-  1. Bridge PhiStar' ↔ obrigação Φ^w de Core (covered/delta) / W^true.
-  2. Sentença reificada Φw* : ArithmeticSentence + T ⊢ Φw* 🡘 T.consistent
-     → consistent_unprovable / gödel_iff_con (Gödel II).
+  1. Bridge PhiStar' ↔ wStarObl/delta — camada Core (PR27: wStarObl, delta_ge_one);
+     descarregar Realizes/Φ em Core com Prf/pad Foundation ainda ABERTO.
+  2. Sentença reificada Φw*: rota A FEITA em GodelSecond.lean (Φw* := T.consistent);
+     rota B (padding w*) ainda ABERTA.
   3. pad bit-a-bit com List Bool (leading zeros de w*="00").
   4. ¬Con → ∃∞ x, Phi (injetividade de pad em z). -/
 

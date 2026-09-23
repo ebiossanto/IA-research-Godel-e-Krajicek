@@ -388,6 +388,17 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 
 ---
 
+### PR27 — Teorema Q + Gödel II rota A + bridge δ + MO (`27_TEOREMA_Q_GODEL2_BRIDGE_MO.md`)
+
+- **Teorema Q** formalizado em Core (`TransferQ`, `transfer_lower_bound`): corolário condicional **TEOREMA**; existência de (τ_n,q) = **ABERTO (Q1)** — nenhum limite inferior antes disso
+- **Bridge δ** (`wStarObl`, `wStarObl_not_covered`, `wStarObl_covered_of_sigma`, `delta_ge_one_of_true_uncovers`): Gödel II finito como κ=σ+1; `lake build` **EXIT=0**
+- **Gödel II rota A** (`FoundationBridge/GodelSecond.lean`): `Φw* := T.consistent`; `phiW_iff_consistent` + `unprovable_phiW` (fonte; build Mathlib/Foundation **pendente**)
+- **Rota B** (Φw* com padding w*) = **ABERTA** (definability + FGH pattern)
+- **MathOverflow** `27_MATHOVERFLOW_PERGUNTA.md`: rascunho **como PERGUNTA** (EN, tag proof-theory) — **não publicado** sem confirmação do autor
+- Regra mantida: sem (τ_n,q) concretos ⇒ sem limite inferior exponencial
+
+---
+
 ## Fase 10 — O que está em aberto (agora)
 
 ### Aberto matemático
@@ -444,7 +455,9 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 | 22/09/2026 | **PR20 R_w E0–E3** | **4/4 PASSA PPR-2** (κ/razão/\|W\|) |
 | 22/09/2026 | **PR19 Θ ramos** | **CC-Θ 32/32**; Θ polinomial |
 | 22/09/2026 | **PR21 theorem4/rcs** | **PROVADOS sem sorry**; lake build pendente |
-| Próximo | Cond. (B) RBT; lake build; Foundation | — |
+| 22/09/2026 | **PR26 revisão externa** | REJEITADO/orig. provisória aplicados |
+| 22/09/2026 | **PR27 Q + bridge + MO** | Q formal; wStarObl; Φw* rota A; MO rascunho |
+| Próximo | Foundation build; rota B; (τ_n,q) concretos | — |
 
 ---
 
@@ -461,7 +474,7 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 
 ## Próximo passo (a atualizar)
 
-> **Próximo:** (a) integrar Foundation para `lemma3_con` (axiom → prova); (b) generalizar (C): quando ALL_COV é inevitável; (c) comparar com Freund–Pakhomov (comprimento vs δ). ~~(B) RBT~~ e ~~lake build~~ **FEITOS** (PR22/PR23). Depois: atualizar este documento.
+> **Próximo (PR27+):** (a) `lake build` em `Foundation/` + `FoundationBridge/` (Mathlib cache OK; build longo); (b) rota B: Φw* com padding w* (definability); (c) instâncias (τ_n,q) concretas para Q — **só então** limite inferior; (d) MathOverflow post **só com confirmação**. ~~Q formal~~, ~~bridge δ Core~~, ~~Φw* rota A~~, ~~rascunho MO~~ **FEITOS** (PR27).
 
 ---
 

@@ -12,6 +12,8 @@
 Existe tradução τ_n uniforme e q tal que toda P-prova de τ_n(φ) de comprimento m
 produz T-prova de φ de comprimento ≤ q(n,m)? **Sem Q, nenhum limite inferior
 exponencial decorre da incompletude.** (Revisão externa §2.)
+**PR27:** corolário condicional formalizado em Lean (`TransferQ` /
+`transfer_lower_bound` em `Core.lean`); a hipótese (τ_n,q) permanece **ABERTO**.
 
 **Q2. Aritmetizacao algebrica.** O gerador g_0 (nivel PA) pode ser aritmetizado em IPS? Se sim, qual e o limite inferior resultante?
 
