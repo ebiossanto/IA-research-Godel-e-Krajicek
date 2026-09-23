@@ -305,7 +305,7 @@ Pergunta testavel: "A reflexao produz assinatura mensuravel na complexidade prop
 | Arquivo | Status |
 |---------|--------|
 | README.md | Atualizado |
-| INDICE.md | Atualizado (v6.13) |
+| INDICE.md | Atualizado (v6.14) |
 | **EVOLUCAO_PROJETO.md** | **NOVO: histórico vivo (ideia→provas→aberto→mudanças de rumo)** |
 | CONTINUIDADE_PESQUISA.md | Este arquivo |
 | CONJECTURA_FP_K.md | Rebaixada para PERGUNTA DE PESQUISA |
