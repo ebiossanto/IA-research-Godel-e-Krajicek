@@ -1,5 +1,8 @@
 # Avaliacao de Novelidade e Resultados Existentes
 
+> **STATUS (PR12 + revisão externa):** Seções 2–3 — **REJEITADO/NÃO CERTIFICADO**.
+> Teoremas 4/6 não provados. Novidade provisória. Espelhado em `00_...` (raiz).
+
 ## 1. O que JA EXISTE na literatura (honestidade intelectual)
 
 ### Resultado A — Krajicek (2004/2025): Geradores a partir de incompletude
@@ -49,30 +52,24 @@ Argumenta que a definicao semantica de NP e subjeita a limitacoes godelianas.
 
 ---
 
-## 2. O que e GENUINAMENTE NOVO (sem equivalente na literatura)
+## 2. ~~GENUINAMENTE NOVO~~ → REJEITADO / PROVISÓRIO (PR12)
 
-### Novelidade 1: Hierarquia ordinal de geradores godelianos
-Conectamos a hierarquia de reflexao de Beklemishev (1a ordem) com a hierarquia de geradores de Krajicek (proposicionais). Esta ponte NAO existe na literatura.
-
-### Novelidade 2: Teorema 4 — Escala ordinal da dureza
-A dureza de um gerador godeliano escala com o ordinal da teoria subjacente. Quantificacao precisa: |T|_ord → complexidade de prova do gerador.
-
-### Novelidade 3: Teorema 6 — Gerador canonico mais duro
-O gerador godeliano de Krajicek (2025) e candidato a gerador mais duro para TODOS os sistemas. Mostramos como testar usando nossa hierarquia.
-
-### Novelidade 4: Conexao MCSP ↔ geradores godelianos
-MCSP (Minimum Circuit Size Problem) e redutivel a dureza de geradores godelianos via aritmetizacao.
+### ~~Novelidade 1~~ → PROGRAMA — prioridade **não certificada**
+### ~~Novelidade 2: Teorema 4~~ → **REJEITADO** (limite exponencial sem transferência Q)
+### ~~Novelidade 3: Teorema 6~~ → **NÃO PROVADO** (condicional a Krajíček)
+### ~~Novelidade 4: MCSP~~ → **ESPECULATIVO**
 
 ---
 
-## 3. Avaliacao honesta
+## 3. Avaliacao honesta (pós-revisão)
 
-| Contribuicao | Novelidade | Risco trivial | Prioridade |
-|---|---|---|---|
-| Hierarquia ordinal de geradores | ALTA | Medio | 1 |
-| Teorema 4 (escala ordinal) | ALTA | Baixo | 2 |
-| Teorema 6 (gerador canonico) | ALTA | Alto | 3 |
-| Conexao MCSP | MEDIA | Medio | 4 |
-| Barreira de Interpretabilidade | MEDIA | Medio | 5 |
+| Contribuicao | Novelidade | Status |
+|---|---|---|
+| Hierarquia ordinal de geradores | CANDIDATA | PROGRAMA |
+| Teorema 4 (escala ordinal) | — | **REJEITADO** |
+| Teorema 6 (gerador canonico) | — | **NÃO PROVADO** |
+| Conexao MCSP | BAIXA | ESPECULATIVO |
+| Barreira de Interpretabilidade | — | **REJEITADO** |
+| Espectro δ/𝒢 (09, modelo finito) | CANDIDATA | VERIFICADO (Lean) |
 
-**Aviso:** O maior risco e que a Novelidade 1 ja tenha sido considerada por Krajicek mas nao publicada. O paper de 2025 dele (arXiv:2506.20221) vai na direcao mas nao faz a conexao ordinal explicitamente.
+**Aviso:** Novidade exige busca bibliográfica especializada e revisão por pares.

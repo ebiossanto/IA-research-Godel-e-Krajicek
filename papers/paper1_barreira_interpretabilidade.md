@@ -123,7 +123,7 @@ A tabela de bounds duplamente-a-quadruplamente exponenciais que tínhamos nao ti
 
 **Henk-Pakhomov (2016):** Variantes de "provabilidade lenta" fazem progressao de Turing-Feferman alcancar PA+Con em epsilon_0, omega, ou outros numeros de passos.
 
-**Freund-Pakhomov (2020):** PA tem provas polinomiais de Con(PA+Con(PA))↾n*. Subir devagar preserva viabilidade que subir rapido destroi.
+**Freund-Pakhomov (2020):** PA tem provas polinomiais de Con(PA+Con*(PA))↾n. Subir devagar preserva viabilidade que subir rapido destroi.
 
 ### 5.2. A Pergunta Certa
 
@@ -161,6 +161,6 @@ Este documento e exploratorio. O que descobrimos foi:
 1. **Krajicek, J. (2023). "A proof complexity conjecture and the Incompleteness theorem." arXiv:2303.10637. JSL 90(3), 2025, pp. 1206-1210.**
 2. Krajicek, J. (2025). "Proof Complexity Generators." Cambridge University Press, 134 pp.
 3. Friedman, S., Rathjen, M., and Weiermann, A. (2013). "Slow consistency." Annals of Pure and Applied Logic.
-4. Freund, A. and Pakhomov, F. (2020). "Provability algebras and proof-length bounds." Notre Dame J. Formal Logic.
-5. Henk, M. and Pakhomov, F. (2016). "Provability algebras and proof-length bounds."
+4. Freund, A. and Pakhomov, F. (2020). "Short Proofs for Slow Consistency." Notre Dame J. Formal Logic 61(1), pp. 31-49. arXiv:1712.03251.
+5. Henk, P. and Pakhomov, F. (2016). "Slow and ordinary provability for PA." arXiv:1602.01822.
 6. Pudlak, P. (2020). "Reflection principles in propositional proof complexity."

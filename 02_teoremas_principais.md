@@ -1,6 +1,11 @@
 # Teoremas Principais
 
-## 6. Teorema 4: Escala Ordinal da Dureza de Geradores
+> **STATUS (22/09/2026 — PR12 + revisão externa):** Teoremas 4, 5 e 6 abaixo
+> **NÃO ESTÃO PROVADOS**. O limite exponencial `2^{c|T_α|n}` carece de teorema
+> de transferência quantitativa (independência ≠ dureza). `|T_α|` ambíguo.
+> **NÃO USAR como resultado.** Ver `09 §33`, `INDICE.md` D1–D8, `06_...` histórico.
+
+## 6. Teorema 4: Escala Ordinal da Dureza de Geradores — **REJEITADO**
 
 ### 6.1. Enunciado
 

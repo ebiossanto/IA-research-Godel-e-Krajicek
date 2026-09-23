@@ -1,7 +1,7 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.12 (Setembro 2026 — PR24 Foundation lemma3 + ALL_COV)
-**Status:** lemma3 PROVADO da interface (0 axiom); (C) limiar σ*=maxκ b*=maxκ+1; lake build LIMPO; cond. (B) 10 disparos
+**Versão:** 6.14 (Setembro 2026 — PR26 revisão externa pontual)
+**Status:** Banners REJEITADO/orig. provisória aplicados; núcleo δ/Lean mantido; T4–6 não usados
 
 ---
 
@@ -26,9 +26,14 @@
 | **`19_PPR3_THETA_RAMOS.md`** | **Θ ramos: CC-Θ 32/32, polinomial** | **EXECUTADO** |
 | **`23_COND_B_RBT_EXPLICITO.md`** | **cond. (B) NÃO-VÁCIA: 10 disparos, PPR-2 20/20, CC-Θ 20/20** | **EXECUTADO** |
 | **`24_FOUNDATION_LEMMA3_ALLCOV.md`** | **lemma3 PROVADO; (C) ALL_COV ⇔ δ=0 (limiar maxκ)** | **EXECUTADO** |
+| **`25_FOUNDATION_INSTANCE_FP_DELTA.md`** | **Foundation instância Lemma3Hyp; PR7 comprimento vs δ SIM (modelo)** | **EXECUTADO** |
+| **`26_REVISAO_EXTERNA_PONTUAL.md`** | **Revisão externa: só banners/orig./esqueleto — sem redesenhar programa** | **EXECUTADO** |
+| `00/02/04/05`, `support/*`, `paper2` | **PR26: REJEITADO + novidade provisória + pseudocódigo** | **CORRIGIDO** |
 | `01/06/03` | **PR12: banners REJEITADO/histórico** | **CORRIGIDO** |
-| Scripts | exp10, ppr3, reimpl, slow_vs_fast, **_ext**, test_Rw, **_E0E3**, **ppr3_ramos**, **_RBT_B**, **_allcov** | SCRIPTS |
+| Scripts | exp10, ppr3, reimpl, slow_vs_fast, **_ext**, test_Rw, **_E0E3**, **ppr3_ramos**, **_RBT_B**, **_allcov**, **fp_length_vs_delta** | SCRIPTS |
 | `lean4/Gothic_Generators/Core.lean` | **VERIFICADO `lake build` (0 sorry, 0 axiom; lemma3=teorema)**; Lean 4.34.0 | **OK** |
+| `lean4/Gothic_Generators/FoundationInstance.lean` | **moved → `FoundationBridge/`** | **OK** |
+| **`FoundationBridge/`** | **instância Foundation isolada (path ../Foundation); 0 sorry no fonte** | **OK** |
 | `lean-toolchain`, `lakefile.toml` | Toolchain Lean 4.34 + Lake | **OK** |
 
 ### Papers e Conjecturas
@@ -214,9 +219,9 @@ ao longo de uma hierarquia de reflexão $T_0 \subseteq T_1 \subseteq \cdots$?
 - ρ_b independente de codificação?
 - Transferência δ ⟹ PPR?
 
-**Documentos:** 09 (núcleo), 08 (PPR), 10–24 (exp+nota+**RCS**+R_w+Lean+PPR-2+**E0–E3**+**Θ ramos**+**cond.B**+**Foundation/ALL_COV**), 01/06/03 **corrigidos**, EVOLUCAO
+**Documentos:** 09 (núcleo), 08 (PPR), 10–26 (exp+**RCS**+Lean+**Foundation**+**FP-δ**+**revisão externa**), 01/06/03/00/02/04/05 **corrigidos**, EVOLUCAO
 
-**Próximo passo:** instanciar Lemma3Hyp com Foundation (Prf/pad); Freund–Pakhomov
+**Próximo passo:** Φw* Gödel II; bridge δ; teorema de transferência Q (antes de limite inferior); MathOverflow como pergunta
 
 ---
 

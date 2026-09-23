@@ -369,6 +369,25 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 
 ---
 
+### PR25 — Foundation instância + Freund–Pakhomov (comprimento vs δ) (`25_FOUNDATION_INSTANCE_FP_DELTA.md`)
+
+- **Foundation** clonado (c69c68c); `FoundationInstance.lean`: `lemma3Hyp` com `Con=T.Consistent ℕ`, `Prf=Bootstrapping.Proof`, `pad` local — **0 sorry**; open: sentença reificada Φw* (Gödel II), bridge↔Obligation
+- **PR7** `fp_length_vs_delta.py` EXIT=0: H_identity OK; **H_FP-in-δ SIM (10 pares)** — separação poly/exp visível em δ (modelo estrutural); O7=miss (não cego)
+- Papers: título FP corrigido para *Short Proofs for Slow Consistency*; variante **Con\*(PA)**
+- Classificação: teorema FP = literatura; δ=#{w:s>b} = TEOREMA (PR24); captura em δ = **verificado no modelo**, PA real ABERTO
+
+---
+
+### PR26 — Revisão externa incorporada (`26_REVISAO_EXTERNA_PONTUAL.md`)
+
+- Parecer externo **coincide** com auditoria 22/09 (PR12): T4–6, limite exponencial, barreira, originalidade absoluta
+- **Só o pertinente:** banners REJEITADO em `00`/`02`; Q1→transferência Q; Fase 1 não publica barreira; novidade **provisória** em `05`/`support`/`paper2`; esqueleto Lean = **pseudocódigo**
+- **Não redesenhamos** o programa (§12 da revisão = direção futura já alinhada a 08/09)
+- Regra: independência ≠ não-demonstrabilidade ≠ dureza ≠ comprimento de prova
+- Núcleo δ/𝒢/Lean finito **mantido**; PA real e Q **abertos**
+
+---
+
 ## Fase 10 — O que está em aberto (agora)
 
 ### Aberto matemático

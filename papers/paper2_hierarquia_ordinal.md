@@ -41,7 +41,7 @@ A intuicao de "hierarquia ordinal" tem um nome certo na literatura:
 - Depende da variante
 
 **Freund-Pakhomov (2020):** Resultado surpreendente:
-- PA tem provas polinomiais de Con(PA+Con(PA))↾n*
+- PA tem provas polinomiais de Con(PA+Con*(PA))↾n
 - "Subir devagar" (versao lenta) preserva viabilidade que "subir rapido" destroi
 
 ### 1.3. O Que Nossa Tabela Anterior Errava
@@ -137,7 +137,7 @@ O programa de slow consistency:
 ### 4.2. Por que e importante
 
 1. **Conecta dois programas:** Slow consistency (Beklemishev, Friedman) e geradores de Krajicek
-2. **E genuinamente nova:** Nao vi esta conexao feita na literatura
+2. **Novidade provisória:** não encontramos esta conexão nas fontes consultadas — **não** "genuinamente nova" sem revisão (auditoria + revisão externa §10)
 3. **E respondivel:** A pergunta e precisa o bastante pra ser investigada
 
 ### 4.3. Por que e uma pergunta (nao teorema)
@@ -209,6 +209,6 @@ Este documento e exploratorio. O que fizemos foi:
 2. Krajicek, J. (2025). "Proof Complexity Generators." Cambridge University Press.
 3. Beklemishev, L.D. (2003). "Proof-theoretic analysis by iterated reflection."
 4. Friedman, S., Rathjen, M., and Weiermann, A. (2013). "Slow consistency." Annals of Pure and Applied Logic.
-5. Freund, A. and Pakhomov, F. (2020). "Provability algebras and proof-length bounds." Notre Dame J. Formal Logic.
-6. Henk, M. and Pakhomov, F. (2016). "Provability algebras and proof-length bounds."
+5. Freund, A. and Pakhomov, F. (2020). "Short Proofs for Slow Consistency." Notre Dame J. Formal Logic 61(1), pp. 31-49. arXiv:1712.03251.
+6. Henk, P. and Pakhomov, F. (2016). "Slow and ordinary provability for PA." arXiv:1602.01822.
 7. Pudlak, P. (2020). "Reflection principles in propositional proof complexity."

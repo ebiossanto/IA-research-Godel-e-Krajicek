@@ -1,0 +1,14 @@
+name = "FoundationBridge"
+defaultTargets = ["FoundationBridge"]
+
+[[lean_lib]]
+name = "FoundationBridge"
+roots = ["FoundationInstance"]
+
+[[require]]
+name = "GothicGenerators"
+path = ".."
+
+[[require]]
+name = "Foundation"
+path = "../Foundation"

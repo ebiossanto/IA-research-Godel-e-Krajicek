@@ -29,14 +29,18 @@ Beklemishev estuda a hierarquia de reflexao para PA:
 
 **Status:** Beklemishev trabalha com teorias de 1a ordem. NAO conecta com geradores de Krajicek ou complexidade de provas proposicionais.
 
-### 1.4. O que NINGUEM faz (a nossa contribuicao)
+### 1.4. O que NINGUEM encontrou nas fontes consultadas (PROVISÓRIO)
 
-**Nenhum autor combina:**
-1. A hierarquia ordinal de Beklemishev (que indexa teorias por ordinais)
-2. Os geradores de Krajicek (que produzem tautologias duras)
-3. Uma conexao formal entre as duas (mostrando que o ordinal determina a dureza do gerador)
+**Não encontramos, nas fontes examinadas,** combinação explícita de:
+1. Hierarquia de reflexão de Beklemishev;
+2. Geradores de Krajíček;
+3. Uma ponte formal ordinal→dureza.
 
-**A ponte e genuinamente nova.**
+**A ponte e genuinamente nova.** *(CORRIGIDO: novidade **PROVISÓRIA** —
+exige revisão por especialistas; ver revisão externa §10 / EVOLUCAO.)*
+
+**Nenhum autor combina** *(redação antiga — substituir por: "não encontramos
+nas fontes consultadas"; não afirmar universal sobre toda a literatura.)*
 
 ### 1.5. Riscos
 
@@ -86,12 +90,14 @@ Para formalizar nossos teoremas, precisamos adicionar ao Foundation:
 - [ ] Corolario 6.1: Separacao concreta TG_0 vs TG_1
 - [ ] Reducao MCSP -> geradores godelianos (Teorema 7)
 
-### 2.3. Codigo Base (Esqueleto Lean 4)
+### 2.3. Codigo Base — **PSEUDOCÓDIGO / PLANO (NÃO formalização)**
+
+> **AVISO:** bloco abaixo **não compila**; erros: `proofLength`/`Nat.find`,
+> `Set.card` infinito, `2^(c*α*n)` Nat/Real, `RFN` como axioma, `sorry`.
+> Formalização real do núcleo finito: `lean4/Gothic_Generators/Core.lean` (0 sorry).
 
 ```lean
--- Gothic_Generators.lean
--- Barreiras Godelianas em Complexidade de Provas
--- Mecanizacao parcial dos teoremas principais
+-- PSEUDOCÓDIGO HISTÓRICO — NÃO COMPILA; NÃO É RESULTADO
 
 import Foundation.FirstOrder.Incompleteness.First
 import Foundation.FirstOrder.Incompleteness.Second

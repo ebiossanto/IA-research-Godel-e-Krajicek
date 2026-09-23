@@ -29,14 +29,15 @@ Beklemishev estuda a hierarquia de reflexao para PA:
 
 **Status:** Beklemishev trabalha com teorias de 1a ordem. NAO conecta com geradores de Krajicek ou complexidade de provas proposicionais.
 
-### 1.4. O que NINGUEM faz (a nossa contribuicao)
+### 1.4. O que NINGUEM encontrou nas fontes consultadas (a nossa contribuicao — PROVISORIA)
 
-**Nenhum autor combina:**
-1. A hierarquia ordinal de Beklemishev (que indexa teorias por ordinais)
-2. Os geradores de Krajicek (que produzem tautologias duras)
-3. Uma conexao formal entre as duas (mostrando que o ordinal determina a dureza do gerador)
+**Não encontramos, nas fontes examinadas,** combinação explícita de:
+1. Hierarquia de reflexão de Beklemishev;
+2. Geradores de Krajicek;
+3. Uma ponte formal ordinal→dureza.
 
-**A ponte e genuinamente nova.**
+**Status da novidade:** **PROVISÓRIA** — não "genuinamente nova"; exige
+revisão por especialistas e busca bibliográfica dedicada (revisão externa §10).
 
 ### 1.5. Riscos
 
@@ -68,30 +69,35 @@ O repositorio `FormalizedFormalLogic/Foundation` (277 stars, 31 forks) ja formal
 
 Para formalizar nossos teoremas, precisamos adicionar ao Foundation:
 
-**Nivel 1 (Definicoes):**
+**Nível 1 (Definições):** *(itens 4–6 do plano antigo REJEITADOS: g_T paridade,
+TG sem C_n, interpretabilidade incompleta — revisão externa §§4–5)*
 - [ ] Definicao de sistema de prova Cook-Reckhow
 - [ ] Definicao de comprimento de prova s_P(phi)
 - [ ] Definicao de interpretabilidade aritmetica de sistemas de prova
-- [ ] Definicao de hierarquia de reflexao (Beklemishev)
-- [ ] Definicao de gerador godeliano g_T
-- [ ] Definicao de tautologia do gerador TG_g^n
+- [ ] ~~Definicao de hierarquia de reflexao (Beklemishev)~~ → usar Foundation
+- [ ] ~~Definicao de gerador godeliano g_T~~ → **REFEITA** (09 §4; não paridade `Set.card`)
+- [ ] ~~Definicao de tautologia do gerador TG_g^n~~ → **REFEITA** (09; C_n é parâmetro)
 
-**Nivel 2 (Teoremas):**
-- [ ] Lema 4.3: Monotonicidade de geradores na hierarquia ordinal
-- [ ] Teorema 4: Escala ordinal da dureza (limite inferior)
-- [ ] Teorema 5: Cortes C(alpha) no espaco de sistemas
-- [ ] Teorema 6: Gerador canonico (condicional)
+**Nivel 2 (Teoremas):** ~~T4–T6~~ **REJEITADOS — não formalizar**
+- [ ] Progressão finita `T_{k+1}=T_k+RFN_Γ(T_k)` com Γ explícito (núcleo recomendado)
+- [ ] Teorema de transferência quantitativa Q (revisão externa §2)
+- [ ] Lema 3 + Teo. 4 **no modelo finito** (JÁ FEITO — `lean4/.../Core.lean`)
 
-**Nivel 3 (Aplicacoes):**
-- [ ] Corolario 6.1: Separacao concreta TG_0 vs TG_1
-- [ ] Reducao MCSP -> geradores godelianos (Teorema 7)
+**Nivel 3 (Aplicacoes):** ~~corolários MCSP/IPS~~ **ESPECULATIVOS**
+- [ ] —
 
-### 2.3. Codigo Base (Esqueleto Lean 4)
+### 2.3. Codigo Base — **PSEUDOCÓDIGO / PLANO (NÃO formalização)**
+
+> **AVISO (revisão externa §9):** O bloco abaixo **não compila** e contém erros
+> conceituais (`proofLength` sem prova de existência; `Set.card` em conjunto
+> possivelmente infinito; `2^(c*α*n)` mistura Nat/Real; `RFN` como um axioma;
+> `sorry`). **Não chamar de "formalização Lean 4".** A formalização real do
+> núcleo finito está em `lean4/Gothic_Generators/Core.lean` (0 sorry, 0 axiom).
 
 ```lean
--- Gothic_Generators.lean
+-- PSEUDOCÓDIGO HISTÓRICO — NÃO COMPILA; NÃO É RESULTADO
+-- GothicGenerators.lean
 -- Barreiras Godelianas em Complexidade de Provas
--- Mecanizacao parcial dos teoremas principais
 
 import Foundation.FirstOrder.Incompleteness.First
 import Foundation.FirstOrder.Incompleteness.Second
@@ -100,11 +106,11 @@ import Foundation.FirstOrder.Arithmetic.Theories
 namespace GothicGenerators
 
 -- ============================================
--- NIVEL 1: Definicoes
+-- NIVEL 1: Definicoes (ESQUELETO — problemas tipados)
 -- ============================================
 
 -- Sistema de prova Cook-Reckhow
--- (simplificado para foco nos teoremas principais)
+-- (simplificado; NÃO exige decpolinomial / correção / completude)
 def ProofSystem := Nat → Nat → Prop
 
 def ProofSystem.Sound (P : ProofSystem) : Prop :=
@@ -113,62 +119,60 @@ def ProofSystem.Sound (P : ProofSystem) : Prop :=
 def ProofSystem.Complete (P : ProofSystem) : Prop :=
   ∀ φ ∈ TAUT, ∃ π, P π φ
 
+-- ERRO: Nat.find exige ∃n; fórmulas sem prova quebram.
+-- CORRETO: WithTop Nat / Option Nat; medir bitlength(π), não valor numérico.
 def proofLength (P : ProofSystem) (φ : Nat) : Nat :=
   Nat.find (fun n => ∃ π ≤ n, P π φ)
 
 -- Forca de interpretabilidade
+-- ERRO: direção P π (σ φ) → T ⊢ φ não é interpretação aritmética usual.
 def interprets (P : ProofSystem) (T : FirstOrder.Theory) : Prop :=
   ∃ σ : FirstOrder.Formula → Nat,
     (∀ φ ∈ T.theorems, σ φ ∈ TAUT) ∧
     (∀ π φ, P π (σ φ) → T ⊢ φ)
 
--- Hierarquia de reflexao (Beklemishev)
--- T_0 = PA, T_{α+1} = T_α + RFN(T_α)
+-- Hierarquia de reflexao — Nat indexa só T_0,T_1,... (não T_ω, T_ε₀)
+-- RFN como um axioma esconde o schema de reflexão.
 def ReflectionHierarchy : Nat → FirstOrder.Theory
   | 0     => PA
   | n + 1 => (ReflectionHierarchy n).addAxiom (RFN (ReflectionHierarchy n))
 
--- Gerador godeliano
--- g_T(x) = paridade{y : T ⊢ Prf_T(y, |x satisfiável|)}
+-- ERRO: {y | Prf} pode ser infinito → Set.card não é ℕ;
+-- contagem sem limite não é computável; x mal especificado.
+-- CORRETO (revisão §4): g_{T,b}(x) = ⊕_{y<2^{b(|x|)}} Proof_T(y, ⌜φ_x⌝)
 def godelGenerator (T : FirstOrder.Theory) (x : Nat) : Bool :=
   let proofs := {y | T ⊢ Prf_T y (encodeSatisfiability x)}
   (Set.card proofs % 2 == 1)
 
--- Tautologia do gerador
--- TG_g^n = AND_{x ∈ {0,1}^n} [C_n(x) = g(x)]
+-- ERRO: C_n não é parâmetro; TG não é objeto matemático bem definido.
 def generatorTautology (g : Nat → Bool) (n : Nat) : Nat :=
   -- codificacao proposicional do AND sobre todas as entradas
-  -- de comprimento n
   sorry -- implementacao detalhada
 
 -- ============================================
--- NIVEL 2: Teoremas
+-- NIVEL 2: Teoremas — T4 REJEITADO; sorry = não formalizado
 -- ============================================
 
--- Teorema 4: Escala ordinal da dureza
--- (versao simplificada)
+-- Teorema 4: Escala ordinal — REJEITADO (não decorre de G2/ponto fixo)
 theorem ordinalScaling
     (P : ProofSystem) (T : FirstOrder.Theory) (α : Nat)
     (h_interprets : interprets P (ReflectionHierarchy α))
     (c : ℝ) (hc : c > 0) :
     ∃ N, ∀ n > N,
       proofLength P (generatorTautology (godelGenerator (ReflectionHierarchy α)) n)
-        ≥ 2 ^ (c * α * n) :=
+        ≥ 2 ^ (c * α * n) :=  -- ERRO: mistura Nat e Real sem coerção
   by
-    sorry -- prova usando o Lema do Ponto Fixo e G2
+    sorry -- NÃO É formalização
 
 -- ============================================
--- NIVEL 3: Separacao
+-- NIVEL 3: Separacao — ESPECULATIVO
 -- ============================================
 
--- Corolario 6.1: Separacao TG_0 vs TG_1
 theorem separationTG0TG1
     (P : ProofSystem)
     (h_interprets_PA : interprets P PA)
     (h_not_interprets_PA_RFN : ¬ interprets P (PA + RFN PA)) :
-    -- TG_0 tem prova polinomial em P
     (∃ poly, ∀ n, proofLength P (generatorTautology (godelGenerator PA) n) ≤ poly n) ∧
-    -- TG_1 NAO tem prova polinomial em P
     (∀ poly, ∀ N, ∃ n > N,
       proofLength P (generatorTautology (godelGenerator (PA + RFN PA)) n) > poly n) :=
   by

@@ -1,16 +1,25 @@
 # Questoes Abertas, Programa de Pesquisa e Referencias
 
+> **STATUS (22/09/2026 — PR12):** Q1 e Q3 pressupõem Teoremas 4–6 **rejeitados**.
+> Reformuladas abaixo. Programa de fases desatualizado — ver `EVOLUCAO_PROJETO.md`
+> e núcleo `09_...` / `08_...`.
+
 ## 12. Questoes Abertas e Programa de Pesquisa
 
 ### 12.1. Questoes Abertas Imediatas (respondiveis em 1-2 anos)
 
-**Q1. Tightness do Teorema 4.** O limite inferior 2^{c * |T_alpha| * n} e otimo? Existe um sistema P e um gerador g_alpha onde s_P(TG_alpha^n) = Theta(2^{c * |T_alpha| * n})?
+**Q1. ~~Tightness do Teorema 4~~ → TEOREMA DE TRANSFERÊNCIA (reformulado).**
+Existe tradução τ_n uniforme e q tal que toda P-prova de τ_n(φ) de comprimento m
+produz T-prova de φ de comprimento ≤ q(n,m)? **Sem Q, nenhum limite inferior
+exponencial decorre da incompletude.** (Revisão externa §2.)
 
 **Q2. Aritmetizacao algebrica.** O gerador g_0 (nivel PA) pode ser aritmetizado em IPS? Se sim, qual e o limite inferior resultante?
 
-**Q3. Mecanizacao.** Os Teoremas 4, 5, 6 podem ser mecanizados em Lean 4 (usando o trabalho de Saitou & Noguchi 2026)?
+**Q3. ~~Mecanizar Teoremas 4–6~~ → Formalizar o núcleo 09.**
+Prioridade: `lemma3` com Foundation reificado (Gödel II), bridge Φ^{w*}↔obrigação δ,
+progressão finita `T_{k+1}=T_k+RFN_Γ(T_k)` com Γ explícito. **Não** os T4–6 rejeitados.
 
-**Q4. Separacao concreta.** Podemos usar TG_0 e TG_1 para separar Cutting Planes de Frege usando APENAS argumentos de incompletude?
+**Q4. Separacao concreta.** Podemos usar TG_0 e TG_1 para separar Cutting Planes de Frege usando APENAS argumentos de incompletude? **ABERTO — exige Q1.**
 
 ### 12.2. Questoes Abertas de Medio Prazo (2-5 anos)
 
@@ -33,17 +42,17 @@
 ### 12.4. Programa de Pesquisa Estruturado
 
 **Fase 1 (Ano 1): Fundamentos**
-- Publicar o Paper 1 (Barreira de Interpretabilidade) com refinamento
-- Mecanizar o Teorema 4 em Lean 4
-- Explorar separacao concreta (Q4)
+- ~~Publicar o Paper 1 (Barreira de Interpretabilidade)~~ **REJEITADO — não submeter**
+- Formalizar núcleo 09 (Foundation Gödel II; bridge δ) — **não** o antigo Teorema 4
+- Explorar separacao concreta (Q4) **após** teorema de transferência (Q1)
 
 **Fase 2 (Ano 2): Geradores**
-- Publicar o Paper 2 (Hierarquia Ordinal de Geradores)
+- Paper 2 só como **agenda de pesquisa** (perguntas rotuladas), não teoremas
 - Investigar aritmetizacao algebrica (Q2)
-- Conectar com trabalho de Krajicek (Q5)
+- Conectar com trabalho de Krajicek (Q5) — com busca bibliográfica
 
 **Fase 3 (Ano 3): Meta-Complexidade**
-- Publicar o Paper 3 (Conexao MCSP <-> Geradores Godelianos)
+- ~~Paper 3 MCSP~~ **ESPECULATIVO — só se Q1+Q2 fecharem**
 - Investigar limites para IPS (Q8)
 - Conectar com framework de Monroe (2026)
 

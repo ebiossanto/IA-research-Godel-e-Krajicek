@@ -41,7 +41,8 @@ Esta hierarquia e fundamental para a analise ordinal de teorias de 1a ordem, ond
 
 ### 1.2. A Lacuna
 
-Nenhum autor combina sistematicamente:
+Nenhum autor combina sistematicamente *(redação antiga — **CORRIGIDO**: dizer
+"não encontramos nas fontes consultadas"; novidade provisória, revisão externa §10)*:
 
 1. A hierarquia ordinal de Beklemishev (que indexa teorias)
 2. Os geradores de Krajicek (que produzem tautologias duras)
