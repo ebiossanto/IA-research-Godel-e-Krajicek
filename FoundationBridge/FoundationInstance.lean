@@ -33,7 +33,7 @@ def pad (w p z : ℕ) : ℕ := w * 2 ^ (Nat.pair p z + 1) + Nat.pair p z
 lemma pair_lt_two_pow (n : ℕ) : n < 2 ^ (n + 1) := by
   have h1 : n < 2 ^ n := Nat.lt_pow_self (by omega)
   have h2 : 2 ^ n ≤ 2 ^ (n + 1) := Nat.pow_le_pow_right (by omega) (by omega)
-  exact lt_trans h1 h2
+  exact lt_of_lt_of_le h1 h2
 
 lemma hasBinPrefix_pad (w p z : ℕ) : hasBinPrefix w (pad w p z) :=
   ⟨Nat.pair p z + 1, Nat.pair p z, rfl, pair_lt_two_pow (Nat.pair p z)⟩
@@ -53,7 +53,7 @@ def PhiStar' : Prop := ∀ x, hasBinPrefix wStar x → ¬ Phi T wStar x
 def conProp : Prop := ¬ ∃ d : ℕ, Bootstrapping.Proof T d (⌜(⊥ : ArithmeticSentence)⌝ : ℕ)
 
 lemma con_iff : T.Consistent ℕ ↔ conProp T := by
-  simp [Theory.Consistent, Provable, conProp]
+  simp [Theory.Consistent, conProp, Bootstrapping.Provable]
 
 /-- Instância do Lema 3 a partir de Foundation (Prf/pad/Con). -/
 def lemma3Hyp : Lemma3Hyp where
@@ -61,7 +61,7 @@ def lemma3Hyp : Lemma3Hyp where
   PhiStar := PhiStar' T wStar
   inconsistent_implies_not_phi := by
     intro hnc hs
-    obtain ⟨p, hp⟩ := Classical.not_not.mp ((con_iff T).mp hnc)
+    obtain ⟨p, hp⟩ := Classical.not_not.mp (mt (con_iff T).mpr hnc)
     exact hs (pad wStar p 0) (hasBinPrefix_pad wStar p 0) ⟨p, 0, hp, rfl⟩
   consistent_implies_phi := by
     intro hc x _ hx
@@ -74,7 +74,7 @@ theorem lemma3_con_for :
   lemma3_con (lemma3Hyp T wStar)
 
 /-- Ponte interna ↔ sintática (Foundation Consistency.lean:75). -/
-theorem con_entailment (T : ArithmeticTheory) [T.Δ₁] [R₀ ⪯ T] :
+theorem con_entailment (T : ArithmeticTheory) [T.Δ₁] [𝗥₀ ⪯ T] :
     T.Consistent ℕ ↔ Entailment.Consistent T :=
   standard_consistent T
 

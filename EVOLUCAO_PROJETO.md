@@ -474,7 +474,7 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 
 ## Próximo passo (a atualizar)
 
-> **Próximo (PR27+):** (a) `lake build` em `Foundation/` + `FoundationBridge/` (Mathlib cache OK; build longo); (b) rota B: Φw* com padding w* (definability); (c) instâncias (τ_n,q) concretas para Q — **só então** limite inferior; (d) MathOverflow post **só com confirmação**. ~~Q formal~~, ~~bridge δ Core~~, ~~Φw* rota A~~, ~~rascunho MO~~ **FEITOS** (PR27).
+> **Próximo (PR28+):** (a) ~~`lake build` em `Foundation/` + `FoundationBridge/`~~ **FEITO — VERDE 0 sorry** (cache FFL `ffl`, 1239 jobs); (b) rota B: Φw* com padding w* (definability); (c) instâncias (τ_n,q) concretas para Q — **só então** limite inferior; (d) MathOverflow post **só com confirmação**. ~~Q formal~~, ~~bridge δ Core~~, ~~Φw* rota A~~, ~~rascunho MO~~, ~~build Foundation/FoundationBridge~~ **FEITOS** (PR27).
 
 ---
 

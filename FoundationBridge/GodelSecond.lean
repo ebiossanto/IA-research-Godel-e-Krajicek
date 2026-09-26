@@ -24,7 +24,7 @@ theorem phiW_iff_consistent (T : ArithmeticTheory) [T.Δ₁] :
   show T ⊢ T.consistent.val 🡘 T.consistent.val from E_id
 
 /-- Gödel II transportado: T ⊬ Φw*. -/
-theorem unprovable_phiW (T : ArithmeticTheory) [T.Δ₁] [𝐈𝚺₁ ⪯ T]
+theorem unprovable_phiW (T : ArithmeticTheory) [T.Δ₁] [𝗜𝚺₁ ⪯ T]
     [Consistent T] :
     T ⊬ PhiW T :=
   consistent_unprovable T

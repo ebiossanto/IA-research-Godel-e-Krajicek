@@ -28,7 +28,7 @@
 | **`24_FOUNDATION_LEMMA3_ALLCOV.md`** | **lemma3 PROVADO; (C) ALL_COV ⇔ δ=0 (limiar maxκ)** | **EXECUTADO** |
 | **`25_FOUNDATION_INSTANCE_FP_DELTA.md`** | **Foundation instância Lemma3Hyp; PR7 comprimento vs δ SIM (modelo)** | **EXECUTADO** |
 | **`26_REVISAO_EXTERNA_PONTUAL.md`** | **Revisão externa: só banners/orig./esqueleto — sem redesenhar programa** | **EXECUTADO** |
-| **`27_TEOREMA_Q_GODEL2_BRIDGE_MO.md`** | **PR27: Q condicional; bridge δ; Gödel II rota A; agenda antes de LB** | **EXECUTADO** |
+| **`27_TEOREMA_Q_GODEL2_BRIDGE_MO.md`** | **PR27: Q condicional; bridge δ; Gödel II rota A; FoundationBridge BUILD VERDE (0 sorry)** | **EXECUTADO** |
 | **`27_MATHOVERFLOW_PERGUNTA.md`** | **Rascunho MO (EN) — NÃO publicado sem confirmação** | **RASCUNHO** |
 | `00/02/04/05`, `support/*`, `paper2` | **PR26: REJEITADO + novidade provisória + pseudocódigo** | **CORRIGIDO** |
 | `01/06/03` | **PR12: banners REJEITADO/histórico** | **CORRIGIDO** |
