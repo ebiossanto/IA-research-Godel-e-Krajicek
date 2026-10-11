@@ -156,7 +156,9 @@ Verificar o enunciado exato no artigo antes de afirmar qualquer coisa.
   `srcDir = "lean4"` e `roots = ["Gothic_Generators.Core"]`, `lean-toolchain`).
   Estilo de referência: `lean4/Gothic_Generators/Core.lean` (namespace, comentários `/-! -`
   e docstrings em português, `import Init` apenas — sem dependências externas).
-- Documentos de apoio existentes em `support/` e numerados (`01_...` a `27_...`).
+- Documentos de apoio: **numerados na raiz** (`00_...` a `27_...`) — canônicos;
+  snapshots antigos de `support/` movidos para `archive/support_2026-09-20/`
+  (11/10/2026, crítica externa).
 
 ## Regras da equipe
 

@@ -90,7 +90,7 @@ em Core; rascunho MO (não postado)
 
 | Arquivo | Status |
 |---------|--------|
-| `goedel_complexity_paper pnp.md` | **DESCARTADO** (Teorema 1 inválido) |
+| `goedel_complexity_paper_pnp.md` | **DESCARTADO** (Teorema 1 inválido) |
 | `06_paper2_hierarquia_ordinal.md` | Substituído por `papers/paper2_...` |
 | `goedel_complexity_original_contributions.md` | Desatualizado |
 
