@@ -1,7 +1,7 @@
 # Indice da Pesquisa Gödel–Krajíček
 
 **Versão:** 6.16 (Outubro 2026 — Campanha DD_P / Krajíček 2025, rodadas A–M)
-**Status:** Nota editorial a Krajíček pronta (v4, referee APROVADO — aguardando autor);
+**Status:** ✅ **Carta a Krajíček ENVIADA 11/10/2026 18:14** (aguardando resposta);
 Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥`; `DD_Res ∈ P`; Teorema Q condicional
 em Core; rascunho MO (não postado)
 
@@ -159,7 +159,7 @@ em Core; rascunho MO (não postado)
 | **DD5** | **Teorema K + K-FP′ (J1/J2)** | **FEITO — coleção impossível; ponto fixo padrão** | `krajicek_ddp/J1/J2` |
 | **DD6** | **`¬φ` insatisfatível + C.3 negativa (L)** | **FEITO — `T_PV+(S4)⊢∀rφ(r)`** | `krajicek_ddp/L1_...` |
 | **DD7** | **Canto adversarial `(C)` (M)** | **FEITO — `C_{N_s}≡⊥` construído** | `krajicek_ddp/M_...` |
-| **DD8** | **Nota editorial a Krajíček** | **PRONTA (v4) — AGUARDANDO o autor para enviar** | `krajicek_ddp/NOTA_EDITORIAL_...` |
+| **DD8** | **Nota editorial a Krajíček** | **✅ ENVIADA 11/10/2026 18:14** (protonmail + karlin) — aguardando resposta | `krajicek_ddp/CARTA_FINAL_ENVIO.md` |
 
 ### DESCARTADOS / REJEITADOS (não usar)
 
@@ -257,7 +257,10 @@ ao longo de uma hierarquia de reflexão $T_0 \subseteq T_1 \subseteq \cdots$?
 
 **Documentos:** 09 (núcleo), 08 (PPR), 10–26 (exp+**RCS**+Lean+**Foundation**+**FP-δ**+**revisão externa**), 01/06/03/00/02/04/05 **corrigidos**, EVOLUCAO, **`krajicek_ddp/` (campanha DD_P — consolidado em `RELATORIO_CONSOLIDADO.md`)**
 
-**Próximo passo:** **(0) enviar a nota editorial a Krajíček** (`krajicek_ddp/NOTA_EDITORIAL_Krajicek.md` v4 — revisar, decidir apêndice e pergunta "`q` em `τ_N` é total?", traduzir); depois Φw* rota B (definability); (τ_n,q) concretas para Q (antes de limite inferior); MathOverflow como pergunta
+**Próximo passo:** ~~enviar a nota editorial~~ **✅ FEITO (11/10 18:14)** — agora:
+**aguardar a resposta de Krajíček** (registrar no dossiê); em paralelo: Φw* rota B
+(definability); (τ_n,q) concretas para Q (antes de limite inferior); MathOverflow
+como pergunta
 
 ---
 

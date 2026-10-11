@@ -289,13 +289,14 @@ valorações falsificantes, todos provados em Lean 4 (`lake build` limpo).
 6. **Canto adversarial decidido** (M): `m` sempre não-padrão (M.0); sem falsificador
    global (M.1); **`C_{N_s} ≡ ⊥`** construído para nome não-padrão (M.2) — 2ª fonte
    de não-compactude; nomes padrão inofensivos (M.3–M.5).
-7. **Nota editorial a Krajíček pronta** (v4, referee APROVADO) — **aguardando o autor
-   do projeto** para revisar/traduzir/enviar.
+7. **Nota editorial a Krajíček — ✅ ENVIADA em 11/10/2026 18:14**
+   (`CARTA_FINAL_ENVIO.md`; para jan.krajicek@protonmail.com e
+   krajicek@karlin.mff.cuni.cz) — **aguardando resposta do autor**.
 
 **Próximos passos recomendados (ordem):**
-1. **Revisar e enviar a nota editorial** (`NOTA_EDITORIAL_Krajicek.md` v4) — é a
-   saída pública de toda a segunda onda; decidir o apêndice (§2) e acrescentar a
-   pergunta "`q` em `τ_N` é total?".
+1. **Aguardar a resposta de Krajíček** (as 4 perguntas da carta delimitam o residual:
+   semântica de `τ_N`/`q` total, leitura (i)/(iii), `(8)` em `M′`, Condition 1);
+   registrar a resposta no dossiê quando chegar.
 2. Conferir no artigo o ponto frágil `i_0 ∈ M*` (Equipe E, §3(c)) — barato e decisório.
 3. Decidir a refutação interna de `{C_{N_s}}` (prova EF de `δ_{N_s}∧¬τ_{N_s}` —
    pergunta de provabilidade, mesma forma de L.3″).

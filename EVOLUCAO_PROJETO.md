@@ -445,14 +445,17 @@ por frente, (A)=fonte/(P)=próprio/(C)=conjectura; todas as rodadas preservadas 
 | **L** | **`T_PV+(S4) ⊢ ∀rφ(r)`** — `¬φ` **internamente insatisfatível** (L.1); **C.3 negativa incondicional** (L.3′); `α` não-padrão (L.3a); `φ` exemplifica o aviso L21–22 (L.4) |
 | **M** | **Canto adversarial `(C)` decidido**: `m` sempre não-padrão (M.0); sem falsificador global (M.1); **`C_{N_s} ≡ ⊥`** para nome não-padrão `N_s` = seletor p-tempo (M.2) — 2ª fonte de não-compactude; nomes padrão inofensivos (M.3–M.5) |
 
-### 11.4 Entrega
+### 11.4 Entrega — ✅ ENVIADA
 
 **Nota editorial a Krajíček** (`NOTA_EDITORIAL_Krajicek.md` v4; referee 3 rodadas,
 **pre-comprometeu APROVADO**): errata (lacuna em ambas as versões; renumeração),
 **disjunção de dois chifres**, obstáculos (G2, K, L.1), o que sobrevive, perguntas
 ao autor (semântica de `τ_N` — **`q` total?** —; leitura (i)/(iii); convenção de
-código; Condition 1) e **carta EN** curta. **Aguardando revisão do autor do projeto**
-antes de traduzir/enviar a `www.karlin.mff.cuni.cz/~krajicek/`.
+código; Condition 1). **Carta EN enviada em 11/10/2026 às 18:14**
+(`CARTA_FINAL_ENVIO.md`) — de euambiente@gmail.com para **jan.krajicek@protonmail.com**
+e **krajicek@karlin.mff.cuni.cz** — com a apresentação do autor: pesquisador
+independente/entusiasta, pesquisa com **OpenCode + MIMO + outras IAs gratuitas**,
+GitHub (`github.com/ebiossanto`). **Aguardando resposta do autor.**
 
 ### 11.5 Abertos desta campanha
 
@@ -526,7 +529,8 @@ antes de traduzir/enviar a `www.karlin.mff.cuni.cz/~krajicek/`.
 | **11/10/2026** | **H–I–J: Q-compactness** | no-G; ultrapoderes fora; **Teorema K**; **K-FP′** |
 | **11/10/2026** | **L: `¬φ` insatisfatível** | `T_PV+(S4)⊢∀rφ(r)`; **C.3 negativa**; L.4 |
 | **11/10/2026** | **M: adversarial decidido** | `m` não-padrão; **`C_{N_s}≡⊥`**; **nota editorial v4** |
-| Próximo | ~~Foundation build; rota B; (τ_n,q) concretos~~ → **enviar nota editorial (Fase 11)** | — |
+| **11/10/2026** | **✅ CARTA ENVIADA a Krajíček (18:14)** | protonmail + karlin; errata + dicotomia + perguntas; **aguardando resposta** |
+| Próximo | ~~Foundation build; rota B; (τ_n,q) concretos~~ → **resposta do autor; então rota B/(τ_n,q)** | — |
 
 ---
 
@@ -543,11 +547,11 @@ antes de traduzir/enviar a `www.karlin.mff.cuni.cz/~krajicek/`.
 
 ## Próximo passo (a atualizar)
 
-> **Próximo (PR28+):** **(0) PRIORIDADE — Fase 11: revisar `NOTA_EDITORIAL_Krajicek.md`
-> v4, decidir o apêndice (§2) e a pergunta "`q` em `τ_N` é total?", traduzir e enviar
-> a Krajíček** (referee já pre-comprometeu APROVADO); (b) rota B: Φw* com padding w*
-> (definability); (c) instâncias (τ_n,q) concretas para Q — **só então** limite
-> inferior; (d) MathOverflow post **só com confirmação**. ~~`lake build`
+> **Próximo (PR28+):** ~~(0) enviar a nota editorial a Krajíček~~ **✅ FEITO —
+> ENVIADA 11/10/2026 18:14** (`CARTA_FINAL_ENVIO.md`; protonmail + karlin);
+> **aguardar a resposta do autor** (registrar no dossiê); (b) rota B: Φw* com
+> padding w* (definability); (c) instâncias (τ_n,q) concretas para Q — **só então**
+> limite inferior; (d) MathOverflow post **só com confirmação**. ~~`lake build`
 > Foundation/FoundationBridge~~ **FEITO — VERDE 0 sorry** (cache FFL `ffl`, 1239 jobs);
 > ~~Q formal~~, ~~bridge δ Core~~, ~~Φw* rota A~~, ~~rascunho MO~~ **FEITOS** (PR27).
 

@@ -1,6 +1,14 @@
 # CARTA FINAL PARA ENVIO — Krajíček (arXiv:2506.20221v5 / LMCS 22(2:14)2026)
 
-> **Status: APROVADO pelo usuário em 11 Out 2026** (base: `NOTA_EDITORIAL_Krajicek.md`
+> ## ✅ ENVIADO — 11 Out 2026, 18:14 (Gmail)
+> **De:** Euzébio <euambiente@gmail.com>
+> **Para:** jan.krajicek@protonmail.com **e** krajicek@karlin.mff.cuni.cz (ambos)
+> **Assunto:** *A question on step (5) in the proof of Theorem 4 (v4) / Theorem 3
+> (v5, LMCS) of arXiv:2506.20221*
+> **Protocolo:** mensagem enviada por gmail.com em 11/10/2026 18:14 — registro no
+> `EVOLUCAO_PROJETO.md` (Fase 11.4), `RELATORIO_CONSOLIDADO.md` §7 e `INDICE.md` (DD8).
+> Status antigo: APROVADO pelo usuário em 11 Out 2026 (base:
+> `NOTA_EDITORIAL_Krajicek.md`
 > v4 — referee APROVADO —, §5(2): carta curta + apêndice resumido de 3 itens).
 > Esta versão acrescenta, a pedido do usuário, a **apresentação de autor independent
 > com apoio de IAs gratuitas** (OpenCode, MIMO e outras) + **GitHub + e-mail**.

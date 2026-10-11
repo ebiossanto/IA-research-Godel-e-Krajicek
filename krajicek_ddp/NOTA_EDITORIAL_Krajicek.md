@@ -1,14 +1,14 @@
 # NOTA EDITORIAL a Krajíček — rascunho consolidado (v4)
 
-> **Status: APROVADO pelo usuário em 11 Out 2026 — tradução e envio autorizados.**
-> **Carta final (EN) pronta para envio: `CARTA_FINAL_ENVIO.md`** — corpo = §1
+> **Status: ✅ ENVIADO ao autor em 11 Out 2026, 18:14** (para jan.krajicek@protonmail.com
+> e krajicek@karlin.mff.cuni.cz; assunto "A question on step (5) in the proof of
+> Theorem 4 (v4) / Theorem 3 (v5, LMCS) of arXiv:2506.20221"). **Carta enviada:
+> `CARTA_FINAL_ENVIO.md`** — corpo = §1
 > (errata + dicotomia), §2 resumido (3 itens) e §4 (perguntas, com a nova "`q` em
 > `τ_N` é total?") desta nota; acrescenta, **a pedido do usuário**, a apresentação
 > de **pesquisador independente/entusiasta** que pesquisa com **OpenCode + MIMO +
 > outras IAs gratuitas**, com **GitHub** (`github.com/ebiossanto`) e **e-mail**
-> (`euambiente@gmail.com`). Destinatário de envio:
-> **jan.krajicek@protonmail.com** ("all other matters" — página dele) /
-> alternativa krajicek@karlin.mff.cuni.cz.
+> (`euambiente@gmail.com`). **Aguardando resposta do autor.**
 > **v4 (referee rodadas 1–3: todos os CRÍTICOS/MAIOR aplicados; referee pre-comprometeu
 > APROVADO após as correções desta versão — ver §6).** Destinatário:
 > Jan Krajíček (arXiv:2506.20221v5 / LMCS 22(2:14)2026). Marcação:
