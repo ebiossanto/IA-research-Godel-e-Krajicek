@@ -1,0 +1,1248 @@
+=== PAGE 1 ===
+Extensions of mo dels of P V
+Jan Kra j / / / cek
+/
+Mathematical Institute and Institute of Computer Science
+Academ y of Sciences of the Czec h Republic
+Abstract
+W e pro v e that certain mo dels of P V in whic h N P /6/ P /=pol y ha v e a
+/
+b
+/1
+/-elemen tary extension to a mo del of /( P V and/) N P /6/ coN P /=pol y /.
+If S
+/2
+pro v es a particular fact ab out bipartite graphs then/, in fact/, all
+mo dels of P V in whic h N P /6/ P /=pol y ha v e a /
+b
+/1
+/-elemen tary extension to
+a mo del of N P /6/ coN P /=pol y /.
+In tro duction
+P V is a b ounded arithmetic theory with function sym b ols for all p olynomial time
+algorithms/, and axiomatized b y a particular set of univ ersal form ulas/, cf/. /[/3 /]/.
+Mo dels of P V are a natural en vironmen t for notions of computational complexit y
+theory around deterministic and non/-deterministic p olynomial time/. Ma jor op en
+problems in this part of complexit y theory ha v e their coun terparts in b ounded
+arithmetic and prop ositional logic/. W e are in terested in pro ving some notorious
+op en conjectures for a mo del of b ounded arithmetic/, and not so m uc h in sho wing
+that some of these conjectures migh t b e unpro v able in b ounded arithmetic/. F or
+a general motiv ation /(for this author/, at least/) for researc h in this area see the
+preface to /[/4 /]/.
+In a mo del M of the theory P V the class P of the p olynomial /-tim e sets is the
+class of subsets of M de/nable b y an atomic P V /-form ula with parameters from
+M /(in S
+/1
+/2
+this w ould b e pro v ably /
+b
+/1
+/-form ulas with parameters/)/, equiv alen tly/:
+recognizable b y a standar d D T M with an extra input /(the parameter/) whic h
+ma y b e non/-standard/, equiv alen tly/: recognizable b y a D T M p ossibly with a
+non/-standard description but whose time is b ounded b y a standard degree p oly/-
+nomial/.
+The class P /=pol y is de/ned in the same w a y except that the parameters
+ma y v ary with the length of the inputs/, and the classes N P /; N P /=pol y and
+/
+P artially supp orted b y the US /- Cze choslovak Scienc e and T e chnolo gy Pr o gr am gran t
+/# /9/3/0/2/5/, and b y gran t /# A /1/0/1/9/6/0/2 of the A V
+/
+CR /.
+/1
+=== PAGE 2 ===
+coN P /; coN P /=pol y are de/ned analogously using N D T M /'s/. In particular/, N P /-
+subsets of M /(resp/. coN P /) are those de/nable b y /
+b
+/1
+/-form ulas /(resp/. b y /
+b
+/1
+/-
+form ulas/) with parameters/, that ma y v ary with the length in case of N P /=pol y
+and coN P /=pol y /.
+It is not imp ortan t whether w e require that the length of parameters in the
+non/-uniform classes is p olynomial in the length of the input/. This is b ecause
+w e are concerned with de/nabilit y of sets of inputs of a /xed length/. In general
+one ma y restrict to those mo dels of P V in whic h lengths are p olynomial /(with
+a standard degree/) in one /xed length/.
+The problem whether P V equals to S
+/1
+/2
+is closely related to the circuit com/-
+plexit y of N P /-sets/. In particular/, P V /6/= S
+/1
+/2
+if N P /6/ P /=pol y /(b y /[/8 /]/) or if there
+is a mo del of P V in whic h N P /6/ coN P /=pol y /(b y /[/2 /, /9/]/)/.
+/1
+Constructions of extensions of mo dels of P V /(or of S
+/1
+/2
+/) are also closely related
+to length/-of/-pro ofs problems ab out the extended F rege systems/, cf/. /[/4 /, /5 /, /6 /]/.
+In this pap er w e study the problem to construct a mo del of P V in whic h
+N P /6/ coN P /=pol y /. W e giv e three v ersions of a construction sho wing that certain
+mo dels of P V in whic h N P /6/ P /=pol y ha v e a /
+b
+/1
+/-elemen tary extension to a mo del
+of /( P V and/) N P /6/ coN P /=pol y /. An ultimate goal is to mak e the construction
+w ork under w eak er assumptions on mo dels than those in Theorem /2/./1/.
+A relev an t bac kground can b e found in /[/4 /]/. In particular/, necessary facts
+from all other references can b e also found there/.
+/1 Preliminari es
+Giv en a length n /= j y j of y /2 M /, S AT
+n
+/( M /) denotes the set of satis/able form ulas
+in M of length n /; this set is de/ned b y a canonical /
+b
+/1
+/-form ula S at
+n
+/( x /) with a
+parameter of the same length as y /. Log /( M /) is the set of lengths of elemen ts of
+M /.
+F or a form ula a and a truth assignmen t w the relation w j /= a denotes that w
+satis/es a /, and is de/nable b y a /xed op en form ula/. W e shall assume that w j /= a
+implies /(in P V /) that a is a form ula from S AT
+n
+/( M /) and w is a truth/-assignmen t
+to its atoms/.
+Let C ir cuit
+M
+denote the set of m ulti/-output circuits in M and for C /2
+C ir cuit
+M
+and a /2 M of appropriate length/, C /( a /) /= b is a function de/nable b y
+a ternary P V /-sym b ol stating that b is the output of the computation of circuit
+C on input a /(when n um b ers are iden ti/ed with their binary enco dings/)/.
+The follo wing lemma follo ws from the fact that P V can de/ne binary searc h/.
+/1
+W e inessen tially abuse the notation here/; instead of P V /, whic h is an equational theory as
+de/ned in /[/3 /]/, w e w ork with its /rst/-order conserv ativ e extension P V
+/1
+de/ned in /[/8/, /4/]/, and in
+place of S
+/1
+/2
+w e should use its conserv ativ e extension S
+/1
+/2
+/( P V /) in the language of P V /, cf/. /[/4/]/.
+/2
+=== PAGE 3 ===
+Lemma /1/./1 F or any length n and any cir cuit C /2 C ir cuit
+M
+ther e exists an/-
+other cir cuit C
+/0
+/2 C ir cuit
+M
+such that if
+M j /= /( /8 x/; j x j /= n /) /; S at
+n
+/( x /) / /( C /( x /) /= /1/)
+then
+M j /= /( /8 x/; j x j /= n /) /; S at
+n
+/( x /) /! /( C
+/0
+/( x /) j /= x /) /:
+In p articular/, the pr op erty that S AT
+n
+/( M /) is r e c o gnize d in a mo del M of P V by
+a cir cuit is pr eserve d to /
+b
+/1
+/-elementary extensions of M /.
+This means that only M in whic h N P /6/ P /=pol y can p ossibly ha v e a co/nal
+/
+b
+/1
+/-elemen tary extension in whic h N P /6/ coN P /=pol y /.
+De/niti on /1/./2 L et M b e a mo del of P V and assume that for some length n /2
+Log /( M /) the set S AT
+n
+/( M /) is not r e c o gnize d in M by a cir cuit/.
+A coun ter/-example function /(for S AT
+n
+/( M /) in M /, tacitly/) is a function /
+that assigns to any cir cuit C /2 C ir cuit
+M
+with n inputs a p air
+/ /( C /) /= /( a/; w /)
+such that
+/1/. w j /= a
+/2/. C /( a /) /6j /= a /:
+We say that / is in P /=pol y of M if for every length m /2 Log /( M /) ther e is a
+cir cuit D
+m
+/2 C ir cuit
+M
+with m input bits and /2 n output bits c omputing / /( C /) for
+any C of size at most m /.
+Note that the statemen t that S AT
+n
+/( M /) is not recognized b y a circuit of size
+at most m is /
+b
+/1
+/( / /)/, whenev er / is a coun ter/-example function/. Hence w e ha v e
+the follo wing lemma/.
+Lemma /1/./3 L et M b e a mo del of P V in which the set S AT
+n
+/( M /) is not r e c o g/-
+nize d by a cir cuit/. L et / b e a c orr esp onding c ounter/-example function/. Then
+S AT
+n
+/( M
+/0
+/) is not r e c o gnize d by a cir cuit in any /
+b
+/1
+/( / /) /-elementary/, c o/nal exten/-
+sion /( M
+/0
+/; /
+/0
+/) of /( M /; / /) /.
+In p articular/, if M admits a c ounter/-example function in P /=pol y then the set
+S AT
+n
+/( M
+/0
+/) is not r e c o gnize d by a cir cuit in any /
+b
+/1
+/-elementary/, c o/nal extension
+M
+/0
+of M /, and M
+/0
+admits a c ounter/-example function in P /=pol y /.
+/2 An ultrap o w er
+Theorem /2/./1 L et M b e a c ountable mo del of P V and assume that for some
+length n /2 Log /( M /) the set S AT
+n
+/( M /) is not r e c o gnize d in M by a cir cuit/. Assume
+that M admits a c ounter/-example function / in P /=pol y /.
+Then ther e is a /
+b
+/1
+/-elementary/, c o/nal extension M
+/0
+of M /, a mo del of P V /,
+such that the set S AT
+n
+/( M
+/0
+/) is not r e c o gnize d in M
+/0
+by a c o/-non/-deterministic
+cir cuit/.
+/3
+=== PAGE 4 ===
+Pro of
+F or C /2 C ir cuit
+M
+let f
+C
+b e the function from M to M computed b y the
+circuit C /.
+T ak e/:
+F
+M
+/:/= f f
+C
+/: S AT
+n
+/( M /) /! M j C /2 C ir cuit
+M
+g /:
+W e shall construct an ultrap o w er of the form F
+M
+/= U /, with U / exp /( S AT
+n
+/( M /)/)
+a particular ultra/lter/. The follo wing claim is ob vious/.
+Claim /1 F or any ultr a/lter U /, L o / s/'s the or em holds for al l op en P V /- formulas/,
+and F
+M
+/= U is a /
+b
+/1
+/-elementary/, c o/nal extension of M /. In p articular/, F
+M
+/= U is
+a mo del of P V /.
+De/ne a particular elemen t of F
+M
+/:
+a
+U
+/= id
+S AT
+n
+/( M /)
+/= U /:
+Claim /2 L et / /( x /) b e a /
+b
+/1
+/-formula with p ar ameters fr om M such that/:
+M j /= / /( a /)
+for al l a /2 S AT
+n
+/( M /) /. Then/:
+F
+M
+/= U j /= / /( a
+U
+/) /:
+Claim /2 follo ws b y Lo / s/'s theorem for all op en P V /- form ulas/.
+F or a circuit D /2 C ir cuit
+M
+with n bits of input de/ne the set/:
+D
+/
+/:/= f a /2 S AT
+n
+/( M /) j D /( a /) j /= a g /:
+Claim /3 Assume that an ultr a/lter U / exp /( S AT
+n
+/( M /)/) satis/es the c ondition/:
+/8 D /2 C ir cuit
+M
+/; D
+/
+/=/2 U
+Then /:
+F
+M
+/= U j /= /: S at
+n
+/( a
+U
+/) /:
+The claim follo ws from Lo / s/'s theorem again/: an elemen t f
+D
+/= U satis/es the
+form ula a
+U
+in F
+M
+/= U i/ D
+/
+/2 U /.
+Claim /4 S AT
+n
+/( F
+M
+/= U /) is not r e c o gnize d in F
+M
+/= U by a cir cuit and F
+M
+/= U admits
+a c ounter/-example function in P /=pol y /.
+Assume on the con trary that S AT
+n
+/( F
+M
+/= U /) is recognized in F
+M
+/= U b y a
+circuit/, hence b y Lemma /1/./1 it holds in F
+M
+/= U /:
+f
+W
+/= U j /= f
+A
+/= U /) f
+C
+/= U /( f
+A
+/= U /) j /= f
+A
+/= U
+/4
+=== PAGE 5 ===
+for some f
+C
+/= U /2 C ir cuit
+F
+M
+/= U
+and all f
+A
+/= U /; f
+W
+/= U /2 F
+M
+/.
+F or an arbitrary f
+C
+de/ne particular f
+A
+/; f
+W
+b y/:
+/( f
+A
+/( a /) /; f
+W
+/( a /)/) /:/= / /( C /( a /)/)
+F or those a /2 S AT
+n
+/( M /) for whic h C /( a /) is a circuit with n inputs/, f
+W
+/( a /) j /= f
+A
+/( a /)
+but C /( a /)/( f
+A
+/( a /)/) /6j /= f
+A
+/( a /) b y the de/nition of / /. Hence f
+C
+/= U cannot ha v e the
+prop ert y stated earlier/.
+Note that b y Claim /1 the circuits D
+m
+computing / in M compute a coun ter/-
+example function in F
+M
+/= U as w ell/.
+Let U
+/0
+/ exp /( S AT
+n
+/( M /)/) consist of all sets X con taining some set of the
+form/:
+S AT
+n
+/( M /) n D
+/
+for some D /2 C ir cuit
+M
+/. By the h yp othesis that S AT
+n
+/( M /) is not recognized in
+M b y a circuit/, the class U
+/0
+is closed under in tersections and /; /=/2 U
+/0
+/, i/.e/./, it is a
+non/-trivial /lter/. Let U / U
+/0
+b e arbitrary ultra/lter/.
+De/ne M
+/1
+to b e the coun table mo del F
+M
+/= U /. By Claims /2 and /3 no /
+b
+/1
+/-
+form ula with parameters from M de/nes the set S AT
+n
+/( M
+/1
+/) in M
+/1
+/.
+By Claim /4 the set S AT
+n
+/( M
+/1
+/) is not recognized in M
+/1
+b y a circuit/. W e ma y
+therefore rep eat this construction coun tably man y times to obtain a c hain/:
+M / M
+/1
+/ M
+/2
+/ /: /: /:
+of /
+b
+/1
+/-elemen tary /, co/nal extensions /(killing all p oten tial /
+b
+/1
+/-de/nitions of S at
+n
+/( x /)
+with all p ossible parameters from all M
+t
+/) suc h that its union/:
+M
+/0
+/:/=
+/[
+t
+M
+t
+is a /
+b
+/1
+/-elemen tary /, co/nal extension of M in whic h S AT
+n
+/( M
+/0
+/) is not de/ned
+b y an y /
+b
+/1
+/-form ula with parameters from M
+/0
+/, i/.e/./, it is not recognized b y a
+co/-non/-deterministic circuit/.
+Q/.E/.D/.
+Note that the v ersion of the theorem with P /; N P /; coN P in place of the non/-
+uniform classes is a simple corollary of Herbrand/'s theorem/.
+/3 A compactness argumen t
+In this section w e giv e another pro of of Theorem /2/./1/.
+Let / /( x /) b e a /
+b
+/1
+/- form ula with parameters from M /. W e w an t to /nd a /
+b
+/1
+/-
+elemen tary /, co/nal extension of M in whic h /9 x /; /: /( / /( x /) / S at
+n
+/( x /)/) holds/. Note
+that w e ma y assume w/.l/.o/.g/. that in P V /+ T h
+/8 /
+b
+/1
+/( M /) it holds that
+/ /( c /) /! j c j /= n
+/5
+=== PAGE 6 ===
+/(otherwise just replace / /( c /) b y / /( c /) /^ j c j /= n /)/.
+If already
+M j /= /9 x /; /: /( / /( x /) / S at
+n
+/( x /)/)
+then this will b e preserv ed in ev ery /
+b
+/1
+/-elemen tary extension/. If
+P V /+ T h
+/8 /
+b
+/1
+/( M /) /` /8 x /( / /( x /) / S at
+n
+/( x /)/)
+then b y Herbrand/'s theorem there is a P V /-sym b ol f /( x/; y /) and b /2 M suc h that/:
+P V /+ T h
+/8 /
+b
+/1
+/( M /) /` /8 x /( S at
+n
+/( x /) / /( f /( x/; b /) j /= x /)/) /;
+so the set S AT
+n
+/( M /) is recognized in M b y a circuit/, con tradicting the h yp othesis
+of the theorem/.
+So the only case creating di/culties is when
+M j /= /8 x /( / /( x /) / S at
+n
+/( x /)/)
+but
+P V /+ T h
+/8 /
+b
+/1
+/( M /) /6/` /8 x /( / /( x /) / S at
+n
+/( x /)/)
+whic h implies/:
+P V /+ T h
+/8 /
+b
+/1
+/( M /) /6/` /8 x /( / /( x /) /! S at
+n
+/( x /)/)
+/(as the opp osite implication is in T h
+/8 /
+b
+/1
+/( M /)/)/.
+T ak e a new constan t c and a form ula
+/ /( c /) /^ /: S at
+n
+/( c /) /:
+Claim The the ory
+P V /+ T h
+/8 /
+b
+/1
+/( M /) /+ / /( c /) /^ /: S at
+n
+/( c /)
+do es not pr ove that S at
+n
+/( x /) is r e c o gnize d by a p olynomial size cir cuit/.
+Assume on the con trary that
+P V /+ T h
+/8 /
+b
+/1
+/( M /) /+ / /( c /) /+ /: S at
+n
+/( c /) /` /9 D /( /8 x/; j x j /= n /)/; S at
+n
+/( x /) /! D /( x /) j /= x
+By the h yp othesis P V /+ T h
+/8 /
+b
+/1
+/( M /) /+ / /( c /) /+ /: S at
+n
+/( c /) is consisten t and hence
+has a mo del N /(that con tains M as a submo del/)/. T ak e N
+/
+to b e the unique
+substructure of N generated from elemen ts of M /[ f c g b y P V /-function sym b ols/.
+Th us N
+/
+j /= P V /+ T h
+/8 /
+b
+/1
+/( M /) /+ / /( c /) /+ /: S at
+n
+/( c /) and hence
+N
+/
+j /= /9 D /( /8 x/; j x j /= n /)/; S at
+n
+/( x /) /! D /( x /) j /= x
+Moreo v er/, N
+/
+is a /
+b
+/1
+/-elemen tary and co/nal /(as j c j /= n /) extension of M /.
+/6
+=== PAGE 7 ===
+Ho w ev er/, that is a con tradiction with Lemma /1/./3/, as b y the h yp othesis of
+the theorem M admits a coun ter/-example function in P /=pol y /.
+By the claim w e ma y tak e M
+/1
+/, a /
+b
+/1
+/-elemen tary /, co/nal extension of M that
+is a mo del of / /( c /) /^ /: S at
+n
+/( c /)/, and suc h that there is no circuit in M
+/1
+recognizing
+S AT
+n
+/( M
+/1
+/)/. Then w e construct a coun table c hain M / M
+/1
+/ M
+/2
+/ /: /: /: killing
+all p oten tial /
+b
+/1
+/-de/nitions /(with all p ossible parameters from all M
+i
+/) of S at
+n
+/( x /)/.
+Th us M
+/0
+/:/=
+S
+i
+M
+i
+is the required extension/.
+Q/.E/.D/.
+/4 A Bo olean/-v alued extension
+Bo olean/-v alued extensions of S
+/1
+/2
+w ere de/ned in /[/5 /]/, see also /[/4 /, Chpt/. /9/./4/]/. F or
+P V in place of S
+/1
+/2
+the construction has a particular form ulation/.
+Let M b e a mo del of P V and let /( p
+/1
+/; /: /: /: /; p
+n
+/) /2 M b e a sequence of prop osi/-
+tional atoms/. Let C ir cuit
+M
+/( p /) b e all circuits with one output formed from atoms
+p
+i
+/, and let B /( p /) b e the Bo olean algebra obtained b y factoring C ir cuit
+M
+/( p /) b y
+the equiv alence relation C
+/1
+/ C
+/2
+that holds for C
+/1
+/; C
+/2
+i/ there is an E F /-pro of
+in M of C
+/1
+/ C
+/2
+/(see /[/5 /] for a formalizatio n of this notion/)/.
+Giv en an ultra/lter G on B /( p /)/, let /
+G
+/( C /) b e equal /1 if /( C /= / /) /2 G and equal
+to /0 otherwise/.
+De/ne the extension M /[ G /] of M as follo ws/. Let N ames
+M
+/( p /) b e the set of
+sequences h C
+/1
+/; /: /: /: /; C
+/`
+i /2 M of elemen ts of C ir cuit
+M
+/( p /)/. The elemen ts of M /[ G /]
+are tuples
+h /
+G
+/( C
+/1
+/) /; /: /: /: /; /
+G
+/( C
+/`
+/) i
+one for eac h h C
+/1
+/; /: /: /: /; C
+/`
+i /2 N ames
+M
+/( p /)/.
+F or f /( x
+/1
+/; /: /: /: /; x
+k
+/) a P V /-function and /` /2 Log /( M /) a length/, let D
+t
+f /;/`
+/( y
+ij
+/)
+/( i / k and j / /` /) b e a circuit in M computing /(pro v ably in P V /) the t
+th
+bit
+of f /( x
+/1
+/; /: /: /: /; x
+k
+/) for inputs x
+i
+of length at most /` with bits y
+i /1
+/; /: /: /: /; y
+i/`
+/. De/ne
+f /( w
+/1
+/; /: /: /: /; w
+k
+/) for elemen ts w
+i
+of M /[ G /]
+w
+i
+/= h /
+G
+/( C
+i /1
+/) /; /: /: /: /; /
+G
+/( C
+i/`
+/) i
+to b e
+h /
+G
+/( D
+/1
+f /;/`
+/( y
+ij
+/=C
+ij
+/) /; /
+G
+/( D
+/2
+f /;/`
+/( y
+ij
+/=C
+ij
+/) /; /: /: /: i
+The follo wing is a sp ecial case of /[/5/, Thm/. /5/./1/]/. See also /[/7/] or /[/5 /, Sec/. /9/./4/] for
+another treatmen t of the construction/.
+Theorem /4/./1 L et M b e a mo del of P V /, /( p
+/1
+/; /: /: /: /; p
+n
+/) /2 M pr op ositional atoms/,
+and let G b e an ultr a/lter on B /( p /) /. Assume that G is close d under E F /-pr ovability
+in M /, i/.e/./, whenever ther e is an E F /-pr o of in M of D fr om C
+/1
+/; /: /: /: /; C
+k
+and
+/
+G
+/( C
+i
+/) /= /1 then /
+G
+/( D /) /= /1 to o/.
+Then M /[ G /] is a c o/nal extension of M and it is a mo del of P V /.
+Mor e over/, if /
+G
+/( C /) /= /1 whenever C /2 C ir cuit
+M
+/( p /) c omputes the function c on/-
+stantly /1 in M /, then M /[ G /] is a /
+b
+/1
+/-elementary/, c o/nal extension of M /.
+/7
+=== PAGE 8 ===
+W e giv e no w another pro of of Theorem /2/./1/.
+Let M b e a coun table mo del of P V in whic h S AT
+n
+/( M /) is not recognized b y
+a circuit/, and that admits a coun ter/-example function / in P /=pol y /.
+W e shall denote b y y j /= x also the circuit in M that computes on t w o n /-bit
+inputs x/; y whether they satisfy the relation y j /= x /. Let / /( x /) b e a /
+b
+/1
+/-form ula
+with parameters from M of the form /8 z /; j z j / j x j
+k
+/! /
+/0
+/( x/; z /)/, where /
+/0
+is op en/.
+Let p /= /( p
+/1
+/; /: /: /: /; p
+n
+/) b e m utually di/eren t prop ositional atoms in M /. Con/-
+sider the set T of prop ositional form ulas of the form
+/: /( h W
+/1
+/; /: /: /: /; W
+n
+i j /= p /)
+and of the form
+/
+/0
+/( p/; h Z
+/1
+/; /: /: /: /; Z
+m
+i /)
+where W /= h W
+/1
+/; /: /: /: /; W
+n
+i /, Z /= h Z
+/1
+/; /: /: /: /; Z
+m
+i are all elemen ts of N ames
+M
+/( p /) of
+the length n and m /= n
+k
+resp ectiv ely /.
+Claim /1 Ther e is no E F /-r efutation of T in M /.
+Assume otherwise/, i/.e/./, there is an E F /-pro of of
+/_
+W
+W /( p /) j /= p /_
+/_
+Z
+/: /
+/0
+/( p/; Z /)
+for some W /'s and Z /'s/. As E F is sound in an y mo del of P V /, the W /'s and Z /'s
+ma y b e com bined in to a circuit in M recognizing the set S AT
+n
+/( M /)/. That is a
+con tradiction/.
+Claim /2 Ther e is an ultr a/lter G on B /( p /) that is close d under E F /-pr ovability
+in M and such that
+/1/. /
+G
+/( C /) /= /1 /, for al l C /2 T /.
+/2/. /
+G
+/( C /) /= /1 /, for al l C /2 C ir cuit
+M
+/( p /) c omputing in M c onstantly /1 /.
+T ak e S / C ir cuit
+M
+/( p /) the set of all circuits C
+/0
+ma jorizing /(as Bo olean
+functions/) in M some C /2 T /. By Claim /1 the subset of B /( p /) of / /-classes of
+all C
+/0
+/2 S is a non/-trivial /lter/. An y ultra/lter extending this set satis/es the
+requiremen ts of the claim/.
+T ak e M
+/1
+/:/= M /[ G /] for an y G giv en b y Claim /2/. Then/, b y Theorem /4/./1/, M
+/1
+is a mo del of P V in whic h the elemen t
+a
+G
+/:/= h /
+G
+/( p
+/1
+/) /; /: /: /: /; /
+G
+/( p
+n
+/) i
+is not in S AT
+n
+/( M
+/1
+/) but
+M
+/1
+j /= / /( a
+G
+/)
+Hence / /( x /) will not de/ne S at
+n
+/( x /) in an y /
+b
+/1
+/-elemen tary extension of M
+/1
+/.
+/8
+=== PAGE 9 ===
+By the /
+b
+/1
+/-elemen tarit y and co/nalit y of M
+/1
+o v er M and b y Lemma /1/./3/, no
+circuit in M
+/1
+recognizes S AT
+n
+/( M
+/1
+/) and M
+/1
+admits a coun ter/-example function
+in P /=pol y /. W e ma y th us rep eat the construction to pro duce a c hain M / M
+/1
+/
+M
+/2
+/ /: /: /: suc h that M
+/0
+/:/=
+S
+i
+M
+i
+is the required mo del/, iden tically as in sections
+/2 and /3/.
+Q/.E/.D/.
+/5 A construction of a coun ter/-example function
+Let E / X / Y b e a bipartite graph/, d log
+/2
+j X je /= n and d log
+/2
+j Y je /= m /. If
+/8 y
+/0
+/; /: /: /: /; y
+n
+/2 Y /9 x /2 X /;
+/^
+j
+/: /( xE y
+j
+/)
+then
+/9 x
+/0
+/; /: /: /: /; x
+m
+/2 X /8 y /2 Y /;
+/_
+i
+/: /( x
+i
+E y /)
+This is easily pro v ed b y a pigeon/-hole argumen t/. F or the purp ose of b ounded
+arithmetic w e shall relax the statemen t a bit/, remo ving explicit b ounds on the
+n um b er of x
+i
+/'s and y
+j
+/'s/.
+De/niti on /5/./1 L et / /( x/; y /) b e a binary pr e dic ate/. C E /( u/; / /) is an /9 /
+b
+/1
+/( / /) /- for/-
+mula formalizing that either ther e is a se quenc e /( x
+/0
+/; /: /: /: /; x
+k
+/) of elements smal ler
+than u such that
+/8 y / u /;
+/_
+i
+/: / /( x
+i
+/; y /)
+or ther e is a se quenc e /( y
+/0
+/; /: /: /: /; y
+/`
+/) of elements smal ler than u such that
+/8 x / u /;
+/_
+j
+/ /( x/; y
+j
+/)
+Lemma /5/./2 Assume that M is a mo del of P V in which S AT
+n
+/( M /) is not r e/-
+c o gnize d by a cir cuit/. Assume also that M satis/es for al l op en P V /-formulas
+/ /( x/; y /) the statement /8 u /; C E /( u/; / /) with b ounds k /; /` / j t /( u /) j /, t a term/.
+Then M admits a c ounter/-example function in P /=pol y /.
+Pro of
+Let / /( x/; y /) formalizes that y is a circuit C of size at most m with n inputs/,
+x is a pair /( a/; w /) of a /2 S AT
+n
+/( M /) and w j /= a /, and C /( a /) j /= a /.
+T ak e the principle C E /( u/; / /) for u /:/= max /(/2
+/2 n
+/; /2
+m
+/)/. The principle pro vides us
+either with circuits C
+/0
+/; /: /: /: /; C
+/`
+of size at most m suc h that for ev ery a /2 S AT
+n
+/( M /)
+/_
+j
+C
+j
+/( a /) j /= a
+/9
+=== PAGE 10 ===
+or with pairs /( a
+/0
+/; w
+/0
+/) /; /: /: /: /; /( a
+k
+/; w
+k
+/) of a
+i
+/2 S AT
+n
+/( M /) and w
+i
+j /= a
+i
+suc h that for
+ev ery circuit C of size at most m
+/_
+i
+C /( a
+i
+/) /6j /= a
+i
+The former option is/, ho w ev er/, imp ossible as otherwise w e could com bine C
+j
+/'s
+in to one circuit recognizing S AT
+n
+/( M /)/. Hence w e ha v e the pairs /( a
+i
+/; w
+i
+/) and w e
+de/ne the circuit D
+m
+as follo ws/. Giv en as an input a circuit C /, D
+m
+tries C
+on all a
+i
+and outputs the /rst pair /( a
+i
+/; w
+i
+/) suc h that C /( a
+i
+/) /6j /= a
+i
+/. Clearly D
+m
+computes a coun ter/-example function for circuits of size at most m /.
+Q/.E/.D/.
+It is op en whether the com binatorial principle is pro v able in P V or ev en in
+S
+/2
+/. A corollary of the principle/, namely the tournamen t principle /(see /[/4 /, Sec/.
+/1/2/./1/]/)/, is also not kno wn to b e pro v able in b ounded arithmetic/.
+Theorem /5/./3 Assume that S
+/2
+pr oves the formula
+/8 u /; C E /( u/; / /)
+for the /
+b
+/1
+/-formula / /( x/; y /) de/ne d at the b e ginning of the pr o of of L emma /5/./2/.
+Assume also that P V has a c ountable mo del in which N P /6/ P /=pol y /.
+Then P V /6/= S
+/1
+/2
+/.
+Pro of
+T ak e M a coun table mo del of P V in whic h S AT
+n
+/( M /) is not recognized b y a
+circuit/. If M /6j /= S
+/1
+/2
+then w e are done/. So assume that M j /= S
+/1
+/2
+/.
+Consider the theory T formed b y
+P V /+ T h
+/
+b
+/1
+/( M /)
+together with all form ulas
+/8 y /9 x /; S at
+n
+/( x /) /6/ / /( x/; y /)
+one for eac h /
+b
+/1
+/-form ula / without parameters/.
+If T w ere consisten t then an y of its mo dels is a /
+b
+/1
+/-elemen tary extension of
+M in whic h N P /6/ coN P /=pol y and th us b y /[/2/, /9/] P V /6/= S
+/1
+/2
+/.
+On the other hand/, if T is inconsisten t then P V /+ T h
+/
+b
+/1
+/( M /) pro v es a
+disjunction of form ulas of the form
+/9 y /8 x /; S at
+n
+/( x /) / / /( x/; y /)
+/ /
+b
+/1
+/-form ulas without parameters/. This means that in M ev ery b ounded for/-
+m ula is equiv alen t to a /
+b
+/1
+/-form ula and/, in particular/, the P I N D sc heme for all
+b ounded form ulas holds in M as M j /= S
+/1
+/2
+/. Hence M j /= S
+/2
+and consequen tly
+M j /= /8 u /; C E /( u/; / /)/.
+By Lemma /5/./2 and Theorem /2/./1 M has an extension M
+/0
+in whic h N P /6/
+coN P /=pol y /. So/, b y /[/2/, /9/] again/, P V /6/= S
+/1
+/2
+/.
+/1/0
+=== PAGE 11 ===
+Q/.E/.D/.
+Ac kno wledgemen t s/: I discussed the idea of the /rst pro of of the theorem
+with S/. Buss in T oron to in Spring /1/9/9/3 and I thank him for p oin ting out then
+a problem with the original v ersion/. R/. Impaglia zzo reminded me of a construc/-
+tion concerning a circuit/-sim ulation of probabilistic computations similar to the
+one from Lemma /5/./2/. I thank A/. A/. Razb oro v for critical commen ts on the
+preliminary v ersion of this pap er/.
+References
+/[/1/] Buss/, S/. R/. /(/1/9/8/6/) Bounded Arithmetic/. Naples/, Bibliop olis/.
+/[/2/] /(/1/9/9/5/) Relating the b ounded arithmetic and p olynomial time hier/-
+arc hies/, A nnals of Pur e and Applie d L o gic /, /7/5 /: /6/7/-/7/7/.
+/[/3/] Co ok/, S A/. /(/1/9/7/5/) F easibly constructiv e pro ofs and the prop ositional calcu/-
+lus/, in/: Pr o c/. /7
+th
+A nnual A CM Symp/. on The ory of Computing /, pp/. /8/3/-/9/7/.
+A CM Press/.
+/[/4/] Kra j / / / cek/, J/. /(/1/9/9/5/) Bounde d arithmetic/, pr op ositional lo gic and c omplexity
+the ory /, Encyclop edia of Mathematics and Its Applications/, V ol/. /6/0 /, Cam/-
+bridge University Pr ess /, Cam bridge /- New Y ork /- Melb ourne/, /3/4/3 p/.
+/[/5/] /(/1/9/9/5/) On F rege and Extended F rege pro of systems/, in/: F e asible
+Mathematics II /, eds/. P /. Clote and J/. Remmel/, Birkhauser/, pp/. /2/8/4/-/3/1/9/.
+/[/6/] /(/1/9/9/5/) On metho ds for pro ving lo w er b ounds in prop ositional logic/,
+in/: Pro ceedings of the T en th In ternational Congress L o gic/, Metho dolo gy
+and Philosophy of Scienc e /, In ternational Union of History and Philosoph y
+of Science/, Florence /(August /1/9/-/2/5/, /1/9/9/5/)/, Eds/. M/. L/. Dalla Chiara/, K/.
+Do ets/, D/. Mundici/, J/. v an Ben them/, to app ear/.
+/[/7/] Kra j / / / cek/, J and P /. Pudl/ ak /(/1/9/9/0/) Prop ositional Pro v abilit y and Mo dels of
+W eak Arithmetic/, in/: Computer Scienc e L o gic /(Kaiserlautern/, Oct/. /'/8/9/)/, E/.
+Borger/, H/. Kleine Buning/, M/.M/. Ric h ter /(eds/./)/, LNCS /4/4/0/, Springer/-V erlag/,
+pp/. /1/9/3/-/2/1/0/.
+/[/8/] Kra j / / / cek/, J/, Pudl/ ak/, P /, and T ak euti/, G/. /(/1/9/9/1/) Bounded arithmetic and the
+p olynomial hierarc h y /, A nnals of Pur e and Applie d L o gic /, /5/2 /: /1/4/3/{/1/5/3/.
+/[/9/] Zam b ella/, D/. /(/1/9/9/6/) Notes on p olynomially b ounded arithmetic/, J/. of Sym/-
+b olic L o gic /, /6/1/(/3/) /, pp/./9/4/2/-/9/6/6/.
+/1/1

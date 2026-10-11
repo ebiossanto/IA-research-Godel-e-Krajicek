@@ -1,0 +1,3855 @@
+=== PAGE 1 ===
+On F rege and Extended F rege Pro of Systems
+JAN KRAJ
+/
+I
+/
+CEK
+Abstract
+W e prop ose a framew ork for pro ving lo w er b ounds to the size of E F /-
+pro ofs /(equiv alen tly /, to the n um b er of pro of/-steps in F /-pro ofs/) in terms
+of b o ole an valuation s /. The concept is motiv ated b y prop erties of prop os/-
+itional pro v abilit y in mo dels of b ounded arithmetic and it is a /nitisatio n
+of a particular forcing construction explained also in the pap er/. It reduces
+the question of pro ving a lo w er b ound to the question of constructing a
+partial b o olean algebra and a map of form ulas in to that algebra with
+particular prop erties/. W e sho w that in principle one can obtain via this
+metho d optimal lo w er b ounds /(up to a p olynomial increase/)/.
+In tro duction
+A pr op ositional pr o of system is an y p olynomial time function P whose range is
+exactly the set of tautologies T A UT/, cf/. /[/1/7 /]/. F or / a tautology an y string / suc h
+that P /( / /) /= / is called a P /- pr o of of / /. An y usual prop ositional calculus/, b e it
+resolution or extended resolution/, a Hilb ert st yle system based on /nitely man y
+axiom sc hemes and inference rules /(called a F r e ge system in /[/1/7 /]/)/, Gen tzen/'s
+sequen t calculus or natural deduction system/, is a prop ositional pro of system in
+this sense/, as they are all complete /(resolution and extended resolution after a
+suitable enco ding of form ulas in DNF forms/) and as it is decidable in p olynomial
+time whether a string is a pro of in the system or not/.
+The length /(equiv alen tly /, the size /) of a string / will b e denoted j / j /. Th us the
+length of a pro of is the total n um b er of o ccurrences of sym b ols in it/.
+With a pro of system P w e asso ciate t w o functions measuring the e/ciency
+of P /:
+s
+/0
+P
+/( / /) /:/= min fj / j j / is an P /BnZr pro of of / g
+and
+s
+P
+/( n /) /:/= max f s
+/0
+p
+/( / /) j / /2 T AU T /; j / j / n g /:
+It is a fundamental op en pr oblem of mathematical logic and complexit y the/-
+ory to determine the gro wth rate of function s
+P
+/( n /) for /\optimal/" system P /.
+/1
+=== PAGE 2 ===
+F or example/, the statemen t that there is a system P with s
+P
+/( n /) b ounded b y a
+p o w er of n is equiv alen t to the statemen t that N P /= coN P /, cf /[/1/7 /]/.
+F or general system P nothing except trivial inequalities s
+P
+/( n /) /= /
+/( n /) and
+/(for P con taining resolution or cut/-free system/) s
+P
+/( n /) /= exp/( O /( n /)/) is kno wn/.
+It is ev en unkno wn whether there is an optimal system P /, where optimal means
+that s
+P
+/( n /) is b ounded b y a p o w er of an y other s
+Q
+/( n /)/, cf/. /[/2/8 /]/. F or a small n um/-
+b er of particular systems ho w ev er/, strong lo w er b ounds of the form exp/( n
+/
+/(/1/)
+/)
+w ere established /[/4/3 /, /2/2/, /2/6 /, /3/1 /, /3/6/]/. The strongest among these systems are
+the c onstant/-depth F r e ge systems/, see /[/2/6 /, /3/1/, /3/6 /]/.
+In this pap er w e consider the problem of pro ving non/-trivial lo w er b ounds
+to s
+F
+/( n /) and s
+E F
+/( n /)/, with F b eing a F r e ge system and E F b eing an Extende d
+F r e ge system/, cf/. /[/1/7 /]/. Presen tly only s
+F
+/( n /) /= /
+/( n
+/2
+/) is kno wn/.
+Considerably more is understo o d ab out the m utual relations of the systems
+ab o v e regarding their e/ciency /. A partial quasiordering of pro of systems/, called
+p /- simulation/, w as de/ned in /[/1/7 /]/. In particular/, if system P ma jorizes Q in this
+quasiordering then some p o w er of s
+Q
+/( n /) ma jorizes s
+P
+/( n /)/. It is sho wn in /[/1/7 /]
+that in the induced equiv alence relation F rege systems/, the sequen t calculus
+and the natural deduction system are equiv alen t /(and are stronger than the
+resolution system b y /[/2/2 /, /8/]/) and that the extended F rege system and extended
+resolution are also equiv alen t/, and b y /[/2/8 /, /1/9 /] these are equiv alen t also to a F rege
+system with the substitution rule/. Moreo v er/, v arious c hoices of axiom sc hemes
+and inference rules /\of the same t yp e/" k eep a system in the same equiv alence
+class/. Hence while studying function s
+P
+/( n /) of an y of these systems w e are quite
+free to c ho ose its language and axiomatizatio n/, and the rules /(for details see
+/[/1/7 /]/)/.
+It is kno wn that if P is not optimal then one can /nd a p olynomial/-tim e
+set of tautologies expressing /nitistic consistency statemen ts whic h do not ha v e
+p olynomial size P /-pro ofs/, cf/. /[/2/8 /]/. Ho w ev er/, it is di/cult to w ork with suc h
+tautologies as they lac k a direct com binatorial meaning and are instead related
+to delicate questions ab out the /nitistic G/ odel theorem/. Th us one lo oks rather
+for a /rst order com binatorial principle v alid o v er all /nite structures where
+the com binatorial complexit y of the principle w ould guaran tee that tautologies
+/
+n
+/, expressing that the principle holds in all structures with the univ erse of
+cardinalit y n /, m ust ha v e long P /-pro ofs/. This w as successful in the cases of
+resolution and constan t/-depth F rege systems where the most frequen tly used
+principle is the pige onhole principle/. Ho w ev er/, no example of a com binatorial
+statemen t whic h w ould mak e a plausible candidate for b eing hard for F or E F
+is kno wn at presen t/.
+/1
+/1
+See /[/6/]/. In that pap er and in /[/3 /] are also constructed p olynomial/-s ize F rege pro ofs of the
+Bondy theorem /[/4 /] whic h w e suggested in /[/1/4 /] as a p ossible candidate of a principle hard for
+F /.
+/2
+=== PAGE 3 ===
+It is conceiv able that a direct com binatorial approac h is not su/cien t or that
+it is to o di/cult /- similarly as it failed so far to pro duce an y in teresting lo w er
+b ounds for general form ulas or circuits /- and that more subtle prop erties of F
+and E F will ha v e to b e explored/.
+A dominan t prop ert y of these systems is their close relation to v arious sys/-
+tems of b ounded arithmetic/. In the presen t pap er w e study what this relation
+o/ers for the problem of establishing sup erp olynomial lo w er b ounds for s
+F
+/( n /)
+or s
+E F
+/( n /)/. Our main result is a form ulation of a framew ork suitable for pro ving
+suc h lo w er b ounds/. In the framew ork/, called b o ole an valuations /, the task to
+sho w lo w er b ound m to the size of E F /-pro ofs of tautology / /, j / j / m /, is re/-
+duced to the problem of constructing for ev ery set /BnZr of O /( m /) form ulas a partial
+b o olean algebra B and a v aluation / /: /BnZr /! B with certain prop erties/. W e sho w
+that if suc h a v aluation exists for eac h set /BnZr of O /( m /) form ulas then the lo w er
+b ound m is v alid and/, on the other hand/, if the lo w er b ound m holds then suc h
+v aluations exist for all sets of m
+/
+/(/1/)
+form ulas/. The concept of b o ole an valuation
+is motiv ated b y prop erties of prop ositional pro v abilit y in non/-standard mo dels
+of the theory V
+/1
+/1
+and a particular forcing construction explained earlier in the
+pap er/.
+The pap er is organized as follo ws/. Systems F and E F are de/ned in section /1
+where w e recall some of their com binatorial prop erties/. In section /2 w e recall the
+b ounded arithmetic theories U
+/1
+/1
+and V
+/1
+/1
+and state some of their main prop erties/.
+W e also sho w in section /2 that the soundness of F /(resp/. of E F /) is pro v able in
+U
+/1
+/1
+/(resp/. in V
+/1
+/1
+/) and w e de/ne a translation of /
+/1 /;b
+/0
+/-form ulas in to prop ositional
+form ulas/.
+In section /3 w e giv e a pro of that system E F p olynomiall y sim ulates pro ofs in
+theory V
+/1
+/1
+and obtain as a corollary of the pro of the quasip olynomia l sim ulation
+of U
+/1
+/1
+b y F and the p olynomial sim ulation of I /
+/0
+/( / /) b y the constan t/-depth
+systems/. The sim ulation implies/, in particular/, that if a com binatorial state/-
+men t has a pro of in V
+/1
+/1
+/(in a theory/) then it has a short pro of in E F /(in the
+corresp onding system/)/.
+The relations b et w een E F and V
+/1
+/1
+form ulated in sections /2 and /3 sho w that a
+w a y to pro v e a sup erp olynomial lo w er b ound to s
+E F
+/( n /) is to construct suitable
+extensions of mo dels of V
+/1
+/1
+/. In section /4 w e de/ne the notion of a se quenc e of
+tautolo gies har d for a pr o of system and restate using this notion some results
+from /[/2/8 /]/. This suggests a t yp e of tautology whic h migh t b e hard for E F and
+a t yp e of extension of mo dels of V
+/1
+/1
+whose construction is sough t/. In section
+/5 w e consider a forcing construction of the relev an t extension/, alb eit under the
+assumption that it do es exist/. This forcing construction motiv ates the b o ole an
+valuations framew ork de/ned in section /6/. W e also pro v e there that/, in principle/,
+one can obtain optimal lo w er b ounds b y this metho d/.
+The translation of an arithmetic pro of in to a family of p olynomial /-size pro/-
+p ositional pro ofs w as considered in /[/1/6 /, /3/7/]/. In particular/, the relations b et w een
+theory V
+/1
+/1
+and pro of system E F follo ws using kno wn tec hniques from the re/-
+/3
+=== PAGE 4 ===
+lation of theory P V to E F established in /[/1/6 /]/. The same tec hniques w ould
+giv e/, ho w ev er/, only partial results ab out U
+/1
+/1
+and F /. The relation of I /
+/0
+/( / /) and
+constan t/-depth F rege systems w as pro v ed in /[/3/7 /]/. W e giv e one pro of implying all
+these relations/. These issues are discussed more in the last section/. W e men tion
+there also a comm unicatio n complexit y problem asso ciated with an F /-pro of of
+a tautology /. An upp er b ound to the comm uni cation complexit y of the problem
+expressed in terms of the size of an F /-pro of implies a lo w er b ound to the size
+of an F /-pro of of the tautology /. F or example/, the lo w er b ound of /[/2/2 /] can b e
+presen ted in this form/.
+/1 F rege and Extended F rege Pro of Systems
+F or the sak e of de/niteness w e shall adopt the follo wing particular language for
+a F r e ge system F /: the constan ts /0 /(F ALSE/)/, /1 /(TR UE/)/, the connectiv es/: /: /; /^ /; /_
+with their usual meaning/, and atoms p/; q /; /: /: /: /: System F has a /nite n um b er
+of axiom sc hemes and inference rules whic h are sound and implicationall y com/-
+plete/, cf/. /[/1/7 /]/. An axiom is an y substitution instance of an axiom sc heme/. F or
+example/, F often has sev eral axiom sc hemes and only one inference rule /(e/.g/.
+the mo dus p onens/)/.
+Extende d F r e ge system E F ma y b e constructed as follo ws/. An EF/-se quenc e
+is a sequence of form ulas / 
+/1
+/; /: /: /: /; / 
+k
+suc h that eac h / 
+i
+is either an axiom of F /,
+inferred from some previous / 
+u
+/'s b y an inference rule or of the form q / /' /,
+where q is an atom o ccurring neither in /' nor in an y of / 
+/1
+/; /: /: /: /; / 
+i /BnZr /1
+/. Suc h
+q / /' is called an extension axiom and q a new extension atom /( / is an abbre/-
+viation/)/. An EF/-pr o of is an y E F /-sequence whose last form ula do es not con tain
+an y extension atom/.
+F r e ge system with the substitution rule S F is F augmen ted b y the rule/: from
+A /( p
+/1
+/; /: /: /: /; p
+k
+/) infer A /( B
+/1
+/; /: /: /: /; B
+k
+/)/, with B
+i
+sim ultaneously substituted for p
+i
+/.
+The next t w o theorems giv e some information ab out a m utual relation
+b et w een these systems/.
+Theorem /1/./1 /( /[/2/8/, /1/9/]/) Systems E F and S F mutual ly p /-simulate e ach other/.
+In p articular/:
+s
+E F
+/( n /) /= /( s
+S F
+/( n /)/)
+O /(/1/)
+and s
+S F
+/( n /) /= /( s
+E F
+/( n /)/)
+O /(/1/)
+/:
+De/ne function k
+P
+/( n /) for P /= F /; E F and S F b y /rst putting/:
+k
+/0
+P
+/( / /) /:/= min f k j /9 P /-pro of of / with k pro of steps g /;
+and then/:
+/4
+=== PAGE 5 ===
+k
+P
+/( n /) /:/= max f k
+/0
+P
+/( / /) j / /2 T AU T /; j / j / n g /:
+This function is analogous to s
+P
+/( n /) measuring the n um b er of pro of steps
+instead of the size/.
+Theorem /1/./2 /( /[/1/7/, /4/4/, /2/4 /]/) /(a/) k
+E F
+/( n /) / s
+E F
+/( n /) /= O /( k
+E F
+/( n /) /+ n /)
+/(b/) k
+E F
+/( n /) / k
+F
+/( n /) / O /( k
+E F
+/( n /)/)
+/(c/) ther e is /" /> /0 such that ther e ar e arbitr arily lar ge tautolo gies / for which
+it holds/:
+exp /( /" / k
+/0
+S F
+/( / /)/) /< k
+/0
+E F
+/( / /) /:
+A particular corollary is that the task of establishing a sup erp olynomial
+lo w er b ound for s
+E F
+/( n /) is equiv alen t to the task of establishing suc h a b ound
+for k
+F
+/( n /)/.
+W e shall giv e another c haracterization of measures k
+F
+/( n /) and s
+E F
+/( n /) /(Lemma
+/1/./4/) but /rst w e need a tec hnical result from /[/2/3 /]/. The lo gic al depth of a form ula
+/ /, /`dp /( / /)/, is the maxim al length of a c hain of subform ulas of / /. It is inductiv ely
+de/ned as follo ws/:
+/1/. /`dp /(/0/) /= /`dp /(/1/) /= /`dp /( p
+i
+/) /= /0
+/2/. /`dp /( /: / /) /= /`dp /( / /) /+ /1
+/3/. /`dp /( / / / /) /= max /( /`dp /( / /) /; /`dp /( / /)/) /+ /1/, for / /= /_ /; /^ /.
+The follo wing lemma is a corollary of a more general result for predicate calculus/,
+cf/. /[/2/3 /]
+/2
+/.
+Lemma /1/./3 Ther e exists c onstant c dep ending only on the p articular de/nition
+of F such that whenever /
+/1
+/; /: /: /: /; /
+k
+is an F /-pr o of then ther e is another F /-pr o of
+/ 
+/1
+/; /: /: /: /; / 
+k
+such that/:
+/1/. /`dp /( / 
+i
+/) / c / k /, al l i /.
+/2/. ther e is a substitution / such that/:
+/ /( / 
+i
+/) /= /
+i
+al l i /.
+/2
+A w orse b ound for the logical depth of form ulas in a predicate calculus pro of in terms of
+the n um b er of pro of steps app eared /rst in /[/3/5 /]/.
+/5
+=== PAGE 6 ===
+De/ne /`
+/0
+F
+/( / /) to b e the minim al /` suc h that there is an F /-pro of / of / in
+whic h at most /` distinct form ulas o ccur as subform ulas/, and put/:
+/`
+F
+/( n /) /:/= max f /`
+/0
+F
+/( / /) j / /2 T AU T /; j / j / n g /:
+Lemma /1/./4 F or every tautolo gy / /:
+k
+/0
+F
+/( / /) / /`
+/0
+F
+/( / /) / c / k
+/0
+F
+/( / /) /+ j / j
+wher e c is a c onstant dep ending on F only/.
+In p articular/, numb ers k
+F
+/( n /) /+ n and /`
+F
+/( n /) /+ n ar e pr op ortional to e ach
+other/.
+Pro of /:
+Let /
+/1
+/; /: /: /: /; /
+k
+b e an F /-pro of of / and constan t c and form ulas / 
+/1
+/; /: /: /: /; / 
+k
+those from Lemma /1/./3/. Let / b e a minimal substitution suc h that / /( / 
+k
+/) /=
+/
+k
+/= / /. Then sequence / /( / 
+/1
+/) /; /: /: /: /; / /( / 
+k
+/) is a pro of of / and it con tains at most
+c / k /+ j / j distinct form ulas/, as an y subform ula in it m ust o ccur in the depth at
+most c of the original pro of or as a subform ula of / /.
+This pro v es the second inequalit y /. The /rst one is trivial/.
+q/.e/.d/.
+W e conclude this section b y sk etc hing a pro of of a folklore theorem/, essen/-
+tially the only kno wn lo w er b ound to s
+F
+/( n /)/. The particular example /( /: /)
+/(/2 m /)
+/(/1/)
+w as suggested b y Buss/; also /[/5 /, /2/4 /] relate to this result/.
+Theorem /1/./5
+s
+F
+/( n /) /= /
+/( n
+/2
+/) /:
+Sk etc h of pro of/:
+Consider form ula /' /:/= /( /: /)
+/(/2 m /)
+/(/1/) and let / b e its F /-pro of/. As there is
+no tautology / whose substitution instance is /' and whic h satis/es j / j /< j /' j /,
+b y Lemma /1/./3 / m ust ha v e /
+/( m /) pro of steps and in fact/, ev ery subform ula
+of /' m ust o ccur in some step of / in depth at most c /( c the constan t from
+Lemma /1/./3/)/. Hence the sum of the sizes of steps in / /, i/.e/. j / j /, m ust b e at least
+/2 m /+ /(/2 m /BnZr c /) /+ /: /: /: /= /
+/( m
+/2
+/) /= /
+/( j /' j
+/2
+/)/.
+q/.e/.d/.
+Note that similar lo w er b ound holds for an y tautology /' for whic h there is
+no tautology / of smaller size j / j /< j /' j whose substitution instance w ould b e
+/' /.
+/6
+=== PAGE 7 ===
+/2 Theories U
+/1
+/1
+and V
+/1
+/1
+Second order b ounded arithmetic theories U
+i
+j
+and V
+i
+j
+w ere in tro duced in /[/7/]/. In
+this section w e brie/y recall the de/nition of U
+/1
+/1
+and V
+/1
+/1
+and obtain some basic
+information ab out their strength/.
+L is a second order language with /rst order functions and relations/: /0 /; /1 /; x /+
+y /; x / y /; b
+x
+/2
+c /; j x j /; x / y /; x /= y /(with the same meaning as in /[/7 /]/)/, with second
+order v ariables /
+t
+/; /
+s
+/; /: /: /: /, where t/; s/; /: /: /: are /rst order terms/, ranging o v er /nite
+sets of n um b ers/, and with a mem b ership relation x /2 /
+t
+/. Sup erscript t in /
+t
+is
+in tro duced for tec hnical reasons as an explicit upp er b ound to elemen ts in /
+t
+/;
+w e will mostly omit the sup erscript as suc h upp er b ounds are implicit in /(pro ofs
+of /) b ounded form ulas and w e shall displa y it only to simplify the presen tation/.
+Bounde d formulas are form ulas of L all of whose /rst order quan ti/ers are
+b ounded/. /
+/1 /;b
+/0
+/-form ulas are b ounded form ulas without second order quan ti/ers/.
+/
+/1 /;b
+/1
+/-form ulas are b ounded form ulas in whic h all second order existen tial /(resp/.
+univ ersal/) quan ti/ers app ear p ositiv ely /(resp/. negativ ely/)/. /
+/1 /;b
+/1
+/-form ulas are
+de/ned dually and are logically equiv alen t to negations of /
+/1 /;b
+/1
+/-form ulas/. A /
+/1 /;b
+/1
+form ula is /
+/1 /;b
+/1
+/(resp/. /
+/1 /;b
+/1
+in theory T /) if it is equiv alen t to a /
+/1 /;b
+/1
+/-form ula
+/(resp/. equiv alen t to it in T /)/. In particular/, all /
+/1 /;b
+/0
+/-form ulas are /
+/1 /;b
+/1
+/.
+Theory I /
+/1 /;b
+/0
+is a theory in language L with axioms/: parts of axioms BASIC
+whic h do not in v olv e function x /# y /(cf/. /[/7 /]/)/, the extensionalit y axiom/, axioms
+stating that all sets are b ounded/:
+/8 /
+t /( x /)
+/8 x/; y /; y /2 /
+t
+/! y / t /( x /) /;
+and the /
+/1 /;b
+/0
+/-IND sc heme/:
+A /(/0/) /^ /8 x /( A /( x /) /! A /( x /+ /1/)/) /! /8 xA /( x /)
+for A /2 /
+/1 /;b
+/0
+/, and the b ounde d /
+/1 /;b
+/0
+/BnZr C A sc heme
+/8 x /9 / /8 y /< x /; y /2 / / A /( y /) /;
+again with A /2 /
+/1 /;b
+/0
+/.
+Theory U
+/1
+/1
+extends I /
+/1 /;b
+/0
+b y the /
+/1 /;b
+/1
+/-LIND sc heme/:
+A /(/0/) /^ /8 x /( A /( x /) /! A /( x /+ /1/)/) /! /8 xA /( j x j /) /;
+for A /2 /
+/1 /;b
+/1
+/.
+Theory V
+/1
+/1
+extends I /
+/1 /;b
+/0
+b y adopting the IND sc heme for all /
+/1 /;b
+/1
+form ulas/.
+/3
+/3
+In accordance with the notation of /[/7 /] w e should call these theories
+/~
+U
+/1
+/1
+/( B D /) or
+/~
+V
+/1
+/1
+/( B D /)
+but w e c ho ose to abuse the notation sligh tly to k eep it simple as in all form ulation s these
+theories pro v e the same b ounded form ulas and there is no danger of confusion/.
+/7
+=== PAGE 8 ===
+Theory V
+/1
+/1
+con tains U
+/1
+/1
+and it is unkno wn whether this inclusion is prop er or
+whether V
+/1
+/1
+is someho w conserv ativ e o v er U
+/1
+/1
+/. By /[/3/2 /] U
+/1
+/1
+pro v es the /
+/1 /;b
+/1
+/-SEP
+sc heme/:
+/( /8 x/; /: A /( x /) /_ /: B /( x /)/) /! /8 x /9 / /8 y /< x/; /( A /( y /) /! y /2 / /) /^ /( y /2 / /! /: B /( y /)/) /;
+with A/; B /2 /
+/1 /;b
+/1
+/, and hence also the /
+/1 /;b
+/1
+/-CA sc heme/:
+/( /8 x/; A /( x /) / B /( x /)/) /! /8 x /9 / /8 y /< x
+/;
+y /2 / / A /( y /) /;
+with A /2 /
+/1 /;b
+/1
+and B /2 /
+/1 /;b
+/1
+/.
+/
+/1 /;b
+/1
+/-CA o v er I /
+/1 /;b
+/0
+readily giv es the /
+/1 /;b
+/1
+/-IND sc heme/:
+/( /8 x/; A /( x /) / B /( x /)/) /! /( A /(/0/) /^ /8 x /( A /( x /) /! A /( x /+ /1/)/) /! /8 xA /( x /)/) /;
+with A /2 /
+/1 /;b
+/1
+and B /2 /
+/1 /;b
+/1
+/.
+U
+/1
+/1
+also pro v es the choic e scheme /
+/1 /;b
+/1
+/-A C/:
+/8 x /< a /9 / A /( x/; / /) /! /9 /' /8 x /< a/; A /( x/; /( /' /)
+x
+/) /;
+with A /2 /
+/1 /;b
+/1
+and y /2 /( /' /)
+x
+de/ned as /[ x/; y /] /2 /' /, /[ x/; y /] b eing a pairing function/.
+Unfortunately /, it app ears unlik ely that the useful sc heme of dep endent choic e
+/
+/1 /;b
+/1
+/-DC/:
+/8 x /< a /8 /' /9 / A /( x/; /'/; / /) /! /8 /' /9 / /; /( / /)
+/0
+/= /' /^ /8 x /< a/; A /( x/; /( / /)
+x
+/; /( / /)
+x /+/1
+/) /;
+/(with A /2 /
+/1 /;b
+/1
+/) is a v ailable in U
+/1
+/1
+as it is equiv alen t /(o v er I /
+/1 /;b
+/0
+/) to V
+/1
+/1
+/.
+F rom all these set/-theoretic principles w e shall need t w o particular closure
+prop erties/, namely the coun ting functions and the ev aluations of prop ositional
+form ulas/. Let /
+/1 /;b
+/0
+/- form ula E num /( f /; u/; / /) denotes /\f is an increasing bijection
+from u on to / /"/.
+Lemma /2/./1 U
+/1
+/1
+pr oves that every set c an b e enumer ate d in incr e asing or der/:
+/8 / /9 u /9 f /; E num /( f /; u/; / /)
+Pro of /:
+Let a b ound all elemen ts of / and consider the form ula
+A /( t /) /:/= /8 x/; y / a /9 / /9 f /; u /; y / x /+ /2
+t
+/!
+/! /( / /= f z /2 / j x / z / y g /^ E num /( f /; u/; / /)/) /:
+This is a /
+/1 /;b
+/1
+/-form ula clearly satisfying induction assumptions A /(/0/) and
+/8 t/; A /( t /) /! A /( t /+ /1/)/, and hence b y /
+/1 /;b
+/1
+/BnZr LI N D A /( j a j /) holds/, i/.e/. f /; u witnessing
+A /( j a j /) for x /= /0 and y /= a en umerate / in increasing order/.
+/8
+=== PAGE 9 ===
+q/.e/.d/.
+The lemma implies that in U
+/1
+/1
+one can /
+/1 /;b
+/1
+/-de/ne the cardinalit y of a set/:
+j / j /:/= /(the unique u s/.t/. /9 f /; E num /( f /; u/; / /)/) /;
+and hence also all com binatorial principles pro v able b y elemen tary coun ting/,
+e/.g/. the pigeonhole principle/, are pro v able in U
+/1
+/1
+/.
+Prop ositional form ulas/, pro ofs and truth ev aluations are co ded as /nite sets/.
+F ormulas are lab elled binary trees with lea v es lab elled b y /0 /; /1 or atoms and other
+no des lab elled b y connectiv es /(of appropriate arit y/)/. Binary tr e es are co ded as
+/nite partial orders with one maxim al elemen t /(the ro ot/)/, no t w o incomparable
+elemen ts ma jorizing a common elemen t/, and with ev ery elemen t ha ving at most
+t w o successors/.
+Pr o ofs are co ded as particular /nite sequences of form ulas/. A truth evalu/-
+ation of atoms is a map of atoms in to f /0 /; /1 g /. A truth evaluation of formula /'
+o v er ev aluation / of its atoms is a lab elling of no des of /' b y /0 /; /1 agreeing with
+/ on atoms and ful/lling the usual truth table rules/.
+Clearly there are /
+/1 /;b
+/0
+/-form ulas F l a /( /' /) /; P r f
+P
+/( / /; /' /) /; AtomE v al /( /'/; / /) and
+E v al /( / /; /'/; / /) expressing that /\ /' is a form ula/"/, /\ / is a P /-pro of of /' /" for P /= F or
+P /= E F /, /\ / ev aluates atoms of /' /" and /\ / is an ev aluation of /' o v er ev aluation
+of atoms / /"/.
+Lemma /2/./2 U
+/1
+/1
+pr oves that every formula c an b e evaluate d/:
+/8 /'/; / /; /( F l a /( /' /) /^ AtomE v al /( /'/; / /) /! /9 / /; E v al /( / /; /'/; / /)/)
+Pro of /:
+Let /' b e a form ula and / ev aluation of its atoms/. Assume a is a b ound to
+all no des in /' and for x /< a let /'
+x
+denote the subform ula of /' with the ro ot x /.
+F or / a subform ula of /' and / a set of some m utually incomparable no des of
+/' /, let / /# / denote the form ula consisting of those no des of / not ma jorized b y
+an y no de of / /, with y /2 / b eing a leaf of /' /# / lab elled b y new atom q
+y
+/. Th us
+/ /# / has at most j / j new atoms not o ccurring in /' /.
+Consider form ula/:
+/( A /( u /) /:/= /8 x /< a /8 / /( j / j / j a j /BnZr u /) /; F l a /( /'
+x
+/# / /) /^ j /'
+x
+/# / j / /(/3 /= /2/)
+u
+/!
+/! /8 / /; AtomE v al /( /' /# / /; / /[ / /) /! /9 / /; E v al /( / /; /'
+x
+/# / /; / /[ / /) /:
+As the size of / is b ounded b y j a j /; / can b e co ded b y a n um b er b ounded b y a
+and hence A /( u /) /2 /
+/1 /;b
+/1
+/.
+F or u /= /0 /; j /'
+x
+/# / j /= /1 so /'
+x
+/# / is just an atom or a constan t and A /(/0/)
+clearly holds/. The idea of the pro of of implication A /( u /) /! A /( u /+ /1/) comes from
+/[/4/0 /] where Spira observ ed a
+/9
+=== PAGE 10 ===
+Claim/: A ny formula / 
+/1
+has a subformula / 
+/2
+such that j / 
+/2
+j /
+/2
+/3
+j / 
+/1
+j and
+also j / 
+/1
+j /BnZr j / 
+/2
+j /
+/2
+/3
+j / 
+/1
+j /,
+whic h is easy to formalize and pro v e in U
+/1
+/1
+/.
+Assume A /( u /) and let /'
+x
+/# / ful/ll the h yp otheses of A /( u /+ /1/)/. F rom Spira/'s
+claim follo ws that there is a no de y in /'
+x
+/# / /(/= / 
+/1
+/) s/.t/. b oth /'
+y
+/# / /(/= / 
+/2
+/) and
+/'
+x
+/# /( / /[ f y g /) ha v e size at most /(
+/3
+/2
+/)
+u
+/. By A /( u /) then there is ev aluation /
+/0
+of
+/'
+y
+/# / o v er an y / /[ / and ev aluation /
+/0/0
+of /'
+x
+/# /( / /[ f y g /) o v er / /[ / /[ / /, where /
+assigns to q
+y
+the v alue computed b y /
+/0
+/. Clearly then there is / /; /
+/1 /;b
+/0
+/- de/nable
+from /
+/0
+/; /
+/0/0
+/, an ev aluation of /'
+x
+/# / o v er / /[ / /. This pro v es A /( u /+ /1/)/.
+By /
+/1 /;b
+/1
+/- LIND then A /(log
+/3 /= /2
+/( a /)/) holds/, i/.e/. there is an ev aluation / of /'
+o v er / /.
+q/.e/.d/.
+Lemma /2/./3 Ther e is a /
+/1 /;b
+/1
+in U
+/1
+/1
+truth de/nition for pr op ositional formulas/,
+i/.e/. formula T r /( /'/; / /) formalizing /\ /' is true on evaluation / of its atoms/" which
+is /
+/1 /;b
+/1
+in U
+/1
+/1
+and ab out which U
+/1
+/1
+pr oves the usual T arski c onditions/.
+Pro of /:
+T ak e T r /( /'/; / /) /:/= /9 / /; E v al /( / /; /'/; / /) /^ /\ / g iv es /' v al ue /1/"/. This is /
+/1 /;b
+/1
+as /
+is unique /(in U
+/1
+/1
+/)/.
+q/.e/.d/.
+No w w e formally de/ne a translation of instances of /
+/1 /;b
+/0
+/-form ulas in to pro/-
+p ositional form ulas men tioned in the in tro duction/.
+Let A /( x /) b e in /
+/1 /;b
+/0
+and n b e a tuple of n um b ers of the same length as x
+/(as v ectors/)/. Then b y induction on the logical complexit y of A w e de/ne a
+prop ositional form ula h A /( x /) i
+n
+/:
+/(i/) h A /( x /) i
+n
+/:/= /1 /(resp/. /:/= /0/) if A /( n /) is a /rst order true /(resp/. false/) atomic
+sen tence/,
+/(ii/) h A /( x /) i
+n
+/:/= p
+/
+m
+/, if A /( x /) is of the form t /( x /) /2 / and m is the v alue of t /( n /)/,
+/(iii/) h A /( x /) i
+n
+/:/=
+V
+i / m
+p
+/
+t
+i
+/ p
+/
+s
+i
+if A /( x /) is of the form /
+t /( x /)
+/= /
+s /( x /)
+and m is
+the larger of v alues t /( n /) /; s /( n /)
+/(iv/) h/: A i
+n
+/:/= /:h A i
+n
+/(v/) h A / B i
+n
+/:/= h A i
+n
+/ h B i
+n
+/, for / /= /^ /; /_ /; /! /;
+/(vi/) h/9 y / t /( x /) A /( x/; y /) i
+n
+/:/=
+W
+i / m
+h A /( x/; y /) i
+n
+/;i
+/, if t /( n /) /= m/;
+/1/0
+=== PAGE 11 ===
+/(vii/) h/8 y / t /( x /) A /( x/; y /) i
+n
+/:/=
+V
+i / m
+h A /( x/; y /) i
+n/;i
+/, if t /( n /) /= m/:
+In /(iii/)/,/(vi/) and /(vii/)
+V
+resp/.
+W
+denote conjunctions resp/. disjunctions of
+m /+ /1 form ulae h A /( x/; y /) i
+n
+/;i
+with brac k ets asso ciated/, for example/, to the left/.
+Theorem /2/./4 U
+/1
+/1
+pr oves that F is a sound pr o of system/, i/.e/.
+/8 /'/; //; / /; P r f
+F
+/( / /; /' /) /^ AtomE v al /( /'/; / /) /^ F l a /( /' /) /! T r /( /'/; / /) /:
+In p articular/, if A /( x /) is /
+/1 /;b
+/0
+then U
+/1
+/1
+pr oves/:
+/8 / /8 u/; P r f
+F
+/( / /; h A /( x /) i
+u
+/) /! A /( u /) /:
+Pro of /:
+As truth de/nition T r /( /'/; / /) is /
+/1 /;b
+/1
+/, b y /
+/1 /;b
+/1
+/-IND a v ailable in U
+/1
+/1
+w e pro v e
+that ev ery step in an F /-pro of / is true under an y /xed ev aluation / of atoms/.
+If /' is h A /( x /) i
+u
+/, where A /( x /) is a /
+/1 /;b
+/0
+/-form ula with set v ariable / /, A /( u /) follo ws
+from T r /( /'/; /~/ /) b y T arski/'s conditions where b y de/nition /~ / ev aluates atoms p
+/
+i
+to /1 i/ i /2 / /.
+q/.e/.d/.
+Theorem /2/./5 V
+/1
+/1
+pr oves that EF is a sound pr o of system/:
+/8 /'/; //; / /; P r f
+E F
+/( / /; /' /) /^ AtomE v al /( /'/; / /) /^ F l a /( /' /) /! T r /( /'/; / /) /:
+In p articular/, if A /( x /) is /
+/1 /;b
+/0
+then V
+/1
+/1
+pr oves/:
+/8 u/; / /; P r f
+E F
+/( / /; h A /( x /) i
+u
+/) /! A /( u /) /:
+Pro of /:
+By induction on the n um b er of steps in / sho w that there is ev aluation /
+of the extension atoms of / suc h that all steps in / are true under ev aluation
+/ /[ / of atoms o ccurring in / /. The existence of / follo ws b y /
+/1 /;b
+/1
+/-IND/.
+q/.e/.d/.
+No w w e reform ulate Theorems /2/./4 and /2/./5 con trap ositiv ely /, similarly to a
+theorem in /[/2 /]/, in a form suggesting that a w a y ho w to pro v e a lo w er b ound
+on s
+F
+/( n /) or s
+E F
+/( n /) is to construct a particular mo del of theory U
+/1
+/1
+or V
+/1
+/1
+resp ectiv ely /.
+A mo del of I /
+/1 /;b
+/0
+has the form M /= /( N
+M
+/; X
+M
+/)/, where N
+M
+is the /rst order
+part /(n um b ers/) and X
+M
+is the second order part /(sets/)/. T o distinguish b et w een
+set v ariables //; / /; /: /: /: and elemen ts of X
+M
+w e shall use / /: hence /~ //;
+/~
+/ /; /: /: /: are
+elemen ts of a mo del/.
+Mo del M
+/0
+is an extension of mo del M i/ N
+M
+/ N
+M
+/0
+and X
+M
+/ X
+M
+/0
+/, and
+the extension is /
+/1 /;b
+/0
+/- elementary i/ /
+/1 /;b
+/0
+/-sen tences with parameters from M ha v e
+the same truth v alue in M and M
+/0
+/.
+/1/1
+=== PAGE 12 ===
+Theorem /2/./6 L et A /( x/; / /) b e a /
+/1 /;b
+/0
+/-formula with only fr e e variables x and / /.
+L et M b e a non/-standar d mo del of true arithmetic T h /( /! /) and n /2 M n /! b e a
+non/-standar d element/.
+Assume that for every k /< /! and every set /~/ / n
+k
+c o de d in M ther e is a
+family X /
+S
+k /</!
+P /( n
+k
+/) and /~/ /2 X such that/:
+/(i/) /~/ /2 X
+/(ii/) /(
+S
+k /</!
+n
+k
+/; X /) j /= U
+/1
+/1
+/(iii/) /(
+S
+k /</!
+n
+k
+/; X /) j /= /: A /( n/; /~/ /) /:
+Then formulas h A /( x /) i
+m
+/; m /< /! /, do not have p olynomial size F /-pr o ofs/. If the
+mo del in /(ii/) satis/es V
+/1
+/1
+then formulas h A /( x /) i
+m
+do not have p olynomial size
+E F /-pr o ofs/.
+Pro of /:
+Assume that form ulas h A /( x /) i
+m
+/; m /< /! /, do ha v e p olynomial size F /-pro ofs/.
+As M satis/es true arithmetic there is k /< /! suc h that for ev ery elemen t n /2 M /,
+M co des an F /-pro of of h A /( x /) i
+n
+of size at most n
+k
+/. Let /~ / / n
+k
+b e suc h a pro of/.
+T ak e X and /~ / /2 X satisfying conditions /(i/)/-/(iii/)/. Then /(
+S
+k /</!
+n
+k
+/; X /) is a
+mo del of U
+/1
+/1
+in whic h the prop ositional translation of a false /
+/1 /;b
+/0
+/-sen tence A /( n /)
+has an F /-pro of/, con tradicting Theorem /2/./4/.
+The case of V
+/1
+/1
+is en tirely the same/.
+q/.e/.d/.
+W e shall study in section /4 the question for what form ulas A one should
+attempt to construct the extension/.
+/3 Sim ulation of U
+/1
+/1
+and V
+/1
+/1
+b y F and EF
+In this section w e obtain a form of con v erse statemen ts to Theorems /2/./4 and
+/2/./5/.
+Theorem /3/./1 L et A /( x /) b e a /
+/1 /;b
+/0
+/-formula and assume that V
+/1
+/1
+pr oves /8 xA /( x /) /.
+Then formulas h A /( x /) i
+n
+have p olynomial size E F /-pr o ofs/.
+Pro of /:
+Assume D is a V
+/1
+/1
+/-pro of of sequen t /! A /( a /)/; b y free cut elimination w e ma y
+assume that all form ulas in D ha v e the form /9 /'C /( x /; //; /' /) with C in /
+/1 /;b
+/0
+/, cf/.
+/[/7 /, /3/2/]/. By induction on the n um b er of steps in D sho w that if/:
+/9 / 
+/1
+B
+/1
+/( x/; / /; / 
+/1
+/) /; /: /: /: /; /9 / 
+u
+B
+u
+/( x/; //; / 
+u
+/) /! /9 /'
+/1
+C
+/1
+/( x /; //; /'
+/1
+/) /; /: /: /: /; /9 /'
+v
+C
+v
+/( x /; //; /'
+v
+/)
+/1/2
+=== PAGE 13 ===
+is a sequen t in D then there is constan t k suc h that for all m there is an
+E F /-sequence /(not necessarily a pro of /) of size at most /(max /( m /)/)
+k
+ending with
+form ula/:
+/^
+i / u
+h B
+i
+i
+m
+/( p
+/
+/; p
+/ 
+i
+/) /!
+/_
+j / v
+h C
+j
+i
+m
+/( p
+/
+/; p
+/'
+j
+/)
+/(recall that p
+/
+/= /( p
+/
+/0
+/; p
+/
+/1
+/; /: /: /: /)/)/. Moreo v er/, in this E F /-sequence none of the
+atoms p
+/
+t
+or p
+/ 
+i
+t
+corresp onding to a free second order v ariable resp/. to a second
+order v ariable from an an teceden t is an extension atom/.
+The only non trivial rules to treat are the in tro duction of second order /9 to
+the succeden t and /
+/1 /;b
+/1
+/-IND/.
+Assume that in the former case the minor form ula of the inference is
+C /( x /; / /;
+t /2 /'
+E /( x /;t/; / /)
+/) with b oth C /; E /2 /
+/1 /;b
+/0
+/, and the principal form ula is /9 /'C /( x/; / /; /' /)/.
+In tro duce new atom p
+/'
+t
+/ h E i
+m /;t
+/( p
+/
+/)/. Then equiv alence
+h C i
+m
+/( p
+/
+/;
+p
+/'
+t
+h E i
+m /;t
+/) / h C i
+m
+/( p
+/
+/; p
+/'
+/)
+can b e deriv ed from the new extension axioms b y an F /-deriv ation of size
+O /(/( jh C i
+m
+j /+ jh E i
+m/;t
+j /)
+/2
+/) /= /(max /( m /)/)
+O /(/1/)
+/;
+as t is implicitly b ounded in E b y a p o w er of max /( m /)/. This concludes the /rst
+case/.
+In the case of a /
+/1 /;b
+/1
+/-IND inference
+/9 /'
+b
+C /( b/; /'
+b
+/) /! /9 /'
+b /+/1
+C /( b /+ /1 /; /'
+b /+/1
+/)
+/9 /'
+/0
+C /(/0 /; /'
+/0
+/) /! /9 /'
+n
+C /( n/; /'
+n
+/)
+/(where for simplicit y w e omitted other free v ariables and side form ulas/) b y
+the induction h yp othesis w e ha v e p olynomial size E F /-sequences ending with
+form ulas/:
+h C i
+m/;u
+/( p
+/'
+u
+/) /! h C i
+m /;u /+/1
+/( p
+/'
+u /+/1
+/)
+for u /= /0 /; /1 /; /: /: /: /; n /BnZr /1/. Joining these implications b y n /BnZr /1 cuts giv es an E F /-
+sequence ending with implication/:
+h C i
+m /; /0
+/( p
+/'
+/0
+/) /! h C i
+m/;n
+/( p
+/'
+n
+/) /;
+of total size p olynomial in max /( m/; n /)/.
+q/.e/.d/.
+The preceding pro of can b e mo di/ed a bit to yield the follo wing statemen t/.
+Theorem /3/./2 L et A /( x /) b e a /
+/1 /;b
+/0
+/-formula and assume that U
+/1
+/1
+pr oves /8 xA /( x /) /.
+Then formulas h A /( x /) i
+n
+have F /-pr o ofs of size n
+/(log n /)
+O /(/1/)
+/.
+/1/3
+=== PAGE 14 ===
+Pro of /:
+By Theorem /3/./1 there is an E F /-pro of of h A /( x /) i
+n
+of size n
+O /(/1/)
+/. Moreo v er/,
+b y the pro of of that theorem in these E F /-pro ofs there will b e only /(log n /)
+O /(/1/)
+extension atoms since the starting arithmetic pro of D uses /
+/1 /;b
+/1
+/-LIND instead
+of /
+/1 /;b
+/1
+/-IND/. There will b e at most O /(log
+k
+n /) extension atoms if there are k
+/
+/1 /;b
+/1
+/-LIND inferences in D /.
+T ak e suc h an E F /-pro of and replace in it the last in tro duced extension atom
+b y its de/nition/: this yields a new E F /-pro of of size n
+O /(/1/)
+/ n
+O /(/1/)
+with one less
+application of the extension rule/. Rep eating this pro cedure un til all extension
+axioms are eliminated pro duces an F /-pro of of size n
+/(log n /)
+O /(/1/)
+/.
+q/.e/.d/.
+In a searc h for some theory corresp onding to p olynomial size F rege pro ofs
+one should lo ok for an extension of I /
+/1 /;b
+/0
+with a clear com binatorial meaning
+and not just for an y extension/.
+/4
+F or example/, an extension of I /
+/1 /;b
+/0
+b y a /
+/1 /;b
+/1
+/-
+sen tence sa ying that F is sound /(an y ev aluation of an y F /-pro v able form ula o v er
+an y ev aluation of its atoms outputs the truth/-v alue /1/) has the prop ert y that if
+it pro v es a /
+/1 /;b
+/0
+/-form ula A /( x /) then all h A i
+n
+ha v e p olynomial size F /-pro ofs /(this
+follo ws b y argumen ts analogous to those in pro ofs of /3/./4 and /3/./5/, emplo ying /[/9 /] in
+an essen tial w a y/)/. Suc h a theory ho w ev er/, do es not increase our understanding of
+F
+/5
+and so w e shall not treat the details/. Instead consider a theory
+/
+I /
+/1 /;b
+/0
+/
+count
+whic h is an extension of I /
+/1 /;b
+/0
+b y the axiom
+/8 / /9 f /; u /; E num /( f /; u/; / /) /:
+By Lemma /2/./1/, this theory is a subtheory of U
+/1
+/1
+/.
+The follo wing app ears to b e an in teresting op en question/.
+Problem /1
+Do es
+/
+I /
+/1 /;b
+/0
+/
+count
+pr ove the soundness of F /? Do es it pr ove that every for/-
+mula c an b e evaluate d over any evaluation of its atoms/?
+In /[/2/7 /] w e pro v ed that F p olynomially sim ulates pro ofs in this theory /.
+It is straigh tforw ard to de/ne an extension of F b y new connectiv es allo wing
+coun ting suc h that c onstant/-depth/, p olynomial size pro ofs in this system corres/-
+p ond to
+/
+I /
+/1 /;b
+/0
+/
+count
+/. F or instance/, let F C /(for F with c ounting /) b e a system
+/4
+/[/3 /] de/ned a theory corresp ondi ng to p olynomia l/-siz e F /.
+/5
+This theory also do es not pro v e that ev ery form ula can b e ev aluated o v er an y ev aluation of
+its atoms/. This is b ecause the witnessing of suc h a pro of w ould allo w to express size n form ulas
+b y size n
+O /(/1/)
+constan t/-de pth circuits /(cf/. Corollary /3/./3/) whic h is imp ossible b y /[/1/, /2/0/]/.
+/1/4
+=== PAGE 15 ===
+extending F b y new /(in/nitely man y/) connectiv es C
+n/;k
+/( /
+/1
+/; /: /: /: /; /
+n
+/)/, for /1 / n
+and k / n /, with in tended meaning that C
+n/;k
+/( /
+/1
+/; /: /: /: /; /
+n
+/) is true i/ the n um b er
+of true /
+i
+/'s is k /, and b y adding new axioms/:
+/1/. A / C
+/1 /; /1
+/( A /)
+/2/. C
+n/; /0
+/( A
+/1
+/; /: /: /: /; A
+n
+/) / /( /: A
+/1
+/^ /: /: /: /^ /: A
+n
+/)
+/3/. C
+n /+/1 /;k /+/1
+/( A
+/1
+/; /: /: /: /; A
+n /+/1
+/) /
+/ /[ /( C
+n/;k
+/( A
+/1
+/; /: /: /: /; A
+n
+/) /^ A
+n /+/1
+/) /_ /( C
+n/;k /+/1
+/( A
+/1
+/; /: /: /: /; A
+n
+/) /^ /: A
+n /+/1
+/) /]
+if k /< n
+/4/. C
+n /+/1 /;n /+/1
+/( A
+/1
+/; /: /: /: /; A
+n /+/1
+/) / /[ /( C
+n/;n
+/( A
+/1
+/; /: /: /: /; A
+n
+/) /^ A
+n /+/1
+/) /] /:
+F or ev ery /xed d /, the depth d F C /-pro ofs are pro v ably sound in
+/
+I /
+/1 /;b
+/0
+/
+count
+and/, on the other side/, tautologies h A i
+n
+deriv ed from a /
+/1 /;b
+/0
+/-consequence of
+/
+I /
+/1 /;b
+/0
+/
+count
+ha v e p olynomial size/, constan t/-depth F C /-pro ofs/.
+Constan t/-depth F C /-pro ofs p /-sim ulate the cutting planes pr o of system/, a sys/-
+tem w orking with linear inequalities with in teger co e/cien ts /(expressing that
+a linear com bination of truth v alues of some literals ha v e at least a particular
+in teger v alue/) with sev eral natural rules/, see /[/1/8 /]/. This system con tains the res/-
+olution system and it is op en whether cutting planes p/-sim ulate constan t/-depth
+F /-pro ofs/. Go erdt /[/2/1 /] sho w ed/, building on /[/8 /]/, that F p/-sim ulates the cutting
+planes/.
+Hence an in teresting op en problem/, clearly related to the one ab o v e/, is the
+follo wing/:
+Problem /2
+Do es c onstant/-depth F C system p/-simulate F /?
+/6
+Next w e consider three corollaries to Theorems /3/./1 and /3/./2/. The /rst one is
+kno wn and w e o/er a new pro of/.
+Corollary /3/./3 /( /[/3/7/]/) L et A /( x /) b e /
+/1 /;b
+/0
+and assume that I /
+/1 /;b
+/0
+pr oves /8 xA /( x /) /.
+Then formulas h A /( x /) i
+n
+have F /-pr o ofs of p olynomial size and c onstant depth /(the
+depth me asur e d by the numb er of alter ations of c onne ctives/)/.
+/6
+This app ears to b e link ed also to an op en question whether there is d and k suc h that
+ev ery b o olean form ula of size n is equiv alen t to a threshold circuit o d depth d and size at
+most n
+k
+/. A negativ e answ er to this implies a negativ e answ er to the problem ab o v e/, as an
+F C /-pro of witnessing that in /( I /
+/1 /;b
+/0
+/)
+count
+ev ery form ula of size n can b e ev aluated on ev ery
+input w ould pro vide an equiv alen t p olynomia l size/, constan t depth threshold circuit/.
+/1/5
+=== PAGE 16 ===
+Pro of /:
+By the free cut elimination w e ma y assume that in the pro of of A /( a /) o ccur
+only /
+/1 /;b
+/0
+/-form ulas/. In the E F /-pro of of h A /( x /) i
+n
+constructed in Theorem /3/./1
+there will b e then no extension axioms/, and all form ulas are translations of
+/
+/1 /;b
+/0
+/-form ulas and hence of b ounded depth/. After the eliminatio n of the axioms
+in the pro of of Theorem /3/./2/, the new F /-pro ofs will ha v e size n
+O /(/1/)
+and constan t
+depth/.
+q/.e/.d/.
+The next corollary is a w eak er form of a statemen t implicitly con tained in
+/[/3/9 /] and explicitly pro v ed in /[/2/7 /]/; namely /, one can ev en guaran tee the existence
+of a pro of of size n
+O /(/1/)
+with form ulas of logical depth O /( l og n /) /+ /`dp /( /' /)/. W e
+presen t the w eak er form as it admits a simple pro of using the relations b et w een
+U
+/1
+/1
+and F /.
+Corollary /3/./4 Assume /' has an F /-pr o of of size n /. Then ther e is an F /-pr o of
+of /' of size n
+/(log n /)
+O /(/1/)
+in which al l formulas have the lo gic al depth
+log
+O /(/1/)
+n /+ /`dp /( /' /) /:
+Pro of /:
+By Theorem /2/./4 theory U
+/1
+/1
+pro v es
+P r f
+F
+/( / /; /' /) /! T r /( /'/; / /) /;
+and so also
+P r f
+F
+/( / /; /' /) /^ E v al /( / /; /'/; / /) /! /\ /
+/0
+/= /1/" /;
+where w e ma y assume that /
+/0
+is the lab el the ev aluation / assigns to /' /, i/.e/. the
+v alue of /' o v er ev aluation / of its atoms/.
+By Theorem /3/./2 there are F /-pro ofs /
+/1
+of size n
+/(log n /)
+O /(/1/)
+of/:
+h P r f i
+n
+/( p
+/
+/; p
+/'
+/) /^ h E v al i
+n
+/( p
+/
+/; p
+/'
+/; p
+/
+/) /! p
+/
+/0
+in whic h all form ulas ha v e the logical depth at most log
+O /(/1/)
+n /(b ecause the depth
+increases b y at most O /(log n /) for ev ery eliminated extension atom/)/.
+Construct t w o F /-pro ofs /
+/2
+and /
+/3
+/, b oth of size n
+O /(/1/)
+and the logical depth
+O /(log n /)/. Pro of /
+/2
+is a pro of of/:
+h P r f i
+n
+/( /~ / /; /~/' /) /;
+where /( /~ / /; /~/' /) are truth ev aluations of p
+/
+and p
+/'
+corresp onding to /0 /BnZr /1 sequences
+co ding an actual F /-pro of / of size / n of an actual form ula /' /. This is simple as
+the form ula is a true /(as w e assume that / is an F /-pro of of /' /) b o olean sen tence
+and its pro of consists just of its ev aluation/.
+/1/6
+=== PAGE 17 ===
+The second pro of /
+/3
+is a pro of of/:
+h E v al i
+n
+/(
+p
+/
+i
+/'
+i
+/; /~/'/; p
+/
+/)
+where /'
+i
+is a subform ula of /' corresp onding to no de i with atoms p
+/
+/. This
+pro of /
+/3
+exists since the ev aluation of /' b y /(v alues of /) subform ulas /'
+i
+clearly
+ful/lls the lo cal truth table conditions/.
+No w replace in /
+/1
+ev ery atom p
+/
+i
+b y /'
+i
+and join the resulting pro of b y cuts
+with /
+/2
+and /
+/3
+/; this yields an F /-pro of of /'
+/0
+/, i/.e/. of /' /.
+q/.e/.d/.
+Corollary /3/./5 Assume that V
+/1
+/1
+is c onservative over U
+/1
+/1
+w/.r/.t/. /
+/1 /;b
+/0
+/-formulas/.
+Then E F has at most n
+/(log n /)
+O /(/1/)
+sp e e d/-up over F /. In p articular/, every formula
+pr ovable in F in k pr o of steps has then also an F /-pr o of of size k
+/(log k /)
+O /(/1/)
+/.
+Pro of /:
+By the assumption and Theorem /2/./5 U
+/1
+/1
+pro v es/:
+P r f
+E F
+/( / /; /' /) /^ E v al /( / /; /'/; / /) /! /\ /
+/0
+/= /1/" /:
+Hence there are F /-pro ofs of translations of this form ula of the size n
+/(log n /)
+O /(/1/)
+/,
+and this is used for a construction of an F /-pro of of /' from an y E F /-pro of / of
+/' in the same w a y as in the pro of of Corollary /3/./4/.
+The second part of the corollary follo ws from the /rst part using also The/-
+orem /1/./2/.
+q/.e/.d/.
+/4 Hard tautologies
+The follo wing de/nition is a formalization of the informal notion of hard tauto/-
+logy /.
+De/niti on /4/./1 /(a/) Se quenc e f /
+n
+g of tautolo gies is hard for pr o of system P
+i/ the fol lowing thr e e c onditions ar e satis/e d/:
+/(i/) ther e exists a p olynomial time algorithm pr o ducing /
+n
+fr om string
+/1 /: /: /: /1 /( n /-times/)
+/(ii/) j /
+n
+j / n /, al l n
+/(iii/) for every p olynomial q /( x /) ther e is n such that/:
+s
+/0
+P
+/( /
+n
+/) / q /( j /
+n
+j /) /:
+/1/7
+=== PAGE 18 ===
+A se quenc e of tautolo gies satisfying /(i/) and /(ii/) wil l b e c al le d a p /-time
+sequence of tautologies /.
+/(b/) L et f /
+n
+g b e a p /-time se quenc e of tautolo gies and P b e a pr o of system/.
+String / is a pr o of of / in the pr o of system/:
+P /+ f /
+n
+g
+i/ / is a P /-pr o of of an implic ation of the form/:
+/( /
+/1
+/^ /: /: /: /^ /
+k
+/) /! /
+wher e e ach /
+i
+is a substitution instanc e of some /
+n
+i
+/.
+/(c/) L et f /
+n
+g and f /
+n
+g b e two p /-time se quenc es of tautolo gies and let P b e
+a pr o of system/. We say that f /
+n
+g is reducible o v er P to f /
+n
+g /, denote d
+f /
+n
+g /
+P
+f /
+n
+g /, i/ s
+/0
+Q
+/( /
+n
+/) /= j /
+n
+j
+O /(/1/)
+for Q /:/= P /+ f /
+n
+g /.
+We say that f /
+n
+g is harder than f /
+n
+g o v er P i/ f /
+n
+g r e duc es over P to
+f /
+n
+g but not vic e versa/.
+The follo wing theorem restates some results from /[/2/8 /] and w e shall not re/-
+pro v e it here/.
+Theorem /4/./2 L et P b e a pr o of system p /-simulating E F /. Then the fol lowing
+two pr op ositions hold /:
+/(a/) Ther e is a p /-time se quenc e of tautolo gies f /
+n
+g such that for pr o of system
+Q /:/= E F /+ f /
+n
+g it holds/:
+s
+Q
+/( n /)
+/
+/(/1/)
+/= s
+P
+/( n /) /= s
+Q
+/( n /)
+O /(/1/)
+/:
+/(b/) The fol lowing two c onditions ar e e quivalent/:
+/(i/) ther e is a se quenc e of tautolo gies har d for P
+/(ii/) system P is not optimal /(i/.e/. ther e is Q such that no p ower of s
+Q
+/( n /) /)
+majorizes s
+P
+/( n /) /)/.
+T autologies f /
+n
+g axiomatizing P o v er E F obtained from /[/2/8 /] express the
+soundness of P /. It is an in teresting question whether one can /nd suc h /
+n
+of the form h A i
+n
+/, A a /
+/1 /;b
+/0
+/-form ula expressing a natural /nite com binatorial
+principle/. No suc h principle is kno wn whic h w ould mak e a plausible candidate
+for tautologies hard for F or E F /.
+A w eak er construction is based on N P /-completeness results/. An y coN P /-
+prop ert y of /nite structures can b e expressed b y a /
+/1 /;b
+/1
+/-form ula/. As a sp eci/c
+/1/8
+=== PAGE 19 ===
+example consider the set of non/- /3 /-c olor able graphs/. F or /xed n tak e
+/BnZr
+n
+/2
+/
+atoms
+p
+ij
+/(for p ossible edges in a graph with n v ertices i/; j/; /: /: /: /) and another /3 n atoms
+a
+i
+/; b
+i
+/; c
+i
+/(for co ding a /3/-coloring of the v ertices/)/, and consider the form ula
+C
+n
+/:/=
+/^
+i
+/( a
+i
+/_ b
+i
+/_ c
+i
+/) /^
+/^
+i
+/[/( /: a
+i
+/^ /: b
+i
+/) /_ /( /: a
+i
+/^ /: c
+i
+/) /_ /( /: b
+i
+/^ /: c
+i
+/)/]
+expressing that a/; b/; c de/ne a coloring/, and tak e form ula
+A
+n
+/:/= C
+n
+/!
+/_
+ij
+/( p
+ij
+/^ /[/( a
+i
+/^ a
+j
+/) /_ /( b
+i
+/^ b
+j
+/) /_ /( c
+i
+/^ c
+j
+/)/]/) /:
+An y particular graph G with n no des de/nes an instance A
+G
+/( a/; b/; c /) of A
+n
+/( a/; b/; c/; p /)
+b y ev aluating atoms p
+ij
+as follo ws/:
+p
+ij
+/:/=
+/
+/1 if f i/; j g is an edge in G
+/0 otherwise
+Hence A
+G
+is a tautology i/ G is not /3/-colorable/.
+Theorem /4/./3 Assume that s
+E F
+/( n /) is not p olynomial ly b ounde d/. Then ther e is
+a se quenc e of gr aphs f G
+n
+g satisfying/:
+/1/. e ach G
+n
+is a non/- /3 /-c olor able gr aph with n vertic es
+/2/. ther e is no p olynomial q /( x /) such that/:
+s
+/0
+E F
+/( A
+G
+n
+/) / q /( j A
+G
+n
+j /)
+would hold for al l n /.
+The idea of the pro of is that V
+/1
+/1
+pro v es the N P /-completeness of /3/-colorabilit y
+and hence the set of all tautologies can b e reduced/, via a /
+/1 /;b
+/1
+/-de/nable map/,
+to the set of non/-/3/-colorable graphs/, and that V
+/1
+/1
+pro v es also that G is non/-/3/-
+colorable i/ A
+G
+n
+is a tautology /. By metho ds of section /3 these pro ofs can b e
+sim ulated b y system E F /.
+Note that w e do not claim that sequence f A
+G
+n
+g is hard for E F as w e do not
+ha v e a p olynomial time algorithm whic h w ould construct graphs G
+n
+/. T o get
+suc h a sequence one w ould ha v e to strengthen the assumption to the h yp othesis
+that E F is not optimal/, whic h app ears to b e stronger than the h yp othesis of
+the theorem/, cf/. /[/2/8 /]/.
+Theorem /4/./3 implies that a t yp e of extension of mo dels of V
+/1
+/1
+whose con/-
+struction w ould yield a sup erp olynomial lo w er b ound to s
+E F
+/( n /) is the follo wing/:
+the extension M
+/0
+of M con tains a /3/-colorable graph G /2 X
+M
+whic h is not /3/-
+colorable in M /.
+/1/9
+=== PAGE 20 ===
+/5 A F orcing Construction
+In this section w e consider extensions of mo dels of V
+/1
+/1
+/. In the next section w e
+shall presen t a framew ork for lo w er b ound pro ofs for E F /, and generally for an y
+extension of E F b y extra axioms/. The motiv ation for it comes from a particular
+mo del/-theoretic pro of of Theorem /5/./1 b elo w whic h is a sub ject of this section/.
+The follo wing theorem is a consequence of Theorems /2/./5 and /3/./1/.
+/7
+Theorem /5/./1 L et M b e a mo del of V
+/1
+/1
+and /~/ /( p
+/1
+/; /: /: /: /; p
+n
+/) /2 X
+M
+a pr op ositional
+formula in M /. Then the fol lowing two c onditions ar e e quivalent/:
+/(a/) In M ther e is no E F /-pr o of of /~/ /.
+/(b/) Ther e is a /
+/1 /;b
+/0
+/-elementary extension of M in which /~/: / is satis/able/.
+Pro of /:
+Assume /rst that /(b/) holds while /(a/) fails/, and that /~ / /2 X
+M
+is an E F /-
+pro of in M of /~ / /( p /)/. As M
+/0
+extends M /, /~ / /2 X
+M
+/0
+/, and as the extension is
+/
+/1 /;b
+/0
+/-elemen tary /, /~ / is an E F /-pro of in M
+/0
+to o/. M
+/0
+is a mo del of V
+/1
+/1
+hence b y
+Theorem /2/./5 /~ / is a pro of of a tautology /, i/.e/. /~ / is satis/ed in M
+/0
+b y all ev aluations/.
+But this con tradicts /(b/)/.
+Assume no w that /(b/) fails whic h means that the theory in the language with
+names for all elemen ts of N
+M
+/[ X
+M
+and new constan ts / /; / and consisting of
+axioms/:
+/(i/) V
+/1
+/1
+/,
+/(ii/) a /
+/1 /;b
+/0
+/-form ula B /( / /; /~/: / /; / /)/, sa ying/:
+E v al /( / /; /~/: / /; / /) and /\ / g iv es /~/: / v al ue /1/"
+/(cf/. Section /2/)/,
+/(iii/) all /
+/1 /;b
+/0
+/-sen tences true in M /,
+is inconsisten t/.
+By compactness V
+/1
+/1
+pro v es an implication of the form
+C /! /: B /( / /; /~/: / /; / /) /;
+where C is a conjunction of some form ulas from /(iii/)/. By Theorem /3/./1/, form ula
+h C i
+u
+/! h/: B /( / /; /~/: / /; / /) i
+n/;m
+is/, for suitably large u /2 N
+M
+/, E F /-pro v able in M /. As C is true in M /, h C i
+u
+has
+an E F /-pro of in M to o/, and hence has also h/: B i
+n/;m
+/( p/; /~/: / /; q /) for suitable p and
+q /. The latter form ula implies ho w ev er/, in E F /, form ula /~ / itself /(cf/. /[/2/8 /]/)/. This
+sho ws that /(a/) fails/.
+/7
+See /[/3/0 /] for analogous argumen t in the con text of theory S
+/1
+/2
+/.
+/2/0
+=== PAGE 21 ===
+q/.e/.d/.
+This theorem is relev an t to the extensions considered at the end of the pre/-
+vious section/: tak e G /2 X
+M
+a non/-/3/-colorable graph and
+/~/ /:/= A
+G
+/:
+W e are in terested in a mo del/-theoretic construction of mo del M
+/0
+from mo del M
+assuming condition /(a/)/.
+/8
+The ultimate goal is to learn ho w to construct some
+extensions for suitable G without assuming condition /(a/)/.
+Assume that M is coun table/, and that M and /~ / /2 X
+M
+satisfy /(a/)/. W e
+will construct M
+/0
+as follo ws/. By compactness there is a coun table elemen tary
+extension M
+/0
+of M /(satisfying therefore V
+/1
+/1
+/) suc h that/:
+/(i/) there is t /2 N
+M
+/0
+suc h that for all v /2 N
+M
+/, v /< t /,
+/(ii/) in M
+/0
+there is no E F /-pro of of /~ / /.
+Let M
+/
+b e a substructure of M
+/0
+de/ned b y/:
+/(i/) N
+M
+/
+/= f v /2 N
+M
+/0
+j/9 w /2 N
+M
+/; v / w g
+/(ii/) X
+M
+/
+/= f
+/~
+/ /2 X
+M
+/0
+j
+/~
+/ / N
+M
+/
+g /.
+Let p b e the atoms of /~ / and let F l e /( p /) / X
+M
+/0
+b e the collection of b o olean
+form ulas with atoms among p /. F urther let A b e the set of atoms p plus new
+atoms of the form q
+/ 
+/, one for eac h / /2 F l e /( p /)/, and let F l e / X
+M
+/0
+b e the set
+of form ulas with atoms among A /.
+Let C / X
+M
+/0
+b e the family of all tuples of prop ositional atoms from A /[
+f /0 /; /1 g /:
+C /= f / /= /( /
+/1
+/; /: /: /: /; /
+m
+/) /2 X
+M
+/0
+j /8 i / m/; /
+i
+/2 A /[ f /0 /; /1 gg
+and for / /= /( /
+/1
+/; /: /: /: /; /
+m
+/) /2 C de/ne the length j / j to b e m /.
+Let C
+/
+/= f / /2 C j j / j /2 N
+M
+/
+g and F l e
+/
+/= f / /2 F l e j j / j /2 N
+M
+/
+g /. W e
+will consider
+/~
+/ /2 X
+M
+/0
+sim ultaneously also as an elemen t of C /: the tuple of bits
+of the c haracteristic function of
+/~
+/ /; note that for suc h
+/~
+/ /:
+/~
+/ /2 C
+/
+/ / /2 X
+M
+/
+/.
+The follo wing claim is established b y induction on the logical complexit y of B /.
+Note that the form ula B /( / /) con tains implicitly a n um b er parameter in the term
+b ounding the size of in terv als whose subsets ma y b e substituted for / /(see the
+b eginning of section /2/)/.
+/8
+In /1/9/8/7 at the meeting L o gic/, Metho dolo gy and Philosophy of Scienc e in Mosco w/, A/.
+Wilkie /(unpublishe d/) sk etc hed a mo del/-theor etic argumen t pro ving that if S
+/1
+/2
+pro v es that
+N P /= coN P then tautologies ha v e p olynomial size pro ofs in E F /(this result follo ws from
+earlier /[/1/6 /] pro ving the same statemen t for the theory P V and from the /8 /
+b
+/1
+/-conserv ativ it y
+of S
+/1
+/2
+o v er P V established in /[/7/]/)/. The constructio n b elo w generalizes his completene ss/-t y p e
+argumen t to an argumen t whic h is more amenable to a /nitisation/.
+/2/1
+=== PAGE 22 ===
+Claim /1/: L et B /( / /) b e a /
+/1 /;b
+/0
+/-formula and
+/~
+/ /2 X
+M
+/
+/. Then
+M
+/
+j /= B /(
+/~
+/ /) /! /9 / P r f
+E F
+/( / /; h B i
+j
+/~
+/ j
+/( p
+/
+/=
+/~
+/ /)/)
+/.
+W e will construct set G / F l e satisfying the follo wing conditions/:
+/1/. /~ /: / /2 G
+/2/. for all / /2 F l e
+/
+exactly one of / /, /: / is in G
+/3/. whenev er / /2 X
+M
+/0
+is an E F /-pro of of / from assumptions / 
+/1
+/; /: /: /: /; / 
+r
+/,
+j / j /2 N
+M
+/
+and all / 
+i
+/2 G /, then also / /2 G
+/4/. if / /2 G /\ F l e
+/
+and / /=
+W
+/1 / i / r
+/ 
+i
+then / 
+j
+/2 G for some /1 / j / r
+/5/. for an y /
+/1 /;b
+/0
+/-form ula H /( //; x /) and for an y term t /( x /) with parameters from
+C
+/
+and an y v /2 N
+M
+/
+at least one of the follo wing three conditions holds/:
+/(a/) /:h H /( //; /0/) i
+v
+/(
+/~
+/ /) /2 G /, all
+/~
+/ /2 C
+/
+of length / t /( v /)
+/(b/) h H /( //; v /) i
+v
+/(
+/~
+/ /) /2 G /, for some
+/~
+/ /2 C
+/
+of length / t /( v /)
+/(c/) there is v
+/0
+/< v suc h that h H /( //; v
+/0
+/) i
+v
+/(
+/~
+/ /) /2 G for some
+/~
+/ /2 C
+/
+of length
+/ t /( v /)/, but /:h H /( //; v
+/0
+/+ /1/) i
+v
+/(/~ / /) /2 G for all /~ / /2 C
+/
+of length / t /( v /)
+/(T erm t /( v /) b ounds implicitly the in terv al whose subsets are substitutable for
+/ in H for x / v /./)
+Assume for a mom en t that w e ha v e suc h a set G /. De/ne structure M
+/
+/[ G /]
+b y/:
+N
+M
+/
+/[ G /]
+/= N
+M
+/
+and X
+M
+/
+/[ G /]
+/= C
+/
+/= / /;
+where / is an equiv alence relation de/ned b y/:
+/~
+/
+/1
+/
+/~
+/
+/2
+i/ h /
+/1
+/= /
+/2
+i
+u
+/(
+/~
+/
+/1
+/;
+/~
+/
+/2
+/) /2 G
+/( u the maxim um of the lengths of
+/~
+/
+/1
+/;
+/~
+/
+/2
+/)/. Note that M
+/
+/[ G /] is an extension of
+M
+/
+and hence of M to o/.
+Claim /2/: L et B /( / /) b e any /
+/1 /;b
+/0
+/-formula with p ar ameters fr om C
+/
+and
+/~
+/ /2
+C
+/
+/. Then we have for al l u su/ciently lar ge/:
+M
+/
+/[ G /] j /= B /(
+/~
+/ /= / /) i/ h B i
+u
+/(
+/~
+/ /) /2 G/:
+In p articular/, M
+/
+/[ G /] is a /
+/1 /;b
+/0
+/-elementary extension of M /.
+The claim follo ws from conditions /(/2/)/-/(/4/) p osed on G /. F or example/, that
+all /
+/1 /;b
+/0
+/-sen tences true in M hold also in M
+/
+/[ G /] follo ws from condition /(/3/) and
+Claim /1 /.
+/2/2
+=== PAGE 23 ===
+Claim /3/: Structur e M
+/
+/[ G /] is a mo del of V
+/1
+/1
+/.
+Condition /(/5/) p osed on G guaran tees that induction for ev ery /
+/1 /;b
+/1
+/-form ula
+/9 /H /( //; x /) holds up to ev ery v /2 N
+M
+/
+/[ G /]
+/. The other axioms hold in M
+/
+/[ G /]
+ob viously /. In particular/, /
+/1 /;b
+/0
+/-comprehension holds since in C w e ha v e explicit
+names for the sets de/ned b y /
+/1 /;b
+/0
+/-form ulas/. The tuple /( q
+/ 
+/0
+/; /: /: /: /; q
+/ 
+m
+/) where/:
+/ 
+i
+/:/= h B i
+i
+/( / /)
+represen ts the set f i / m j B /( / /; i /) g /.
+Claim /4/: Ther e is a truth evaluation /~/ /2 X
+M
+/
+/[ G /]
+of atoms of /~/ such that
+M
+/
+/[ G /] j /= T r /( /~ /: / /; /~/ /) /:
+By condition /(/1/) p osed on G and Claim /2 /, /~ / is a satisfying assignmen t for
+/: /~/ in M
+/
+/[ G /]/, where /~ / /= p
+/
+/= / /.
+It remains to construct the set G satisfying the ab o v e /v e requiremen ts/.
+First w e will state t w o simple tec hnical prop erties of the system E F /.
+F orm a set T / F l e consisting of form ulas/:
+/(i/) q
+p
+i
+/ p
+i
+/, whenev er p
+i
+/2 f p g
+/(ii/) q
+/: / 
+/ /( /: q
+/ 
+/)/, whenev er / /2 F l e /( p /)
+/(iii/) q
+/ 
+/1
+/ / 
+/2
+/ /( q
+/ 
+/1
+/ q
+/ 
+/2
+/)/, whenev er / 
+/1
+/; / 
+/2
+/2 F l e /( p /) and / /2 f/_ /; /^g
+A set of form ulas S / F l e is said to /` /-entail form ula / i/ there is an F /-pro of
+of / of size at most /` with axioms from S /[ T /. Set S is called /` /- c onsistent i/ S
+do es not /` /-en tail /0/.
+Claim /5/: L et S / F l e b e a /
+/1 /:b
+/1
+/-de/nable family in M
+/0
+/, and assume that / 
+has an E F /-pr o of fr om S of size /` in M
+/0
+/. Then S O /( /`
+/2
+/) /-entails / in M
+/0
+to o/.
+This follo ws as ev ery extension axiom of size t in the E F /-pro of can b e pro v ed
+/(after suitably renaming extension axioms/) from T b y an F /-pro of of size O /( t
+/2
+/)/.
+Claim /6/: L et S / F l e b e a /
+/1 /;b
+/1
+/- de/nable family in M
+/0
+/, and assume that
+S is /` /-c onsistent in M
+/0
+/, wher e /` is non/-standar d/.
+Then for every formula / of size at most /`
+/1 /= /2
+one of sets S /[ f / g or S /[ f/: / g
+is /`
+/1 /= /2
+/-c onsistent/.
+A lso/, for every disjunction
+W
+i / r
+/ 
+i
+/2 F l e of size at most /`
+/1 /= /3
+one of sets
+S /[ f
+V
+i / r
+/: / 
+i
+g or S /[ f
+W
+i / r
+/ 
+i
+g /[ f / 
+j
+g /, some j / r /, is /`
+/1 /= /3
+/-c onsistent/.
+/2/3
+=== PAGE 24 ===
+First part is ob vious/. F or the second part/: assuming that all r /+ /2 sets ab o v e
+are /`
+/1 /= /3
+/-inconsisten t w ould allo w us to construct in an ob vious w a y a pro of of /0
+from S of size at most /( r /+ /2/) /`
+/1 /= /3
+/+ O /( j
+W
+i / r
+/ 
+i
+j
+/2
+/) / /` /: a con tradiction/. Note
+that the claim is v alid also for system F /.
+Claim /7/: L et S / F l e b e a /
+/1 /;b
+/1
+/- de/nable family of formulas in M
+/0
+/, and
+assume that S is /` /-c onsistent in M
+/0
+/, wher e /` /2 /( N
+M
+/0
+n N
+M
+/
+/) /.
+L et H /( //; x /) b e a /
+/1 /;b
+/0
+/-formula with p ar ameters fr om C
+/
+and N
+M
+/
+/. L et v /2
+N
+M
+/
+/, and assume that t /( v /) b ounds the interval whose subsets ar e substitutable
+for / in H for al l x /< v /. Then one of the fol lowing sets is /`
+/1 /= /3
+/-c onsistent/:
+/(i/) S /[ f/:h H /( //; /0/) i
+v
+/(
+/~
+/ /) j
+/~
+/ /2 C
+/
+/; j
+/~
+/ j / t /( v /) g /,
+/(ii/) S /[ fh H /( //; v /) i
+v
+/(
+/~
+/ /) g /, some
+/~
+/ /2 C
+/
+of length / t /( v /) /,
+/(iii/) S /[ fh H /( //; v
+/0
+/) i
+v
+/(
+/~
+/ /) g /[ f/:h H /( //; v
+/0
+/+ /1/) i
+v
+/( /~ / /) j /~/ /2 C
+/
+/; j /~/ j / t /( v /) g /, some
+/~
+/ /2 C
+/
+of length / t /( v /) and v
+/0
+/< v /.
+T o pro v e the claim de/ne form ula D /( u /) sa ying/:
+/8 w / u /9 r
+w
+/2 C /; j r
+w
+j / t /( v /) /^ /[ S /`
+/1 /= /3
+/BnZr entail s f or mul a h H /( //; w /) i /( r
+w
+/) /] /:
+Note that D /( u /) is a /
+/1 /;b
+/1
+/-form ula and that witnesses r
+w
+are actually from
+C
+/
+due to the b ound t /( v /)/.
+As M
+/0
+is a mo del of V
+/1
+/1
+one of t w o cases m ust o ccur/:
+/(a/) D /( u /) holds for u /= v /,
+/(b/) there exists minim al u / v for whic h D /( u /) fails/.
+In case /(a/) de/ne S
+/0
+/:/= S /[ fh H /( //; v /) i /( r
+v
+/) g /, where r
+v
+is a witness to v alidit y
+of D /( v /)/. Set S
+/0
+is /`/= /2/-consisten t as otherwise one could /`/= /2 /+ /`
+/1 /= /3
+/ /` /-en tail /0
+from S /, whic h is a con tradiction/.
+In case /(b/) let u / v b e the /rst u suc h that D /( u /) fails/. T ak e set
+S
+/0
+/:/= S /[ fh H /( //; u /BnZr /1/) i /( r
+u /BnZr /1
+/) g /[ f/:h H /( //; u /) i /( q /) j q /2 C /; j q j / t /( v /) g
+for u / /1 /(and again r
+u /BnZr /1
+the relev an t witness/) or
+S
+/0
+/:/= S /[ f/:h H /( //; /0/) i /( q /) j q /2 C /; j q j / t /( v /) g
+for u /= /0/.
+W e claim that S
+/0
+is /`
+/1 /= /3
+/-consisten t/. Assume otherwise and w/.l/.o/.g/. u /
+/1/. Then S /+ h H /( //; u /BnZr /1/) i /( r
+u /BnZr /1
+/) O /( /`
+/2 /= /3
+/)/-en tails some disjunction of the form
+W
+q /2 I
+h H /( //; u /) i /( q /)/, where I / C
+/
+/. But then h H /( //; u /) i /( r /) can b e O /( /`
+/2 /= /3
+/)/-en tailed
+from S /+ h H /( //; u /BnZr /1/) i /( r
+u /BnZr /1
+/) to o/, where r is a new tuple de/ned b y extension
+/2/4
+=== PAGE 25 ===
+atoms using a case distinction considering whic h disjunct h H /( //; u /) i /( q /) in the
+disjuction is true /(cf/. Claim /6/)/.
+Note that automatically j r j / t /( v /) as j q j / t /( v /) holds for all q /2 I /. This
+con tradicts the assumption that D /( u /) fails/, hence S
+/0
+is /`
+/1 /= /3
+/-consisten t/.
+De/ne no w the family P b e the family of all H / F l e whic h are /
+/1 /;b
+/1
+/-
+de/nable in M
+/0
+and whic h are /` /-consisten t for some /` /2 /( N
+M
+/0
+n N
+M
+/
+/)/; note that
+suc h /` exists b y our assumption on M
+/0
+/, and that set f/: /~/ g /2 P /.
+F amily P is partially ordered b y the inclusion relation / /. Class Q / P is
+dense if
+/8 H /2 P /9 H
+/0
+/2 Q /; H / H
+/0
+/:
+Class Q is de/nable if there is a form ula /	/( X /) in the language of V
+/1
+/1
+augmen ted
+b y new meta v ariable X suc h that/:
+Q /= f H /2 P j /( M /; H /) j /= /	/( H /) g /:
+Finally /, class G / P is generic if it satis/es the follo wing conditions/:
+/(i/) if H /2 G and H
+/0
+/ H then H
+/0
+/2 G /,
+/(ii/) G in tersects ev ery dense/, de/nable sub class of P /.
+Claim /8/: L et G / P b e generic and assume that f/: /~/ g /2 G /. Put
+G /:/=
+/[
+G /:
+Then G satis/es c onditions /1/. /- /5/. ab ove and henc e M
+/
+/[ G /] is a mo del of V
+/1
+/1
+in
+which /: /~/ is satis/able/.
+As mo del M
+/0
+is coun table there is only coun tably man y dense de/nable
+sub classes of P /, hence b y standard argumen t a generic class G exists/. By Claims
+/5/, /6/, /7 the classes
+/1/. of those H /2 P whic h ful/ll condition /2/. for / /2 F l e
+/
+/,i/.e/./:
+/ /2 H or /: / /2 H /;
+/2/. of those H /2 P whic h ful/ll condition /4/. for / /=
+W
+i / r
+/ 
+i
+/2 F l e
+/
+/, i/.e/./:
+/^
+i / r
+/: / 
+i
+/2 H or f / /; / 
+j
+g / H /; some j / r /;
+/2/5
+=== PAGE 26 ===
+/3/. of those H /2 P whic h ful/ll condition /5/. for H /( //; x /) and v /2 N
+M
+/
+/, i/.e/./:
+f/:h H /( //; /0/) i
+v
+/(
+/~
+/ /) j
+/~
+/ /2 C /; j
+/~
+/ j / t /( v /) g / H /, or
+fh H /( //; v /) i
+v
+/(
+/~
+/ /) g / H /; some
+/~
+/ /2 C of length / t /( v /)/, or
+fh H /( //; v
+/0
+/) i
+v
+/(
+/~
+/ /) g /[ f/:h H /( //; v
+/0
+/+ /1/) i
+v
+/( /~ / /) j /~/ /2 C /; j /~/ j / t /( v /) g / H /, some
+/~
+/ /2 C of size / t /( v /) and v
+/0
+/< v
+are all dense and clearly de/nable/. Hence an y G de/ned from a generic G
+satis/es conditions /1 /- /5/.
+This concludes the description of a forcing construction of mo del
+M
+/0
+/= M
+/
+/[ G /] /:
+In a natural w a y one can de/ne a for cing r elation b et w een elemen ts of P
+and form ulas from F l e
+/
+/, namely/:
+H forces / i/ H /` /BnZr entail s / /; for some /` /2 N
+M
+/
+/:
+This relation satis/es the usual prop erties of a forcing relation/. In particular/,
+one can shift to a b o ole an valuation of form ulas b y taking the b o olean algebra
+B of regular op en subsets of P /(thinking of P as augmen ted with the order
+top ology de/ned b y / /)/. W e refer reader to /[/4/2 /] for general information on
+forcing and b o olean/-v alued mo dels/.
+Generic family G de/nes naturally an ultra/lter F on B b y/:
+F /:/= f b /2 B j b /\ G /6 /= /;g /:
+In particular/, an ultra/lter F de/nes a /0 /BnZr /1/-v aluation of F l e
+/
+b y/:
+/ gets v alue /1 i/ / /( / /) /2 F /:
+Imp ortan t thing to notice is that the b o olean v alues are assigned only to for/-
+m ulas from F l e
+/
+and not to all form ulas from F l e /. In fact/, there is no apparen t
+w a y ho w to extend consisten tly the v aluation / to F l e /.
+/6 Finite Bo olean V aluations
+In this section w e de/ne the notion of b o ole an valuations of /nite sets of form ulas
+and w e sho w in Theorem /6/./5 that in principle it can b e used to pro v e lo w er
+b ounds to s
+E F
+/( n /) /(equiv alen tly to k
+F
+/( n /) or to /`
+F
+/( n /)/)/.
+/2/6
+=== PAGE 27 ===
+De/niti on /6/./1 /(a/) A partial b o olean algebra B /(/0 /; /1 /; /^ /; /_ /; /: /) is a set B with
+at le ast two distinct elements /0 and /1 /, with p artial binary op er ations /^ /; /_
+and with a p artial unary op er ation /: satisfying the fol lowing c onditions/:
+whenever b oth sides of an identity b elow ar e de/ne d then they ar e e qual in
+B /:
+/(i/) /: /0 /= /1 /: /1 /= /0 /; /0 /_ a /= a and /1 /^ a /= a /,
+/(ii/) a /_/: a /= /1 /, a /^ /: a /= /0 /,
+/(iii/) a /_ b /= b /_ a /, a /^ b /= b /^ a /,
+/(iv/) a /_ /( b /_ c /) /= /( a /_ b /) /_ c /, a /^ /( b /^ c /) /= /( a /^ b /) /^ c /,
+/(v/) a /_ /( b /^ c /) /= /( a /_ b /) /^ /( a /_ c /) /, a /^ /( b /_ c /) /= /( a /^ b /) /_ /( a /^ c /) /,
+/(b/) A homom orphism h /: B
+/1
+/! B
+/2
+of a p artial b o ole an algebr a B
+/1
+into B
+/2
+is a
+map h of the universe of B
+/1
+into the universe of B
+/2
+such that h /(/0
+B
+/1
+/) /= /0
+B
+/2
+/,
+h /(/1
+B
+/1
+/) /= /1
+B
+/2
+/, and/:
+/(i/) /: h /( u /) is de/ne d and e qual to h /( /: u /) /, whenever /: u is de/ne d in B
+/1
+/,
+/(ii/) h /( u /) / h /( v /) is de/ne d and e qual to h /( u / v /) /, whenever u / v is de/ne d
+in B
+/1
+/( / /= /^ /; /_ /)/.
+/(c/) A congruence relation on a p artial b o ole an algebr a B is a p artition
+/
+/=
+of
+the universe of B such that/:
+/(i/) u
+/
+/=
+v implies /( /: u /)
+/
+/=
+/( /: v /) /, pr ovide d b oth /: u/; /: v ar e de/ne d in B /,
+/(ii/) u
+/
+/=
+v and u
+/0
+/
+/=
+v
+/0
+implies /( u / u
+/0
+/)
+/
+/=
+/( v / v
+/0
+/) /, pr ovide d b oth u / u
+/0
+and
+v / v
+/0
+ar e de/ne d in B /( / /= /^ /; /_ /)/.
+Simple examples of partial b o olean algebras are obtained b y restricting a
+/(total/) b o olean algebra to a subset of its univ erse/. Ho w ev er/, the partial b o olean
+algebras arising in Theorem /6/./5 are never of this form/.
+De/niti on /6/./2 L et /BnZr b e a set of formulas/. A b o olean ev aluation of /BnZr is a map
+/ /: /BnZr /! B
+of formulas fr om /BnZr into a p artial b o ole an algebr a B /(/0 /; /1 /; /^ /; /_ /; /: /) satisfying the
+fol lowing c onditions/:
+/(i/) / /(/0/) /= /0
+B
+and / /(/1/) /= /1
+B
+/,
+/(ii/) /: / /( / /) is de/ne d and / /( /: / /) /= /: / /( / /) /, whenever / /; /: / /2 /BnZr /,
+/(iii/) / /( / /) / / /( / /) is de/ne d and / /( / / / /) /= / /( / /) / / /( / /) /, whenever / /; //; / / / /2 /BnZr /,
+for / /= /_ /; /^ /; /! /.
+/2/7
+=== PAGE 28 ===
+F or con v enience w e will alw a ys assume that /BnZr is closed under subform ulas/.
+W e use the same sym b ols for logical connectiv es and op erations in the algebra
+as there is no danger of confusion/. Op eration /! in B is de/ned as usual/:
+/( a /! b /) /:/= /( /: a /) /_ b and ma y b e only partial/.
+Let /BnZr b e a set of form ulas/. W e shall sa y that an F /-pro of of / is within /BnZr/,
+/`
+/BnZr
+in sym b ols/, if ev ery form ula o ccurring as a subform ula in the pro of is from
+/BnZr/.
+Lemma /6/./3 L et /BnZr b e a set of formulas close d under subformulas such that
+/ /2 /BnZr and let / b e an F /-pr o of of / within /BnZr /.
+Then ther e is set /BnZr
+/
+/
+/ /BnZr of formulas such that whenever
+/ /: /BnZr
+/
+/
+/! B
+is a b o ole an valuation of /BnZr
+/
+/
+then
+/ /( / /) /= /1
+B
+/:
+Mor e over/:
+j /BnZr
+/
+/
+j / c / j /BnZr j
+wher e c is a c onstant dep ending on F only/.
+Pro of /:
+De/ne set /BnZr
+/
+/
+in t w o steps/:
+/1/. F or ev ery axiom sc heme / /( A/; B /; C /) of F let
+Z
+/
+/:/= f t
+/1
+/( A/; B /; C /) /; /: /: /: /; t
+k
+/( A/; B /; C /) g
+b e all terms o ccurring as subterms in a /xed deriv ation of equalit y / /( A/; B /; C /) /=
+/1 from iden tities de/ning b o olean algebras /(cf/. De/nition /6/./1/) in some
+equational deriv ation/.
+/2/. F or /BnZr a set of form ulas and / an F /-pro of within /BnZr let /BnZr
+/
+/
+b e the smallest
+set of form ulas con taining /BnZr/, closed under subform ulas and satisfying the
+condition/:
+whenev er / /( //; / /; / /) is an axiom in / and t /( A/; B /; C /) /2 Z
+/
+then form ula/:
+t /( //; / /; / /)
+is in set /BnZr
+/
+/
+/.
+As / b eha v es as a homomorphism on form ulas from /BnZr
+/
+/
+/, ev ery F /-axiom from
+/ receiv es v alue /1
+B
+b y / /(as its equational deriv ation is included in /BnZr
+/
+/
+/)/. V alue
+/1
+B
+is preserv ed b y the mo dus p onens rule and hence / /( / /) /= /1
+B
+/.
+/2/8
+=== PAGE 29 ===
+q/.e/.d/.
+Next w e pro v e a form of a con v erse to the preceeding lemma/.
+Lemma /6/./4 Ther e is an assignment /BnZr /7/! /BnZr
+/+
+assigning to any /nite set of
+formulas /BnZr set /BnZr
+/+
+/ /BnZr having the fol lowing pr op erty/:
+If /BnZr is a set of formulas close d under subformulas such that / /2 /BnZr /, and ther e
+is no F /-pr o of of / within /BnZr
+/+
+/, then ther e is a b o ole an valuation
+/ /: /BnZr /! B
+of /BnZr in which
+/ /( / /) /6/= /1
+B
+/:
+Mor e over/:
+j /BnZr
+/+
+j / j /BnZr j
+c
+wher e c is a c onstant dep ending on F only/.
+Pro of /:
+W e shall de/ne set /BnZr
+/+
+/rst and then v erify its prop erties/.
+/1/. F or t
+/1
+/; t
+/2
+terms in the language of b o olean algebras w e de/ne form ulas
+/
+t
+/1
+/;t
+/2
+b y the follo wing pro cess/. First in tro duce new atoms A
+i
+s
+for ev ery
+subterm s of t
+i
+/, i /= /1 /; /2/, and consider form ulas/:
+/(a/) for s
+/1
+/ s
+/2
+a subterm of t
+i
+and / /= /^ /; /_ /:
+A
+i
+s
+/1
+/ s
+/2
+/ A
+i
+s
+/1
+/ A
+i
+s
+/2
+/(b/) for /: s a subterm of t
+i
+/:
+A
+i
+/: s
+/ /: A
+i
+s
+/:
+F orm ula E q /( t
+/1
+/; t
+/2
+/) is a form ula of the form C /! /( A
+/1
+t
+/1
+/ A
+/2
+t
+/2
+/)/, where C is
+the conjuction of all form ulas in /(a/) and /(b/)/. F or t
+/1
+/= t
+/2
+a v alid iden tit y
+of b o olean algebras let /
+t
+/1
+/;t
+/2
+b e a /xed F /-pro of of E q /( t
+/1
+/; t
+/2
+/) and let /
+t
+/1
+/;t
+/2
+b e all subform ulas o ccurring in it/.
+/2/. F or /BnZr a set of form ulas closed under subform ulas let /BnZr
+/+
+b e the smallest
+set of form ulas con taining /BnZr/, closed under subform ulas and satisfying the
+conditions/:
+/(a/) whenev er /( t
+/1
+/; t
+/2
+/) is one of the follo wing pairs/:
+/( /: a/; /: a /) /; /( a /^ b/; a /^ b /) /; /( a /_ b/; a /_ b /)
+/2/9
+=== PAGE 30 ===
+or whenev er t
+/1
+/= t
+/2
+is an iden tit y from De/nition /6/./1 then sets
+/
+t
+/1
+/;t
+/2
+/( A
+i
+s
+/=/
+i
+s
+/) /;
+are included in /BnZr
+/+
+/, for all c hoices /
+i
+s
+/2 /BnZr/,
+/(b/) for //; / /; / /2 /BnZr form ulas/:
+/( / / / /) /! /( / / / /) /;
+/( / / / /) /! /(/( / / / /) /! /( / / / /)/) /;
+/(/0 / /1/) /! /0 and /( / / /1/) /! /
+are included in /BnZr
+/+
+/.
+De/ne relation
+/
+/=
+on /BnZr b y/:
+/ 
+/
+/=
+/ if f /`
+/BnZr
+/+ / / / /:
+Relation
+/
+/=
+is an equiv alence relation on /BnZr b ecause of condition /(b/) of part
+/2 of the de/nition of /BnZr
+/+
+/, and it is in fact a congruence relation b ecause of
+condition /(a/) of /2/. By /(b/) of /2 it also follo ws that / is not congruen t to /1/, as w e
+assume that / has no F /-pro of included in /BnZr
+/+
+/.
+De/ne a partial b o olean algebra B as follo ws/:
+/(i/) elemen ts of B are the congruence classes of /BnZr /=
+/
+/=
+/,
+/(ii/) for a/; b /2 B and an y / /2 a and / /2 b suc h that / /^ / /2 /BnZr de/ne a /^ b
+to b e the congruence class of / /^ / /, and analogously for other op erations
+/_ /; /: /; /1 /; /0/.
+That this is in fact a correct de/nition of op erations and that these op era/-
+tions satisfy the requiremen ts of De/nition /6/./1 follo ws from part /(a/) of /2 of the
+de/nition of /BnZr
+/+
+/.
+q/.e/.d/.
+W e are ready no w to form ulate the theorem on b o ole an valuations /.
+Theorem /6/./5 L et / b e a tautolo gy and let / /( / /) b e the maximal numb er n such
+that for any set /BnZr close d under subformulas and satisfying/:
+j /BnZr j / n and / /2 /BnZr
+/( j /BnZr j is the c ar dinality of the set/) ther e is a b o ole an valuation / /: /BnZr /! B in which
+/ /( / /) /6/= /1
+B
+/.
+/3/0
+=== PAGE 31 ===
+Then for every tautolo gy / it holds/:
+/ /( / /) /= O /( /`
+/0
+F
+/( / /)/) and /`
+/0
+F
+/( / /) /= / /( / /)
+O /(/1/)
+/:
+In p articular/,
+s
+/0
+E F
+/( / /) /= /
+/( / /( / /)/) /:
+Pro of /:
+Let / b e an F /-pro of of / with /`
+/0
+F
+/( / /) distinct form ulas and let /BnZr b e the set
+of form ulas o ccurring in / as subform ulas/. Then b y Lemma /6/./3 in an y b o olean
+v aluation
+/ /: /BnZr
+/
+/
+/! B
+it m ust hold that / /( / /) /= /1
+B
+/, but it also holds that
+/ /( / /) / j /BnZr
+/
+/
+j /= O /( j /BnZr j /) /= O /( /`
+/0
+F
+/( / /)/) /:
+This pro v es the /rst inequalit y /.
+F or the second inequalit y tak e some set /BnZr of size / /( / /) /+ /1/, closed under
+subform ulas and con taining / /, suc h that in an y b o olean v aluation / /: /BnZr /! B
+it holds that / /( / /) /= /1
+B
+/. By Lemma /6/./4 / m ust b e F /-pro v able within set /BnZr
+/+
+/.
+Since
+/`
+/0
+F
+/( / /) / j /BnZr
+/+
+j /= j /BnZr j
+O /(/1/)
+/= /( / /( / /)/)
+O /(/1/)
+the second inequalit y follo ws/.
+By Theorem /1/./2 and Lemma /1/./4 it holds that
+/`
+/0
+F
+/( / /) /= O /( s
+/0
+E F
+/( / /)/) /;
+hence the last sen tence of the theorem follo ws from the /rst inequalit y /.
+q/.e/.d/.
+F or a lo w er b ound n / s
+/0
+E F
+/( / /) w e need to consider partial b o olean algebras
+B of size O /( n /)/. It w ould b e in teresting to kno w whether this is really necessary
+or whether one could ha v e B of m uc h smaller cardinalit y than j /BnZr j /.
+F or an extension E F
+A
+of the system E F b y a set A of new axioms it is easy
+to mo dify the metho d so that a theorem analogous to the preceding one is v alid/.
+An A /-b o ole an valuation of /BnZr is an y b o olean v aluation / /: /BnZr /! B in whic h ev ery
+form ula / /2 /BnZr whic h is a substitution instance of a form ula from A receiv es
+v alue / /( / /) /= /1
+B
+/.
+With this notion a theorem completely analogous to Theorem /6/./5 is v alid
+for system E F
+A
+/. By Theorem /4/./2/, ev ery prop ositional system in the sense of
+/[/1/7 /] can b e p olynomially sim ulated b y some system E F
+A
+/, where A is a suitable
+/3/1
+=== PAGE 32 ===
+p olynomial time set of tautologies/, cf/. /[/2/8 /]/. Hence in this sense the upp er b ound
+from the theorem transfers to an y prop ositional pro of system/.
+Also/, for that matter/, some earlier lo w er b ounds for subsystems of F can b e
+formalized in this concept/. The general metho d itself can b e reform ulated for
+the constan t/-depth systems/, since the maxim al depth of a form ula in sets /BnZr
+/
+/
+and
+/BnZr
+/+
+in Lemmas /6/./3 and /6/./4 is at most a constan t more than the maxim al depth of
+a form ula in /BnZr/. F or example/, the pro ofs from /[/3/1 /, /3/6 /] can b e phrased in terms of
+an explicit construction of a suitable b o olean v aluation of an y sub exp onen tial/-
+size set of constan t/-depth form ulas /(built from atoms used in the pigeonhole
+form ulas/)/. This is presen ted in detail in /[/2/7 /]/.
+/7 Concluding Remarks
+There is a relation b et w een /rst and second order b ounded arithmetic called
+the RSUV isomorphism /(se e /[/4/1/, /3/8 /]/)/. A basis for this relation is the fact
+that sets can b e treated directly as second order ob jects or can b e co ded b y
+/rst order ob jects /(n um b ers/)/. Hence sets and n um b ers corresp ond to n um b ers
+and the lengths of n um b ers resp ectiv ely /, second order b ounded form ulas to /rst
+order b ounded form ulas/, and second order theories of b ounded arithmetic to
+/rst order ones/. This relation can b e made quite formal /[/4/1 /] /(see also /[/3/8 /, /2/5/]/)
+and/, in particular/, one can sho w that theories V
+/1
+/1
+and U
+/1
+/1
+corresp ond to theories
+S
+/1
+/2
+and R
+/1
+/2
+resp ectiv ely /, in the sense that second order b ounded form ula A is
+pro v able in V
+/1
+/1
+resp/. in U
+/1
+/1
+i/ the corresp onding /rst order b ounded form ula A
+/
+is pro v able in S
+/1
+/2
+resp/. R
+/1
+/2
+/.
+There is also another translation of /rst order b ounded form ulas in to quan ti/-
+/ed prop ositional form ulas/: for A /( x /) a /rst order b ounded form ula and m/; jj A jj
+m
+is a form ula with m free atoms p
+/1
+/; /: /: /: /; p
+m
+standing for unkno wn bits of x/; j x j /<
+m /, in whic h a b ounded quan ti/er b ounding y translates as a blo c k of similar
+b o olean quan ti/ers b ounding /(p olynomiall y man y/) bits of y /. See /[/2/9 /] for details/.
+In this translation the theory S
+/1
+/2
+corresp onds to the pro of system E F /(see
+/[/1/6 /, /7/, /2/8 /]/)/, meaning that S
+/1
+/2
+pro v es the soundness of E F while E F p olynomial ly
+pro v es translations of /8 /
+b
+/1
+/-consequences of S
+/1
+/2
+/. This corresp ondence can b e
+extended to all theories S
+i
+/2
+and T
+i
+/2
+and appropriate fragmen ts of the quan ti/ed
+prop ositional calculus G /, see /[/2/9 /]/. F or F rege pro of system F /, P /. Clote /[/1/2 /, /1/3 /]
+constructed an equational theory ALV whose consequences ha v e p olynomial
+size F /-pro ofs/. See also /[/1/5 /] for a related /rst order theory /.
+F rom the relations b et w een S
+/1
+/2
+and E F one can obtain another pro of of
+Theorem /3/./1/, although not straigh tforw ard as e/.g/. h A i
+n
+and jj A
+/
+jj
+j n j
+are not
+iden tical form ulas/. I kno w of no suc h deriv ation of the relations b et w een U
+/1
+/1
+and F /. This w ould require a theory T satisfying the follo wing three conditions/:
+/1/. pro ofs in T translate /(via the translation jj A jj
+m
+/) in to /(quasi/)p olynomial/-
+size F /-pro ofs
+/3/2
+=== PAGE 33 ===
+/2/. T pro v es the soundness of F
+/3/. T pro v es that ev ery form ula can b e ev aluated o v er an y truth assignmen t/.
+F or example/, only condition /1 w as established in /[/1/2 /] for T /= ALV /. Arai /[/3 /]
+de/ned a theory AI D whic h satis/es all these conditions/.
+W e shall conclude the pap er b y men tioning a comm unicati on complexit y
+problem related to F /-pro v abilit y /.
+Let / /( p
+/1
+/; /: /: /: /; p
+n
+/) b e a tautology with n atoms and assume / /= /( /'
+/1
+/; /: /: /: /; /'
+k
+/)
+is its F /-pro of/. Consider the follo wing searc h problem/. Tw o pla y ers I and I I
+eac h receiv e an ev aluation / resp/. / of atoms p
+/1
+/; /: /: /: /; p
+n
+/: pla y er I /(resp/. I I /)
+gets / /(resp/. / /) but do es not kno w / /(resp/. / /)/. Their task is to either /nd
+out that / /= / or to /nd a form ula / o ccurring as a subform ula in / /(in one
+of its steps /'
+i
+/) whic h gets di/eren t truth v alues b y / and / /. Observ e that if
+/ /6/= / suc h / exists as //; / giv e di/eren t v alues to some p
+i
+and w/.l/.o/.g/. w e ma y
+assume that all atoms p
+/1
+/; /: /: /: /; p
+n
+actually app ear in / /.
+Pla y ers exc hange bits un til they agree on an answ er/. The minim al n um b er of
+bits they need to exc hange/, denoted C /( / /; n /)/, is the c ommunic ation c omplexity
+of the searc h problem /(see /[/3/3 /] for a surv ey of comm unication complexit y/)/.
+De/ne function/:
+K /( m /) /:/= max f C C /( / /; n /) j / is an F /-pro of of /
+n
+and j / j / m g /:
+The function K /( m /) satis/es inequalities n /+ /1 / K /( m /) / n /+ log /( n /)/. The /rst
+inequalit y follo ws as b y /[/3/4 /] the trivial strategy /(one pla y er sends its ev aluation
+to the other one whic h sends bac k the answ er/) is optimal for the problem to
+decide whether / equals to / /, whic h information is trivially included in an
+answ er to the searc h problem/. The second inequalit y holds as pla y er I can send
+/ /( n bits/) to pla y er I I whic h sends bac k either information that / /= / or the
+index i /(log n bits/) of an atom receiving di/eren t v alues b y //; / /.
+The p oin t is ho w ev er/, not to determine the v alue of K /( m /) but to describ e
+K /( m /) as a function of m /. The idea is that if / expresses a complex com bin/-
+atorial principle/, its elemen tary pro of /(whic h an F /-pro of presumably is/) m ust
+distinguish man y cases/, and if //; / b elong to di/eren t cases there m ust b e a
+place in the pro of /- a subform ula /- whic h distinguishes b et w een //; / /.
+More precisely /, assume that assignmen ts from some subset A of all assign/-
+men ts are mapp ed on to the set of cases suc h that at most b assignmen ts b elong
+to the same case/. If a /= j A j /, then log/( m /) / log /(
+a
+b
+/)/. This is b ecause pla y er I
+needs log/( m /) bits to name a subform ula asso ciated to the case of / while again
+b y /[/3/4/] log/(
+a
+b
+/) is a lo w er b ound to the comm uni cation complexit y of the prob/-
+lem/. F or example/, in /[/2/2 /, /1/1 /] the set A consists of all assignmen ts determined
+b y a partial /1 /BnZr /1 map of size
+n
+/4
+and the case of an assignmen t is the complex
+clause/: a b ound to m follo ws then from log /(
+a
+b
+/) /= /
+/( n /)/)/.
+/3/3
+=== PAGE 34 ===
+This serv es only as an illustration of an idea that a pro of of a tautology
+migh t help pla y ers to /nd a non/-trivial strategy for solving a comm unication
+complexit y problem related to ev aluations of the atoms/. T o /nd a t yp e of
+suc h a comm unication complexit y problem is actually also a part of the di//-
+cult y to mak e this idea w ork/. Other problems than the one considered ab o v e
+migh t b e more fruitful/, e/.g/. a task akin to the task of determining whether
+/ /( p
+i
+/) /= /1 /= / /( p
+i
+/)/, some p
+i
+/, since its comm uni cation complexit y is robust also
+for random comm unicati on proto cols/. Another natural searc h problem asso ci/-
+ated with an y tautology of the form /
+n
+/=
+W
+i
+/
+i
+giv e to eac h pla y er an ev aluation
+on complemen tary halv es of atoms and ask them to iden tify a true disjunct /
+i
+/.
+Ac kno wledgemen t
+I am indebted to P /.Pudl/ ak for discussions ab out comm unicatio n complexit y
+problems related to prop ositional logic/. I pro/ted from lectures b y M/.Karc hmer
+and A/.A/. Razb oro v giv en during the meeting F e asible Mathematics II at Cornell
+Univ ersit y in Ma y /1/9/9/2/, and from subsequen t con v ersations with them/.
+I rep orted on a part of this pap er during that meeting and on topics of
+Se ction /6 during the Ann ual ASL meeting in San An tonio in Jan uary /1/9/9/3/.
+I thank S/. Buss/, P /. Clote/, S/. Co ok/, P /. Pudl/ ak/, A/.A/.Razb oro v and G/. T ak euti
+for commen ts on the preliminary v ersion of this pap er/, whic h w as /nished during
+m y sta y at the Dep artment of Computer Scienc e of the University of T or onto
+in Spring /1/9/9/3/.
+References
+/[/1/] M/. Ajtai/: /\/
+/1
+/1
+/-form ulae in /nite structures/"/, Annals of Pure and Applied
+Logic/, /2/4/, /(/1/9/8/3/)/, pp/./1/-/4/8/.
+/[/2/] /\The complexit y of the pigeonhole principle/"/, in/: Pro c/. IEEE /2/9
+th
+Ann ual Symp/. on F oundation of Computer Science/, /(/1/9/8/8/)/, pp/. /3/4/6/-/3/5/5/.
+/[/3/] T/. Arai/: /\F rege system/, ALO GT I M E and b ounded arithmetic/"/, unpub/-
+lished man uscript/, /(/1/9/9/3/)/.
+/[/4/] J/.A/. Bondy/: /\Induced subsets/"/, J/.Com binatorial Theory /(B/)/, /1/2/,/(/1/9/7/2/)/,
+pp/./2/0/1/-/2/0/2/.
+/[/5/] M/. L/. Bonet/: /\Num b er of sym b ols in F rege pro ofs with and without the
+deduction rule/"/, in/: Arithmetic/, Pro of Theory and Computational Com/-
+plexit y /, eds/.P /. Clote and J/. Kra j / / / cek/, Oxford Press/, /(/1/9/9/3/)/, pp/./6/1/-/9/5/.
+/[/6/] M/.L/.Bonet/, S/.R/.Buss and T/.Pitassi/: /\Are there hard examples for F rege
+systems/?/"/, this v olume/.
+/3/4
+=== PAGE 35 ===
+/[/7/] S/.R/.Buss /: Bounded Arithmetic /, Bibliop olis/, Naples/,/(/1/9/8/6/)/.
+/[/8/] /: /\The prop ositional pigeonhole principle has p olynomial size F rege
+pro ofs/"/, J/. Sym b olic Logic /5/2/, /(/1/9/8/7/)/, pp/. /9/1/6/-/9/2/7/.
+/[/9/] /: /\Prop ositional consistency pro ofs/"/, Annals of Pure and Applied
+Logic/, /5/2/, /(/1/9/9/1/)/, pp/./3/-/2/9/.
+/[/1/0/] S/.R/. Buss/, J/. Kra j / / / cek and G/. T ak euti/: /\On pro v ably total functions in
+b ounded arithmetic theories R
+i
+/3
+/; U
+i
+/2
+and V
+i
+/2
+/"/,in/: Arithmetic/, Pro of Theory
+and Computational Complexit y /, eds/.P /. Clote and J/. Kra j / / / cek/, Oxford Press/,
+/(/1/9/9/3/)/, pp/./1/1/6/-/1/6/1/.
+/[/1/1/] S/.R/. Buss and G/. T ur/ an/: /\Resolution pro ofs of generalized pigeonhole prin/-
+ciple/"/, The or etic al Computer Scienc e /, /6/2/, /(/1/9/8/8/)/, pp/./3/1/1/-/3/1/7/.
+/[/1/2/] P /. Clote/: /\ALOGTIME and a conjecture of S/.A/. Co ok/"/, Annals of Math/-
+ematics and Arti/cial In teligence/, /6/, /(/1/9/9/2/)/, pp/./5/7/-/1/0/6/.
+/[/1/3/] P /. Clote/: /\ On p olynomial size F rege pro ofs of certain com binatorial prin/-
+ciples/"/, in/: Arithmetic/, Pro of Theory and Computational Complexit y /,
+eds/.P /. Clote and J/. Kra j / / / cek/, Oxford Press/, /(/1/9/9/3/)/, pp/./1/6/2/-/1/8/4/.
+/[/1/4/] P /. Clote and J/. Kra j / / / cek/: /\Op en problems/"/, in/: Arithmetic/, Pro of Theory
+and Computational Complexit y /, eds/.P /. Clote and J/. Kra j / / / cek/, Oxford Press/,
+/(/1/9/9/3/)/, pp/./1/-/1/9/.
+/[/1/5/] P /. Clote and G/. T ak euti/: /\Bounded arithmetic for N C /, ALog T I M E /, L
+and N L /"/, Annals of Pure and Applied Logic /5/6/, /(/1/9/9/2/)/, pp/./7/3/-/1/1/7/.
+/[/1/6/] S/.A/. Co ok/: /\F easibly constructiv e pro ofs and the prop ositional calculus/"/,
+in/: Pro c/. /7
+th
+Ann ual A CM Symp/. on Theory of Computing/, /(/1/9/7/5/)/, pp/.
+/8/3/-/9/7/.
+/[/1/7/] S/.A/. Co ok and A/.R/. Rec kho w/: /\The relativ e e/ciency of prop ositional
+pro of systems/"/, J/. Sym b olic Logic /4/4/(/1/)/, /(/1/9/7/9/)/, pp/. /3/6/-/5/0/.
+/[/1/8/] W/. Co ok/, C/. R/. Coullard and G/. T uran/: /\On the complexit y of cutting
+plane pro ofs/"/, Discrete Applied Mathematics/, /1/8/, /(/1/9/8/7/)/. pp/./2/5/-/3/8/.
+/[/1/9/] M/. Do wd/: /\Mo del/-theoretic asp ects of P /6/= N P /"/, unpublished man uscript/,
+/(/1/9/8/5/)/.
+/[/2/0/] M/. F urst/, J/.B/.Saxe and M/. Sipser/: /\P arit y /, circuits and the p olynomial/-
+time hierarc h y/"/, Math/. Systems Theory /, /1/7/, /(/1/9/8/4/)/, pp/./1/3/-/2/7/.
+/[/2/1/] A/. Go erdt /: /\Cutting plane v ersus F rege pro of systems/"/, in/: Computer
+Scienc e L o gic /, eds/. E/. B/ orger et/. al/./, LN in Computer Science /5/3/3 /, Springer
+V erlag/, pp/./1/7/4/-/1/9/4/, /(/1/9/9/1/)/.
+/3/5
+=== PAGE 36 ===
+/[/2/2/] A/. Hak en/: /\The in tractabilit y of resolution/"/, Theoretical Computer Science
+/3/9/, /(/1/9/8/5/)/, pp/. /2/9/7/-/3/0/8/.
+/[/2/3/] J/. Kra j / / / cek/: /\On the n um b er of steps in pro ofs/"/, Annals of Pure and Ap/-
+plied Logic /4/1/, /(/1/9/8/9/)/, pp/. /1/5/3/-/1/7/8/.
+/[/2/4/] /: /\Sp eed/-up for prop ositional F rege systems via generalizations
+of pro ofs/"/, Commen tationes Mathematicae Univ ersitas Carolinae /3/0/(/1/)/,
+/(/1/9/8/9/)/, pp/. /1/3/7/-/1/4/0/.
+/[/2/5/] /: /\Exp onen tiation and second/-order b ounded arithmetic/"/, Annals
+of Pure and Applied Logic /4/8/, /(/1/9/9/0/)/, pp/. /2/6/1/-/2/7/6
+/[/2/6/] /: /\Lo w er b ounds to the size of constan t/-depth prop ositional pro ofs/"/,
+Journal of Sym b olic Logic/, /5/9/(/1/)/, /(/1/9/9/4/)/, pp/. /7/3/-/8/6/.
+/[/2/7/] /: Bounded arithmetic/, prop ositional logic and complexit y
+theory /, a b o ok prepared for the Cambridge University Pr ess /, /(/1/9/9/3/)/, /4/0/1
+p/.
+/[/2/8/] J/. Kra j / / / cek and P /. Pudl/ ak/: /\Prop ositional pro of systems/, the consistency
+of /rst order theories and the complexit y of computations/"/, J/. Sym b olic
+Logic /5/4/(/3/)/, /(/1/9/8/9/)/, pp/. /1/0/6/3/-/1/0/7/9
+/[/2/9/] /: /\Quan ti/ed prop ositional calculi and fragmen ts of b ounded arith/-
+metic/"/, Zeitsc hrift f/. Mathematik al Logik u/. Grundlagen d/. Mathematik /3/6/,
+/(/1/9/9/0/)/, pp/. /2/9/-/4/6/.
+/[/3/0/] /: /\Prop ositional pro v abilit y in mo dels of w eak arithmetic/"/,
+in/:Computer Science Logic/, eds/.E/.Bo erger/, H/.Kleine/-Bunning and M/.M/.
+Ric h ter/, Springer/-V erlag/, /(/1/9/9/0/)/, pp/./1/9/3/-/2/1/0/.
+/[/3/1/] J/. Kra j / / / cek and P /. Pudl/ ak and A/. W o o ds /: /\Exp onen tial lo w er b ound to the
+size of b ounded depth F rege pro ofs of the pigeonhole principle/"/, submitted/.
+/[/3/2/] J/. Kra j / / / cek and G/. T ak euti /: /\On b ounded
+P
+/1
+/1
+/-p olynomial induction/"/, in/:
+F easible Mathematics/, eds/. S/.R/. Buss and P /.J/. Scott/, Birkhauser/, /(/1/9/9/0/)/,
+pp/. /2/5/9/-/2/8/0/.
+/[/3/3/] L/. Lo v/ asz/: /\Comm unication complexit y/: a surv ey/"/, in/: P aths/, Flo ws
+and VLSI La y out/, eds/. Korte/, Lo v/ asz/, Promer/, Sc hrijv er/, Springer/-V erlag/,
+/(/1/9/9/0/)/, pp/./3/2/5/-/2/6/6/.
+/[/3/4/] K/. Mehlhorn and F/. M/. Sc hmidt /: /\Las V egas is b etter than determinism
+in VLSI and distributed computing/"/, /1/4th Ann ual A CM Symp/. on Th/. of
+Computing/, /(/1/9/8/2/)/, pp/./3/3/0/-/3/3/7/.
+/[/3/5/] R/. P arikh/: /\Some results on the length of pro ofs/"/, T ransactions of the
+A/.M/.S/./, /1/7/7/, /(/1/9/7/3/)/, pp/. /2/9/-/3/6/.
+/3/6
+=== PAGE 37 ===
+/[/3/6/] T/. Pitassi/, P /. Beame and R/. Impagliazzo/: /\Exp onen tial lo w er b ounds for
+the pigeonhole principle/"/, Computational Complexit y /, /3/, /(/1/9/9/3/)/, pp/./9/7/-/3/0/8/.
+/[/3/7/] J/. P aris and A/. Wilkie/: /\Coun ting problems in b ounded arithmetic/"/, in/:
+Metho ds in Mathematical Logic/, LNM /1/1/3/0/, Springer /(/1/9/8/5/)/, pp/. /3/1/7/-/3/4/0/.
+/[/3/8/] A/.A/. Razb oro v /: /\An Equiv alence b et w een second order b ounded do/-
+main b ounded arithmetic and /rst order b ounded arithmetic/"/, in/: Arith/-
+metic/,Pro of Theory and Computational Complexit y /, eds/. P /. Clote and J/.
+Kra j / / / cek/, Oxford Univ/. Press/, /(/1/9/9/3/)/, pp/./2/4/7/-/2/7/7/.
+/[/3/9/] R/.A/.Rec kho w/: /\On the lengths of pro ofs in the prop ositional calcu/-
+lus/"/,PhD/.Thesis/, Dept/. of CS/, Univ ersit y of T oron to/, /(/1/9/7/6/)/.
+/[/4/0/] P /.M/. Spira/: /\On time/-hardw are complexit y of tradeo/s for Bo olean func/-
+tions/"/, in/: Pro c/. /4
+th
+Ha w aii Symp/. System Sciences/, W estern P erio dicals
+Co/./, North Hollyw o o d /(/1/9/7/1/)/, pp/. /5/2/5/-/5/2/7/.
+/[/4/1/] G/. T ak euti/: /\RSUV Isomorphism/"/, in/: Arithmetic/, Pro of Theory and Com/-
+putational Complexit y /, eds/. P /. Clote and J/. Kra j / / / cek/, Oxford Univ/. Press/,
+/(/1/9/9/3/)/, pp/./3/6/4/-/3/8/6/.
+/[/4/2/] G/. T ak euti and W/.M/. Zaring /: Axiomatic Set Theory /, Springer/-V erlag/,
+/(/1/9/7/3/)/, /2/3/8p/.
+/[/4/3/] G/. C/. Tseitin/: /\On the complexit y of deriv ations in prop ositional cal/-
+culus/"/, in/: Studies in mathematics and mathematical logic/, P art I I/, ed/.
+A/.O/.Slisenk o/, /(/1/9/6/8/)/, pp/./1/1/5/-/1/2/5/.
+/[/4/4/] G/.C/. Tseitin and A/.A/. Choubarian/: /\On some b ounds to the lengths of
+logical pro ofs in classical prop ositional calculus/" /(Russian/)/, T rudy Vy / cisl
+Cen tra AN Arm SSR i Erev ansk o v o Univ/. /8/, /(/1/9/7/5/)/, /5/7/-/6/4/.
+Jan Kra j/ / cek
+Mathematical Institut
+Academ y of Sciences
+/
+Zitna /2/5
+Praha /1/, /1/1/5 /6/7
+The Czec h Republic
+/3/7

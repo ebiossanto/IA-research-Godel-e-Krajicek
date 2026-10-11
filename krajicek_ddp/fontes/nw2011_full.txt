@@ -1,0 +1,769 @@
+September 6, 2011 16:39 WSPC/S0219-0613 153-JML
+S0219061311000979
+Journal of Mathematical Logic, Vol. 11, No. 1 (2011) 11–27
+c© World Scientiﬁc Publishing Company
+DOI: 10.1142/S0219061311000979
+ON THE PROOF COMPLEXITY OF THE
+NISAN–WIGDERSON GENERA TOR BASED
+ON A HARD NP ∩ coNP FUNCTION
+JAN KRAJ´I ˇCEK
+Department of Algebra
+Faculty of Mathematics and Physics
+Charles University
+Sokolovsk´a 83, Prague 8, CZ – 186 75
+The Czech Republic
+krajicek@karlin.mﬀ.cuni.cz
+Received 15 April 2010
+Let g be a map deﬁned as the Nisan–Wigderson generator but based on an NP ∩ coNP-
+function f .A n ys t r i n gb outside the range of g determines a propositional tautology
+τ (g)b expressing this fact. Razborov [ 27] has conjectured that if f is hard on average
+for P/poly then these tautologies have no polynomial size proofs in the Extended Frege
+system EF.
+We consider a more general Statement (S) that the tautologies have no polynomial
+size proofs in any propositional proof system. This is equivalent to the statement that
+the complement of the range of g contains no inﬁnite NP set.
+We prove that Statement (S) is consistent with Cook’ s theory PV and, in fact,
+with the true universal theory T PV in the language of PV. If PV in this consistency
+statement could be extended to “a bit” stronger theory (properly included in Buss’s
+theory S1
+2 ) then Razborov’s conjecture would follow, and if T PV could be added too
+then Statement (S) would follow.
+We discuss this problem in some detail, pointing out a certain form of reﬂection
+principle for propositional logic, and we introduce a related feasible disjunction property
+of proof systems.
+Keywords: Proof complexity; Nisan–Wigderson generator.
+Mathematics Subject Classiﬁcation 2010: 03F20, 68Q17, 03H15
+1. Introduction
+A propositional proof systemis a polynomial time functionP whose range is exactly
+the set of propositional tautologies TAUT (say in 3DNF). This deﬁnition of Cook
+and Reckhow [8] captures the usual logical calculi for propositional logic: map a
+string that is a valid proof to the formula it proves and all other strings to p ∨¬ p.
+The range of such a map is TAUT by the soundness and the completeness of the
+calculus, and it can be computed in polynomial time because in logical calculi valid
+proofs can be recognized in polynomial time.
+11
+September 6, 2011 16:39 WSPC/S0219-0613 153-JML
+S0219061311000979
+12 J. Kraj´ıˇcek
+A P-proof of a formulaϕ is any stringπ such thatP(π)= ϕ.Ap r o o fs y s t e mP is
+p-boundedif there is a constantc ≥ 1 such that any tautologyϕ has aP-proof of size
+at most |ϕ|c. Cook and Reckhow [8] have observed that a p-bounded proof system
+exists if and only if the class NP is closed under complementation. It is therefore
+believed that no such proof system exists and to establish this is a fundamental
+problem of proof complexity.
+At present it is not ruled out that the usual textbook propositional calculus
+based on a ﬁnite number of axiom schemes and inference rules (a Frege system F
+in the terminology of [8]) is p-bounded. It is generally assumed that the so called
+Extended Frege system EFis a pivotal case in the study of the fundamental problem.
+EF augments F by the ability to abbreviate formulas or, equivalently, it is a Frege
+system but operating with circuits rather than with formulas (cf. [ 13, 12]). The
+ﬁeld of proof complexity has also other sources motivating its investigations (e.g.
+bounded arithmetic or automated theorem proving) and the interested reader may
+consult [13, 25].
+A key issue in attacking the fundamental problem of the existence of ap-bounded
+proof system is to come up with plausible candidates for hard formulas, tautologies
+that it will be hard to prove in a proof system under consideration (or in all proof
+systems). A class of such candidate formulas, the so called τ-formulas or proof
+complexity generators, were proposed independently in [ 2, 14]. Their theory was
+developed so far in about a dozen papers and its large part (but not all) is exposed
+in [18, Chaps. 29 and 31]. We shall explain now the main idea.
+Let g : {0, 1}n →{ 0, 1}m with m = m(n) >n be a map. For simplicity we
+assume that m(n) is injective, hence m determines n.L e t b ∈{ 0, 1}m be any
+string outside of the range Rng( g)o f g.I f g is polynomial time or at least (as
+in this paper) an NP ∩ coNP map then the statement b/∈ Rng(g)i sa coNP
+property of b and can be expressed by a propositional formula τ(g)b in the sense
+that
+τ(g)b ∈ TAUT if and only if b/∈ Rng(g).
+We shall not discuss how precisely is the formula deﬁned and take it as a
+canonical construction in the style of a proof of the NP-completeness of SAT, cf. [16].
+Say that g is a hard proof complexity generator for P if and only if the
+τ(g)-formulas have no polynomial size proofs in P: for any constant c ≥ 1, if m is
+large enough then τ(g)b has a P-proof of size ≤| τ(g)b|c for no b ∈{ 0, 1}m\Rng(g).
+The idea underlying the theory of these formulas is that there are maps that are
+hard for very strong proof systems like EF or maybe even for all proof systems.
+There are several maps that are candidates for hard proof complexity genera-
+tors (see [18]) but in this paper we shall consider only one example proposed by
+Razborov [27]. He considers a map g deﬁned as the Nisan–Wigderson generator
+with parameters as in [ 23]. Such a map is determined by a matrix A and by a
+Boolean function f (see Sec. 2 for details). In [23] f is computed by a deterministic
+algorithm and is assumed to have a certain hardness property. Razborov’s idea was
+September 6, 2011 16:39 WSPC/S0219-0613 153-JML
+S0219061311000979
+On the Proof Complexity of the NW-Generator Based on a Hard NP∩ coNP Function 13
+to take, for the purpose of proof complexity, an NP∩ coNP function f that is hard
+for all P/poly:
+Conjecture 1.1 (Razborov [ 27,C o n j e c t u r e2 ] ) .Any NW-generator based on
+am a t r i xA which is a combinatorial design with the same parameters as in[23] and
+on any function f in NP∩coNP that is hard on average for P/poly, is hard for EF.
+We will discuss the details (e.g. the conditions on the parameters involved) in
+Sec. 2.P i c h[24] has recently established this statement for proof systems admitting
+a certain form of feasible interpolation, including resolution.
+This is a beautiful conjecture. But it is not clear (to this author) why the state-
+ment should hold only for EF and not for other, or all, proof systems. Polynomial
+size EF proofs operate with polynomial size circuits but an arbitrary proof sys-
+tem can by p-simulated by one that has the same property (an extension of EF
+by polynomial time set of extra axioms, see [ 19, 13]). In particular, consider the
+following.
+Statement (S)(informally). Let g be the Nisan–Wigderson generator with the same
+parameters as in Razborov’sc o n j e c t u r e, and assume it is based on an NP ∩ coNP-
+function f that is a hard bit of a one way permutation.
+Assume that R is an inﬁnite NP-set which has inﬁnitely many elements with
+length equal to m(k) for some k ≥ 1.
+Then
+Rng(g) ∩ R ⁄= ∅.
+In this paper, we prove that Statement (S) is consistent with Cook’s theory
+PV and, in fact, with the true universal theory TPV in the language of PV. These
+two theories are signiﬁcant in proof complexity: PV corresponds to EF and T PV
+corresponds to the union of all proof systems. The correspondence we refer to here
+is a variety of technical results linki ng theories and proof systems (cf. [ 13, 7]). In
+particular, one can view PV as a uniform version of EF in a manner analogous to
+how polynomial time algorithms are uniform versions of polynomial size circuits.
+Demonstrating that a complexity-the oretic conjecture i s consistent with a
+bounded arithmetic theory appears to be interesting (as opposed to demonstrating
+the unprovability in a weak theory). The reason is that such a consistency result in
+eﬀect establishes the conjecture in a structure (a model of the theory in question)
+that is quite close to the world of complexity theory. Even weak theories of bounded
+arithmetic (low in the Buss’s hierarchy of theories Si
+2 and Ti
+2,c f .[4, 13]) contain a
+signiﬁcant part of contemporary complexity theory.
+In our case there is an extra reason to consider a consistency statement like the
+one we do. If PV in this consistency statement could be extended to “a bit” stronger
+theory (properly included in Buss’s theory S1
+2), then Razborov’s conjecture would
+follow, and if TPV could be added too then Statement (S) would follow.
+This paper stems from a forcing construction in [ 18, Chap. 31] establishing
+a special case of our main theorem. Here we employ classic methods and give a
+September 6, 2011 16:39 WSPC/S0219-0613 153-JML
+S0219061311000979
+14 J. Kraj´ıˇcek
+new construction, and also extend the result to a larger variation of parameters in
+Statement (S) in Theorem4.2. We also discuss in some detail what is the obstacle to
+extending the result in a way that would allow to deduce the Razborov’s conjecture
+and possibly also Statement (S).
+2. An Interactive Computational T ask
+We ﬁrst brieﬂy review the Nisan–Wigderson construction from [23], ﬁxing the nota-
+tion along the way. Let 1 ≤ d ≤ 𝓁 ≤ n<m be some parameters and let A
+be an m × n 0-1 matrix with 𝓁 ones per row. Ji(A): = {j ∈ [n]| Aij =1 }.L e t
+f : {0, 1}𝓁 →{ 0, 1} be a Boolean function.
+Deﬁne function NWA,f : {0, 1}n →{ 0, 1}m as follows: The ith bit of the output
+is computed by f from the bits of the input that belong to Ji(A). For x as t r i n g
+of length n and J ⊆ [n]o fs i z e𝓁 denote by x(J) the substring of x of length 𝓁
+consisting of thosexj from x for whichj ∈ J. Hence theith output bit ofNWA,f (x)
+is f(x(Ji(A))).
+Matrix A is a (d, 𝓁)-design if in addition the int ersection of any two diﬀerent
+rows Ji(A) ∩Jk(A) has size at mostd. Nisan and Wigderson [23] construct matrices
+A that are (d, 𝓁)-designs for a wide range of parameters. In particular, m can be
+exponential in nΩ(1) and this is crucial for many applications. For our purposes
+however, it is best to have m as small as possible and we shall ﬁx the parameters
+as follows:
+m := n +1 ,d := log(n +1 ), and 𝓁:= n1/3. (2.1)
+Later we shall remark on how the parameter m can be altered.
+We shall denote by An some canonical matrix with these parameters (e.g. pro-
+vided by one of the constructions from [23]). It is not important for us to have An
+explicit.
+Let f be an NP ∩coNP function (i.e. it is the characteristic function of a lan-
+guage in NP ∩ coNP). We shall assume that f is given by two NP predicates
+∃ y(|y|≤| u|O(1) ∧ F0(u, y)) and ∃ y(|y|≤| u|O(1) ∧ F1(u, y)) (2.2)
+with F0 and F1 polynomial-time relations such that
+f(u)= a if and only if ∃ y(|y|≤| u|O(1) ∧ Fa(u, y))
+for a =0 , 1. Any stringy witnessing the existential quantiﬁer will be calledaw i t n e s s
+for f(u)= a. We shall say that f has unique witnesses if the witness y is unique
+for all u.
+Let A be a matrix and f an NP ∩ coNP function as above. As n<m there are
+strings in {0, 1}m that are outside of the range of NWA,f .F i xb =( b1,...,b m) ∈
+{0, 1}m any such string. In this situation we deﬁne the following.
+Computational T ask (T). Given x ∈{ 0, 1}n ﬁnd i ∈ [m] such that the ith bit of
+NWA,f (x) diﬀers from bi.
+September 6, 2011 16:39 WSPC/S0219-0613 153-JML
+S0219061311000979
+On the Proof Complexity of the NW-Generator Based on a Hard NP∩ coNP Function 15
+We shall consider a speciﬁc model for solving (T) in which two players, a com-
+putationally limited Student and an unrestricted Teacher, interact in the following
+way. In the ﬁrst step:
+• The Student, upon receiving an input x ∈{ 0, 1}n, computes his ﬁrst candidate
+solution i1 ∈ [m].
+• If i1 solves (T) the Teacher will acknowledge it and the computation stops.
+• If i1 fails to solve (T) the Teacher sends to the Student a witnessy1 to
+f(x(Ji1 (A)) = bi1 .
+In general, in the kth step the Student computes a candidate solution ik ∈ [m]
+from x and from the witnesses y1,...,y k−1 he has received from the Teacher in the
+previous k − 1 steps. The Teacher acts as above: if ik solves (T) she acknowledges
+it, if not she sends to the Student a witness yk certifying the incorrectness, i.e.
+witnessing f(x(Jik (A))) = bik .
+This computational model was introduced in [22] as an interpretation of a form
+of Herbrand theorem, and formalized in terms of computational classes in [21]( s e e
+also [13]).
+For c ≥ 1w es a yt h a taS t u d e n tsolves (T) in c steps if the computation with
+any (honest) Teacher stops in at most c steps on every input x ∈{ 0, 1}n.I ti s
+convenient to think of such a Student as being determined by c functions
+S1(x),S2(x, y1),...,S c(x, y1,...,y c−1), (2.3)
+Sk computing the kth candidate solution ik from x and from the witnesses
+y1,...,y k−1 received from the Teacher in earlier rounds. We shall concentrate on
+the case when all Sk are computed by circuits Ck and we will be interested in the
+total size of these c circuits.
+3. The Hardness of T ask (T)
+The following hypothesis will play a crucial role later on.
+Hardness Assumption (H). There is an NP∩ coNP function f such that for all
+c ≥ 1 and k ≥ 1 the following holds for all large enough n and any b ∈{ 0, 1}m\
+Rng(NWAn,f ):
+Any circuits computing the moves of a Student that solves (T) in c steps must
+have the total size at least nk.
+This is a conservative formulation. One may contemplate a hypothesis that each
+Student solving (T) in a constant number of steps must have an exponential size
+(see Corollary 3.3).
+In the rest of this section we shall derive(H) from a more conventional hypoth-
+esis. Recall the hardness of a Boolean function f used in [ 23]: For two number
+parameters ϵ(𝓁)a n dS(𝓁) depending on 𝓁deﬁne f to be (ϵ, S)-hard if for every 𝓁
+September 6, 2011 16:39 WSPC/S0219-0613 153-JML
+S0219061311000979
+16 J. Kraj´ıˇcek
+and every circuit C with 𝓁inputs and of size at most S(𝓁)i th o l d s :
+Probu∈{0,1}𝓁[C(u)= f(u)] < 1/2+ ϵ/2,
+[23] then use the concept for ϵ:= 1/S and are concerned with the maximal S such
+that the function is (1/S, S)-hard; such S is called the hardness of f and denoted
+Hf (𝓁). We shall not use this setting of ϵ(in the main case of [23] m is exponential
+in n and that leads to exponentially small ϵbut our m is small). Instead we are
+interested mainly in the parameter S,w i t hϵbeing always of the rate 𝓁−O(1).T h e
+only exception is part 3 in Theorem 4.2.
+It is convenient to introduce the following notation (AH stands forapproximating
+hardness) measuring the rate of the parameter S. Function AHf : N × N → N is
+deﬁned in the following way:
+• For 𝓁, k≥, deﬁne AHf (𝓁, k) to be the minimals such that there is a sizes circuit
+C with 𝓁inputs such that
+Probu∈{0,1}𝓁[C(u)= f(u)] ≥ 1/2+ 𝓁−k.
+The diﬀerence Probu∈{0,1}𝓁[C(u)= f(u)] −1/2 will be calledthe advantage (tacitly,
+over 1/2) of C in computing f.
+In the deﬁnition of the task (T), we have not assumed that f,a nN P ∩ coNP
+function, has unique witnesses but we shall use such an assumption in Theorem3.2.
+Such functions do appear quite naturally as hard bits of polynomial-time permu-
+tations. Let us recall brieﬂy the relevant notions (see [3, 10] for details) and state
+a formal lemma for a later reference. We use the non-uniform setting and do not
+stress it further in the terminology.
+A polynomial time function h is a permutation if it permutes each {0, 1}𝓁.I ti s
+deﬁned to be ϵ(𝓁) one way with security parameter t(𝓁) if and only if for all 𝓁and
+any circuit D with 𝓁inputs and of size at most t(𝓁)i th o l d s :
+Probv∈{0,1}𝓁[D(h(v)) = v] ≤ ϵ(𝓁).
+There are several permutations constructed from discrete logarithm, factoring or
+RSA that are conjectured to be 𝓁−k one way with super-polynomial (or even expo-
+nential) security parameter (see [ 3, 10]). Having such a permutation h one may
+assume (by the Goldreich–Levin theorem, cf. [3]) without loss of generality that h
+has a hard bit function b(v). That is, a small circuit (of size t(𝓁)Ω(1)) can compute
+b(v) from the input u := h(v) only with a negligible advantage over 1/2. Then we
+can deﬁne an NP ∩ coNP function f with unique witnesses by f(u): = b(h(−1)(u)).
+This yields the following lemma.
+Lemma 3.1. Assume that there exists a polynomial time permutationh such that
+for any ﬁxed k ≥ 1 it is 𝓁−k one way with a super-polynomial security parameter
+t(𝓁)= 𝓁ω(1).
+Then there exists an NP∩ coNP function f with unique witnesses such that for
+any ﬁxed k ≥ 1 the function AHf (𝓁, k) is a super-polynomial function of 𝓁.
+September 6, 2011 16:39 WSPC/S0219-0613 153-JML
+S0219061311000979
+On the Proof Complexity of the NW-Generator Based on a Hard NP∩ coNP Function 17
+If, in fact, for any ﬁxedk ≥ 1 h is even 𝓁−k one way with an exponential security
+parameter t(𝓁)=2 𝓁Ω(1)
+then the function AHh(𝓁, k) is an exponential function of 𝓁
+for any ﬁxed k ≥ 1.
+Now we are ready to state the reduction.
+Theorem 3.2. Assume that f is an NP ∩ coNP function with unique witnesses
+and c ≥ 1 is a constant. Then any circuits computing moves of a Student solving
+(T) in c steps must have total size at least
+AHf (n1/3, 4c) − (c − 1) · nO(1).
+The O(1) constant depends on f but not on c.
+In particular, if AHf (𝓁, k) is a super-polynomial function of 𝓁 for any ﬁxed
+k ≥ 1, then the hypothesis (H ) holds for f, and if AHf (𝓁, k) is exponential for any
+ﬁxed k ≥ 1 then the total size of the circuits computing Student’s moves have to be
+exponential in n.
+Proof. Let f be a function satisfying the hypothesis of the theorem. Assume that
+for some constant c ≥ 1a n da n n large enough, a Student computed by circuits
+of the total size s solves the task (T) in c steps. We want to derive a lower bound
+on s.
+Assume that for a given x ∈{ 0, 1}n the communication between the Student
+and the Teacher stops after the kth step of the Student, his candidate solutions
+in the computation being i1,...,i k (and ik is correct). Call the k-tuple (i1,...,i k)
+the trace of the computation on x and denote it Tr (x). Note that k ≤ c and that
+the trace determines also the Teacher’s messages because of the assumption of the
+unique witnesses for f.
+Claim 1. There is a k-tuple
+ i =( i1,...,i k) ∈ [m]k for some k ≤ c that is the trace
+of computations on at least a fraction of 2
+(3m)k of all inputs x.
+To prove the claim construct by induction on t as t r i n g(i1,...,i t) ∈ [m]t such
+that the traces of at least 1
+3t−1mt of all inputs x start with the t-tuple. For t =1
+note that there arem possible values and hence at least one of them, sayi1,a p p e a r s
+at the beginning of at least a fraction of 1/m traces of all inputs. For the induction
+step assume we have a t-tuple (i1,...,i t) with the required property and consider
+two cases: (i) ( i1,...,i t) is actually the whole trace of at least 2 /3 of all inputs
+whose traces start with (i1,...,i t), and (ii) otherwise.
+In case (i) (i1,...,i t) is the required trace.In case (ii) extend (i1,...,i t)b y it+1
+so that for at least 1 /(3m) of all inputs with traces starting with ( i1,...,i t)t h e
+traces will start with (i1,...,i t+1) as well. This is possible because in case (ii) at
+least a third of all computations with traces starting with (i1,...,i t)c o n t i n u ea n d
+there are m choices for it+1. This proves the claim.
+For the rest of the proof ﬁx a trace
+ i =( i1,...,i k) provided by the claim. For
+u ∈{ 0, 1}𝓁 and v ∈{ 0, 1}n−𝓁 deﬁne w(u, v) ∈{ 0, 1}n by putting bits of u into bits
+September 6, 2011 16:39 WSPC/S0219-0613 153-JML
+S0219061311000979
+18 J. Kraj´ıˇcek
+of w in positions Jik (in the natural order) and then ﬁll the remaining n − 𝓁bits
+of w by bits of v (again in the natural order). An averaging argument yields the
+following claim.
+Claim 2. There is an n −𝓁-tuple a ∈{ 0, 1}n−𝓁 such that there is at least a fraction
+1
+(3m)k more u ∈{ 0, 1}𝓁 with Tr(w(u, a)) =
+ i than those with Tr(w(u, a)) properly
+containing
+ i.
+Fix one such an ( n − 𝓁)-tuple a. Because matrix An is a (d, 𝓁)-design, for any
+row i ⁄= ik at most d =l o g (n + 1) input bits from Ji are not set by a. Hence there
+are at most n + 1 assignments v to bits in Ji not set by a. For each such v let zv
+be the (unique) witness for the value of f on the assignment given by v and a to
+variables in Ji,a n dl e tYi be the set of all these witnesses zv. Note that the total
+bit size of each Yi is (n +1 )𝓁O(1) = nO(1), and that there are n of them.
+Now we deﬁne an algorithm C that attempts to compute f on inputs of length
+𝓁, and uses
+ i, a and all Yi’s as an advice. The algorithm will invoke the Student (i.e.
+the circuits computing its moves) and this is an additional source of non-uniformity
+of C.
+Upon receiving an input u ∈{ 0, 1}𝓁 C deﬁnes the string w := w(u, a) ∈{ 0, 1}n
+and starts computation as the Student onx := w.L e tU be those inputsu for which
+the trace Tr (w(u, a)) is either
+ i or starts with
+ i,a n dl e tV be the complement of
+U. Deﬁne b0 to be the majority value of f on V .
+If the Student’s ﬁrst candidate solution is diﬀerent from i1 then C halts and
+produces b0 as the output C(u). (If C had a source of random bits then it would
+output a random bit at this point but deterministic C needs a ﬁxed value.) If the
+ﬁrst candidate solution is i1 algorithm C reads from Yi1 the right witness y1 and
+sends it to the Student in place of the Teacher. Note that the uniqueness of witnesses
+for f implies that there is exactly one suitable string in Yi1 and that C can ﬁnd it
+in polynomial time: the size of Yi1 is polynomial and each string can be tested in
+polynomial time.
+In an analogous manner, if any of the candidate solutions the Student produces
+in steps 1,...,k −1 is diﬀerent from the particularij, j =1 ,...,k −1, C halts and
+outputs the value b0.O t h e r w i s eC sends to the Student always the correct witness
+it reads in the appropriate Yi’s. If the computation halts before reaching the kth
+step C again outputs b0.
+Finally we reach the kth step. If the Student’s candidate solution is diﬀerent
+from ik C outputs b0. But if it is ik it outputs 1 − bik .
+Claim 3. The algorithm C computes correctlyf on at least a fraction of
+1/2+ 1
+(3m)k ≥ 1/2+ 1
+(3(𝓁3 +1 )c) ≥ 1/2+ 1
+𝓁4c
+of all inputs u ∈{ 0, 1}𝓁.
+The algorithm outputs the bit b0 in all cases except when the computation
+reaches the kth step and the Student produces ik as its candidate solution. If the
+September 6, 2011 16:39 WSPC/S0219-0613 153-JML
+S0219061311000979
+On the Proof Complexity of the NW-Generator Based on a Hard NP∩ coNP Function 19
+Student/Teacher computation actually stops at that point, then the value 1 − bik
+in indeed equal to f(u). If the computation were to continue then we have no
+information. But note that by the choice of a in Claim 2 the former case happens
+f o ra tl e a s taf r a c t i o n1
+(3m)k more inputs u ∈{ 0, 1}𝓁 than the latter case. Becauseb0
+is the correct value of f for at least half of u ∈ V , the overall advantage algorithm
+C has in computing f is at least 1
+(3m)k .
+Claim 4. The algorithm C can be computed by a circuit of size at most s +( c −
+1) · nO(1).
+C proceeds as the Student except when it needs to simulate the Teacher and
+ﬁnd an appropriate witness in one of the setsYi.T h i si sd o n ea tm o s t(c −1)-times
+and takes nO(1) time each.
+Claims 3 and 4 imply that
+AHf (n1/3, 4c) ≤ s +( c − 1) · nO(1)
+and the theorem follows.
+Lemma 3.1 and Theorem 3.2 imply the following corollary.
+Corollary 3.3. Assume that there exists a polynomial time permutationh such that
+for any ﬁxed k ≥ 1 it is 𝓁−k one way with a super-polynomial security parameter
+t(𝓁)= 𝓁ω(1). Then the hypothesis (H) holds.
+If the permutationh is 𝓁−k one way with even an exponential security parameter
+t(𝓁)=2 𝓁Ω(1)
+for all ﬁxed k ≥ 1, then the hypothesis (H) holds even when asserting
+that the total size of the circuits computing Student’s moves have to be exponential
+in n.
+We shall conclude this section with two remarks useful for a later reference.
+Remarks.
+(a) We have chosen the valuem := n+1 in order to maximize a time bound in Sec.4
+(ideally this would translate into lower bounds for lengths of proofs). However, the
+construction allows bigger values ofm, up to exponential in𝓁.F i r s t ,m inﬂuences the
+rate of the advantage the algorithm C has in computing f:w h e nm is polynomial
+in 𝓁 the advantage is polynomially small 𝓁−O(1), while for an exponential m it
+would be exponentially small 2 −𝓁Ω(1)
+. It is consistent with the present knowledge
+that there are NP ∩ coNP functions which is diﬃcult to approximate even with an
+exponentially small advantage but it is clearly a stronger assumption to make than
+the standard hypothesis about one way permutations we have used.
+Second, m does not appear explicitly in the size estimate forC but it is involved
+implicitly: the Student knows b which has size m. Hence for values of m that are
+super-polynomial in n one should estimate the size of C in terms of m rather than
+in terms of n, and it would be exponential in 𝓁if m was.
+September 6, 2011 16:39 WSPC/S0219-0613 153-JML
+S0219061311000979
+20 J. Kraj´ıˇcek
+(b) Assume we would want to allow f not only from NP ∩ coNP but from a larger
+class NTime (r(𝓁)) ∩ coNTime (r(𝓁)) with a super-polynomial r(𝓁). In such a case
+the witnesses for the function values will have the length O(r(𝓁)).
+The size of witnesses plays a role in the estimate of the size of C:e a c hs t e p
+when C simulates the Teacher and searches for a witness for f(x(Ji)) = bi in Yi
+would now take time O(nr(𝓁)O(1)). Hence the size of C would be estimated by
+s + O(cnr(𝓁)O(1))= s + O(c𝓁3r(𝓁)O(1)). For this to give a non-trivial upper bound
+one must have r(𝓁) ≤ 2(1−Ω(1))𝓁 or better still r(𝓁) ≤ 2𝓁Ω(1)
+. In particular, one
+cannot allow f from NE ∩ coNE . This is relevant to note because a version of the
+Razborov’s conjecture allowing NE ∩ coNE in place of NP ∩ coNP was shown to
+have a startling consequence in [17].
+4. A Model of T PV Where T ask (T) has no Solution
+The language LPV of Cook’s [6] theory PV has a name for every polynomial-time
+algorithm obtained from some basic algorithms by the composition and by the lim-
+ited recursion on notation, following Cobham’s [ 5] characterization of polynomial
+time. The axioms of PV codify how the algorithms are built from each other. Cook
+has originally deﬁned PV as an equational theory but after [ 22] it became cus-
+tomary to deﬁne it as a usual ﬁrst-order theory whose axioms are purely universal
+statements; this is the convention we adopt here. We do not spell out the deﬁnition
+of either LPV or PV as we use only two facts: every function symbol from LPV is
+in the standard model N interpreted by a polynomial time function and PV is true
+in the standard model ([13] oﬀers all details).
+Theory PV is closely linked with Exte nded Frege system EF and this relation
+has many facets. For example, PV proves the soundness of EF and EF can simulate
+by polynomial size proofs of instances any PV proof of a universal statement. We
+shall, however, not use this relation (at least not directly). In fact, we shall work
+instead with the true universal ﬁrst-order theory ofN in the languageLPV .W es h a l l
+denote this theory TPV.N o t et h a tTPV contains formulas expressing the soundness
+of all proof systems and that PV ⊆ TPV.
+A class of models of TPV can be constructed as follows. LetM be a non-standard
+model of true arithmetic (tacitly in the language LPV ). Let n ∈ M be a non-
+standard number and deﬁne Mn and M ∗
+n to be the substructures of M consisting
+of numbers whose bit length is less than nk for some standard k ∈ N or less than
+2n1/k
+for all standardk ∈ N, respectively (such models are called a small and a large
+canonical model in [15]). Both Mn and M ∗
+n are indeed closed under all functions in
+the language LPV as these have polynomial length-growth. Note that, for example,
+matrix An is in Mn ⊆ M ∗
+n.
+Theorem 4.1. Assume f is an NP ∩ coNP function with unique witnesses. LetM
+be a non-standard model of true arithmetic,n ∈ M a non-standard element, and let
+b ∈ M be any string of length m (= n +1 ) that is outside of the range of NWAn,f
+(s u c has t r i n gb exists as the domain of NWAn,f is smaller than 2m).
+September 6, 2011 16:39 WSPC/S0219-0613 153-JML
+S0219061311000979
+On the Proof Complexity of the NW-Generator Based on a Hard NP∩ coNP Function 21
+If, for all ﬁxed k ≥ 1,A Hf (𝓁, k) is a super-polynomial function of 𝓁,then there
+exists a model N of TPV that is a coﬁnal extension of Mn, a n das t r i n gw ∈ N of
+length n such that in N it holds:
+∀ i ∈ [m]f(w(Ji)) = bi. (4.1)
+If, for all ﬁxed k ≥ 1,A Hf (𝓁, k) is an exponential function of 𝓁,then there exists a
+model N ∗ of TPV that is a coﬁnal extension of M ∗
+n, a n das t r i n gw ∈ N ∗ of length
+n such that in N ∗ (4.1) holds.
+Proof. Let T be a theory consisting of the diagram of Mn (with a name for every
+element of Mn and, in particular, for An and b) together with the theory T PV.
+Assume for the sake of contradiction that no model N with the required proper-
+ties exists (as the statement in question is bounded to elements whose length is
+bounded by elements of Mn, we may consider without a loss of generality only
+coﬁnal extensions of Mn).
+By completeness of ﬁrst-order logic, it follows that T proves
+∀ x(|x| = n)∃ i ∈ [m]∀ y(|y|≤ nO(1)) ¬Fbi (x(Ji),y )
+where F0 and F1 are the polynomial-time relations deﬁning f as in (2.2), and are
+represented here by open formulas of LPV .
+As T is a universal theory we may apply the KPT witnessing theorem from [22]
+(see also [13, 7]), a form of Herbrand theorem, and conclude that there are terms
+of the language of T
+i1(x),i2(x, y1),...,i c(x, y1,...,y c−1) (4.2)
+for some natural numberc ≥ 1, such that each termik depends only on the variables
+shown and may use constants from Mn,a n ds u c ht h a tT proves (and hence in Mn
+it holds) the universal closure of the following disjunction:
+(i1 ∈ [m] ∧¬ Fbi1 (x(Ji1 ),y1)) ∨
+(i2 ∈ [m] ∧¬ Fbi2 (x(Ji2 ),y2)) ∨ (4.3)
+...
+(ic ∈ [m] ∧¬ Fbic (x(Jic ),y c)).
+(We have left out the bounds to the lengths from the formula.)
+The value of each term ij can be computed in time polynomial in n as they
+contain only parameters of polynomial length, functions interpreting the language
+are polynomial-time and the input length is polynomially bounded too.
+It remains to observe (as it is now standard) that this disjunction deﬁnes an
+algorithm for a Student that solves the task (T) in c steps: The Student ﬁrst pro-
+poses solution i1(x). If it fails it proposes i2(x, y1) computed from x and witness
+y1 to f(x(Ji1 )) = bi1 provided by the Teacher, etc. The fact that the disjunction
+is universally valid means that the Student must ﬁnd a correct solution in at most
+c steps.
+September 6, 2011 16:39 WSPC/S0219-0613 153-JML
+S0219061311000979
+22 J. Kraj´ıˇcek
+Hence this gives a polynomialnO(1) time non-uniform algorithm for the Student
+which contradicts Theorem 3.2.
+T h ec a s eo fM ∗
+n is completely analogous except that parameters in the terms
+are now of sub-exponential size 2 no(1)
+and this yields also a sub-exponential time
+bound for the Student.
+At the beginning of Sec. 2,w eh a v es e tm = n + 1. If the function f has
+exponential approximating hardness we get by the previous theoremN ∗ ⊇ M ∗
+n and
+this model contains strings of length up to anything subexponential 2 no(1)
+.T h i s
+translates in the next statement (part 2) to the a bigger time allowed for a non-
+deterministic algorithm deﬁning set R: it can be also subexponential 2 𝓁o(1)
+.B u t
+if f has even exponential hardness Hf (𝓁) we can take also a bigger value for the
+parameter m,a n ym = m(n) ≤ 2no(1)
+. Now the time bounds allowed for deﬁnitions
+of R,a sm e a s u r e di nt e r m so fm, include all polynomial bounds (and can include
+slightly super-polynomial ones) but not arbitrary subexponential.
+Theorem 4.2 (Consistency of Statement (S)). Let k ≥ 1 be a natural number
+parameter andm = m(k) an injective function ofk, and assume k<m (k) < 2ko(1)
+.
+Let Ak be k × m 0-1 matrices that are (log m, k1/3) designs. Assume f is an NP ∩
+coNP function with unique witnesses. Then the following three statements hold:
+(1) If m = n +1 and, for all ﬁxed k ≥ 1,A Hf (𝓁, k) is a super-polynomial function
+of 𝓁,and R is an inﬁnite NP set then it is consistent with TPV that
+R ∩ Rng(g) ⁄= ∅.
+(2) If m = n +1 and, for all ﬁxed k ≥ 1,A Hf (𝓁, k) is an exponential function of
+𝓁,and R is an inﬁnite set from the class NTime (2mo(1)
+) then it is consistent
+with TPV that
+R ∩ Rng(g) ⁄= ∅.
+(3) Let m(k) be any function that is2ko(1)
+and assume that Hf (𝓁) is an exponential
+function of 𝓁. Assume R is an inﬁnite NP set that has inﬁnitely many elements
+whose length equals to m(k) for some k ≥ 1.
+Then it is consistent with TPV that
+R ∩ Rng(g) ⁄= ∅.
+Proof. Let us start with the ﬁrst statement; the proof of the second is completely
+analogous using the remark before the theorem.
+Let R be an inﬁnite NP set and assume that it is deﬁned by the condition
+∃ y(|y|≤| x|O(1))R0(x, y), where R0 p-time.
+We may assume that R is disjoint with Rng(g) as otherwise there is nothing to
+prove. Let M be a non-standard model of true arithmetic. Set R has non-standard
+September 6, 2011 16:39 WSPC/S0219-0613 153-JML
+S0219061311000979
+On the Proof Complexity of the NW-Generator Based on a Hard NP∩ coNP Function 23
+elements in any such model; take one such element from M and denote it b.I ti s
+not in Rng(g).
+The fact that b ∈ R is witnessed by some polynomially longer stringc such that
+R0(b, c)h o l d s .
+Now deﬁne m = |b| and n = m − 1 and apply Theorem 4.1 to get a model
+N ⊇ Mn of TPV in which b is in the range of g.B u tc is also in N and R0(b, c)
+holds, so b ∈ R in N too.
+The proof of the third statement is again analogous but we need to use the extra
+lengths-condition posed on R to guarantee that b has the length of the form m(n),
+and also the assumption that Hf (𝓁) is exponential (approximating hardness would
+not suﬃce) because the advantage the algorithm in Theorem3.2 gets in computing
+f is Ω(m−c) which is only 2−𝓁o(1)
+if m =2 𝓁o(1)
+.
+Statement (S) is related to proof complexity as follows. Denote (S1), (S2)
+and (S3) the three statements whose co nsistency was established in Theorem 4.2;
+all three have the form a that, under certain assumptions on map g and set R,
+R ∩ Rng(G) ⁄= ∅.
+Let P be any proof system and r ≥ 1 a constant, and let m(k)= k +1a n d f
+have super polynomial approximating hardness as in (S1). Because the length of
+the τ-formula τ(g)b is polynomial in the length of b,t h es e t
+RP := {b ∈{ 0, 1}∗ | τ(g)b has a P-proof of size at most |b|r }
+is in NP, and by the soundness of P it is disjoint with Rng( g). Statement (S1)
+therefore implies that g is hard for P.
+If f has an exponential approximating hardness and m(k)= k +1t h e n w e
+get analogously an exponential lower bound on theP-proofs of the formulas τ(g)b,
+via (S2).
+If f has an exponential hardness thenm(k) can be any subexponential function,
+and (S3) analogously implies that g is hard for P. In fact, we can get m up to 2kδ
+for some δ> 0 by compactness. These are the parameters in Razborov’s conjecture.
+From the proof complexity point of view the best choice ofm(k) is indeed k +1
+as it translates into better lower bounds.
+5. Missing Reﬂection
+Let P be a proof system and RP be the NP set from the end of the last section. If
+RP is ﬁnite for all r ≥ 1t h e ng is hard for P and thus P is not p-bounded.
+If RP is inﬁnite take the model N from Theorem 4.1 and the string from Mn
+satisfying in Nb ∈ Rng(g) ∩RP . The formulaτ(g)b has a P-proof in Mn (a witness
+to the membership of b in RP ) and hence also in N. The soundness of P is a true
+universal statement and hence valid in N.B u ti nN the statement the τ-formula
+aThese statements seem also akin in form to the demi-bit conjecture of Rudich [ 28].
+September 6, 2011 16:39 WSPC/S0219-0613 153-JML
+S0219061311000979
+24 J. Kraj´ıˇcek
+encodes is false. That should yield a contradiction and hence a proof that RP is
+ﬁnite, and as r ≥ 1 was arbitrary also that g is hard for P.T h i st y p eo fal o w e r
+bound argument goes back to Ajtai [1].
+Unfortunately the soundness of P, the usual reﬂection principle, that is valid in
+N is too weak to support this reasoning. That principle says that if a formula has
+a P-proof then no truth assignments can falsify it. The formulaτ(g)b has the form
+⋁
+i∈[m]
+ψi(x, yi)
+where ψi(x, yi) is a propositional translation (with respect to the length |x| = n)
+of the formula
+|yi|≤ nO(1) →¬ Fbi (x(Ji),y i)
+saying that no yi is a witness that f(x(Ji)) = bi.
+Let π be its P-proof from Mn (i.e. of polynomial size). Substituting (inside N)
+for x := w (without loss of generality we may assume thatP has such a substitution
+property) we get in N a P-proof σ of
+⋁
+i∈[m]
+ψi(w,y i).
+What we have in modelN are truth assignmentsvi falsifying eachψi(w,y i) individ-
+ually but we do not have there one stringv =( v1,...,v m) collecting all vi together
+and providing a truth assignment for the whole disjunction.
+The existence of such a stringv can be deduced from the existence of individual
+strings vi via the so called sharply bounded collection scheme (cf. [ 4, 13]). Its
+instance looks like:
+∀ i∃ yiB(i, yi) →∃ z∀ iB(i, (z)i)
+where i are sharply bounded (bym in our case), yi and z are bounded, and B is an
+open PV-formula. Unfortunately, Cook and Thapen have proved that this scheme
+is not provable in TPV unless factoring is not hard, cf. [9].b
+Let us introduce a handy notation:
+˙∨i ϕi
+meaning that the formulas ϕi in the disjunction use disjoint sets of variables, i.e.
+no two formulas share a single variable.
+Deﬁne the disjunction soundness of P to be the following principle:
+• If P proves a formula of the form ˙∨iϕi, then at least one of ϕi is a tautology.
+bIn fact, it would be enough to arrange that the instance of the collection scheme needed holds in
+some extension of N only. But Thapen pointed out that the argument of [ 9] should rule out this
+option too.
+September 6, 2011 16:39 WSPC/S0219-0613 153-JML
+S0219061311000979
+On the Proof Complexity of the NW-Generator Based on a Hard NP∩ coNP Function 25
+If we could arrange the disjunction soundness in N then the argument outlined
+above would yield Statement (S) and hence Razborov’s conjecture.
+For a proof system P we shall say that P admits feasible disjunction property
+(FDP) if:
+• There is c ≥ 1 such that whenever π is a P-proof of a disjunction ˙∨iϕi then there
+is a P-proof σ of one of the disjuncts ϕi and of the size |σ|≤| π|c.
+A simple but maybe useful observation is that for the purpose of proving that
+P is not p-bounded (an arbitrary P) we may assume without a loss of generality
+that P does admit the feasible disjunction property. This is because the failure of
+the property automatically implies that P is not p-bounded: one of the disjuncts
+ϕi must be a tautology and its P-proofs cannot be p-bounded.
+By the observation we may assume that P has the FDP in Mn.I fw eh a dt h e
+FDP for P in N too we could get the wanted contradiction: one of the formulas
+ψi(w,y i)w o u l dh a v eaP-proof in N and we have falsifying assignments for all of
+them (and the ordinary soundness applies). Note that we cannot hope to prove
+FDP for strong P in PV as that would entail (via a witnessing argument) feasible
+interpolation for P and that is known to contradict the security of RSA, see [20].
+In fact, similarly as it would suﬃce to have an extension of N with a witness
+to the collection scheme, also the FDP property can be weakened: it would suﬃce
+that for some i ∈ [m] there is an extension of N in which ψi(w,y i)h a sa P-proof.
+It is perhaps worthwhile to point out that this property does hold for disjunctions
+of two formulas.
+6. Specializations to Smaller Computational Classes
+We may specialize the whole situation to some smaller classes of circuits. Of par-
+ticular interest from the point o fv i e wo fp r o o fc o m p l e x i t ya r eAC0, AC0(q), and
+NC1. Here we shall comment on the ﬁrst two classes as they oﬀer a possibility to
+perform the construction without an unproven assumption or with a signiﬁcantly
+weaker one.c
+Specializing to a circuit class means to consider NP ∩ coNP functions f deﬁned
+as in (2.2) but with formulas Fa in the class, and allowing also functionsS1,...,S c
+in (2.3) deﬁning the Student’s moves only from the class. Note then that the con-
+struction of circuit C will yield again a circuit in the same class. One only needs to
+verify that the steps when C simulates the Teacher and searches for a witness can
+be performed in a constant depth. A simple deﬁnition by cases
+(yi)j :=
+⋀
+z∈Yi
+(Fbi (u, z) ∧ (z)j)
+expressing the jth bit of the correct witness yi works.
+cThe case of NC 1 is being worked out by J. Pich (in preparation). It relates to another Razborov’s
+conjecture from [ 27].
+September 6, 2011 16:39 WSPC/S0219-0613 153-JML
+S0219061311000979
+26 J. Kraj´ıˇcek
+It is well-known that in the AC0 case the random restriction method (in the
+sharp version of [ 11]) shows that, for any ﬁxed d, the parity function needs an
+exponential size depth d circuit even for an approximation with an exponentially
+small advantage (cf. [3]). This readily yields a suitable NP ∩ coNP function with
+unique witnesses and our argument then proves the AC0 version of the hypothesis
+(H) unconditionally (even with an exponential lower bound for the Student).
+For the class AC0(q) the situation is diﬀerent. For q a prime the Razborov–
+Smolensky approximation method [26, 29] allows to approximate any smallAC0(q)
+circuit by a low degree polynomial over Fq with a very small error. For example,
+setting the parameters right allows to approximate any polynomial size circuit by
+ad e g r e ed polynomial with a negligible error, as long as d = ω(log 𝓁).
+Hence ﬁnding a suitable NP ∩ coNP function f that needs super-polynomial
+size AC0(q) circuit for an approximation with any particular 𝓁−O(1) advantage is
+equivalent to ﬁndingf that cannot be approximated well by a low degree polynomial
+over Fq. The qualiﬁcation “low” here means at leastω(log 𝓁)( a n d𝓁Ω(1) would yield
+exponential lower bounds).
+Unfortunately this problem is open. In fact, it is even open if there is an NP
+function which no degree log𝓁polynomial approximates with an advantage 1/𝓁.S e e
+[30] for a survey of this topic.
+Acknowledgments
+I am indebted to N. Thapen (Prague) for comments on the preliminary version of
+the paper.
+Supported in part by grants IAA100190902, MSM0021620839, LC505 (Eduard
+ˇCech Center) and by a grant from the John Templeton Foundation. Also partially
+aﬃliated with the Institute of Mathematics of the Academy of Sciences and grant
+AV0Z10190503.
+References
+[1] M. Ajtai, The complexity of the pigeonhole principle, in Proc. IEEE 29th Annual
+Symp. on Foundation of Computer Science (1988), pp. 346–355.
+[2] M. Alekhnovich, E. Ben-Sasson, A. A. Razborov and A. Wigderson, Pseudorandom
+generators in propositional proof complexity, Electronic Colloquium on Computa-
+tional Complexity , Rep. No. 23 (2000). Ext. abstract in Proc. of the 41st Annual
+Symp. on Foundation of Computer Science (2000), pp. 43–53.
+[3] S. Arora and B. Barak, Computational Complexity: A Modern Approach (Cambridge
+University Press, 2009).
+[4] S. R. Buss, Bounded Arithmetic (Naples, Bibliopolis, 1986).
+[5] A. Cobham, The intrinsic computational diﬃculty of functions, in Proc. Logic,
+Methodology and Philosophy of Science , ed. Y. Bar-Hillel (North-Holland, 1965),
+pp. 24–30.
+[6] S. A. Cook, Feasibly constructive proofs and the propositional calculus, in Proc. 7th
+Annual ACM Symp. on Theory of Computing (ACM Press, 1975), pp. 83–97.
+[ 7 ] S .A .C o o ka n dP .N g u y e n ,Logical Foundations of Proof Complexity (Cambridge
+University Press, 2010).
+September 6, 2011 16:39 WSPC/S0219-0613 153-JML
+S0219061311000979
+On the Proof Complexity of the NW-Generator Based on a Hard NP∩ coNP Function 27
+[8] S. A. Cook and Reckhow, The relative eﬃciency of propositional proof systems,
+J. Symb. Log. 44(1) (1979) 36–50.
+[9] S. A. Cook and N. Thapen, The strength of replacement in weak arithmetic, ACM
+Trans. Comput. Log. 7(4) (2006).
+[10] O. Goldreich, Foundations of Cryptography , Vol. 1 (Cambridge University Press,
+2001).
+[11] J. Hastad, Almost optimal lower bounds for small depth circuits, inRandomness and
+Computation, ed. S. Micali, Advances in Computing Research, Vol. 5 (JAI Press,
+1989), pp. 143–170.
+[12] E. Jeˇr´abek, Dual weak pigeonhole principle, Boolean complexity, and derandomiza-
+tion, Ann. Pure Appl. Log. 129 (2004) 1–37.
+[13] J. Kraj´ıˇcek, Bounded Arithmetic, Propositional Logic, and Complexity Theory ,E n c y -
+clopedia of Mathematics and Its Applications, Vol. 60 (Cambridge University Press,
+1995).
+[14] J. Kraj´ıˇcek, On the weak pigeonhole principle,Fund. Math. 170(1–3) (2001) 123–140.
+[15] J. Kraj´ıˇcek, Tautologies from pseudo-random generators, Bull. Symb. Log. 7(2)
+(2001) 197–212.
+[16] J. Kraj´ıˇcek, Dual weak pigeonhole principle, pseudo-surjective functions, and prov-
+ability of circuit lower bounds, J. Symb. Log. 69(1) (2004) 265–286.
+[17] J. Kraj´ıˇcek, Diagonalization in proof complexity, Fund. Math. 182 (2004) 181–192.
+[18] J. Kraj´ıˇcek, Forcing with Random Variables in Bounded Arithmetic, and proof Com-
+plexity, London Mathematical Society Lecture Notes Series, Vol. 382 (Cambridge
+University Press, 2011).
+[19] J. Kraj´ıˇcek and P. Pudl´ak, Propositional proof systems, the consistency of ﬁrst order
+theories and the complexity of computations, J. Symb. Log. 54(3) (1989) 1063–1079.
+[20] J. Kraj´ıˇcek and P. Pudl´ak, Some consequences of cryptographical conjectures for S1
+2
+and EF , Inform. Comput. 140(1) (1998) 82–94.
+[21] J. Kraj´ıˇcek, P. Pudl´ak and J. Sgall, Interactive computations of optimal solutions,
+in Mathematical Foundations of Computer Science (B. Bystrica, August ’90), ed.
+B. Rovan, Lecture Notes in Computer Science, Vol. 452 (Springer-Verlag, 1990),
+pp. 48–60.
+[22] J. Kraj´ıˇcek, P. Pudl´ak and G. Takeuti, Bounded arithmetic and the polynomial
+hierarchy, Ann. Pure Appl. Log. 52 (1991) 143–153.
+[23] N. Nisan and A. Wigderson, Hardness vs. randomness, J. Comput. Syst. Sci.
+49 (1994) 149–167.
+[24] J. Pich, Nisan-Wigderson generators in proof systems with forms of interpolation,
+M a t h .L o g .Q u a r t .57(4) (2011) 379–383.
+[25] P. Pudl´ak, The lengths of proofs, in Handbook of Proof Theory , ed. S. R. Buss
+(Elsevier, 1998), pp. 547–637.
+[26] A. A. Razborov, Lower bounds on the size of bounded depth networks over a complete
+basis with logical addition, Mat. Z. 41(4) (1987) 598–607.
+[27] A. A. Razborov, Pseudorandom generators hard fork-DNF resolution and polynomial
+calculus resolution, preprint (2003).
+[28] S. Rudich, Super-bits, demi-bits, and ˜NP/ qp o ly-natural proofs, in Proc. of the 1st
+Int. Symp. on Randomization and Approximation Techniques in Computer Science ,
+Lecture Notes in Computer Science (Springer-Verlag, Vol. 1269, 1997), pp. 85–93.
+[29] R. Smolensky, Algebraic methods in the theory of lower bounds for Boolean circuit
+complexity, in Proc. 19th Ann. ACM Symp. on Th. of Computing (1987), pp. 77–82.
+[30] E. Viola, Correlation bounds for polynomials over {0, 1}, ACM SIGACT News 40(1)
+(2009).

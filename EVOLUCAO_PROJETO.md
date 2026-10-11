@@ -4,7 +4,7 @@
 **Projeto:** IA-research-Godel-e-Krajicek
 **Autor:** Euzebio Soares
 **Data da primeira versão:** Setembro 2026
-**Última atualização:** 22/09/2026
+**Última atualização:** 11/10/2026 (Fase 11 — campanha DD_P, rodadas A–M)
 
 ---
 
@@ -399,7 +399,71 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 
 ---
 
-## Fase 10 — O que está em aberto (agora)
+## Fase 11 — Campanha DD_P: Krajíček 2025 (10–11/10/2026, rodadas A–M)
+
+### 11.1 O problema atacado
+
+**Jan Krajíček, *On NP∩coNP proof complexity generators*, arXiv:2506.20221**
+(v4 Mar 2026; **v5/LMCS 22(2:14)2026**). O coração: **Problema 2.1** (extensão de
+modelos com `Log(M*)=Log(M')`), cuja resposta afirmativa + hipótese (ST) ⟹
+`NP ≠ coNP`, e cuja resposta **negativa** ⟹ `P ≠ NP` (rodapé 2).
+**Numeração:** o Teorema 4 da v4 é o **Teorema 3** na v5/LMCS.
+
+Equipe multidisciplinar em `krajicek_ddp/` (contexto centralizado, referee hostile
+por frente, (A)=fonte/(P)=próprio/(C)=conjectura; todas as rodadas preservadas em
+`*_referee.md`; relatório consolidado em `RELATORIO_CONSOLIDADO.md`).
+
+### 11.2 Primeira onda (A–E, 10/10)
+
+- **A** (`A_teoremas_exatos.md`): teoremas exatos extraídos (pps Cook–Reckhow,
+  `DD_P`/`D_P`, Lema 1, (ST), Lema 2, Teorema 3/4, rodapé 2) + 3 correções aos
+  enunciados informais.
+- **B** (`lean4/Gothic_Generators/DDP.lean`): **compilando** (`lake build` exit 0) —
+  totalidade de `DD_P` por indução, aluno–professor, `dd_solvable_in_m_rounds`;
+  2 `sorry`s permanentes por natureza.
+- **C** (`C_disjuncao_viavel.md`): **`DD_Res ∈ P`** com extração de refutação pura
+  ≤ |π| (lema de recorte + lema da pureza); `D_Res ∈ P`; interpolação viável ⟹
+  `DD_P ∈ P`; FI **falha** para strong pps (explica por que Pich–Santhanam é refutado);
+  3000/3000 experimentos; heurísticas sintáticas falham em 9,6–52%.
+- **D** (`D_geradores_consequencias.md`): NW ([8]) reconstruído — `DD_P` resolve
+  exatamente a não-uniformidade do estudante; `(K)⟹(ST)`; Lema 2 de [11].
+- **E** (`E_ataque_problema21.md`): a "versão fraca" do artigo é o formato do axioma
+  `∀i<m (¬α_i)∈SAT`; decomposição E1–E5 (núcleo = E2 preservação + E4 parâmetros);
+  **ponto frágil** `Log(M*)=Log(M')` ≠ `i_0 ∈ M*`.
+
+### 11.3 Segunda onda (F–M, 10–11/10) — ver `RELATORIO_CONSOLIDADO.md` §6
+
+| Frente | Resultado-chave (referee-processado) |
+|---|---|
+| **F** | Lacuna do passo (5) **verbatim em v4 e v5**; lema de suficiência finita; O1–O8 |
+| **G1** | **`Log(M[G])=Log(M)`** ([Kra98 §4]) — **`(F-b')` refutado** (Thm 4.3); errata 9.4.2 |
+| **G2** | **Obstrução ZFC**: `T_PV`+falsificador+`(F-sent)` é falso — correção `2.1→(F-sent)` é alvo de reductio |
+| **H** | **Thm 1.1 "no-G"**: nenhum `G` do artigo sobrevive a G2 |
+| **I** | Nenhum ultrapoder `ℕ^ω/U` modela `S`; nenhuma instância **padrão** de `(S2)–(S4)` com `P` sounde (B.1) |
+| **J1** | **Teorema K**: coleção interna impossível; `T_PV+BB+(S2)(S3)(S4)` **inconsistente** (K.2) |
+| **J2** | **K-FP′**: ponto fixo **padrão** existe; `(Hjoint)` falsa em todo modelo |
+| **L** | **`T_PV+(S4) ⊢ ∀rφ(r)`** — `¬φ` **internamente insatisfatível** (L.1); **C.3 negativa incondicional** (L.3′); `α` não-padrão (L.3a); `φ` exemplifica o aviso L21–22 (L.4) |
+| **M** | **Canto adversarial `(C)` decidido**: `m` sempre não-padrão (M.0); sem falsificador global (M.1); **`C_{N_s} ≡ ⊥`** para nome não-padrão `N_s` = seletor p-tempo (M.2) — 2ª fonte de não-compactude; nomes padrão inofensivos (M.3–M.5) |
+
+### 11.4 Entrega
+
+**Nota editorial a Krajíček** (`NOTA_EDITORIAL_Krajicek.md` v4; referee 3 rodadas,
+**pre-comprometeu APROVADO**): errata (lacuna em ambas as versões; renumeração),
+**disjunção de dois chifres**, obstáculos (G2, K, L.1), o que sobrevive, perguntas
+ao autor (semântica de `τ_N` — **`q` total?** —; leitura (i)/(iii); convenção de
+código; Condition 1) e **carta EN** curta. **Aguardando revisão do autor do projeto**
+antes de traduzir/enviar a `www.karlin.mff.cuni.cz/~krajicek/`.
+
+### 11.5 Abertos desta campanha
+
+1. **Revisar/traduzir/enviar a nota editorial** (prioridade nº 1 — saída pública).
+2. Refutação interna de `{C_{N_s}}` (prova EF de `δ_{N_s}∧¬τ_{N_s}` — provabilidade, (C)).
+3. Resíduos J.6 = perguntas ao autor (semântica de `τ_N`; (i)/(iii); código; Condition 1).
+4. Estender `DD_Res ∈ P` a `Res(k)` ou provar `∉ P` sob P≠NP.
+
+---
+
+## Fase 10 — O que está em aberto (programa δ/𝒢; a Fase 11 tem seus próprios abertos)
 
 ### Aberto matemático
 
@@ -457,7 +521,12 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 | 22/09/2026 | **PR21 theorem4/rcs** | **PROVADOS sem sorry**; lake build pendente |
 | 22/09/2026 | **PR26 revisão externa** | REJEITADO/orig. provisória aplicados |
 | 22/09/2026 | **PR27 Q + bridge + MO** | Q formal; wStarObl; Φw* rota A; MO rascunho |
-| Próximo | Foundation build; rota B; (τ_n,q) concretos | — |
+| **10/10/2026** | **DD_P rodadas A–E** | `DD_Res ∈ P`; Lean DDP compila; ataque 2.1 (E1–E5) |
+| **10/10/2026** | **F–G: lacuna + obstrução** | lacuna v4 **e** v5; `Log(M[G])=Log(M)`; `(F-b')` refutado; `2.1→(F-sent)` | **SIM** — reductio |
+| **11/10/2026** | **H–I–J: Q-compactness** | no-G; ultrapoderes fora; **Teorema K**; **K-FP′** |
+| **11/10/2026** | **L: `¬φ` insatisfatível** | `T_PV+(S4)⊢∀rφ(r)`; **C.3 negativa**; L.4 |
+| **11/10/2026** | **M: adversarial decidido** | `m` não-padrão; **`C_{N_s}≡⊥`**; **nota editorial v4** |
+| Próximo | ~~Foundation build; rota B; (τ_n,q) concretos~~ → **enviar nota editorial (Fase 11)** | — |
 
 ---
 
@@ -474,7 +543,13 @@ Adicionado ao núcleo 09 o que era novo/correto no documento fornecido:
 
 ## Próximo passo (a atualizar)
 
-> **Próximo (PR28+):** (a) ~~`lake build` em `Foundation/` + `FoundationBridge/`~~ **FEITO — VERDE 0 sorry** (cache FFL `ffl`, 1239 jobs); (b) rota B: Φw* com padding w* (definability); (c) instâncias (τ_n,q) concretas para Q — **só então** limite inferior; (d) MathOverflow post **só com confirmação**. ~~Q formal~~, ~~bridge δ Core~~, ~~Φw* rota A~~, ~~rascunho MO~~, ~~build Foundation/FoundationBridge~~ **FEITOS** (PR27).
+> **Próximo (PR28+):** **(0) PRIORIDADE — Fase 11: revisar `NOTA_EDITORIAL_Krajicek.md`
+> v4, decidir o apêndice (§2) e a pergunta "`q` em `τ_N` é total?", traduzir e enviar
+> a Krajíček** (referee já pre-comprometeu APROVADO); (b) rota B: Φw* com padding w*
+> (definability); (c) instâncias (τ_n,q) concretas para Q — **só então** limite
+> inferior; (d) MathOverflow post **só com confirmação**. ~~`lake build`
+> Foundation/FoundationBridge~~ **FEITO — VERDE 0 sorry** (cache FFL `ffl`, 1239 jobs);
+> ~~Q formal~~, ~~bridge δ Core~~, ~~Φw* rota A~~, ~~rascunho MO~~ **FEITOS** (PR27).
 
 ---
 

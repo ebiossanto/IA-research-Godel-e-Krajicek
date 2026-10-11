@@ -1,8 +1,13 @@
 # Documento de Continuidade: Pesquisa Godel-Krajicek
 
-**Data:** Setembro 2026
+**Data:** Setembro 2026 (atualização 11/10/2026 — §1.4)
 **Status:** Para continuidade pelo autor
 **Aviso:** Este documento resume TUDO o que foi feito, descoberto, e o que resta fazer.
+
+> **ATUALIZAÇÃO 11/10/2026 (§1.4 no fim):** nova campanha **DD_P** (Krajíček 2025,
+> arXiv:2506.20221) concluída com referee — ver `krajicek_ddp/RELATORIO_CONSOLIDADO.md`
+> e a **Fase 11** de `EVOLUCAO_PROJETO.md`. A **nota editorial a Krajíček** está
+> pronta (`krajicek_ddp/NOTA_EDITORIAL_Krajicek.md` v4) e é a prioridade nº 1.
 
 ---
 
@@ -38,6 +43,31 @@ A **nova linha mais promissora** evoluiu em duas camadas:
    - Teorema 4: reflexao da δ_T=1 → δ_T'=0
 
 **Documentos:** `09_EVOLUCAO_...` (nucleo), `08_PROGRAMA_...` (PPR), `EVOLUCAO_PROJETO.md` (historico vivo).
+
+### 1.4. Campanha DD_P / Krajicek 2025 (10–11/10/2026 — ADICIONADO)
+
+Nova linha fora do nucleo delta/𝒢: ataque ao **Problema 2.1** de
+*On NP∩coNP proof complexity generators* (arXiv:2506.20221; Teorema 4 da v4 =
+**Teorema 3** da v5/LMCS). Tudo em `krajicek_ddp/` com referees hostile preservados.
+
+**O que ficou provado (todas as frentes RECOMENDADAS):**
+
+1. **Lacuna real** no passo (5) — verbatim em **v4 e v5** (F1).
+2. **`Log(M[G])=Log(M)`** — o forcing nao cria comprimentos novos; `(F-b')` refutado (G1).
+3. **Obstrucao ZFC**: `T_PV` + falsificador + `(F-sent)` e falso (G2) — a correcao
+   `2.1→(F-sent)` e alvo de reductio.
+4. **Teorema K**: colecao interna impossivel; `T_PV+BB+(S2)(S3)(S4)` inconsistente (J1);
+   **K-FP′**: ponto fixo padrao existe (J2).
+5. **`T_PV+(S4) ⊢ ∀rφ(r)`** — `¬φ` internamente insatisfativel (L.1); **C.3 negativa
+   incondicionalmente** (L.3′); `α` nao-padrão (L.3a); `φ` exemplifica o aviso L21–22 (L.4).
+6. **Canto adversarial decidido**: `m` sempre nao-padro (M.0); **`C_{N_s}≡⊥`** para
+   nome nao-padro N_s = seletor p-tempo (M.2) — 2a fonte de nao-compactude.
+7. **`DD_Res ∈ P`** com refutacao pura ≤ |π| (C, primeira onda).
+
+**Status:** **nota editorial a Krajicek PRONTA** (`NOTA_EDITORIAL_Krajicek.md` v4,
+referee APROVADO) — revisar, decidir o apendice, acrescentar a pergunta "`q` em
+`τ_N` e total?", traduzir e **enviar**. Abertos menores: refutacao interna de
+`{C_{N_s}}`; `DD_Res` para `Res(k)`.
 
 ---
 

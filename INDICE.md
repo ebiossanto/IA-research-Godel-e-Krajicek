@@ -1,7 +1,9 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.15 (Setembro 2026 — PR27 Q + Gödel II rota A + bridge δ + MO)
-**Status:** Teorema Q condicional em Core; wStarObl/δ≥1; Φw*:=T.consistent; rascunho MO (não postado)
+**Versão:** 6.16 (Outubro 2026 — Campanha DD_P / Krajíček 2025, rodadas A–M)
+**Status:** Nota editorial a Krajíček pronta (v4, referee APROVADO — aguardando autor);
+Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥`; `DD_Res ∈ P`; Teorema Q condicional
+em Core; rascunho MO (não postado)
 
 ---
 
@@ -37,6 +39,30 @@
 | `lean4/Gothic_Generators/FoundationInstance.lean` | **moved → `FoundationBridge/`** | **OK** |
 | **`FoundationBridge/`** | **instância Foundation isolada; 0 sorry no fonte; `GodelSecond` rota A** | **OK (build Mathlib pendente)** |
 | `lean-toolchain`, `lakefile.toml` | Toolchain Lean 4.34 + Lake | **OK** |
+
+### CAMPANHA DD_P (Krajíček 2025, arXiv:2506.20221) — pasta `krajicek_ddp/`
+
+| Arquivo | Conteúdo | Status |
+|---------|----------|--------|
+| **`krajicek_ddp/RELATORIO_CONSOLIDADO.md`** | **Consolidação de TUDO (rodadas A–M)** | **ATIVO** |
+| `krajicek_ddp/CONTEXTO_COMUM.md` | Contexto centralizado (estado das frentes 11/10) | **ATIVO** |
+| `krajicek_ddp/A_teoremas_exatos.md` | Teoremas exatos do artigo (L21–22, L190/375, L341, L442, L513–518) | VERIFICADO |
+| `krajicek_ddp/B_lean_relatorio.md` + `lean4/Gothic_Generators/DDP.lean` | `DD_P` em Lean 4 — **compila** (2 `sorry`s permanentes) | **OK** |
+| `krajicek_ddp/C_disjuncao_viavel.md` | **`DD_Res ∈ P`** + refutação pura ≤ \|π\|; 3000/3000 exp. | **RECOMENDADO** |
+| `krajicek_ddp/D_geradores_consequencias.md` | NW/[8] reconstruído; `(K)⟹(ST)`; Lema 2 | VERIFICADO |
+| `krajicek_ddp/E_ataque_problema21.md` | Decomposição E1–E5 do passo (5); ponto frágil | VERIFICADO |
+| `krajicek_ddp/F1_verificacao_passo7.md` | **Lacuna verbatim em v4 e v5/LMCS** (referee 10/10) | **RECOMENDADO** |
+| `krajicek_ddp/F2_versao_finita.md` / `F3_...` | Lema de suficiência finita; obstáculos O1–O8 | RECOMENDADO |
+| `krajicek_ddp/G1_log_forcing.md` | **`Log(M[G])=Log(M)`**; **`(F-b')` refutado** (Thm 4.3) | RECOMENDADO |
+| `krajicek_ddp/G2_semente_Fsent.md` | **Obstrução ZFC** (Thm 2.1); correção `2.1→(F-sent)` | RECOMENDADO |
+| `krajicek_ddp/H1_colecao_refutacao.md` | **Thm 1.1 "no-G"**; redução (A)/(B) | RECOMENDADO |
+| `krajicek_ddp/I1_Qcompactness_ultrapoderes.md` | Ultrapoderes fora de `S`; B.1 (nenhuma instância padrão); venue `M_0⊨S` viva | **RECOMENDADO (v5)** |
+| `krajicek_ddp/J1_Qcompactness_M0.md` | **Teorema K**; K.2 (`T_PV+BB+(S2)(S3)(S4)` inconsistente); `(Hjoint)`; J.6 | **RECOMENDADO (v4)** |
+| `krajicek_ddp/J2_ponto_fixo.md` | **K-FP′**; J.6-a′; semântica `τ_N` aberta | **RECOMENDADO (v3)** |
+| `krajicek_ddp/L1_phi_insatisfativel.md` | **L.1** (`T_PV+(S4)⊢∀rφ(r)`); **L.3′** (C.3 negativa); L.3a; L.4 | **RECOMENDADO (v4)** |
+| `krajicek_ddp/M_canto_adversarial.md` | **M.0–M.5**: `m` não-padrão; **`C_{N_s}≡⊥`** — adversarial `(C)` decidido | **RECOMENDADO (v4)** |
+| **`krajicek_ddp/NOTA_EDITORIAL_Krajicek.md`** | **Nota a Krajíček (errata + dicotomia + perguntas + carta EN)** | **RASCUNHO — aguardando autor** |
+| `krajicek_ddp/*_referee.md` | Referees hostile preservados (F–M, NOTA, L1, J1, J2, I1, H1, G2) | AUDIT |
 
 ### Papers e Conjecturas
 
@@ -126,6 +152,14 @@
 | PR19 | PPR-3: Θ sobre provas de ramos | **FEITO — CC-Θ 32/32, polinomial** | `19_...` |
 | PR20 | Testar R_w nos cenários E0–E3 (RCS) | **FEITO — 4/4 PASSA PPR-2** | `18_...` |
 | PR21 | Fechar sorries theorem4/rcs em Lean | **FEITO — provas completas sem sorry** (lake build pendente) | `Core.lean`, `15_...` |
+| **DD1** | **Campanha DD_P: teoremas exatos (A)** | **FEITO** — 3 correções aos enunciados | `krajicek_ddp/A_...` |
+| **DD2** | **`DD_Res ∈ P` + refutação pura (C)** | **FEITO — RECOMENDADO** | `krajicek_ddp/C_...` |
+| **DD3** | **Lacuna do Problema 2.1 (F1)** | **FEITO — verbatim em v4 e v5; referee 10/10** | `krajicek_ddp/F1_...` |
+| **DD4** | **Obstrução ZFC + correção (G1/G2)** | **FEITO — `Log(M[G])=Log(M)`; `(F-b')` refutado; `2.1→(F-sent)`** | `krajicek_ddp/G1/G2` |
+| **DD5** | **Teorema K + K-FP′ (J1/J2)** | **FEITO — coleção impossível; ponto fixo padrão** | `krajicek_ddp/J1/J2` |
+| **DD6** | **`¬φ` insatisfatível + C.3 negativa (L)** | **FEITO — `T_PV+(S4)⊢∀rφ(r)`** | `krajicek_ddp/L1_...` |
+| **DD7** | **Canto adversarial `(C)` (M)** | **FEITO — `C_{N_s}≡⊥` construído** | `krajicek_ddp/M_...` |
+| **DD8** | **Nota editorial a Krajíček** | **PRONTA (v4) — AGUARDANDO o autor para enviar** | `krajicek_ddp/NOTA_EDITORIAL_...` |
 
 ### DESCARTADOS / REJEITADOS (não usar)
 
@@ -221,9 +255,9 @@ ao longo de uma hierarquia de reflexão $T_0 \subseteq T_1 \subseteq \cdots$?
 - ρ_b independente de codificação?
 - Transferência δ ⟹ PPR?
 
-**Documentos:** 09 (núcleo), 08 (PPR), 10–26 (exp+**RCS**+Lean+**Foundation**+**FP-δ**+**revisão externa**), 01/06/03/00/02/04/05 **corrigidos**, EVOLUCAO
+**Documentos:** 09 (núcleo), 08 (PPR), 10–26 (exp+**RCS**+Lean+**Foundation**+**FP-δ**+**revisão externa**), 01/06/03/00/02/04/05 **corrigidos**, EVOLUCAO, **`krajicek_ddp/` (campanha DD_P — consolidado em `RELATORIO_CONSOLIDADO.md`)**
 
-**Próximo passo:** Φw* Gödel II; bridge δ; teorema de transferência Q (antes de limite inferior); MathOverflow como pergunta
+**Próximo passo:** **(0) enviar a nota editorial a Krajíček** (`krajicek_ddp/NOTA_EDITORIAL_Krajicek.md` v4 — revisar, decidir apêndice e pergunta "`q` em `τ_N` é total?", traduzir); depois Φw* rota B (definability); (τ_n,q) concretas para Q (antes de limite inferior); MathOverflow como pergunta
 
 ---
 
@@ -239,6 +273,8 @@ ao longo de uma hierarquia de reflexão $T_0 \subseteq T_1 \subseteq \cdots$?
 8. **Markov (1958).** The insolubility of the problem of homeomorphy.
 9. **Lawvere (1969).** Diagonal arguments and cartesian closed categories.
 10. **Hogarth (1992); Etesi–Németi (2002).** Malament–Hogarth spacetimes.
+11. **Krajíček, J. (2026).** "On NP∩coNP proof complexity generators." arXiv:2506.20221 (v4 Mar 2026; **LMCS 22(2:14)**) — **alvo da campanha DD_P** (`krajicek_ddp/`).
+12. **Krajíček, J. (2020).** "A limitation on the KPT interpolation." LMCS 16(3) — [11] do artigo DD_P (Lema 2).
 
 ---
 

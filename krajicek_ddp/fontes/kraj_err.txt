@@ -1,0 +1,664 @@
+=== PAGE 1 ===
+Supplements to and errata for my books
+Jan Kraj´ ıˇ cek
+Last update: 17.July 2025
+This file consists of the errata for my books plus some supplementary
+material in the appendix. I maintained the errata pages on my web page
+so far but in the ever-changing digital university space they may not be
+available in the long-term. It appears that these pages were useful to a
+number of readers over the years and perhaps will continue to be so. It will
+be easier to arrange for their archiving in the pdf format. In future only this
+file will be updated.
+The books covered are:
+1. [1]: Bounded arithmetic, propositional logic and complexity theory, 1995,
+2. [3]: Forcing with random variables and proof complexity , 2011,
+3. [5]: Proof complexity, 2019.
+4. [6]: Proof complexity generators, 2025.
+All four were published with the Cambridge University Press.
+The first three sections contain (slightly edited) errata pages for my first
+three books as they were on my web page in October 2024. In all sections we
+use the terminology and the notation from the corresponding book without
+further explanations.
+Acknowledgments:
+I am indebted to the following colleagues who pointed out some of the
+errors or issues to clarify:
+K.Aehlig (Munich), A. Beckmann (Muenster/Swansea), S.Buss (San Diego),
+P. Clote (Boston/Munich), S.Cook (Toronto), U.Egly (Wien), Y.Filmus (Toronto),
+Pietro Galliani (Bolzano), Michal Garlik (St.Petersburg), Raheleh Jalali (Am-
+sterdam), E.Jerabek (Prague), J.Joosten (Amsterdam/Prague), E.Khaniki
+(Tehran), L.Kolodziejczyk (Warsaw), J.Maly (Vienna) M.Moniri (Tehran),
+M.Narusevych (Prague), N.Thapen (Oxford), Emre Yolcu (CMU) and Kon-
+rad Zdanowski (Warsaw).
+1
+=== PAGE 2 ===
+1 The 1995 book
+• 4.3.10: p.40, the proof of Claim 2: the induction really goes on a part
+of proofs consisting of ancestors of the end-sequent of the original σ.
+Hence the induction assumption should rather say: Let any formula in
+σ either have depth ≤ d or be an ancestor of an identical formula in
+the end-sequent.
+• 4.4.8: factor k is obviously missing in part 2.
+• 4.6 (pp.57-58): In Def.4.6.2 no variable occurrence free in B should be-
+come bounded in A(B). Alternatively, one could allow only quantifier-
+freeB. Another alternative is to introduce bound and free variables in
+formulas and allow only formulas with no occurrences of bound vari-
+ables outside the scope of a quantifier.
+• 4.6: The proof of L. 4.6.3 uses Πq
+1 flas although only Σq
+1 flas are allowed
+by the definition. Modify the proof of the first part of L. 4.6.3 to use
+only Σq
+1-formulas. Namely, simulate EF-proof θ1,θ 2,... by G∗
+1-proofs
+of¬θ1 →,... rather than by proofs of → θ1,... . In particular, the
+substitution rule is simulated than as follows:
+¬θ(p)→
+∃¬θ(p)→
+and derive
+¬θ(ϕ)→¬θ(ϕ)
+and thus
+¬θ(ϕ)→∃¬θ(p)
+and get but the cut the wanted sequent
+¬θ(ϕ)→
+Another option (better perhaps): allow in the definition (Def. 4.6.2)
+ofGi andG∗
+i not only Σb
+i-formulas but also Πb
+i-formulas; that is surely
+equivalent (w.r.t. p-simulation).
+• p.83, l.5: the term |y| in formula B(s) means ”cardinality” of y as a
+set it codes. This should be properly Numones(y,|y|). The LENGTH-
+MAX principle still obviously applies.
+2
+=== PAGE 3 ===
+• L. 5.5.7, p.88: in the proof Σ 1,b
+1 -PIND should be Σ 1,b
+i -PIND.
+• 7.1: on p. 103 I left out the equality axiom x =x.
+• In Lemma 7.1.3 the sequents BASIC LK must include all substitution
+instances of BASIC (unless one wants to allow cuts on their universasl
+closures).
+• 7.1, p.104: the definition of ”free” formula should be dual. E.g.: a
+formula is ”free” iff it has no ancestor that is either a principal formula
+of an induction inference or in an initial sequent.
+An cut inference is ”free’ iff both occurences of the cut formula in the
+upper sequents are free.
+• In Lemma 7.2.2 (a): ... in Si
+2 should be ... in S1
+2.
+• p.110: in the proof of the witnessing theorem, in the case of PIND rule
+one needs to attach to the construction of g a test that looks after each
+round if a witness to a side formula in the succedent has been found,
+and if so it stops. This takes care of the case when even the witness
+for ∆ in function g1 depends on the eigenvariable (which can happen
+even if the eigenvariable doesn’t appear in ∆).
+• In the proof of Corollary 7.2.6, p.112, I should appeal first to Parikh’s
+theorem to get rid of unbounded ∃ and only then to Theorem 7.2.3.
+Or extend witnessing to handle unbounded ∃ on the right.
+• The provability of ∆b
+i+1 - IND in Ti
+2 is stated in Cor. 7.2.7. However,
+during cross-referencing I have created a vicious circle. Namely:
+1. 6.1.3 follows from 7.2.7
+2. 7.2.7 follows from 5.2.9 and 7.2.4
+3. but 6.1.3 is used (together with 7.2.3) in the proof of 7.2.4.
+One way out is to deduce 6.1.3 directly using Thm. 6.1.2 (and the idea
+of its proof). One proceeds in two steps:
+1. Show that all f.symbols f(x) =y ofPVi+1 are definable in Ti
+2 in the
+form
+∃(u,w )≤t; Comp(x,w,u )∧Output(x,u ) =y∧
+3
+=== PAGE 4 ===
+u correctly encodes the answers of oracle ϕ
+where ϕ is a Σb
+i-oracle.
+2. Having PVi+1 symbol f(x) defining predicate A(x)≡df (f(x) = 0)
+such that A(0) and ¬A(a) hold, use binary search to find x smaller
+than a such that A(x)∧¬A(x + 1).
+The answers to the binary search queries (i.e., A(a/2)? etc.) encode by
+somev. Now combine the query-answers in v together with the strings
+u encoding the query-answers used in the computation of A(a/2)?, etc.
+into one string (u1,u 2,...,u ℓ,v ) (actually v is not needed really).
+By the same reasons as in the proof of Thm. 6.1.2 (MAX principle)
+there is, provably in Ti
+2, a string encoding everything correctly, and
+hence the found x smaller than a witnesses the failure of the induction
+assumption.
+• 7.3, p.119: The last but one paragraph of the proof of Thm.7.3.7 needs
+a modification.
+For an easier calculation assume that we want to witness byh(a) thatf
+does not map a ontoa3 (this is w.l.o.g. as we may iterate the original
+f). Put bi := 2 2i
+, i = 0, 1,...,t such that bt ∈ [2p(n), 22p(n)), i.e.
+t =O(logn). In particular, h(a) =? will be ever queried by M only for
+a≤bt.
+At the beginning of the computation pick from each interval Ii :=
+[bi, 3bi] uniformly at random a representant ci. Start the computation
+of M and whenever h(a) =? is queried for a∈ (bi−1,bi] answer it with
+h(a) =ci.
+Now,a≤bi =|Ii|/2 soci /∈Rng(f↓a) with probability≥ 1/2 (on the
+other hand ci≤ 3bi≤b3
+i−1≤a3). So with probability ≥ 2−t all oracle
+queries are answered correctly. Hence the probability that M fails to
+output a correct answer is ≤ (1− 1
+2p(n)).
+Repeat the whole computation 4p(n) - times, always choosing new ran-
+dom collection of ci’s. the probability that all of these computations
+fail is at most (1− 1
+2p(n))4p(n)≤e− 4p(n)
+2p(n) =e−2 < 1/4.
+Note that if the theorem were stated for PV 1 +WPHP rather than
+for S1
+2 +WPHP the Σb
+1(h)-formula in the proof would be witnessed
+4
+=== PAGE 5 ===
+by a term (involving h). Evaluating the term one needs to find only
+constantly many valuesh(a); in this case it is not necessary to use the
+intervalIi but simply pick a random value ≤ 2a. The probability of
+failure of one computation is then≤ 1−Ω(1), i.e. it is enough to repeat
+the whole process O(1) - times.
+• 7.4: p.120 (7th line of the proof of 7.4.1): ”... of ∃zη(a,x,y,z )” should
+be
+”... of∃x∀y∃zη(a,x,y,z )”.
+• In 7.4.2: the function should be not Σ b
+i+2-definable but∃∀Σb
+i-definable
+(as one would need some BB-scheme, not apparently available, to get
+it into the sΣb
+i+2-form).
+• L. 8.2.3: One needs to assume i ¿ 0. This prevents using the lemma
+in the proof of the i=0 case in Thm.8.2.4 about a relation of U 1
+2 nad
+PSPACE (other cases are OK). This case is proved via a direct wit-
+nessing argument.
+• p.152, proof of Thm.9.2.5: In this proof one needs that quantified
+propositional proof systems Gi and G∗
+i (for i > 0) allow the substi-
+tution rule. I refer to L.4.6.3 where this is shown for G∗
+1. However, in
+the current proof one needs to shown that the quantifier complexity of
+the simulation does not increase (it does in L.4.6.3). The argument
+is almost the same but a bit more careful on quantifiers: Assume we
+want to substitute A (which is q.free!) for p in sequent
+(1): U(p)−→V (p),
+where U, V are Σq
+i . Proceed as follows. First derive sequents
+(2): p≡A,V (p),U (A)−→V (A)
+and
+(3) p≡A,U (A)−→V (A),U (p),
+both by p-size proofs. Also derive
+(4):−→∃x,x≡A . Apply cut to (1) and (3) getting
+(5): p≡A,U (A)−→V (A),V (p) .
+Another cut of (5) and (2) yields:
+5
+=== PAGE 6 ===
+(6): p≡A,U (A)−→V (A) .
+Finally existentially quantify x in the antecedent of (6) and cut it out
+with (4).
+• p.155 and other places: Argument is restricted to sΣ1,b
+1 -PIND instead
+to the whole of U 1
+2 . This is in order to avoid a cumbersome notation in
+more complex witnessing. To justify this we can add suitable Skolem
+functions (functionals) to the language and axioms about them - these
+are universal closures of first-order bounded formulas and easily wit-
+nessable. Modulo these axioms we get Σ 1,b
+1 -AC and hence justify the
+restriction to the strict class. For V 1
+2 this AC is directly proved from
+induction axioms for sΣ1,b
+1 formulas.
+• L.9.3.2 (b), p.164: The closure properties of the proof system should
+be ”provable” in S1
+2.
+• L.9.3.4, p.165: ... ) bracket is missing before the implication.
+• 9.3, p.166, in the Claim: the sign ≡ (twice) should be =, and the claim
+should end with a half-sentence:
+”... thinking of formulas as of Boolean functions and, in particular, of
+Aj as abbreviating also the value of Aj(p) on p.”
+• 9.4.1, Claim 6, p.174: item (b) should be stated for u bounded by any
+element (universally quantified) of the cut and not by the cut itself -
+this violates the required definability of the sets in the forcing notion
+(the partial orderingP).
+• 9.4.2, p.175: The extension ( M′,X′) is not only Σ 1,b
+0 -elementary but
+also a model of V 1
+1 .
+• Proof of Lemma 10.2.2: 1. on p.187, line -3: add conjunct g(h(|v|),v )≤
+v (the function g(u,v ) actually constructed obviously has this prop-
+erty). 2. on p.189: the last sentence in the proof is redundant (and,
+in fact, bit confusing).
+• p.212, item (ii): function fj should depend also on tj.
+Lemma 11.1.2: this lemma appears incorrect (in the proof I implicitly
+use a universal quantifier over functions h).
+6
+=== PAGE 7 ===
+• Thm. 11.2.4, p.215: The amplification of G : 2a→ a to F : a2→ a
+works if a is a power of 2. If it is not combine (using G) such an F
+from maps G(k) :a× 2k→a, for k’s occurring in the binary expansion
+of a.
+• 11.3.1: Machine gets as the input only a and not whole structure
+([0,a ],R ). So the time is (log a)O(1).
+• Thm. 11.4.6: Should be stated only for i = 2, not for i≥ 2.
+• 11.5: p.231: Pudlak (1992a) in paragraph 1 should be Pudlak (1992b).
+• 12.1, Thm.12.1.3: Ramsey theorem is provable already in T 4
+2 (R), by
+the same argument: on p.235 bottom note that a Σ b
+2(H)-formula forH
+being a boolean combination of Σ b
+2(R)-formulas is Σb
+4(R) and not only
+Σb
+5(R).
+• 12.2: p.239 (last line): R(−1)(j) should be r(−1)(j)
+• 12.3.1, p.244,l.6: α =∅ ought to be γ =∅
+• p.304, line 2: ||0−RFN (Q)|| should be just 0−RFN (Q).
+• 15.1: The proof of Thm. 15.1.4 contains few typos and inaccuracies.
+In particular:
+– In Claim 1 the size of U is 2n(t+1). Also, in the 2nd l. in its proof
+the number of Ms s.t. Mx = My is 2(n−1)(t+1). The needed estimate
+is, however, correct with these ”new” values too.
+– Redefine the function F on the bottom of p.310 as follows:
+F (x) := (i,Mix),
+where i is the unique s.t. x∈Bi+1\Bi.
+• In L 15.2.2: should be: “..... refines Hρ
+ℓ ” and not just “..... refines Hℓ”.
+• 15.3.9 and 15.3.10: One should (1) either have strict Σ b
+1 and Πb
+1 for-
+mulas, (2) or S1
+2 in place of PV.
+The point is that L. 9.3.12, which they both utilize, uses S1
+2 and that
+is essential as one needs sharply bounded Σ b
+1-collection scheme: The
+scheme is available in S1
+2 but not in PV (unless factoring is easy by
+Cook-Thapen 2004).
+7
+=== PAGE 8 ===
+2 The 2011 book
+Before giving the errata comments let me address the publication year. The
+publisher displays sometimes 2010 while the printed book shows 2011. The
+book was published in Europe on 23.December 2010, but in other parts of
+the world it did not publish until 2011. When books publish towards the end
+of the calendar year publishers tend to move the copyright year (i.e. the date
+printed in the book) forward so that the book does not immediately appear
+out of date. So, as I was told, neither year is really incorrect . I stick with
+what is printed.
+• p.30, the last sentence of the proof of L.3.4.2: This proves the statement
+for non-standard i only but for standard ones it is the hypothesis of the
+lemma.
+• p.44,l.-2: Lower case θ ought to be upper case Θ.
+• pp.57-59, Secs.8.2-4: the 2nd order equality sign should be removed
+from the language L2
+n(Frud,Grud) for the statements to hold (it is not
+decided on samples via shallow tress)
+• pp.76 and 96 (1st paragraphs of Sections 12.1 and 16.1): We are using
+L 3.3.3 even though it applied to first order structures only. Recall
+from the beginning of Chpt.5 that ”second order” is just a misnomer
+and we treat K(F,G) as first order. On p.45 center it is pointed out
+that results proved earlier for K(F) hold equally for K(F,G).
+• p.80: the definition of ∆ is found after L.12.1.2 and not in Thm.12.2.1.
+• p.98. A hint for a proof for Theorem 16.1.4: The simplest proof is that
+in V 0 you can from ∀x Closure(x) prove that for any fixed m≥ 2
+standard there are counting mod m functions for all sets. This then
+gives via simple witnessing a low degree polynomial over F2 defining
+countingmod 3 with a small error - that is a contradiction.
+• p.107: Two lines before 18.1.1 I sloppily state that there is a function
+symbol for s(k) in Ln. However, the cut Mn is not necessarily closed
+under a subexponential s(k) (e.g. 2 k1/t
+) and hence there is no symbol
+for the function in Ln. But it is not needed later on: one only needs
+that s(n) is in the cut (which it is).
+8
+=== PAGE 9 ===
+To have the formulaPrfP bounded add a new free variabley to bound
+Y and in the particular case substitute s(n) for y. (We wouldn’t need
+y if we had in L2 the symbol |Y| for max(Y ) + 1 used by Cook and
+Nguyen in their book).
+• p.117: The notation (T,ℓ ) is used on line -9 without explaining what ℓ
+is.
+This follows the notation from 7.1 where labeled trees appeared first.
+• pp.154-155: This section is messed up: the notation and the definition
+of RSA are incorrect and this makes the presentation of Thm.24.1.1
+hard to follow. RSA sends x toxemodN , of course. The sample space
+should consists of RSA pairs ( e,N ) (where e,N satisfy the conditions
+for g,N on p.154) and cipher texts. The construction shadows then
+the proof of Thm.3 and Cor.4 in [76].
+More details are in J.Maly’s MSc. Thesis (Chpt.3) at the Universitat
+Wien, 2016, available at
+https://www.dbai.tuwien.ac.at/staff/jmaly/Master.pdf
+• p.170, line -3: the bound 2 nn
+is just a very generous bound (I prefer
+simple terms).
+• p.198, L.30.1.1, proof sketch:
+IfNE∩coNE have sizes circuits then theτ-formula from Possibility A
+is not a tautology for anyL inNE∩coNE (i.e. the formula determined
+by the characteristic string ofL restricted to strings of sizek) and hence
+- by Poss.A - the truth-table function with parameter s is hard for every
+pps P (so NP ̸=coNP ).
+• L.31.2.1: There is a gap in Claim 3 in the proof (the argument does not
+take into account those inputs u to C which determine sample a(u,e)
+which is in U but not in W) and, in fact, the lemma does not hold as
+stated (e.g. the region of undefinability of an α querying just one line i
+and then aborting or stopping with 0 respectively will be almost a half
+of the sample space).
+To resurrect the lemma one needs to alter the construction just a little
+bit: take for the sample space not the whole of Ω b (p.208) but just its
+suitable subset Ω∗
+b (still infinite and an element of the ambient model to
+9
+=== PAGE 10 ===
+conform with Sect.1.2) for which the lemma holds - a sort of ”hard-core”
+of the sample space. There is a simple model-theoretic argument that
+such suitable set exists in which the original L.31.2.1 (more precisely,
+what the lemma actually proves) is used. We outline this in Section A
+here.
+Further remarks:
+(1) The existence of a nonstandard model of TPV in which∃xN WA,f(x) = b
+holds and the resulting consistency of Razborov’s conjecture and even of the
+stronger statement (S) (i.e. the context of Sects.31.3 and 31.4) has been also
+established ”classically” (via the KPT witnessing and a version of L.31.2.1
+in which the Student-Teacher solve (T) for all inputs, i.e. W is everything,
+and the problem mentioned above is avoided) in my subsequent paper [2].
+(2) For the program of reducing lower bounds for strong proof systems to
+circuit hardness assumptions, an acceptable form of the assumption is that
+every circuit performing some specific task needs to be large (see Chpt.27
+and p.175 bottom).
+In particular, form my point of view it would be OK to use an assumption
+that every circuit computing a strategy of the Student solving task (T) (or
+some similar task) over a particular sample space with a positive probability
+needs to be large. The further reduction to the hardness of the function f is
+”an extra”: it is nice if one’s assumption follows from a standard one but it
+is not really that important.
+3 The 2019 book
+• p.14, Thm.1.1.3: the monotone version should assume that atoms p
+occur only positively inα or only *positively* inβ. The condition that
+is there (positive in α or negative in β) is good under the assumption
+that α∧β is unsatisfiable.
+• p.17, proof of Spira’s lemma (Lemma 1.1.4): for the first subtree Ta
+with size|Ta|≤ (k/(k + 1))|T| the previous subtree must have size at
+most s≤ k|Ta| + 1 (+1 is missing); the rest of the proof follows as
+before.
+• p.34, line -4: the quantities sP andsQ ought to be switched to sP (τ)≤
+sQ(τ)c.
+10
+=== PAGE 11 ===
+• p.43, Thm.2.2.1: the estimates to the number of steps and the size
+of the constructed tree-like proofs use implicitly that modus ponens is
+present or, more generally, that it can be simulated using each premise
+just once. Jerabek gave a counter-example for a general case: there is
+no fixed polynomial slow-down that would hold for all Frege systems F
+(the degree may depend on F).
+He also (cf. ArXiv: 2303.15090) improved a bit bounds to kF ∗ and
+sF ∗ when modus ponens is present in terms of his notion of ”inferential
+size” (of an F-proof) instead of ordinary sF .
+• p.77, L.3.4.5: the proof as given is wrongly organized. An alternative
+stand-alone argument using the Buss-Pudlak game (Sec.2.2) and DNF-
+R (Sec.5.7) is in Section B here. It gives only a quasi-polynomial bound
+but that suffices in all uses of the lemma.
+• p.79, definition of the Σ-depth: in item 3 should be inequality dp(A)≤
+d + 1.
+In the definition of LKd+1/2 in the 2nd paragraph: allow also PiS,t
+d
+formulas in π.
+• p.191: the notation X≤x ought to be introduced before the bounded
+CA axiom and the 2nd order existential quantifier ∃X in it ought to
+be bounded: ∃X≤x.
+Without it we can prove that for each [0,x ] there isX having an empty
+intersection with the interval but not the existence of the empty set (the
+former suffices for many purposes but it is unintuitive).
+• p.206, L.10.5.1: the upper bound to the lengths of propositional sim-
+ulations of theories Ti
+1(α) (in this lemma and others in Sec.10.5) is
+quasi-polynomial as it uses L.3.4.7 and hence implicitly L.3.4.5 - see
+the remark about that lemma above.
+There is an additional quasi-poly blow-up when translating sharply
+bounded formulas into DNF/CNF formulas; this can be remedied, how-
+ever, posing a restriction on sharply bounded kernels of induction for-
+mulas analogous to DNF 1 formulas.
+Polynomial upper bounds hold for the theory defined before L.10.5.2 by
+the model-theoretic proof in [288]. Analogous theories can be defined
+11
+=== PAGE 12 ===
+for higheri> 1. But most natural is to use the quasi-polynomial proof
+size and theories Ti
+2 because all uses of these simulations use theories
+with the smash function (including the original paper [276]).
+• p.240, Cor.12.2.4: the proof is not well-presented (e.g. that h does not
+occur inT and that axioms of equality are not needed to derive (12.2.9)
+from (12.2.8) and hence h does not occur in axioms of equality is not
+stated).
+It is much clearer to base the proof on ”propositional” Cor.12.2.2:
+(12.2.6) is a tautology and after replacing everywhere h(t′
+k) byzk same
+atoms (= atomic formulas) remain same and hence (12.2.6) remains a
+tautology.
+(See references in the book for further alternative proofs.)
+• p.288, Cor.13.5.4: constant c is redundant
+• p.300, Thm.14.3.1: using the lower bound for R-refutations of¬WPHP n2
+n
+instead of lower bounds for R∗(log) we can strengthen a bit the base
+case of Thm.14.3.1 to the separation of LK1/2 from LK0 and hence
+from LK∗
+1 (by L.3.4.4). This then implies a separation of LKd+1/2 vs.
+LKd or equivalently vs. LK∗
+d+1. I do not know if this improvement has
+some immediate bounded arithmetic relevance.
+• p.375, Subsec.17.6.2: the bound to CC and MCC is 2 log n rather than
+just logn as in 17.6.1 (both players need to send their partial sums in
+the binary search).
+• p.433/ definition of s(n)-iterability before Thm.19.5.3: this definition
+usinggn-circuits is not the right one (the thm is still correct but useless).
+Use instead the original definition from Sec.3 of [291] (= J.K., ”Dual
+weak ...”) using the notion of an ”iteration protocol”.
+• p.468, Problem 21.5.3: for a fixed P there is such time-optimal (A,P ),
+with A constructed as in universal search (for i = 1, 2,... try first i
+algorithms for i steps until you find a P -proof of the formula). Here
+set E can be empty.
+Further: it can be proved that some ( A,P ) is time-optimal iff P is
+p-optimal, for P containing R and satisfying the technical condition in
+Lemma 21.1.1.
+12
+=== PAGE 13 ===
+An augmented definition of the quasi-ordering of proof search algo-
+rithms was proposed in my Oberwolfach 2020. However, I now look at
+it a bit differently: see my 2020 JSL paper Information in propositional
+proofs and algorithmic proof search.
+• p.468 bottom (remarks for Sec.21.1): the results of [353,269,64] men-
+tioned relate to the existence of an optimal proof system, not p-optimal.
+• p.470: the weak set theory I write about in the second paragraph is
+called ”adjunctive set theory” and was discussed already in 1950s by
+W.Szmielew, A.Tarski and others.
+Michal Garl´ ık wrote a 3-page list of minor errors and misprints he noted
+while using the book in his St.Petersburg course in Fall 2020. It is, at least
+for now, available at:
+https://www.karlin.mff.cuni.cz/˜krajicek/garlik-comments.pdf
+4 The 2025 book
+• p.30/l.-5: ”Kt looks” ought to be ”Kt looks”
+• p.31/Thm.4.1.2: KtA(w) should be KtA(|w|)
+• p.66/l.-7: the CNF β (and not¬β)
+13
+=== PAGE 14 ===
+Appendix
+A The local witness model
+In this section we expand upon the comment concerning L.31.2.1 in Section 2,
+which was used in the construction of the local witness model in [3, Chpt.31].
+To find the suitable hard-core of the original sample space we may proceed
+as follows. A more detailed (and general) presentation is in [4]. We use the
+notation from [3, Sec.31.2.].
+In the proof of Lemma 31.2.1 we pick by averaginge s.t. at least a fraction
+ofδ 1
+(3m)k more inputsu toC (andf) yield a sample a(u,e )∈W whose trace
+is exactly i than those which do yield a(u,e )∈ W whose trace properly
+contains i (Claims 1 and 2). The error in the argument for Claim 3 is that
+we have no control over the number of u for which a(u,e ) /∈W but its trace
+containsi, i.e. of the size of the set U\W .
+However, if we knew that the size of the complement of W is at most e.g.
+wc := 1
+22n1/3 1
+(3m)c
+then the argument works: wc bounds the number of badu and the algorithm
+constructed in Claim 3 gets the advantage at least (we ignore δ now)
+1
+(3m)k− 1
+2
+1
+(3m)c ≥ 1
+2
+1
+(3m)k
+and the rest of the proof (bottom p.212, top p.213) remains the same.
+Hence what is established in [3, Sec.31.2] is the following statement.
+Lemma A.1 Under the same hypothesis as in [3, L.31.2.1], the number of
+samples ω∈ Ω for which α(ω) is defined is at least
+wc := 1
+22n1/3 1
+(3m)c
+wherec bounds the number of queries can ask on any sample.
+Note that wc is a nonstandard number for any m∈M n and any standard c.
+We would like to use Lemma A.1 to establish
+14
+=== PAGE 15 ===
+Lemma A.2 There exists an infinite set Ω∗⊆ Ωb, Ω∗∈M , such that each
+α∈Fb is defined on all but an infinitesimal fraction of samples from Ω∗.
+TakingF∗
+b , the family of random variables defined asFb but restricted to Ω∗,
+determines model K(F∗
+b ) for which the analogous statement to [3, L.31.2.1]
+holds and it can be used in place of K(Fb).
+Lemma A.2 can be derived by a combinatorial argument for small m>n
+but here we shall give a model-theoretic argument which has the advantage
+1of being much simpler and working for anym, using a smaller set of random
+variables.
+Namely, for any stringw∈M n letFunif
+b,w be the family of partial random
+variables on Ω b defined as Fb but allowing the algorithms computing the
+random variables to use as an advice only the triple (A,b,w ). This is perfectly
+sufficient for any application of the eventual model in Secs.31.3. and 31.4 of
+[3]: w can contain e.g. a proof of theτ-formula or a witness of the membership
+ofb in an NP set R, etc., and has the great advantage that the family Funif
+b,w
+is now countable.
+Lemma A.3 Let w∈M n be arbitrary. Then there exists an infinite set
+Ω∗⊆ Ωb, Ω∗∈M , such that each α∈ Funif
+b,w is defined on all samples from
+Ω∗.
+Proof :
+Enumerate α1,α 2,... the set Funif
+b,w in such a way that the algorithm
+defining αk runs in time≤mk and ask at most k queries, for all k≥ 1.
+Let{αi}i<t ∈ Mbe its non-standard extension obtained via the ℵ1-
+saturation (see [3, p.9]).
+If we take α1,...,α k we can compose the programs defining the αs by
+first running α1, if it is not aborted then instead of outputting a value run
+α2, etc. , and output (arbitrary) values only at the end, if the computation
+is not aborted earlier. The resulting function is computed in time O(kmk)
+using at most k(k + 1)/2≤k2 queries. Hence by Lemma A.1 it is defined on
+at least wk2 samples from Ωb. This yields the following
+Claim: For each standardk≥ 1 there exists definable subset Ωk⊆ Ωb of size
+at least wk2 such that all α1,...,α k are defined on all samples from Ωk.
+By Overspill the statement of the Claim holds also for the sequence
+{αi}i<t for some non-standard s < t, and we can take s small enough (but
+still non-standard) such that Ω∗ := Ωs satisfies the statement of the lemma.
+q.e.d.
+15
+=== PAGE 16 ===
+B Tree-like LK-proofs
+In this section we give the construction promised in the remark concerning
+p.77/[5, L.3.4.5] in Section 3 in the 2019 book.
+(1) Set-up:
+n: number of atoms
+C: a set of clauses in n variables
+π: a tree-like DNF-R refutation (i.e. R∗(id)-refutation) ofC
+k: the number of steps in π
+s: size of π
+c: a parameter bounding the number of conjunctions in any line in π
+We allow as initial clauses also all clauses containing some {ℓ,¬ℓ}.
+(2) Lemma: Assume the set-up (1). Then C has an R∗-refutation π∗ (i.e.
+tree-like R) with at most nO(c logk) steps.
+The lemma follows from Lemmas (5) and (6) below. Note that it is not
+claimed that π∗ is balanced.
+(3) Remark: Lemma (2) implies an analogous statement about depth d + 1
+LK refutations with k and n in the estimate replaced by O(s): use limited
+extension for all depth≤d formulas inπ to reduce toR∗(id). Then substitute
+inπ∗ back formulas for the corresponding extension atoms (this changesn by
+adding the number of extension atoms and k when deriving a formula from
+the associated extension atom - in both case it is bounded above by O(s)).
+(4) Game: Consider the Prover-Liar game where Prover asks for the truth-
+value of a clauseD and the Liar either replies true, in which case D is added
+to his set D of replies, or false, in which case all singleton clauses {¬ℓ}, all
+ℓ∈D, are added. The game stops with Prover winning the moment C∪D
+contains some clause D and at the same time also all {¬ℓ}, all ℓ∈D.
+(5) Lemma: Assume that Prover has a winning strategy S that wins over
+each Liar in at most r rounds. Then C has an R∗-refutation with at most
+(n + 1)r+1 steps.
+Proof :
+Think ofS as of a binary tree branching according to Liar’s answers. For
+a partial path σ in S ending in vertex vσ denote:
+Sσ: the subtree with root vσ,
+Dσ: Liar’s answers given on path σ,
+rσ: the height of Sσ.
+16
+=== PAGE 17 ===
+Note that for the empty path Λ, SΛ =S,DΛ =∅ and rΛ =r.
+We shall prove by induction on rσ the following
+Claim:C∪D σ has an R∗-refutationρσ with at most (n + 1)rσ+1 steps.
+Assume rσ = 0, i.e. σ is a complete path in S. By the definition of the
+game the setDσ contains some clause D and also all singleton clauses{¬ℓ},
+allℓ∈D. Define ρσ to be|D|≤ n resolutions removing fromD subsequently
+all literals.
+Assume rσ > 0. Let D be the clause S asks at node vσ and denote by
+Sσ1 the subtree corresponding to the positive answer (hence D∈D σ1) and
+bySσ0 the negative subtree (hence{¬l}∈D σ0 for all ℓ∈D). Let ρ1 andρ0,
+resp., be the two R∗-refutations attached to the two subtrees satisfying the
+induction assumption, having k0 and k1 steps, respectively.
+Change in ρ0 all{¬ℓ}, ℓ∈ D, into {¬ℓ,ℓ} and carry the extra literals
+along the whole ρ0: this yields an R∗-derivationρ′
+0 of D fromC∪D σ0 with
+the same number of steps as in ρ0.
+For all ℓ∈ D construct an R∗-derivation ρ1,ℓ of{¬ℓ} fromC∪D σ as
+follows: add to each occurrence of D as initial clause in ρ1 literal¬ℓ (hence
+the clause becomes an instance of free logic initial clauses - see (1)) and carry
+it along. Note that all ρ1,ℓ have the same number of steps as ρ1.
+The resulting R∗-refutation ρσ starts as ρ′
+0 deriving D and the using
+subsequently all subproofs ρ1,ℓ (|D| of them) to cut out all literals ℓ∈ D.
+The number of steps in ρσ is bounded above by
+|D|· k1 +k0≤nk1 +k0≤n(n + 1)ρσ + (n + 1)ρσ≤ (n + 1)ρσ+1 .
+This proves the claim.
+The lemma follows from the claim for σ := Λ.
+q.e.d.
+(6) Lemma: Under the set-up (1) there is a winning strategy for Prover
+that wins over any Liar in at most O(c logk) rounds.
+Proof :
+Note that Prover can find the truth value of a DNF-clause by asking
+separately for the truth values of all (clauses that are negations of) conjunc-
+tions in the clause (at most c) and then for the truth value of the sub-clause
+consisting of the remaining literals. Use this to navigate in π in a Spira-like
+fashion. Hence Prover needs to ask for the values of O(logk) DNF-clauses,
+getting each by asking for the values of ≤c + 1 ordinary clauses.
+17
+=== PAGE 18 ===
+q.e.d.
+References
+[1] J. Kraj´ ıˇ cek,Bounded arithmetic, propositional logic, and complexity the-
+ory, Encyclopedia of Mathematics and Its Applications, Vol. 60, Cam-
+bridge University Press, (1995).
+[2] J. Kraj´ ıˇ cek, On the proof complexity of the Nisan-Wigderson generator
+based on a hard NP∩ coNP function, J. of Mathematical Logic , 11(1),
+(2011), pp.11-27.
+[3] J. Kraj´ ıˇ cek,Forcing with random variables and proof complexity, London
+Mathematical Society Lecture Note Series, 382, Cambridge University
+Press, (2011).
+[4] J. Kraj´ ıˇ cek, Pseudo-finite hard instances for a student-teacher game with
+a Nisan-Wigderson generator, Logical methods in Computer Science,
+Vol. 8 (3:09) 2012, pp.1-8.
+[5] J. Kraj´ ıˇ cek,Proof complexity, Encyclopedia of Mathematics and Its Ap-
+plications, Vol. 170, Cambridge University Press, (2019).
+[6] J. Kraj´ ıˇ cek,Proof complexity generators, London Mathematical Society
+Lecture Note Series, Cambridge University Press, in press.
+18

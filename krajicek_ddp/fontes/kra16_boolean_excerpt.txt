@@ -1,0 +1,99 @@
+y that the hypot hesis of the
+existence of a one-way permutation used in [17, 14] contradicts th e hypothesis
+of p-boundedness of P used in Claim 4, entailing a conditional lower bound for
+(possibly all) P . In light of Claim 4 it seems natural to try to extend model M′
+by adding a satisfying assignment for ⋀
+iψ(A,y i).
+The existence of a satisfying assignment for ⋀
+iψ(A,y i) would follow if M′
+would satisfy a collection scheme for Σ 1
+1 formulas on AW . But that is unlikely as
+the argument of Cook and Thapen [7] implies that the true ∀Πb
+1 theory does not
+prove the scheme (unless factoring is not hard), and the same arg ument implies
+that one cannot argue just using the ∀Πb
+1 theory of M′ that it has an extension
+where the collection holds (we would also need that it adds no new eleme nts
+into [n]). The construction of M′ in [14] depends just on the ∀Πb
+1 theory of M
+and hence it is unlikely that it can be used again with the ground model b eing
+M′.
+The use of the property that we add no new elements into [ n] in Claims 1 - 3
+was solely to preserve the ﬁrst order theory of AW (in the preceding paragraph
+8
+it would also imply that (iii) above remains true in an extension of M′). There
+is an alternative for arranging that. In the forcing from [17, 15] on e naturally
+adds many new elements into [ n] (and, in fact, does not include all of [ n] from
+M into M′) but the ﬁrst order theory of AW is nevertheless often preserved.
+The set-up of the method presupposes some approximate countin g available
+in the ground model (here M′) and the model is assumed to be ℵ1-saturated.
+The former can be arranged as one can modify the constructions s o that the so
+called dual WPHP for p-time functions, dWPHP(PV), is true in M′ too and
+that yields some approximate counting by Jeˇ r´ abek [11, 12]. As for the latter
+condition: some saturation property of M′ could be arranged (cf. [16]) if one
+could modify the forcing construction of M′ so that it is deﬁned by a compact
+family (in the sense of [17]) of random variables. That would be possible if one
+could establish a hard-core lemma for the computation model under lying the
+construction. That, together with the fact (see 3. above) that AW is not coded
+in M′, seem to be the main technical obstacles to apply Claim 3 to a general
+PPS.
+Acknowledgements: I thank Leszek Kolodziejczyk (Warsaw) and Neil Thapen
+(Prague) for comments on a draft of this paper.
+References
+[1] M. Ajtai, Σ 1
+1 - formulae on ﬁnite structures, Annals of Pure and Applied
+Logic, 24, (1983), pp.1-48.
+[2] M. Ajtai, The complexity of the pigeonhole principle, in: Proc. IEEE 29 th
+Annual Symp. on Foundation of Computer Science , (1988), pp. 346-355.
+[3] M. Ajtai, Generalizations of the Compactness Theorem and Gode l’s Com-
+pleteness Theorem for Nonstandard Finite Structures, in: Proc. of the 4th
+international conference on Theory and applications of models of c ompu-
+tation, (2007), pp.13-33.
+[4] M. Ajtai, A Generalization of Godel’s Completeness Theorem for No nstan-
+dard Finite Structures, preprint (2011).
+[5] S. R. Buss, The propositional pigeonhole principle has polynomial s ize Frege
+proofs, J. Symbolic Logic , 52, (1987), pp.916-927.
+[6] S. A. Cook, and Reckhow, The relative eﬃciency of propositional proof
+systems, J. Symbolic Logic , 44(1), (1979), pp.36-50.
+[7] S. A. Cook and N. Thapen, The strength of replacement in weak a rithmetic,
+ACM Transactions on Computational Logic , V ol 7:4, (2006), pp.749-764.
+[8] M. Furst, J. B. Saxe, and M. Sipser, Parity, circuits and the poly nomial-
+time hierarchy, Math. Systems Theory , 17, (1984), pp.13-27.
+9
+[9] M. Garl ´ ık, A New Proof of Ajtai’s Completeness Theorem for Non standard
+Finite Structures, Archive for Mathematical Logic , 54(3-4), (2015), pp.
+413-424.
+[10] P. H´ ajek, On a new notion of partial conservativity, in: E. Boe rger et.al.
+(eds.), Logic Colloquium 83, vol.2, pp.217-232. Berlin, Heidelberg, New
+York. Springer. (1983).
+[11] E. Jeˇ r´ abek, Dual weak pigeonhole principle, Boolean complexit y, and de-
+randomization, Annals of Pure and Applied Logic , 129, (2004), pp. 137.
+[12] E. Jeˇ r´ abek, Approximate counting in bounded arithmetic, J. of Symbolic
+Logic, 72(3), (2007), pp. 959-993.
+[13] J. Kraj ´ ıˇ cek,Bounded arithmetic, propositional logic, and complexity t heory,
+Encyclopedia of Mathematics and Its Applications, Vol. 60, Cambridge
+University Press, (1995).
+[14] J. Kraj ´ ıˇ cek, On the proof complexity of the Nisan-Wigderso n generator
+based on a hard NP ∩coNP function, J. of Mathematical Logic , 11(1),
+(2011), pp.11-27.
+[15] J. Kraj ´ ıˇ cek, Pseudo-ﬁnite hard instances for a student-teacher game with
+a Nisan-Wigderson generator, Logical methods in Computer Science , 8
+(3:09), (2012), pp.1-8.
+[16] J. Kraj ´ ıˇ cek, A saturation property of structures obtained by forcing with
+a compact family of random variables, Archive for Mathematical Logic ,
+52(1), (2013), pp.19-28.
+[17] J. Kraj ´ ıˇ cek,Forcing with random variables and proof complexity , London
+Mathematical Society Lecture Note Series, No.382, Cambridge Univ ersity
+Press, (2011).
+[18] J. Kraj ´ ıˇ cek and P. Pudl´ ak, On the Structure of Initial Segments of Models
+of Arithmetic, Archive for Mathematical Logic , 28(2), (1989), pp, 91-98.
+[19] A. M´ at´ e, Nondeterministic Polynomial-Time Computations and Models of
+Arithmetic, J. of ACM , 37(1), (1990), pp.175-193.
+[20] J. Paris and C. Dimitracopoulos, Truth deﬁnitions for ∆ 0 formulae, in :
+Logic and Algorithmic , l’Enseignement Mathematique , 30, (1982), pp.318-
+329, Gen´ eve.
+[21] J. Paris and A. J. Wilkie, Counting problems in bounded arithmetic, in:
+Methods in Mathematical Logic , LNM 1130, (1985), pp.317-340.Springer.
+[22] R. Solovay, Injecting inconsistencies into models of PA, Annals of Pure and
+Applied Logic, 44, (1989), pp.101-132.
+10

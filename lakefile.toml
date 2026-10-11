@@ -4,4 +4,4 @@ defaultTargets = ["GothicGenerators"]
 [[lean_lib]]
 name = "GothicGenerators"
 srcDir = "lean4"
-roots = ["Gothic_Generators.Core"]
+roots = ["Gothic_Generators.Core", "Gothic_Generators.DDP"]

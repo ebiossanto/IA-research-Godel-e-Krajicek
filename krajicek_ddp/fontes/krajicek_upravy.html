@@ -1,0 +1,559 @@
+
+<!-- text je taky mezi temito symboly
+ -->
+
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN">
+
+<HTML>
+
+<HEAD>
+<TITLE> Book - corrections </TITLE>
+</HEAD>
+
+<BODY BACKGROUND="packy.gif"
+ TEXT="#000000" VLINK="#0000ff" ALINK="#ff0000"
+LINK="aa00AA">
+
+<BASEFONT SIZE=3>
+
+<BR><BR>
+<H1 ALIGN=CENTER>
+Corrections in my 
+<a href="biblio.html#kniha">book</a>
+</H1>
+
+<BLOCKQUOTE>
+
+<HR ALIGN=LEFT>
+<ul>
+
+<LI> 4.3.10: p.40, the proof of Claim 2: the induction really
+goes on a part of proofs consisting of ancestors of the
+end-sequent of the original $\sigma$. Hence the induction
+assumption should rather say: Let any formula in $\sigma$
+either have depth $\le d$ or be an ancestor of an identical
+formula in the end-sequent.
+
+<BR><BR>
+
+<LI> 4.4.8: factor $k$ is obviously missing in part 2. 
+
+<BR><BR>
+<LI> 4.6 (pp.57-58): In Def.4.6.2 no variable occurrence
+free in B should become bounded in A(B). Alternatively,
+one could allow only quantifier-free B. Another alternative
+is to introduce bound and free variables in formulas 
+and allow only formulas with no occurrences of
+bound variables outside
+the scope of a quantifier.
+
+<BR><BR>
+
+
+
+
+<LI> 4.6: The proof of L. 4.6.3 uses $\Pi^q_1$ flas although only 
+$\Sigma^q_1$ flas are allowed by the definition.
+<BR>
+Modify the proof of the first part of
+L. 4.6.3 to use only $\Sigma^q_1$-formulas. Namely,
+simulate EF-proof $\theta_1, \theta_2,\dots$
+by $G^*_1$-proofs of $\neg \theta_1 \rightarrow, 
+\dots$ rather than by proofs of $\rightarrow \theta_1,
+\dots$. In particular, the substitution rule
+is simulated than as follows:
+<BR>
+$$
+\frac{\neg \theta(\overline p) \rightarrow}{\exists
+\neg \theta(\overline p) \rightarrow}
+$$
+<BR>
+and derive
+<BR>
+$$
+\neg \theta(\overline \phi) \rightarrow
+\neg \theta(\overline \phi)
+$$
+<BR>
+and thus
+<BR>$$
+\neg \theta(\overline \phi) \rightarrow
+\exists \neg \theta(\overline p)
+$$
+<BR>
+and get but the cut the wanted sequent
+<BR>
+$$
+\neg \theta(\overline \phi) \rightarrow
+$$
+<BR><BR>
+Another option (better perhaps): allow in the definition
+(Def. 4.6.2) of $G_i$ and $G^*_i$ not only 
+$\Sigma^b_i$-formulas but also $\Pi^b_i$-formulas; 
+that is surely equivalent (w.r.t. p-simulation).
+
+<BR><BR>
+
+<LI> p.83, l.5: the term |y| in formula
+B(s) means "cardinality" of y as a set it codes.
+This should be properly Numones(y, |y|).
+The LENGTH-MAX principle still obviously applies.
+
+<BR><BR>
+
+<LI> L. 5.5.7, p.88: in the proof \Sigma^{1,b}_1-PIND
+should be \Sigma^{1,b}_i-PIND.
+
+<BR><BR>
+
+<LI> 7.1: on p. 103 I left out the
+equality axiom $x=x$. 
+
+<BR><BR>
+<LI> In Lemma 7.1.3 the sequents $BASIC^{LK}$
+must include all substitution instances of BASIC (unless one wants
+to allow cuts on their universasl closures). 
+
+<BR><BR>
+
+<LI> 7.1, p.104: the definition of "free" formula should be
+dual. E.g.: a formula is "free" iff it has no ancestor
+that is either a principal formula of an induction inference
+or in an initial sequent.
+
+
+<BR><BR>
+An cut inference is "free' iff both occurences of the cut formula
+in the upper sequents are free.
+
+
+<BR><BR>
+
+
+<LI> In Lemma 7.2.2 (a): ... in $S^i_2$ should be ... in
+$S^1_2$.
+
+<BR><BR>
+
+<LI> p.110: in the proof of the witnessing theorem,
+in the case of PIND rule one needs to attach to the 
+construction of g(_) a test that looks after each
+round if a witness to a side formula in the
+succedent has been found, and if so it stops. This takes 
+care of the case when even the witness for Delta in function
+g_1(_) depends on the eigenvariable (which can happen
+even if the eigenvariable doesn't appear in Delta).
+
+<BR><BR>
+
+<LI> In the proof of Corollary 7.2.6, p.112, I should appeal
+first to Parikh's theorem to get rid of unbounded $\exists$
+and only then to Theorem 7.2.3.
+<BR>
+Or extend witnessing to handle unbounded $\exists$ on the right.
+
+<BR><BR>
+
+
+
+<LI> The provability of $\Delta^b_{i+1}$ - IND in $T^i_2$
+is stated in Cor. 7.2.7. However, during
+cross-referencing I have created a vicious circle.
+<BR>
+Namely: 
+<BR>
+<b>1.</b>  6.1.3 follows from 7.2.7
+<BR>
+<b>2.</b> 7.2.7 follows from 5.2.9 and 7.2.4
+<BR>
+<B>3.</B> but 6.1.3 is used (together with 7.2.3)
+   in the proof of 7.2.4.
+
+<BR><BR>
+One way out is to deduce 6.1.3 directly using
+Thm. 6.1.2 (and the idea of its proof).
+One proceeds in two steps:
+
+<BR><BR>
+<B>1.</B>
+ Show that all f.symbols $f(x)=y$ of $PV_{i+1}$ are definable
+ in $T^i_2$ in the form
+<BR>
+$$
+\exists (u,w) \le t;\ Comp(x,w,u) \wedge Output(x,u)=y \ \wedge
+$$
+<BR>
+$$
+\mbox{$u$ correctly encodes the answers of oracle $\phi$}
+$$
+<BR>
+where $\phi$ is a $\Sigma^b_i$-oracle.
+<BR><BR>
+
+<B>2.</B> 
+Having $PV_{i+1}$ symbol $f(x)$ defining predicate 
+$A(x) \equiv_{df} (f(x)=0)$
+such that $A(0)$ and $\neg A(a)$ hold, use binary search
+to find $x$ smaller than $a$ such that $A(x) \wedge \neg A(x+1)$.
+
+<BR><BR>
+The answers to the binary search queries (i.e., $A(a/2)?$ etc.)
+encode by some $v$. Now combine the query-answers in $v$ together
+with the strings $u$ encoding the query-answers used in
+the computation of $A(a/2)?$, etc. into one string
+$(u_1,u_2,...,u_{\ell},v)$ (actually $v$ is not needed really).
+
+<BR>
+By the same reasons as in the proof of Thm. 6.1.2 (MAX principle)
+there is, provably in $T^i_2$,
+a string encoding everything correctly, and hence the
+found $x$ smaller than $
+a$ witnesses the failure of the induction assumption.
+
+
+<BR><BR>
+
+<LI> 7.3, p.119: The last but one paragraph of the proof
+of Thm.7.3.7 needs a modification.
+
+<BR>
+For an easier calculation assume that we want to witness
+by $h(a)$ that $f$ does not map $a$ onto $a^3$ (this is w.l.o.g.
+as we may iterate the original $f$). Put 
+$b_i := 2^{2^i}$, $i = 0, 1, \dots, t$ such that
+$b_t \in [2^{p(n)}, 2^{2 p(n)})$, i.e. $t = O(\log n)$.
+In particular, $h(a) = ?$ will be ever queried by $M$
+only for $a \le b_t$.
+
+<BR>
+At the beginning of the computation pick from each interval
+$I_i := [b_i, 3 b_i]$ uniformly at random a representant
+$c_i$. Start the computation of $M$ and whenever $h(a) = ?$
+is queried for $a \in (b_{i-1}, b_i]$ answer it with $h(a) = c_i$.
+
+<BR>
+Now, $a \le b_i = |I_i|/2$ so $c_i \notin Rng(f\downarrow a)$
+with probability $\geq 1/2$ (on the other hand $c_i \le 3 b_i
+\le b_{i-1}^3 \le a^3$). So with probability $\geq 2^{-t}$
+all oracle queries are answered correctly. Hence the probability
+that $M$ fails to output a correct answer is 
+$\le (1 - \frac{1}{2 p(n)})$.
+
+<BR>
+Repeat the whole computation $4 p(n)$ - times, always choosing
+new random collection of $c_i$'s. the probability that all of these
+computations fail is at most
+$(1 - \frac{1}{2 p(n)})^{4 p(n)} \le
+e^{-\frac{4 p(n)}{2 p(n)}} = e^{-2} < 1/4$.
+
+<BR><BR>
+Note that if the theorem were stated for $PV_1 + WPHP$
+rather than for $S^1_2 + WPHP$
+the $\Sigma^b_1(h)$-formula in the proof would be 
+witnessed by a term (involving $h$). Evaluating the
+term one needs to find only constantly many values
+$h(a)$; in this case it is not necessary to use the interval
+$I_i$ but simply pick a random value $\le 2 a$. The probability
+of failure of one computation is then $\le 1 - \Omega(1)$,
+i.e. it is enough to repeat the whole process $O(1)$ - times.
+
+
+<BR><BR>
+<LI> 7.4:  p.120 (7th line of the proof of 7.4.1):
+<BR>
+"... of $\exists z \eta(a,x,y,z)$" should be
+
+<BR>
+"... of $\exists x \forall y \exists z \eta(a,x,y,z)$".
+
+
+
+<BR><BR>
+
+
+<LI>
+ In 7.4.2: the function should be not$\Sigma^b_{i+2}$-definable
+but $\exists\forall\Sigma^b_i$-definable (as one would need
+some $BB$-scheme, not apparently available, to get it into the
+$s\Sigma^b_{i+2}$-form).
+
+<BR><BR>
+
+<LI> L. 8.2.3: One needs to assume i > 0. This prevents
+using the lemma in the proof of the i=0 case in Thm.8.2.4
+about a relation of U^1_2 nad PSPACE (other cases are OK).
+This case is proved via a direct witnessing argument.
+
+<BR><BR>
+
+<LI> p.152, proof of Thm.9.2.5: In this proof one needs that
+quantified propositional proof systems G_i and G^*_i
+(for i > 0) allow the substitution rule. I refer to
+L.4.6.3 where this is shown for G^*_1. However, in the
+current proof one needs to shown that the quantifier
+complexity of the simualtion does not increase (it does
+in L.4.6.3). 
+<BR>
+The argument is almost the same but a bit more careful
+on quantifiars:
+Assume we want to substitute A (which is q.free!)
+for p in sequent (1): U(p) ---> V(p),
+where U, V are Sigma^q_i. Proceed as follows. 
+<BR>
+First derive sequents (2): p \equiv A, V(p), U(A) ---> V(A)
+and (3) p \equiv A, U(A) ---> V(A), U(p), both by 
+p-size proofs. Also derive (4): ---> \exists x, x \equiv A .
+<BR>
+Apply cut to (1) and (3) getting (5):
+p \equiv A, U(A) ---> V(A), V(p). 
+<BR>
+Another cut of (5) and (2) yields:
+(6):  p \equiv A, U(A) ---> V(A) .
+<BR>
+Finally existentially quantify x in the antecedent
+of (6) and cut it out with (4).
+
+
+  
+<BR><BR>
+
+<LI> p.155 and other places: Argument is restricted to 
+strictSigma^{1,b}_1-PIND instead to the whole of U^1_2.
+This is in order to avoid a cumbersome notation in more
+complex witnessing. To justify this we can add suitable
+Skolem functions (functionals) to the language and
+axioms about them - these are universal closures of first-order
+bounded formulas and easily witnessable. Modulo these axioms
+we get Sigma^{1,b}_1-AC and hence justify the restriction
+to the strict class.
+<BR>
+For V^1_2 this AC is directly proved from induction
+axioms for strictSigma^{1,b}_1 formulas.
+
+<BR><BR>
+
+<LI>
+L.9.3.2 (b), p.164: The closure properties of the proof system
+should be "provable" in S^1_2.
+
+<BR><BR>
+
+<LI>
+L.9.3.4, p.165: ... ) bracket is missing before the implication.
+
+<BR><BR>
+
+
+<LI>
+9.3, p.166, in the Claim: the sign $\equiv$ (twice) should be
+$=$, and the claim should end with a half-sentence:
+
+<BR>
+"... thinking of formulas as of Boolean functions and, in
+particular, of
+$A_j$ as abbreviating also the value of $A_j(\overline p)$
+on $\overline p$."
+
+<BR><BR>
+
+<LI>
+9.4.1, Claim 6, p.174: item (b) should be stated for
+"u" bounded by any element (universally quantified)
+of the cut and not by the
+cut itself - this violates the required definability
+of the sets in the forcing notion (the partial ordering
+\cal P).
+
+<BR><BR>
+
+<LI> 9.4.2, p.175: The extension $(M', {\cal X}')$ is not only
+$\Sigma_0^{1,b}$-elementary but also a model of $V^1_1$.
+
+<BR><BR>
+
+
+<LI>Proof of Lemma 10.2.2: 
+<BR>
+1. on p.187, line -3: add conjunct $g(h(|v|),v) \le v$
+   (the function $g(u,v)$ actually constructed obviously
+has this property).
+<BR>
+2. on p.189: the last sentence in the proof is redundant
+(and, in fact, bit confusing).
+
+<BR><BR>
+
+<LI> p.212, item (ii): fuction f_j should depend also
+on t_j.
+
+<BR>
+
+Lemma 11.1.2: this lemma appears incorrect (in the proof
+I implicitely use a universal quantifier over functions
+h).
+<!--, p.212: better identify f's with h's in
+all but the last one step. In particular, do  the induction 
+argument with B(b) exactly as explained
+but with B(b) defined using f's in place of h's.
+Only in the last step (from a-1 to a) replace t's
+by h's (as it is explained).
+-->
+
+<BR><BR>
+
+<LI> Thm. 11.2.4, p.215: The amplification of $G : 2a 
+\rightarrow a$ to $F : a^2 \rightarrow a$ works
+if $a$ is a power of $2$. If it is not combine (using $G$)
+such an $F$ from maps $G^{(k)} : a \times 2^k
+\rightarrow a$, for $k$'s occurring in the binary expansion
+of $a$.
+
+
+<BR><BR>
+
+<LI> 11.3.1: Machine gets as the input only $a$ and
+not whole structure $([0,a],R)$. So the time is
+$(\log a)^{O(1)}$.
+
+<BR><BR>
+<LI> Thm. 11.4.6: Should be stated only for $i=2$, not
+for $i \geq 2$.
+
+
+
+<BR><BR>
+<LI> 11.5: p.231: Pudlak (1992a) in paragraph 1
+should be Pudlak (1992b).
+
+
+<BR><BR>
+
+<LI> 12.1, Thm.12.1.3: Ramsey theorem is provable already
+in T^4_2(R), by the same argument: on p.235 bottom note
+that a Sigma^b_2(H)-formula for H being a boolean combination
+of Sigma^b_2(R)-formulas is Sigma^b_4(R) and not only
+Sigma^b_5(R).
+
+<BR><BR>
+<LI> 12.2: p.239 (last line): $R^{(-1)}(j)$ should be 
+$r^{(-1)}(j)$ 
+
+<BR><BR>
+
+<LI>
+  12.3.1, p.244,l.6: alpha = \emptyset ought to be gamma = \emptyset
+
+<BR><BR>
+
+<LI>
+p.304, line 2: ||0-RFN(Q)|| should be just
+0-RFN(Q).
+
+
+<BR><BR>
+<LI> 15.1: The proof of Thm. 15.1.4
+contains few typos and inaccuracies.
+
+In particular:
+
+<BR><BR>
+-- In Claim 1 the size of U is 2^{n(t+1)}.
+Also, in the 2nd l. in its proof
+the number of Ms s.t. Mx = My is
+2^{(n-1)(t+1)}. The needed estimate 
+is, however, correct with these "new"
+values too.
+
+<BR><BR>
+-- Redefine the function F on the bottom of
+p.310 as follows:
+F(x) :=( i, M_i x),
+where i is the unique s.t. x \in B_{i+1}\setminus B_i.
+
+
+
+<BR><BR>
+<LI> In L 15.2.2: should be: ``..... refines $H_{\ell}^{\rho}$''
+and not just ``..... refines $H_{\ell}$''.
+
+<BR><BR>
+
+<!--
+<LI>
+ 15.3.1: Parameters in the definitions of non-uniform
+   classes should be bounded by a term?!
+
+<BR><BR>
+
+-->
+
+<LI>
+15.3.9 and 15.3.10: One should
+<BR>
+(1) either have strict Sigma^b_1 and Pi^b_1 
+   formulas,
+<BR>
+(2) or S^1_2 in place of PV.
+
+<BR><BR>
+The point is that L. 9.3.12, which they both utilize,
+uses S^1_2 and that is essential as one needs
+sharply bounded Sigma^b_1-collection scheme: 
+The scheme is available in S^1_2 but not in 
+PV (unless factoring is easy by Cook-Thapen 2004).
+
+
+
+
+</ul>
+
+<br> <BR>
+
+
+
+If you noticed some other errors, please 
+<A HREF="mailto:krajicek@karlin.mff.cuni.cz">
+let me know. </A>
+
+<P>
+
+
+<H2>
+<HR ALIGN=LEFT>
+Acknowledgements
+</H2>
+
+I am indebted to 
+K.Aehlig (Munich),
+A. Beckmann (Muenster/Swansea), 
+P. Clote (Boston/Munich),
+S.Cook (Toronto), 
+U.Egly (Wien), E.Jerabek (Prague),
+J.Joosten (Amsterdam/Prague),
+E.Khaniki (Tehran),
+L.Kolodziejczyk (Warsaw),
+M.Moniri (Tehran), N.Thapen (Oxford) and
+Konrad Zdanowski (Warsaw)
+for pointing out some of these errors.
+
+
+
+<P>
+
+
+</BLOCKQUOTE>
+
+</BODY>
+
+</HTML>
+
+
+
+
+
+
+
+
+
+
+
