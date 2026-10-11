@@ -1,6 +1,14 @@
 # NOTA EDITORIAL a Krajíček — rascunho consolidado (v4)
 
-> **Status: RASCUNHO para revisão do usuário — não enviar sem aprovação.** 11 Out 2026.
+> **Status: APROVADO pelo usuário em 11 Out 2026 — tradução e envio autorizados.**
+> **Carta final (EN) pronta para envio: `CARTA_FINAL_ENVIO.md`** — corpo = §1
+> (errata + dicotomia), §2 resumido (3 itens) e §4 (perguntas, com a nova "`q` em
+> `τ_N` é total?") desta nota; acrescenta, **a pedido do usuário**, a apresentação
+> de **pesquisador independente/entusiasta** que pesquisa com **OpenCode + MIMO +
+> outras IAs gratuitas**, com **GitHub** (`github.com/ebiossanto`) e **e-mail**
+> (`euambiente@gmail.com`). Destinatário de envio:
+> **jan.krajicek@protonmail.com** ("all other matters" — página dele) /
+> alternativa krajicek@karlin.mff.cuni.cz.
 > **v4 (referee rodadas 1–3: todos os CRÍTICOS/MAIOR aplicados; referee pre-comprometeu
 > APROVADO após as correções desta versão — ver §6).** Destinatário:
 > Jan Krajíček (arXiv:2506.20221v5 / LMCS 22(2:14)2026). Marcação:

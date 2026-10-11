@@ -113,9 +113,15 @@ Verificar o enunciado exato no artigo antes de afirmar qualquer coisa.
   incondicionalmente** (membros padrão de `𝒯` = só constantes-1; `α` não-padrão —
   Lema L.3a). **L.4**: Condition 1 + L.1 ⟹ o próprio `φ` exemplifica o aviso
   L21–22 (pps pode ser incompleto em modelo de `T_PV`).
-- **`NOTA_EDITORIAL_Krajicek.md` v4**: rascunho de nota ao autor (errata + obstáculos
-  G2/H1/K/L.1 + o que sobrevive + perguntas), referee-processado 3 rodadas
-  (`NOTA_referee.md`); **aguardando revisão do usuário** antes de traduzir/enviar.
+- **`NOTA_EDITORIAL_Krajicek.md` v4 + `CARTA_FINAL_ENVIO.md`**: nota ao autor
+  (errata + obstáculos G2/H1/K/L.1 + o que sobrevive + perguntas), referee-processado
+  3 rodadas (`NOTA_referee.md`) — **APROVADA PELO USUÁRIO (11/10)**. **Carta final
+  EN pronta** (`CARTA_FINAL_ENVIO.md`): errata + dicotomia (dois chifres) + 3
+  obstáculos resumidos + 4 perguntas (Q1 = "`q` em `τ_N` é **total**?") +
+  **apresentação do autor** (pesquisador independente/entusiasta; pesquisa com
+  OpenCode + MIMO + IAs gratuitas; GitHub `github.com/ebiossanto`; e-mail
+  `euambiente@gmail.com`). **Envio**: jan.krajicek@protonmail.com ("all other
+  matters" — página do autor; alternativa krajicek@karlin.mff.cuni.cz).
 - **Residual J.6**: semântica de `τ_N` (R1 vs alternativa) e pergunta (i)/(iii) da
   dicotomia — perguntas ao autor (§4 da nota).
 - **Frente M (nova, 11/10; `M_canto_adversarial.md` v4 RECOMENDADO, referee 3
