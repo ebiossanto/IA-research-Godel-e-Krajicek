@@ -258,7 +258,28 @@ obstáculos (G2, K, L.1; §2 como apêndice de 1 página — decisão do usuári
 sobrevive (`DD_Res ∈ P`, K-FP′, …), perguntas ao autor (semântica de `τ_N` — **`q`
 total?** —; leitura (i)/(iii); convenção de código; Condition 1) e a **carta EN**
 curta. Referee 3 rodadas (`NOTA_referee.md`): **pre-comprometeu APROVADO**;
-**aguardando revisão do usuário** antes de traduzir/enviar.
+**aguardando revisão do usuário** antes de traduzir/enviar. *(Status: **✅ ENVIADA**
+em 11/10/2026 18:14 — ver §7.7.)*
+
+### 6.6 Refutação interna de `{C_{N_s}}` decidida por redução (N)
+
+- **N.1 (redução exata, escopo R1/`q`-total)**: `M_0 ⊨ EF ⊢ σ_s` (com
+  `σ_s = δ_{N_s} ∧ ¬τ_{N_s}`) ⟺ `M_0 ⊨ EF ⊢ Taut(α)` — a **sentença fechada**
+  `⋀_v(eval(v,α)=1)`. Logo **`{C_{N_s}}` tem refutação EF interna ⟺ a tautologia
+  fechada de `α` tem prova EF interna em `M_0`** — *apesar de* **(S3)** dar só
+  uma prova de `α` (aberta) em `P`. (Lema N.0: fatos do laço do seletor por-`v`,
+  `poly(|α|,|v|)`; fechados `≥ 2^{at(α)}`.)
+- **N.2 (dicotomia honesta)**: (α) `EF ⊢ Taut(α)` → refutação interna **existe**
+  (2ª fonte de não-compactude colapsa no plano interno; sobrevive a de `¬φ` sob
+  Condition 1, no escopo de L.3″) · (β) **(C1′)** `EF ⊬ Taut(α)` → **sem**
+  refutação interna — 2ª instância genuína, **sombra interna do aviso L21–22**.
+- **N.3**: nenhum chifre decidido em ZFC para todo modelo **(C)** — residuais
+  **R-α** (construir `M_0` com (C1′) via omitting types; ultrapoder excluído —
+  `I1 A.7`/`B.2`) e **R-β** (comprimir `π` para EF; relação a `EF⊢Taut(α)`
+  **indeterminada**). Leitura "π comprime-se" = interpretativa, **não** corolário.
+- **Referee** (`N1_referee.md`, 2 rodadas): r1 NÃO RECOMENDADO (FATAL-1: troca
+  `Taut(α)`/`α`) → r2 **RECOMENDADO** (teorema, dicotomia e cadeia
+  M.2⟸M.1⟸K "matematicamente de pé") com 4 correções aplicadas em **v3**.
 
 ---
 
@@ -292,13 +313,18 @@ valorações falsificantes, todos provados em Lean 4 (`lake build` limpo).
 7. **Nota editorial a Krajíček — ✅ ENVIADA em 11/10/2026 18:14**
    (`CARTA_FINAL_ENVIO.md`; para jan.krajicek@protonmail.com e
    krajicek@karlin.mff.cuni.cz) — **aguardando resposta do autor**.
+8. **Refutação interna de `{C_{N_s}}` decidida por redução** (N, v3): existe
+   ⟺ `Taut(α)` fechada tem prova EF interna em `M_0` (N.1); dicotomia (α)/(C1′)
+   (N.2); residuais R-α/R-β **(C)** (N.3). Sombra interna de L21–22 — a mesma
+   tensão EF-vs-P do artigo, por dentro.
 
 **Próximos passos recomendados (ordem):**
 1. **Aguardar a resposta de Krajíček** (as 4 perguntas da carta delimitam o residual:
    semântica de `τ_N`/`q` total, leitura (i)/(iii), `(8)` em `M′`, Condition 1);
-   registrar a resposta no dossiê quando chegar.
+   registrar a resposta no dossiê quando chegar — **com o desfecho de N**: se `q`
+   total, a redução N.1 fica firme; se par, o trap M.2 abre e a pergunta cai.
 2. Conferir no artigo o ponto frágil `i_0 ∈ M*` (Equipe E, §3(c)) — barato e decisório.
-3. Decidir a refutação interna de `{C_{N_s}}` (prova EF de `δ_{N_s}∧¬τ_{N_s}` —
-   pergunta de provabilidade, mesma forma de L.3″).
+3. ~~Decidir a refutação interna de `{C_{N_s}}`~~ **feito (N)** — pendências viraram
+   residuais: R-α (omitting types para (C1′)) e R-β (compressão de `π`).
 4. Estender `DD_Res ∈ P` para `Res(k)` (k fixo) ou provar `DD_{Res(k)} ∉ P` sob P≠NP.
 5. Transferir a análise S-T de [8] para DD_P via estudante P/poly (rota D-(c)).

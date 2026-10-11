@@ -61,8 +61,9 @@ em Core; rascunho MO (não postado)
 | `krajicek_ddp/J2_ponto_fixo.md` | **K-FP′**; J.6-a′; semântica `τ_N` aberta | **RECOMENDADO (v3)** |
 | `krajicek_ddp/L1_phi_insatisfativel.md` | **L.1** (`T_PV+(S4)⊢∀rφ(r)`); **L.3′** (C.3 negativa); L.3a; L.4 | **RECOMENDADO (v4)** |
 | `krajicek_ddp/M_canto_adversarial.md` | **M.0–M.5**: `m` não-padrão; **`C_{N_s}≡⊥`** — adversarial `(C)` decidido | **RECOMENDADO (v4)** |
+| `krajicek_ddp/N1_refutacao_interna_CN_s.md` | **N.1**: refutação interna de `{C_{N_s}}` ⟺ `EF⊢Taut(α)` interna; N.2 dicotomia (C1′); N.3 R-α/R-β | **RECOMENDADO (v3)** |
 | **`krajicek_ddp/NOTA_EDITORIAL_Krajicek.md`** | **Nota a Krajíček (errata + dicotomia + perguntas + carta EN)** | **RASCUNHO — aguardando autor** |
-| `krajicek_ddp/*_referee.md` | Referees hostile preservados (F–M, NOTA, L1, J1, J2, I1, H1, G2) | AUDIT |
+| `krajicek_ddp/*_referee.md` | Referees hostile preservados (F–N, NOTA, L1, J1, J2, I1, H1, G2) | AUDIT |
 
 ### Papers e Conjecturas
 
@@ -160,6 +161,7 @@ em Core; rascunho MO (não postado)
 | **DD6** | **`¬φ` insatisfatível + C.3 negativa (L)** | **FEITO — `T_PV+(S4)⊢∀rφ(r)`** | `krajicek_ddp/L1_...` |
 | **DD7** | **Canto adversarial `(C)` (M)** | **FEITO — `C_{N_s}≡⊥` construído** | `krajicek_ddp/M_...` |
 | **DD8** | **Nota editorial a Krajíček** | **✅ ENVIADA 11/10/2026 18:14** (protonmail + karlin) — aguardando resposta | `krajicek_ddp/CARTA_FINAL_ENVIO.md` |
+| **DD9** | **Refutação interna de `{C_{N_s}}` (N)** | **FEITO — reduzida a `EF⊢Taut(α)` (N.1); dicotomia (C1′)** | `krajicek_ddp/N1_...` |
 
 ### DESCARTADOS / REJEITADOS (não usar)
 

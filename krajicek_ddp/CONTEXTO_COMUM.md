@@ -138,6 +138,16 @@ Verificar o enunciado exato no artigo antes de afirmar qualquer coisa.
   **M.4**: famílias com `C_{N_s}` sem refutação genuína (L.3′), refutação interna
   **aberta**; **M.5**: J.6-a′ sem ressalva de `m`. Novo item de pergunta para a
   nota: **"`q` em `τ_N` é atribuição total?"** (decide o trap M.2).
+- **Frente N (v3 — referee `N1_referee.md`, 2 rodadas: r1 NÃO RECOMENDADO → r2
+  RECOMENDADO)**: o **aberto de M.4** (refutação interna de `{C_{N_s}}`) foi
+  **decidido por redução**: **N.1** — `M_0 ⊨ EF ⊢ σ_s` (σ_s = `δ_{N_s}∧¬τ_{N_s}`)
+  ⟺ `M_0 ⊨ EF ⊢ Taut(α)` (sentença **fechada** `⋀_v(eval(v,α)=1)`; escopo R1/`q`
+  total); **N.2** — dicotomia: (α) refutação interna **existe** (só `¬φ`+Condition 1
+  sobrevive, escopo L.3″) · **(C1′)** `EF ⊬ Taut(α)` → **sem** refutação interna
+  (2ª instância genuína, sombra de L21–22); **N.3** — nenhum chifre decidido **(C)**;
+  residuais **R-α** (omitting types; ultrapoder excluído — `I1 A.7`/`B.2`) e **R-β**
+  (compressão de `π`; relação indeterminada). Leitura "π comprime-se" =
+  interpretativa, **não** corolário (FATAL-1 do referee).
 
 ## Infraestrutura local
 

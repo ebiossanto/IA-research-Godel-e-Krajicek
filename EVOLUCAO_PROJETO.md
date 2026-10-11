@@ -444,6 +444,7 @@ por frente, (A)=fonte/(P)=próprio/(C)=conjectura; todas as rodadas preservadas 
 | **J2** | **K-FP′**: ponto fixo **padrão** existe; `(Hjoint)` falsa em todo modelo |
 | **L** | **`T_PV+(S4) ⊢ ∀rφ(r)`** — `¬φ` **internamente insatisfatível** (L.1); **C.3 negativa incondicional** (L.3′); `α` não-padrão (L.3a); `φ` exemplifica o aviso L21–22 (L.4) |
 | **M** | **Canto adversarial `(C)` decidido**: `m` sempre não-padrão (M.0); sem falsificador global (M.1); **`C_{N_s} ≡ ⊥`** para nome não-padrão `N_s` = seletor p-tempo (M.2) — 2ª fonte de não-compactude; nomes padrão inofensivos (M.3–M.5) |
+| **N** | **Refutação interna de `{C_{N_s}}` decidida por redução**: **N.1** `EF ⊢ σ_s` ⟺ `EF ⊢ Taut(α)` (fechada; escopo R1/`q`-total); **N.2** dicotomia (α)/(C1′) — sombra interna de L21–22; **N.3** residuais R-α/R-β **(C)**; referee 2 rodadas (FATAL-1 corrigido) → **v3 RECOMENDADO** |
 
 ### 11.4 Entrega — ✅ ENVIADA
 
@@ -459,10 +460,23 @@ GitHub (`github.com/ebiossanto`). **Aguardando resposta do autor.**
 
 ### 11.5 Abertos desta campanha
 
-1. **Revisar/traduzir/enviar a nota editorial** (prioridade nº 1 — saída pública).
-2. Refutação interna de `{C_{N_s}}` (prova EF de `δ_{N_s}∧¬τ_{N_s}` — provabilidade, (C)).
+1. ~~Revisar/traduzir/enviar a nota editorial~~ **✅ FEITA e ENVIADA (11.4)**.
+2. ~~Refutação interna de `{C_{N_s}}`~~ **✅ DECIDIDA POR REDUÇÃO (frente N, 11.6)** —
+   pendências viraram residuais R-α/R-β.
 3. Resíduos J.6 = perguntas ao autor (semântica de `τ_N`; (i)/(iii); código; Condition 1).
 4. Estender `DD_Res ∈ P` a `Res(k)` ou provar `∉ P` sob P≠NP.
+
+### 11.6 Frente N — refutação interna de `{C_{N_s}}` (v3, RECOMENDADO)
+
+`N1_refutacao_interna_CN_s.md` (+ `N1_referee.md`, 2 rodadas: r1 NÃO RECOMENDADO —
+FATAL-1, troca `Taut(α)`/`α` — → r2 **RECOMENDADO** com 4 correções aplicadas em v3).
+**N.1**: `M_0 ⊨ EF ⊢ σ_s` ⟺ `M_0 ⊨ EF ⊢ Taut(α)` (sentença **fechada**; escopo
+R1/`q`-total) — logo `{C_{N_s}}` tem refutação EF interna ⟺ a tautologia fechada
+de `α` tem prova EF interna, **apesar de** (S3) dar só `π : P ⊢ α`. **N.2**: (α)
+refutação interna existe (só `¬φ`+Condition 1 sobrevive) · **(C1′)** `EF ⊬ Taut(α)`
+→ sem refutação interna — **sombra interna do aviso L21–22**. **N.3**: nenhum chifre
+decidido (C) — **R-α** (construir `M_0` com (C1′) via omitting types; ultrapoder
+excluído — `I1 A.7`/`B.2`) e **R-β** (comprimir `π`; relação indeterminada).
 
 ---
 
@@ -530,6 +544,7 @@ GitHub (`github.com/ebiossanto`). **Aguardando resposta do autor.**
 | **11/10/2026** | **L: `¬φ` insatisfatível** | `T_PV+(S4)⊢∀rφ(r)`; **C.3 negativa**; L.4 |
 | **11/10/2026** | **M: adversarial decidido** | `m` não-padrão; **`C_{N_s}≡⊥`**; **nota editorial v4** |
 | **11/10/2026** | **✅ CARTA ENVIADA a Krajíček (18:14)** | protonmail + karlin; errata + dicotomia + perguntas; **aguardando resposta** |
+| **11/10/2026** | **N: refutação interna decidida por redução** | `N1_...` v3 RECOMENDADO (referee 2 rodadas); **N.1** `EF⊢σ_s`⟺`EF⊢Taut(α)`; N.2 (C1′); DD9 |
 | Próximo | ~~Foundation build; rota B; (τ_n,q) concretos~~ → **resposta do autor; então rota B/(τ_n,q)** | — |
 
 ---
@@ -549,11 +564,14 @@ GitHub (`github.com/ebiossanto`). **Aguardando resposta do autor.**
 
 > **Próximo (PR28+):** ~~(0) enviar a nota editorial a Krajíček~~ **✅ FEITO —
 > ENVIADA 11/10/2026 18:14** (`CARTA_FINAL_ENVIO.md`; protonmail + karlin);
-> **aguardar a resposta do autor** (registrar no dossiê); (b) rota B: Φw* com
-> padding w* (definability); (c) instâncias (τ_n,q) concretas para Q — **só então**
-> limite inferior; (d) MathOverflow post **só com confirmação**. ~~`lake build`
-> Foundation/FoundationBridge~~ **FEITO — VERDE 0 sorry** (cache FFL `ffl`, 1239 jobs);
-> ~~Q formal~~, ~~bridge δ Core~~, ~~Φw* rota A~~, ~~rascunho MO~~ **FEITOS** (PR27).
+> **aguardar a resposta do autor** (registrar no dossiê; com o desfecho de **N**:
+> se `q` total, a redução N.1 fica firme; se par, o trap M.2 abre e a pergunta cai);
+> (b) rota B: Φw* com padding w* (definability); (c) instâncias (τ_n,q) concretas
+> para Q — **só então** limite inferior; (d) MathOverflow post **só com confirmação**;
+> (e) residuais **N**: R-α (omitting types para `EF ⊬ Taut(α)`) e R-β (compressão
+> de `π` P→EF). ~~`lake build` Foundation/FoundationBridge~~ **FEITO — VERDE 0 sorry**
+> (cache FFL `ffl`, 1239 jobs); ~~Q formal~~, ~~bridge δ Core~~, ~~Φw* rota A~~,
+> ~~rascunho MO~~ **FEITOS** (PR27).
 
 ---
 
