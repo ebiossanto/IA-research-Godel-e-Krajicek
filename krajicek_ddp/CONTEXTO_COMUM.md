@@ -148,6 +148,22 @@ Verificar o enunciado exato no artigo antes de afirmar qualquer coisa.
   residuais **R-α** (omitting types; ultrapoder excluído — `I1 A.7`/`B.2`) e **R-β**
   (compressão de `π`; relação indeterminada). Leitura "π comprime-se" =
   interpretativa, **não** corolário (FATAL-1 do referee).
+- **Terceira onda (11/10 — N2, C2, Q2; todos RECOMENDADO)**: **N2** (`N2_residuals_RA_RB.md`
+  v5, referee 5 rodadas): R-α = **(∗′)** com a ameaça classificada em **4 formas**
+  (slot `Taut(α̂)`; suficiência via (U1) `Der→ValidDer`); R-β: compressão **necessária
+  (só com (S3)) não suficiente** — aberta→fechada = bloqueio N1 §0.3; `K.2` mata só
+  o esquema global; **N2.3′**: modelo omitente (chifre (β) realizável) + `G_eff`
+  não-demonstrável (Σ₁; `T_PV` co-r.e.+Π₁-completo ⟹ `T_S^eff`), lado (β)-global
+  **não excluído**. **C2** (`C2_ddres_k.md` v5, referee 5 rodadas): **C2.1 teorema**
+  (largura-k preservada; `DD_{Res^{≤k}}∈P`); **C2.2 = PROGRAMA** com obrigações
+  (O1)–(O5) do referee (rebaixamento honesto); **C2.3**: ingrediente corrigido =
+  **família alternante** (exatamente 1 lado insat, alternando com `γ`) ⟹ decisão de
+  `UNSAT_CNF`; a v1 tinha ingrediente impossível + DNF/CNF trocado. **Q2**
+  (`Q2_instancias_tau_n_q.md` v3, referee 3 rodadas): **Q2.1 decidido** (Gödel II no
+  enunciado; full-range inócuo — instância computável `τ_n(φ)=⊤` sse prova PA ≤ n
+  transfere trivialmente); **Q2.2**: `(Q)|_{Σ₁}` vale com `τ_n` total/cutoff,
+  `|τ|=2^{p(n)}`, ponte por lema de correção; **Q2.2′** exige `τ_n(φ_n)∈TAUT`;
+  **Q2.4**: fonte Σ₁ **(C)** (rota `IΣ_k`).
 
 ## Infraestrutura local
 

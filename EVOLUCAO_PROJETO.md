@@ -478,6 +478,40 @@ refutação interna existe (só `¬φ`+Condition 1 sobrevive) · **(C1′)** `EF
 decidido (C) — **R-α** (construir `M_0` com (C1′) via omitting types; ultrapoder
 excluído — `I1 A.7`/`B.2`) e **R-β** (comprimir `π`; relação indeterminada).
 
+### 11.7 Terceira onda — N2, C2, Q2 (11/10/2026; todos RECOMENDADO)
+
+Três frentes derivadas dos abertos 11.5-(2)/(4) e do item (τ_n,q), cada uma
+referee-processada até RECOMENDADO (logs `*_referee.md`):
+
+- **N2 — residuais R-α/R-β** (`N2_residuals_RA_RB.md` **v5**, referee **5
+  rodadas**): **R-α = (∗′)** honestamente (compacidade trivial; conteúdo = o
+  lema de omissão **não-elementar**, rota `N3`); ameaça a `¬∃e Der(e,Taut(α̂))`
+  **classificada em 4 formas** (slot `Taut(α̂)`; tuplas; suficiência via (U1));
+  **R-β**: compressão `P→EF` ⇒ `EF⊢α` (aberta) — **necessária (só com (S3)),
+  não suficiente**: aberta→fechada = **mesmo bloqueio** de N1 §0.3; `K.2` mata
+  só o esquema global `BB`; **N2.3′**: sob (∗′)+Σ₁-sonoridade, modelo omitente
+  existe **e** `G_eff` (global sobre `T_S^eff` r.e.) não é demonstrável — via
+  `∃p Proof_{T_S^eff}(σ)` Σ₁; **lado (β)-global não excluído** (declarado).
+- **C2 — `DD_{Res(k)}`** (`C2_ddres_k.md` **v5**, referee **5 rodadas**):
+  **C2.1 teorema** (largura-k preservada; `O(|Π|²+|Π|·m)`; FDP `p(t)=t`);
+  **C2.2 rebaixada a PROGRAMA (C)** — as 4 objeções do referee viraram
+  obrigações **(O1)–(O5)** (fallback do pivô-perdido, passo final, dependentes,
+  estricidade, objeto/ordem únicos); `Res(1)` só sob promessa **(C)**;
+  **C2.3 corrigido**: a v1 era **logicamente impossível** (Λ₂ sempre sat ⟹ Λ₁
+  sempre insat) com DNF/CNF trocado — agora: **família alternante** (exatamente
+  um lado insat, alternando com `γ`) ⇒ decodificação total ⇒ `UNSAT_CNF ∈ P`
+  ⟹ P=NP se `DD_{Res(k)}∈P`; [Gar24] dá dois lados insat — a alternância é **(C)**.
+- **Q2 — instâncias `(τ_n,q)`** (`Q2_instancias_tau_n_q.md` **v3**, referee
+  **3 rodadas**): **Q2.1 decidido** com Gödel II **no enunciado**: (Q) full-range
+  + `τ_n(Con T)∈TAUT` ⟹ `T ⊢ Con(T)` — impossível; **mas** instância full-range
+  computável não-degenerada **existe** (`τ_n(φ)=⊤` sse PA prova φ ≤ n; `q=n`) e
+  **transfere trivialmente** — o item congelado perde a motivação no full-range;
+  **Q2.2**: `(Q)|_{Σ₁}` **vale** com `τ_n` **total** (cutoff de testemunha;
+  `|τ_n(φ)|=2^{p(n)}` honesto), ponte por lema de correção limitada [Bus97]/[K19];
+  **Q2.2′** exige `τ_n(φ_n)∈TAUT` (3 modalidades de não-contente declaradas);
+  **Q2.4**: PH/Goodstein violam **provabilidade** (não a ponte); fonte Σ₁ = **(C)**
+  (rota `IΣ_k`; revisão K19 caps. 9/17 + KP90 pendente).
+
 ---
 
 ## Fase 10 — O que está em aberto (programa δ/𝒢; a Fase 11 tem seus próprios abertos)
@@ -545,6 +579,7 @@ excluído — `I1 A.7`/`B.2`) e **R-β** (comprimir `π`; relação indeterminad
 | **11/10/2026** | **M: adversarial decidido** | `m` não-padrão; **`C_{N_s}≡⊥`**; **nota editorial v4** |
 | **11/10/2026** | **✅ CARTA ENVIADA a Krajíček (18:14)** | protonmail + karlin; errata + dicotomia + perguntas; **aguardando resposta** |
 | **11/10/2026** | **N: refutação interna decidida por redução** | `N1_...` v3 RECOMENDADO (referee 2 rodadas); **N.1** `EF⊢σ_s`⟺`EF⊢Taut(α)`; N.2 (C1′); DD9 |
+| **11/10/2026** | **Terceira onda N2/C2/Q2** | **3 entregas RECOMENDADO** (ref. 5/5/3 rodadas): N2 R-α=(∗′) 4-formas + N2.3′ efetivo; C2.1 teorema + C2.2 **programa (O1)–(O5)** + alternância; Q2.1 decidido + `(Q)\|_{Σ₁}`; DD10–DD12; §8 do consolidado |
 | Próximo | ~~Foundation build; rota B; (τ_n,q) concretos~~ → **resposta do autor; então rota B/(τ_n,q)** | — |
 
 ---
@@ -566,12 +601,18 @@ excluído — `I1 A.7`/`B.2`) e **R-β** (comprimir `π`; relação indeterminad
 > ENVIADA 11/10/2026 18:14** (`CARTA_FINAL_ENVIO.md`; protonmail + karlin);
 > **aguardar a resposta do autor** (registrar no dossiê; com o desfecho de **N**:
 > se `q` total, a redução N.1 fica firme; se par, o trap M.2 abre e a pergunta cai);
-> (b) rota B: Φw* com padding w* (definability); (c) instâncias (τ_n,q) concretas
-> para Q — **só então** limite inferior; (d) MathOverflow post **só com confirmação**;
-> (e) residuais **N**: R-α (omitting types para `EF ⊬ Taut(α)`) e R-β (compressão
-> de `π` P→EF). ~~`lake build` Foundation/FoundationBridge~~ **FEITO — VERDE 0 sorry**
-> (cache FFL `ffl`, 1239 jobs); ~~Q formal~~, ~~bridge δ Core~~, ~~Φw* rota A~~,
-> ~~rascunho MO~~ **FEITOS** (PR27).
+> (b) rota B: Φw* com padding w* (definability); ~~(c) instâncias (τ_n,q) concretas
+> para Q~~ **✅ FEITO (Q2, DD12)** — Q2.1 decidido (full-range inócuo), Q2.2 =
+> `(Q)|_{Σ₁}` corrigida; **resta a fonte Σ₁ (C)**: revisar K19 caps. 9/17 + KP90
+> (hierarquia de velocidade / `IΣ_k`) — só então limite inferior; (d) MathOverflow
+> post **só com confirmação**; ~~(e) residuais N: R-α e R-β~~ **✅ FEITO (N2, DD10)**
+> — R-α = (∗′) → **frente nova `N3`** (construção por compacidade + canto χ≡⊤);
+> R-β: compressão necessária≠suficiente, montagem particular **(C)**;
+> **(f) C2 (DD11)**: obrigações (O1)–(O5) do programa `DD_{Res(k)}` — exige o
+> texto exato de [K19 5.7]/Lema 4.1; **(g)** atacar a família **alternante**
+> (C2.3) via reflexão com lado "espectador". ~~`lake build` Foundation/FoundationBridge~~
+> **FEITO — VERDE 0 sorry** (cache FFL `ffl`, 1239 jobs); ~~Q formal~~,
+> ~~bridge δ Core~~, ~~Φw* rota A~~, ~~rascunho MO~~ **FEITOS** (PR27).
 
 ---
 

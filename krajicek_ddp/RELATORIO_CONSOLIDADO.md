@@ -324,7 +324,87 @@ valorações falsificantes, todos provados em Lean 4 (`lake build` limpo).
    registrar a resposta no dossiê quando chegar — **com o desfecho de N**: se `q`
    total, a redução N.1 fica firme; se par, o trap M.2 abre e a pergunta cai.
 2. Conferir no artigo o ponto frágil `i_0 ∈ M*` (Equipe E, §3(c)) — barato e decisório.
-3. ~~Decidir a refutação interna de `{C_{N_s}}`~~ **feito (N)** — pendências viraram
-   residuais: R-α (omitting types para (C1′)) e R-β (compressão de `π`).
-4. Estender `DD_Res ∈ P` para `Res(k)` (k fixo) ou provar `DD_{Res(k)} ∉ P` sob P≠NP.
+3. ~~Decidir a refutação interna de `{C_{N_s}}`~~ **feito (N)** — ~~pendências
+   viraram residuais: R-α e R-β~~ **feito (N2, §8.1)**: R-α = **(∗′)** → frente
+   `N3` (compacidade + χ≡⊤); R-β: compressão necessária≠suficiente.
+4. ~~Estender `DD_Res ∈ P` para `Res(k)` ou provar `∉ P` sob P≠NP~~ **parcial
+   (C2, §8.2)**: C2.1 **teorema** (largura-k); C2.2 = **programa (O1)–(O5)**;
+   ingrediente negativo = **família alternante (C)**. Fonte `Res(k)`:
+   conferir [K19 5.7].
 5. Transferir a análise S-T de [8] para DD_P via estudante P/poly (rota D-(c)).
+
+## 8. Terceira onda — residuais N2, extensão C2 e instâncias Q2 (11/10/2026)
+
+Três entregas derivadas dos abertos da segunda onda, **referee-processadas até
+RECOMENDADO** (logs `*_referee.md`):
+
+### 8.1 N2 — residuais R-α e R-β (`N2_residuals_RA_RB.md` v5; referee 5 rodadas)
+
+- **R-α**: a pergunta **é o lema (∗′)** — consistência de `T_S^¬` (compacidade
+  é trivial e declarada como tal). A ameaça a `¬∃e Der(e, Taut(α̂))` está
+  **classificada em quatro formas** (sem `Der` / conclusão `ValidDer` /
+  conclusão `Der` / antecedente vazialmente falso), com slot **`Taut(α̂)`** e
+  tuplas de termos; suficência da omissão de `ValidDer` via **(U1)** `Der→ValidDer`
+  (universal por construção). **(C)**: (∗′) — construção **não-elementar**
+  (extensões elementares forçam o testemunho, `I1 A.7`), rota honesta =
+  **compacidade** (`N3`), com o **canto χ≡⊤** (coincidência denotacional
+  `g(t̄)^{M_0}=Taut(α̂)`) registrado como exigência.
+- **R-β**: compressão `P→EF` dá `EF ⊢ α` (**aberta**) — o passo aberta→fechada
+  é **o mesmo bloqueio** de N1 §0.3; logo compressão é necessária (só em
+  derivações com (S3)) mas **não suficiente** — todo chifre passa pela montagem.
+  `K.2` mata só o **esquema global** `BB`; montagem **particular** = **(C)**.
+- **N2.3′** (escopo honesto): sob (∗′) + Σ₁-sonoridade de ZFC: **(i)** modelo
+  omitente existe (chifre (β) realizável); **(ii)** o global **efetivo** `G_eff`
+  (sobre `T_S^eff` r.e. — `T_PV` é co-r.e. **e Π₁-completo**, logo não r.e.)
+  não é demonstrável em ZFC, via completude formalizada + `∃p Proof_{T_S^eff}(σ)`
+  (Σ₁) + Σ₁-sonoridade. **Não provado** (declarado): global sobre `T_S` completo;
+  o lado **(β)-global não foi excluído** — a dicotomia N.2 segue aberta, com a
+  rota "ZFC decide pelo global" bloqueada no escopo efetivo.
+
+### 8.2 C2 — `DD` para `Res(k)` (`C2_ddres_k.md` v5; referee 5 rodadas)
+
+- **C2.1 (teorema, aceito)**: o algoritmo do Teorema 4.3 é **agnóstico de
+  largura** — vale para resolução de **largura-k**, preservando-a (`E_i⊆D_i`);
+  bound `O(|Π|²+|Π|·m)`; `DD_{Res^{≤k}} ∈ P`; FDP fraca `p(t)=t`. Distinção
+  largura-`Res(k)` provada **só para FDP**; `DD` de `Res(k)` segue **aberto**.
+- **C2.2 = PROGRAMA (C)** — **rebaixamento honesto** após 4 rodadas de fato
+  novo na mecânica do recorte: as 4 objeções do referee viraram **obrigações
+  abertas (O1)–(O5)**: pai correto no fallback do pivô-perdido (fim em `∅`),
+  fechamento do passo final na promessa, dependentes de linhas eliminadas
+  (corte e ∧-intro, inclusive (r5) com ambos os pais), estricidade do
+  truncamento, objeto/ordem únicos. `Res(1)`: só **sob promessa (C)**.
+- **C2.3 (ingrediente corrigido + redução)**: a v1 tinha ingrediente
+  **logicamente impossível** (Λ₂ sempre sat ⟹ Λ₁ sempre insat) e espantalho
+  DNF/CNF trocado (`TAUT_DNF` é coNP-completa). Corrigido: **família
+  alternante** — exatamente **um** lado insat, alternando com `γ`, união com
+  refutação pequena — decide `UNSAT_CNF` via solver de `DD` (decodificação
+  total). [Gar24] dá dois lados insat — a alternância é **o problema exato (C)**.
+
+### 8.3 Q2 — instâncias `(τ_n,q)` para o Teorema Q (`Q2_instancias_tau_n_q.md` v3; referee 3 rodadas)
+
+- **Q2.1 (decidido; enunciado com Gödel II)**: **(Q) full-range + `τ_n(Con(T))∈TAUT`
+  é impossível** para `T` r.e. com `T ⊬ Con(T)` (ex.: `T ⊇ Q`) e `P` completo —
+  Gödel II em 1 linha. **Mas** o C2 da v1 ("só degeneradas") era **falso**:
+  existe instância full-range **computável não-degenerada** (`τ_n(φ)=⊤` sse PA
+  tem prova ≤ n; `q=n`) que satisfaz (Q) e **transfere trivialmente** —
+  diagnóstico correto: full-range não é impossível, é **inócuo**.
+- **Q2.2 (instância Σ₁ corrigida)**: `(Q)|_{Σ₁}` vale com `τ_n` **total**
+  (⊥ fora do range; cutoff de testemunha `n^{c₀}`), tamanho honesto
+  `|τ_n(φ)| = 2^{p(n)}` (não poli — a v1 era falsa), verificação/sonoridade
+  citadas [Bus97]/[K19], ponte = implicação única via lema de correção
+  limitada. `q(n,m)=(n·m)^c`.
+- **Q2.2′**: corolário **só com** a hipótese `τ_n(φ_n)∈TAUT` (testemunhas
+  curtas + `⌢φ_n⌝≤n`); **três modalidades** de não-contente declaradas (cutoff
+  de Gödel; testemunha longa ⟹ vacuidade; bound trivial `2^{p(n)}`).
+- **Q2.3** (sanity check): τ sintática computável, transfere zero. **Q2.4**:
+  PH/Goodstein violam **provabilidade** (não a ponte); contagem não dá limites
+  superpolinomiais — rota viva = versões `IΣ_k` (**(C)**: fonte Σ₁ não
+  localizada; revisão K19/KP90 pendente).
+
+### 8.4 Balanço das três
+
+| Entrega | Veredito | Fecho | Residual |
+|---|---|---|---|
+| N2 | RECOMENDADO (r5) | classificação da ameaça; (U1); N2.3′ no escopo efetivo | (∗′)=R-α **(C)** → `N3` |
+| C2 | RECOMENDADO (r5) | C2.1 teorema; C2.3 redução+ingrediente | C2.2 **programa (O1)–(O5)**; alternância **(C)** |
+| Q2 | RECOMENDADO (r3) | Q2.1 decidido; Q2.2 corrigida e citada | fonte Σ₁ **(C)** (K19/KP90) |

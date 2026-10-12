@@ -162,6 +162,9 @@ em Core; rascunho MO (não postado)
 | **DD7** | **Canto adversarial `(C)` (M)** | **FEITO — `C_{N_s}≡⊥` construído** | `krajicek_ddp/M_...` |
 | **DD8** | **Nota editorial a Krajíček** | **✅ ENVIADA 11/10/2026 18:14** (protonmail + karlin) — aguardando resposta | `krajicek_ddp/CARTA_FINAL_ENVIO.md` |
 | **DD9** | **Refutação interna de `{C_{N_s}}` (N)** | **FEITO — reduzida a `EF⊢Taut(α)` (N.1); dicotomia (C1′)** | `krajicek_ddp/N1_...` |
+| **DD10** | **Residuais R-α/R-β (N2)** | **FEITO (RECOMENDADO r5)** — R-α=(∗′) com 4 formas da ameaça **(C)**→N3; N2.3′ no escopo efetivo; R-β: compressão necessária≠suficiente | `krajicek_ddp/N2_residuals_RA_RB.md` |
+| **DD11** | **`DD_{Res(k)}` (C2)** | **PARCIAL (RECOMENDADO r5)** — C2.1 **teorema** (largura-k); C2.2 = **programa (O1)–(O5)**; C2.3 família alternante **(C)** | `krajicek_ddp/C2_ddres_k.md` |
+| **DD12** | **Instâncias `(τ_n,q)` (Q2)** | **FEITO (RECOMENDADO r3)** — Q2.1 decidido (full-range inócuo); Q2.2 `(Q)\|_{Σ₁}` corrigida; fonte Σ₁ **(C)** | `krajicek_ddp/Q2_instancias_tau_n_q.md` |
 
 ### DESCARTADOS / REJEITADOS (não usar)
 
