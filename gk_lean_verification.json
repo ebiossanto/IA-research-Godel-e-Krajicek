@@ -1,0 +1,17 @@
+{
+  "timestamp_utc": "2026-10-12T21:48:27.295353Z",
+  "data_source": "gk_lean_bridge.py (Lean 4 lake build)",
+  "project_path": "C:\\Users\\Euz\u00e9bio Soares\\Desktop\\Research\\IA-research-Godel-e-Krajicek\\lean4\\Gothic_Generators",
+  "build_success": false,
+  "returncode": 1,
+  "sorry_count": 1,
+  "theorems": {
+    "delta_mono": "NOT_FOUND",
+    "theorem4_strict": "NOT_FOUND",
+    "rcs_exists": "NOT_FOUND",
+    "covered_mono": "NOT_FOUND",
+    "length_filter_mono": "NOT_FOUND",
+    "length_filter_sub": "NOT_FOUND",
+    "length_filter_strict": "NOT_FOUND"
+  }
+}

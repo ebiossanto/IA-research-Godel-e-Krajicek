@@ -1,0 +1,1034 @@
+{
+  "metadata": {
+    "timestamp_utc": "2026-10-12T22:25:19.584440Z",
+    "phi_len": 12,
+    "r_w": 4,
+    "w_star": "00",
+    "max_finite": 8,
+    "theories": [
+      "PA(\u03c3=0, ord=0)",
+      "PA+RFN_1(\u03c3=1, ord=1)",
+      "PA+RFN_2(\u03c3=2, ord=2)",
+      "PA+RFN_3(\u03c3=3, ord=3)",
+      "PA+RFN_4(\u03c3=4, ord=4)",
+      "PA+RFN_5(\u03c3=5, ord=5)",
+      "PA+RFN_6(\u03c3=6, ord=6)",
+      "PA+RFN_7(\u03c3=7, ord=7)",
+      "PA+RFN_8(\u03c3=8, ord=8)",
+      "PA+RFN^\u03c9(\u03c3=108, ord=\u03c9)"
+    ],
+    "b_values": [
+      4,
+      8,
+      12,
+      16,
+      20,
+      24,
+      32,
+      48,
+      64,
+      128,
+      256
+    ],
+    "n_values": [
+      12,
+      14,
+      16
+    ]
+  },
+  "delta_by_theory": [
+    {
+      "theory": "PA",
+      "ordinal": "0",
+      "sigma": 0,
+      "delta_table": [
+        {
+          "b": 4,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 8,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 12,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 16,
+          "delta": 5,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 20,
+          "delta": 4,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 24,
+          "delta": 4,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 32,
+          "delta": 4,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 48,
+          "delta": 4,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 64,
+          "delta": 4,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 128,
+          "delta": 4,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 256,
+          "delta": 4,
+          "w0": "0000",
+          "rbt": false
+        }
+      ],
+      "rbt_table": []
+    },
+    {
+      "theory": "PA+RFN_1",
+      "ordinal": "1",
+      "sigma": 1,
+      "delta_table": [
+        {
+          "b": 4,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 8,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 12,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 16,
+          "delta": 5,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 20,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 24,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 32,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 48,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 64,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 128,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 256,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        }
+      ],
+      "rbt_table": []
+    },
+    {
+      "theory": "PA+RFN_2",
+      "ordinal": "2",
+      "sigma": 2,
+      "delta_table": [
+        {
+          "b": 4,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 8,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 12,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 16,
+          "delta": 5,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 20,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 24,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 32,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 48,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 64,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 128,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 256,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        }
+      ],
+      "rbt_table": []
+    },
+    {
+      "theory": "PA+RFN_3",
+      "ordinal": "3",
+      "sigma": 3,
+      "delta_table": [
+        {
+          "b": 4,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 8,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 12,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 16,
+          "delta": 5,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 20,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 24,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 32,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 48,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 64,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 128,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 256,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        }
+      ],
+      "rbt_table": []
+    },
+    {
+      "theory": "PA+RFN_4",
+      "ordinal": "4",
+      "sigma": 4,
+      "delta_table": [
+        {
+          "b": 4,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 8,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 12,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 16,
+          "delta": 5,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 20,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 24,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 32,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 48,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 64,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 128,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 256,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        }
+      ],
+      "rbt_table": []
+    },
+    {
+      "theory": "PA+RFN_5",
+      "ordinal": "5",
+      "sigma": 5,
+      "delta_table": [
+        {
+          "b": 4,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 8,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 12,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 16,
+          "delta": 5,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 20,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 24,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 32,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 48,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 64,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 128,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 256,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        }
+      ],
+      "rbt_table": []
+    },
+    {
+      "theory": "PA+RFN_6",
+      "ordinal": "6",
+      "sigma": 6,
+      "delta_table": [
+        {
+          "b": 4,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 8,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 12,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 16,
+          "delta": 5,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 20,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 24,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 32,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 48,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 64,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 128,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 256,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        }
+      ],
+      "rbt_table": []
+    },
+    {
+      "theory": "PA+RFN_7",
+      "ordinal": "7",
+      "sigma": 7,
+      "delta_table": [
+        {
+          "b": 4,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 8,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 12,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 16,
+          "delta": 5,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 20,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 24,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 32,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 48,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 64,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 128,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 256,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        }
+      ],
+      "rbt_table": []
+    },
+    {
+      "theory": "PA+RFN_8",
+      "ordinal": "8",
+      "sigma": 8,
+      "delta_table": [
+        {
+          "b": 4,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 8,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 12,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 16,
+          "delta": 5,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 20,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 24,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 32,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 48,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 64,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 128,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 256,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        }
+      ],
+      "rbt_table": []
+    },
+    {
+      "theory": "PA+RFN^\u03c9",
+      "ordinal": "\u03c9",
+      "sigma": 108,
+      "delta_table": [
+        {
+          "b": 4,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 8,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 12,
+          "delta": 16,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 16,
+          "delta": 5,
+          "w0": "0000",
+          "rbt": false
+        },
+        {
+          "b": 20,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 24,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 32,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 48,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 64,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 128,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        },
+        {
+          "b": 256,
+          "delta": 0,
+          "w0": "ALL_COV",
+          "rbt": false
+        }
+      ],
+      "rbt_table": []
+    }
+  ],
+  "rbt_by_theory": [],
+  "limit_analysis": [
+    {
+      "b": 4,
+      "finite_deltas": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "omega_delta": 16,
+      "converged": true,
+      "limit_value": 16,
+      "omega_matches_limit": true
+    },
+    {
+      "b": 8,
+      "finite_deltas": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "omega_delta": 16,
+      "converged": true,
+      "limit_value": 16,
+      "omega_matches_limit": true
+    },
+    {
+      "b": 12,
+      "finite_deltas": [
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16,
+        16
+      ],
+      "omega_delta": 16,
+      "converged": true,
+      "limit_value": 16,
+      "omega_matches_limit": true
+    },
+    {
+      "b": 16,
+      "finite_deltas": [
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5,
+        5
+      ],
+      "omega_delta": 5,
+      "converged": true,
+      "limit_value": 5,
+      "omega_matches_limit": true
+    },
+    {
+      "b": 20,
+      "finite_deltas": [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "omega_delta": 0,
+      "converged": true,
+      "limit_value": 0,
+      "omega_matches_limit": true
+    },
+    {
+      "b": 24,
+      "finite_deltas": [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "omega_delta": 0,
+      "converged": true,
+      "limit_value": 0,
+      "omega_matches_limit": true
+    },
+    {
+      "b": 32,
+      "finite_deltas": [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "omega_delta": 0,
+      "converged": true,
+      "limit_value": 0,
+      "omega_matches_limit": true
+    },
+    {
+      "b": 48,
+      "finite_deltas": [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "omega_delta": 0,
+      "converged": true,
+      "limit_value": 0,
+      "omega_matches_limit": true
+    },
+    {
+      "b": 64,
+      "finite_deltas": [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "omega_delta": 0,
+      "converged": true,
+      "limit_value": 0,
+      "omega_matches_limit": true
+    },
+    {
+      "b": 128,
+      "finite_deltas": [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "omega_delta": 0,
+      "converged": true,
+      "limit_value": 0,
+      "omega_matches_limit": true
+    },
+    {
+      "b": 256,
+      "finite_deltas": [
+        4,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "omega_delta": 0,
+      "converged": true,
+      "limit_value": 0,
+      "omega_matches_limit": true
+    }
+  ],
+  "ppr_to_omega": [
+    {
+      "from": "PA+RFN_6",
+      "to": "PA+RFN^\u03c9",
+      "R": "suffix0",
+      "tests": 33,
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "from": "PA+RFN_6",
+      "to": "PA+RFN^\u03c9",
+      "R": "id",
+      "tests": 33,
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "from": "PA+RFN_7",
+      "to": "PA+RFN^\u03c9",
+      "R": "suffix0",
+      "tests": 33,
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "from": "PA+RFN_7",
+      "to": "PA+RFN^\u03c9",
+      "R": "id",
+      "tests": 33,
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "from": "PA+RFN_8",
+      "to": "PA+RFN^\u03c9",
+      "R": "suffix0",
+      "tests": 33,
+      "violations": 0,
+      "passed": true
+    },
+    {
+      "from": "PA+RFN_8",
+      "to": "PA+RFN^\u03c9",
+      "R": "id",
+      "tests": 33,
+      "violations": 0,
+      "passed": true
+    }
+  ],
+  "phase_transitions": [],
+  "telemetry_count": 110
+}

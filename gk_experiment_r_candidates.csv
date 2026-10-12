@@ -1,0 +1,13 @@
+n,R,status,comp0_size
+12,id,refuted,8192
+12,xor1,refuted,8192
+12,prefix0,refuted,8192
+12,suffix0,CANDIDATE,8192
+14,id,refuted,32768
+14,xor1,refuted,32768
+14,prefix0,refuted,32768
+14,suffix0,CANDIDATE,32768
+16,id,refuted,131072
+16,xor1,refuted,131072
+16,prefix0,refuted,131072
+16,suffix0,CANDIDATE,131072

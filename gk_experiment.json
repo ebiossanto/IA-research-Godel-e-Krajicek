@@ -1,0 +1,218 @@
+{
+  "metadata": {
+    "timestamp_utc": "2026-10-12T21:43:55.768044Z",
+    "phi_len": 12,
+    "r_w": 4,
+    "w_star": "00",
+    "T0": "PA",
+    "T1": "PA+RFN"
+  },
+  "delta_table": [
+    {
+      "b": 4,
+      "delta_T0": 16,
+      "delta_T1": 16,
+      "G": 0,
+      "w0_T0": "0000",
+      "w0_T1": "0000",
+      "RBT": false
+    },
+    {
+      "b": 8,
+      "delta_T0": 16,
+      "delta_T1": 16,
+      "G": 0,
+      "w0_T0": "0000",
+      "w0_T1": "0000",
+      "RBT": false
+    },
+    {
+      "b": 12,
+      "delta_T0": 16,
+      "delta_T1": 16,
+      "G": 0,
+      "w0_T0": "0000",
+      "w0_T1": "0000",
+      "RBT": false
+    },
+    {
+      "b": 16,
+      "delta_T0": 5,
+      "delta_T1": 5,
+      "G": 0,
+      "w0_T0": "0000",
+      "w0_T1": "0000",
+      "RBT": false
+    },
+    {
+      "b": 20,
+      "delta_T0": 4,
+      "delta_T1": 0,
+      "G": 4,
+      "w0_T0": "0000",
+      "w0_T1": "ALL_COV",
+      "RBT": true
+    },
+    {
+      "b": 24,
+      "delta_T0": 4,
+      "delta_T1": 0,
+      "G": 4,
+      "w0_T0": "0000",
+      "w0_T1": "ALL_COV",
+      "RBT": true
+    },
+    {
+      "b": 32,
+      "delta_T0": 4,
+      "delta_T1": 0,
+      "G": 4,
+      "w0_T0": "0000",
+      "w0_T1": "ALL_COV",
+      "RBT": true
+    },
+    {
+      "b": 48,
+      "delta_T0": 4,
+      "delta_T1": 0,
+      "G": 4,
+      "w0_T0": "0000",
+      "w0_T1": "ALL_COV",
+      "RBT": true
+    },
+    {
+      "b": 64,
+      "delta_T0": 4,
+      "delta_T1": 0,
+      "G": 4,
+      "w0_T0": "0000",
+      "w0_T1": "ALL_COV",
+      "RBT": true
+    }
+  ],
+  "rbt_table": [
+    {
+      "b": 20,
+      "w0_T0": "0000",
+      "w0_T1": "ALL_COV"
+    },
+    {
+      "b": 24,
+      "w0_T0": "0000",
+      "w0_T1": "ALL_COV"
+    },
+    {
+      "b": 32,
+      "w0_T0": "0000",
+      "w0_T1": "ALL_COV"
+    },
+    {
+      "b": 48,
+      "w0_T0": "0000",
+      "w0_T1": "ALL_COV"
+    },
+    {
+      "b": 64,
+      "w0_T0": "0000",
+      "w0_T1": "ALL_COV"
+    }
+  ],
+  "image_analysis": [
+    {
+      "n": 12,
+      "img0_size": 1,
+      "comp0_size": 8191,
+      "img1_size": 1,
+      "comp1_size": 8191
+    },
+    {
+      "n": 14,
+      "img0_size": 4,
+      "comp0_size": 32764,
+      "img1_size": 1,
+      "comp1_size": 32767
+    },
+    {
+      "n": 16,
+      "img0_size": 16,
+      "comp0_size": 131056,
+      "img1_size": 1,
+      "comp1_size": 131071
+    }
+  ],
+  "r_candidates": [
+    {
+      "n": 12,
+      "R": "id",
+      "status": "refuted",
+      "comp0_size": 8192
+    },
+    {
+      "n": 12,
+      "R": "xor1",
+      "status": "refuted",
+      "comp0_size": 8192
+    },
+    {
+      "n": 12,
+      "R": "prefix0",
+      "status": "refuted",
+      "comp0_size": 8192
+    },
+    {
+      "n": 12,
+      "R": "suffix0",
+      "status": "CANDIDATE",
+      "comp0_size": 8192
+    },
+    {
+      "n": 14,
+      "R": "id",
+      "status": "refuted",
+      "comp0_size": 32768
+    },
+    {
+      "n": 14,
+      "R": "xor1",
+      "status": "refuted",
+      "comp0_size": 32768
+    },
+    {
+      "n": 14,
+      "R": "prefix0",
+      "status": "refuted",
+      "comp0_size": 32768
+    },
+    {
+      "n": 14,
+      "R": "suffix0",
+      "status": "CANDIDATE",
+      "comp0_size": 32768
+    },
+    {
+      "n": 16,
+      "R": "id",
+      "status": "refuted",
+      "comp0_size": 131072
+    },
+    {
+      "n": 16,
+      "R": "xor1",
+      "status": "refuted",
+      "comp0_size": 131072
+    },
+    {
+      "n": 16,
+      "R": "prefix0",
+      "status": "refuted",
+      "comp0_size": 131072
+    },
+    {
+      "n": 16,
+      "R": "suffix0",
+      "status": "CANDIDATE",
+      "comp0_size": 131072
+    }
+  ],
+  "telemetry_count": 288
+}
