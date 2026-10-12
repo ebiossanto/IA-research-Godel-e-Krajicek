@@ -5,11 +5,21 @@ arXiv:2506.20221 (v4, 23 Mar 2026 — https://arxiv.org/html/2506.20221v4;
 **v5/LMCS 22(2:14)2026** — https://arxiv.org/html/2506.20221v5).
 **Numeração:** o "Teorema 4" da v4 é o **Teorema 3** na v5/LMCS (`G_CONTEXTO_FORCING.md` §1.1);
 a lacuna está em **ambas** as versões.
-**Data do relatório:** 10–11 Out 2026 (atualizado com a segunda onda F–M).
+**Data do relatório:** 10–12 Out 2026 (atualizado com a terceira onda N2/C2/Q2 + avaliação externa de 12/10 — §9).
 **Equipes/frentes:** A (teoria exata), B (Lean 4), C (casos/disjunção viável), D (geradores),
 E (ataque ao Problema 2.1); **segunda onda:** F (verificação do passo 7/5), G (forcing/`Log`),
 H (coleção/refutação), I (Q-compactness), J (`M_0`/ponto fixo), L (`¬φ`), M (canto adversarial),
 Nota editorial.
+
+> **§0. Nota de status (padrão fixado em 12/10/2026 — ver §9).** Todo veredito
+> "**RECOMENDADO**" deste relatório significa: **aprovado por rodada interna de
+> crítica estruturada (referee hostile interno; logs `*_referee.md`)** — **não**
+> equivale a peer review nem a validação pela comunidade. Os resultados **(P)** de
+> K, L, M, N são **argumentos próprios condicionais** (os condicionais estão em
+> cada frente). **Nenhum** item deste relatório é um lower bound computacional;
+> a ponte L2→L3 está **aberta** (§9.1). A auditoria **externa** de `DD_Res ∈ P` e
+> das frentes G–N está **pendente** — dossiê pronto em
+> `AUDITORIA_EXTERNA_DDRES_G-N.md`.
 
 Entregáveis individuais (não duplicar aqui; este relatório só consolida):
 
@@ -241,10 +251,14 @@ retomada da mesma sessão (quando falhavam, o orquestrador completava).
 - **M.0**: `T_S ⊢` **`m` é não-padrão** (Teorema K + `(S4)` + montagem p-tempo `h`);
   o caso "m padrão" não existe e o contraexemplo `m=2` do referee J2 é **vácuo**.
 - **M.1**: **nenhum** `M_0 ⊨ T_S` tem falsificador **global** (contrapositiva de K).
-- **M.2**: o **seletor p-tempo** `s(v)` = "menor `i<m` com `¬Fals(v,α_i)`" define um
-  nome **não-padrão** `N_s` com **`C_{N_s} ≡ ⊥` internamente em todo modelo** —
-  o adversarial `(C)` do `J2 §3` é **real e construído** (dual de `¬φ`, mecanismo
-  Teorema K); sob a leitura alternativa com `q` **parcial** pode abrir (pergunta ao autor).
+- **M.2 (CONDICIONAL à semântica de `τ_N` — avaliação externa 12/10, P2)**: o
+  **seletor p-tempo** `s(v)` = "menor `i<m` com `¬Fals(v,α_i)`" define um
+  nome **não-padrão** `N_s`; **`C_{N_s} ≡ ⊥` internamente em todo modelo
+  SOB `q` total** (R1 e a alternativa com `q` total) — sob a leitura parcial
+  com **merge** o argumento **pode falhar** e o adversarial `(C)` do `J2 §3`
+  **abre** (dual de `¬φ`, mecanismo Teorema K). **Enunciado correto:
+  condicional à semântica escolhida para `τ_N`** — a pergunta **Q1** da carta
+  (enviada 11/10) decide. **Não resumir M.2 sem esta ressalva.**
 - **M.3–M.5**: nomes **padrão** nunca são adversariais (guarda `R(N)⊆m` automática
   em todo modelo ⟹ J.6-a′ sem ressalva; famílias internas não-padrão-muitas = `(C)`);
   **duas** condições canônicas `≡ ⊥` na semente (`¬φ` e `C_{N_s}`) = **duas fontes
@@ -308,8 +322,9 @@ valorações falsificantes, todos provados em Lean 4 (`lake build` limpo).
 5. **C.3 negativa incondicionalmente** (L.3′); `α` não-padrão (L.3a); `φ` exemplifica
    a incompletude de pps em modelos de `T_PV` (L.4).
 6. **Canto adversarial decidido** (M): `m` sempre não-padrão (M.0); sem falsificador
-   global (M.1); **`C_{N_s} ≡ ⊥`** construído para nome não-padrão (M.2) — 2ª fonte
-   de não-compactude; nomes padrão inofensivos (M.3–M.5).
+   global (M.1); **`C_{N_s} ≡ ⊥` condicional** (M.2 — **sob `q` total**; sob `q`
+   parcial com merge pode falhar → **Q1** da carta) — 2ª fonte de não-compactude
+   **se o condicional fechar**; nomes padrão inofensivos (M.3–M.5).
 7. **Nota editorial a Krajíček — ✅ ENVIADA em 11/10/2026 18:14**
    (`CARTA_FINAL_ENVIO.md`; para jan.krajicek@protonmail.com e
    krajicek@karlin.mff.cuni.cz) — **aguardando resposta do autor**.
@@ -408,3 +423,62 @@ RECOMENDADO** (logs `*_referee.md`):
 | N2 | RECOMENDADO (r5) | classificação da ameaça; (U1); N2.3′ no escopo efetivo | (∗′)=R-α **(C)** → `N3` |
 | C2 | RECOMENDADO (r5) | C2.1 teorema; C2.3 redução+ingrediente | C2.2 **programa (O1)–(O5)**; alternância **(C)** |
 | Q2 | RECOMENDADO (r3) | Q2.1 decidido; Q2.2 corrigida e citada | fonte Σ₁ **(C)** (K19/KP90) |
+
+## 9. Avaliação externa de 12/10/2026 — resposta e regime de apresentação
+
+> Resposta pontual completa: `CRITICA_EXTERNA_2026-10-12.md` (2ª onda; a 1ª em
+> `CRITICA_EXTERNA_2026-10-11.md`). A avaliação **reconhece** a melhoria
+> metodológica (README, retrações, estrutura DD_P, lacuna concreta, honestidade
+> da frente N) e dá o direcionamento: *não adicionar mais conjecturas; obter
+> **auditoria externa independente** de `DD_Res ∈ P` e das frentes G–N, além de
+> **compilação Lean reproduzível***.
+
+### 9.1 Três níveis de resultado (avaliação P5 — regra de leitura obrigatória)
+
+| Nível | O quê | Exemplos | Status |
+|---|---|---|---|
+| **L1** | Teoremas sobre **fórmulas/resolução** (proposicionais) | `DD_Res ∈ P` (T4.3); C2.1 largura-k; tautologia/dicotomia de `α` | prova escrita; **`DD_Res` com auditoria externa pendente** |
+| **L2** | Resultados **internos a modelos não-padrão** de `T_PV` | K, K.2, L.1, L.3′, M.0–M.5, N.1, (∗′), `G_eff` | argumentos próprios **condicionais** |
+| **L3** | Consequências p/ **NP, coNP, geradores, complexidade** | `NP≠coNP`, `P≠NP`, lower bounds, p-boundedness | **só condicionais explícitas** (`(2.1)+(ST)⟹NP≠coNP`; `¬(2.1)⟹P≠NP`) |
+
+**A ponte L2→L3 NÃO foi demonstrada.** Uma fórmula internamente insatisfatível
+ou uma coleção impossível num modelo **não** produz lower bound computacional.
+Esta ponte é o **aberto de maior peso** do projeto e nenhuma leitura do
+repositório pode saltá-la.
+
+### 9.2 O que foi aplicado hoje (12/10)
+
+1. **Terminologia (P1)**: "RECOMENDADO" = **revisão interna estruturada**, nunca
+   validação externa — fórmula padronizada no §0 acima, no `README.md` e no
+   `INDICE.md`.
+2. **M.2 condicional (P2)**: condicionalidade à semântica de `τ_N` (`q` total ×
+   `q` parcial com merge) explicitada em **todos** os resumos (§6.4, §7.6, README
+   item 5, INDICE DD7) — **Q1** da carta decide.
+3. **Compilação reproduzida (P3)**: `lake build` na raiz **em 12/10/2026** →
+   `Build completed successfully (4 jobs)`, com exatamente os **2 `sorry`s**
+   documentados (`lean4/Gothic_Generators/DDP.lean:628` e `:690`); nenhum `sorry`
+   em `FoundationBridge/`. Instruções de reprodução em `README.md`
+   (§Formalização) — basta `elan` (a toolchain `v4.34.0` baixa sozinha).
+   **Escopo honesto**: o Lean cobre o **núcleo proposicional** de `DD_P` —
+   **não** formaliza p-time, O(1) rodadas, p-boundedness, NP≠coNP, o Problema 2.1
+   nem modelos não-padrão.
+4. **PPR reclassificado (P4)**: PPR-2/RBT/CC-Θ = **verificados no modelo finito
+   escolhido** (`R_W=4`, `W_STAR='00'`, ramos artificiais; `cond_C =
+   (w0_Tp is None)` é propriedade **do modelo finito**) — **não** evidência de
+   redução entre geradores de provas reais. Caixa permanente em
+   `EVOLUCAO_PROJETO.md`.
+5. **Pacote de auditoria (P6/P10)**: `AUDITORIA_EXTERNA_DDRES_G-N.md` — dossiê
+   autossuficiente com o enunciado (T4.3/L4.1/L4.2), a **prova em 5 passos**, o
+   **checklist exato** (recorte×enfraquecimento em todas as variantes; DAG;
+   pureza; **tensão `O(|Π|·m)` × `O(|Π|²)` reconhecida**), a tabela das frentes
+   G–N com o que checar em cada uma, o que **não** é reivindicado, e a logística.
+
+### 9.3 O que a avaliação NÃO altera
+
+- Nenhum resultado foi **alterado** — apenas a **apresentação** ficou mais
+  precisa (condicionais explícitos; níveis separados; revisão interna nomeada).
+- As **retrações** do Eixo 1 permanecem; os positivos reconhecidos permanecem.
+- **Próximo passo decisivo** = auditoria externa (vias em
+  `AUDITORIA_EXTERNA_DDRES_G-N.md` §E; MathOverflow segue **congelado** até
+  confirmação) + avançar os abertos internos na ordem: resposta de Krajíček →
+  `N3` → [K19 5.7]/família alternante → fonte Σ₁ (Q2.4).

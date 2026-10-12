@@ -512,9 +512,48 @@ referee-processada até RECOMENDADO (logs `*_referee.md`):
   **Q2.4**: PH/Goodstein violam **provabilidade** (não a ponte); fonte Σ₁ = **(C)**
   (rota `IΣ_k`; revisão K19 caps. 9/17 + KP90 pendente).
 
+### 11.8 Avaliação externa de 2ª onda (12/10/2026) — aplicada
+
+Recebemos nova avaliação independente do repositório (a resposta ponto a ponto
+está em `CRITICA_EXTERNA_2026-10-12.md`; a 1ª onda em
+`CRITICA_EXTERNA_2026-10-11.md`). A avaliação **confirma os positivos**
+(retrações coerentes, estrutura séria da campanha DD_P, lacuna concreta,
+honestidade da frente N) e **acerta em 5 reservas**, todas aplicadas hoje:
+
+1. **"RECOMENDADO" = revisão interna** (não peer review) → fórmula padronizada
+   no `README.md`, `INDICE.md` (v6.17) e `RELATORIO_CONSOLIDADO.md` §0.
+2. **`M.2` condicional à semântica de `τ_N`** (`q` total × `q` parcial com
+   merge; **Q1** da carta decide) → corrigido em **todos** os resumos (README
+   item 5, INDICE DD7, consolidado §6.4/§7.6).
+3. **Compilação Lean**: (a) escopo honesto explícito (o que **não** está
+   formalizado: p-time, O(1) rodadas, NP≠coNP, 2.1, modelos não-padrão);
+   (b) **reproduzida em 12/10/2026**: `lake build` →
+   `Build completed successfully (4 jobs)`, exatamente 2 `sorry`s
+   (`DDP.lean:628`, `:690`), nenhum em `FoundationBridge/`;
+   (c) instruções de reprodução em `README.md` (basta `elan`).
+4. **PPR reclassificado**: ver **Caixa PPR** abaixo.
+5. **Três níveis de resultado** (L1 fórmulas/resolução · L2 modelos não-padrão ·
+   L3 complexidade) com **ponte L2→L3 aberta** → `RELATORIO_CONSOLIDADO.md` §9.1.
+
+**Ação decisiva gerada** (a avaliação diz: *não adicionar mais conjecturas;
+obter auditoria externa*): criado **`krajicek_ddp/AUDITORIA_EXTERNA_DDRES_G-N.md`**
+— dossiê autossuficiente para auditor independente verificar `DD_Res ∈ P`
+(checklist recorte×enfraquecimento em todas as variantes, DAG, pureza, **tensão
+`O(|Π|·m)`×`O(|Π|²)`**) e as frentes G–N (tabela com o que checar em cada uma).
+**Nenhum resultado foi alterado — só a apresentação ficou mais precisa.**
+
 ---
 
 ## Fase 10 — O que está em aberto (programa δ/𝒢; a Fase 11 tem seus próprios abertos)
+
+> **Caixa PPR — regime de leitura (fixado 12/10/2026, avaliação externa P4):**
+> os resultados **PPR-2 "PASSA" (PR17 3/3, PR20 4/4, PR23 20/20), RBT (PR23:
+> 10 disparos) e CC-Θ (PR19: 32/32) são VERIFICADOS NO MODELO FINITO ESCOLHIDO**
+> — `R_W = 4`, `W_STAR = '00'`, ramos artificiais de 4 bits — e **não** constituem
+> evidência de redução entre geradores de provas **reais**. A condição
+> `cond_C = (w0_Tp is None)` (teoria posterior cobre tudo ⇒ condição aceita) é
+> **propriedade do modelo finito**, não uma redução PPR geral. PPR/RBT/RCS
+> permanecem **programa experimental**, não resultado de complexidade.
 
 ### Aberto matemático
 
@@ -580,7 +619,9 @@ referee-processada até RECOMENDADO (logs `*_referee.md`):
 | **11/10/2026** | **✅ CARTA ENVIADA a Krajíček (18:14)** | protonmail + karlin; errata + dicotomia + perguntas; **aguardando resposta** |
 | **11/10/2026** | **N: refutação interna decidida por redução** | `N1_...` v3 RECOMENDADO (referee 2 rodadas); **N.1** `EF⊢σ_s`⟺`EF⊢Taut(α)`; N.2 (C1′); DD9 |
 | **11/10/2026** | **Terceira onda N2/C2/Q2** | **3 entregas RECOMENDADO** (ref. 5/5/3 rodadas): N2 R-α=(∗′) 4-formas + N2.3′ efetivo; C2.1 teorema + C2.2 **programa (O1)–(O5)** + alternância; Q2.1 decidido + `(Q)\|_{Σ₁}`; DD10–DD12; §8 do consolidado |
-| Próximo | ~~Foundation build; rota B; (τ_n,q) concretos~~ → **resposta do autor; então rota B/(τ_n,q)** | — |
+| **12/10/2026** | **Avaliação externa 2ª onda + resposta** | 5 reservas **aplicadas**: RECOMENDADO=revisão interna; **M.2 condicional a `q`**; **build Lean reproduzido** (4 jobs, 2 sorry); PPR=**modelo finito**; níveis L1/L2/L3 (ponte aberta); **DD13** |
+| **12/10/2026** | **Pacote de auditoria externa** | `AUDITORIA_EXTERNA_DDRES_G-N.md` — checklist T4.3 + tabela G–N + não-reivindicado; **auditor externo pendente (DD14)** | — |
+| Próximo | ~~Foundation build; rota B; (τ_n,q) concretos~~ → **auditoria externa + resposta do autor; então N3/[K19 5.7]/fonte Σ₁** | — |
 
 ---
 
@@ -597,11 +638,15 @@ referee-processada até RECOMENDADO (logs `*_referee.md`):
 
 ## Próximo passo (a atualizar)
 
-> **Próximo (PR28+):** ~~(0) enviar a nota editorial a Krajíček~~ **✅ FEITO —
+> **Próximo (PR29+):** **(0a) OBTER AUDITORIA EXTERNA INDEPENDENTE** de
+> `DD_Res ∈ P` e das frentes G–N — prioridade nº 1 segundo a avaliação de
+> 12/10; dossiê pronto em `krajicek_ddp/AUDITORIA_EXTERNA_DDRES_G-N.md`
+> (vias: especialista indicado; resposta de Krajíček; MO **só com
+> confirmação**); ~~(0) enviar a nota editorial a Krajíček~~ **✅ FEITO —
 > ENVIADA 11/10/2026 18:14** (`CARTA_FINAL_ENVIO.md`; protonmail + karlin);
 > **aguardar a resposta do autor** (registrar no dossiê; com o desfecho de **N**:
-> se `q` total, a redução N.1 fica firme; se par, o trap M.2 abre e a pergunta cai);
-> (b) rota B: Φw* com padding w* (definability); ~~(c) instâncias (τ_n,q) concretas
+> se `q` total, a redução N.1 fica firme e **M.2 é teorema**; se par, o trap M.2
+> abre e a pergunta cai); (b) rota B: Φw* com padding w* (definability); ~~(c) instâncias (τ_n,q) concretas
 > para Q~~ **✅ FEITO (Q2, DD12)** — Q2.1 decidido (full-range inócuo), Q2.2 =
 > `(Q)|_{Σ₁}` corrigida; **resta a fonte Σ₁ (C)**: revisar K19 caps. 9/17 + KP90
 > (hierarquia de velocidade / `IΣ_k`) — só então limite inferior; (d) MathOverflow
@@ -610,7 +655,9 @@ referee-processada até RECOMENDADO (logs `*_referee.md`):
 > R-β: compressão necessária≠suficiente, montagem particular **(C)**;
 > **(f) C2 (DD11)**: obrigações (O1)–(O5) do programa `DD_{Res(k)}` — exige o
 > texto exato de [K19 5.7]/Lema 4.1; **(g)** atacar a família **alternante**
-> (C2.3) via reflexão com lado "espectador". ~~`lake build` Foundation/FoundationBridge~~
+> (C2.3) via reflexão com lado "espectador"; **(h)** compilação Lean reproduzível
+> em instalação limpa = **✅ instruções no `README.md`** + reprodução de 12/10
+> (4 jobs; 2 sorry em DDP.lean 628/690). ~~`lake build` Foundation/FoundationBridge~~
 > **FEITO — VERDE 0 sorry** (cache FFL `ffl`, 1239 jobs); ~~Q formal~~,
 > ~~bridge δ Core~~, ~~Φw* rota A~~, ~~rascunho MO~~ **FEITOS** (PR27).
 

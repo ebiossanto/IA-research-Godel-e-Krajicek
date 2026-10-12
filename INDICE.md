@@ -1,9 +1,19 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.16 (Outubro 2026 — Campanha DD_P / Krajíček 2025, rodadas A–M)
+**Versão:** 6.17 (Outubro 2026 — Campanha DD_P / Krajíček 2025, rodadas A–N + N2/C2/Q2)
 **Status:** ✅ **Carta a Krajíček ENVIADA 11/10/2026 18:14** (aguardando resposta);
-Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥`; `DD_Res ∈ P`; Teorema Q condicional
+Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥` **(condicional a `q` total — Q1)**;
+`DD_Res ∈ P` **(auditoria externa pendente)**; Teorema Q condicional
 em Core; rascunho MO (não postado)
+
+> **Terminologia (fixada em 12/10/2026 — ver `CRITICA_EXTERNA_2026-10-12.md`):**
+> **"RECOMENDADO (rn)" = aprovado em `n` rodadas internas de crítica estruturada
+> (referee hostile interno; logs `*_referee.md`) — NÃO é peer review nem
+> validação da comunidade.** Os itens (P) de K/L/M/N são argumentos próprios
+> **condicionais**; a ponte modelos não-padrão → complexidade (L2→L3) está
+> **aberta** (`krajicek_ddp/RELATORIO_CONSOLIDADO.md` §9.1). PPR/RBT/RCS =
+> programa experimental **no modelo finito escolhido**. Auditoria externa
+> pendente: `krajicek_ddp/AUDITORIA_EXTERNA_DDRES_G-N.md`.
 
 ---
 
@@ -159,12 +169,14 @@ em Core; rascunho MO (não postado)
 | **DD4** | **Obstrução ZFC + correção (G1/G2)** | **FEITO — `Log(M[G])=Log(M)`; `(F-b')` refutado; `2.1→(F-sent)`** | `krajicek_ddp/G1/G2` |
 | **DD5** | **Teorema K + K-FP′ (J1/J2)** | **FEITO — coleção impossível; ponto fixo padrão** | `krajicek_ddp/J1/J2` |
 | **DD6** | **`¬φ` insatisfatível + C.3 negativa (L)** | **FEITO — `T_PV+(S4)⊢∀rφ(r)`** | `krajicek_ddp/L1_...` |
-| **DD7** | **Canto adversarial `(C)` (M)** | **FEITO — `C_{N_s}≡⊥` construído** | `krajicek_ddp/M_...` |
+| **DD7** | **Canto adversarial `(C)` (M)** | **FEITO CONDICIONAL — `C_{N_s}≡⊥` sob `q` total; sob `q` parcial com merge pode falhar → Q1 da carta decide** | `krajicek_ddp/M_...` |
 | **DD8** | **Nota editorial a Krajíček** | **✅ ENVIADA 11/10/2026 18:14** (protonmail + karlin) — aguardando resposta | `krajicek_ddp/CARTA_FINAL_ENVIO.md` |
 | **DD9** | **Refutação interna de `{C_{N_s}}` (N)** | **FEITO — reduzida a `EF⊢Taut(α)` (N.1); dicotomia (C1′)** | `krajicek_ddp/N1_...` |
 | **DD10** | **Residuais R-α/R-β (N2)** | **FEITO (RECOMENDADO r5)** — R-α=(∗′) com 4 formas da ameaça **(C)**→N3; N2.3′ no escopo efetivo; R-β: compressão necessária≠suficiente | `krajicek_ddp/N2_residuals_RA_RB.md` |
 | **DD11** | **`DD_{Res(k)}` (C2)** | **PARCIAL (RECOMENDADO r5)** — C2.1 **teorema** (largura-k); C2.2 = **programa (O1)–(O5)**; C2.3 família alternante **(C)** | `krajicek_ddp/C2_ddres_k.md` |
 | **DD12** | **Instâncias `(τ_n,q)` (Q2)** | **FEITO (RECOMENDADO r3)** — Q2.1 decidido (full-range inócuo); Q2.2 `(Q)\|_{Σ₁}` corrigida; fonte Σ₁ **(C)** | `krajicek_ddp/Q2_instancias_tau_n_q.md` |
+| **DD13** | **Avaliação externa 2ª onda + resposta** | **APLICADA (P1–P5, P10)** — terminologia de status; M.2 condicional; build reproduzido; PPR reclassificado; três níveis L1/L2/L3 | `CRITICA_EXTERNA_2026-10-12.md` |
+| **DD14** | **Pacote de auditoria externa (G–N + `DD_Res`)** | **PRONTO** — checklist (a)–(e) do T4.3; tabela G–N com o que checar; §C não-reivindicado; §E vias (MO congelado) | `krajicek_ddp/AUDITORIA_EXTERNA_DDRES_G-N.md` |
 
 ### DESCARTADOS / REJEITADOS (não usar)
 

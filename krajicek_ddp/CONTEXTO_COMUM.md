@@ -180,8 +180,20 @@ Verificar o enunciado exato no artigo antes de afirmar qualquer coisa.
 
 1. Escrever entregáveis **apenas** nos arquivos indicados na própria missão (não editar
    arquivos de outras equipes).
-2. Distinguir sempre: **(A)** o que está no artigo; **(B)** o que é demonstração própria;
-   **(C)** conjectura/ideia de trabalho.
+2. Distinguir sempre: **(A)** o que está no artigo/fonte; **(P)** o que é demonstração
+   própria; **(C)** conjectura/ideia de trabalho; **(H)** hipótese de leitura;
+   **(R)** retraído (não usar como resultado).
 3. Rigor técnico; nada de afirmação sem fonte ou sem prova.
 4. Terminar a resposta com um resumo de até ~600 palavras com os achados principais e os
    caminhos mais promissores.
+5. **Status (fixado 12/10/2026, avaliação externa P1/P7):** "RECOMENDADO (rn)" =
+   aprovado em `n` rodadas **internas** de crítica estruturada (logs `*_referee.md`) —
+   **não** é peer review nem validação da comunidade. Resultados (P) de K/L/M/N =
+   argumentos próprios **condicionais** (os condicionais vão junto em TODO resumo;
+   `M.2` é condicional à semântica de `τ_N` — **Q1** da carta).
+6. **Três níveis de resultado (avaliação P5):** **L1** = teoremas sobre
+   fórmulas/resolução · **L2** = resultados internos a modelos não-padrão de `T_PV` ·
+   **L3** = consequências p/ NP, coNP, geradores, complexidade. **A ponte L2→L3 está
+   aberta**: insatisfatibilidade interna ou impossibilidade num modelo **não** produz
+   lower bound computacional — nenhuma entrega pode saltá-la (ver
+   `RELATORIO_CONSOLIDADO.md` §9.1).
