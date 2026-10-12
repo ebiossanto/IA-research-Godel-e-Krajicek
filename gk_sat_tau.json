@@ -1,0 +1,3021 @@
+{
+  "metadata": {
+    "timestamp_utc": "2026-10-12T22:38:53.875769Z",
+    "phi_len": 4,
+    "r_w": 2,
+    "w_star": "00",
+    "theories": [
+      "PA(\u03c3=0)",
+      "PA+RFN_1(\u03c3=1)",
+      "PA+RFN_2(\u03c3=2)"
+    ],
+    "n_values": [
+      4,
+      6
+    ]
+  },
+  "tau_formulas": [
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.877153Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "00000",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n5 0\n6 0\n7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.877153Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "00000",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n5 0\n6 0\n7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.878155Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "00000",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n5 0\n6 0\n7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.879153Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "00001",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n5 0\n6 0\n-7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.879153Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "00001",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n5 0\n6 0\n-7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.880153Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "00001",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n5 0\n6 0\n-7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.880153Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "00010",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n5 0\n-6 0\n7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.881152Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "00010",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n5 0\n-6 0\n7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.881152Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "00010",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n5 0\n-6 0\n7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.882151Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "00011",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n5 0\n-6 0\n-7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.882151Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "00011",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n5 0\n-6 0\n-7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.883151Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "00011",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n5 0\n-6 0\n-7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.884150Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "00100",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n-5 0\n6 0\n7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.884150Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "00100",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n-5 0\n6 0\n7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.885149Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "00100",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n-5 0\n6 0\n7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.885149Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "00101",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n-5 0\n6 0\n-7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.886149Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "00101",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n-5 0\n6 0\n-7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.886149Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "00101",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n-5 0\n6 0\n-7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.887148Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "00110",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n-5 0\n-6 0\n7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.887148Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "00110",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n-5 0\n-6 0\n7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.888148Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "00110",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n-5 0\n-6 0\n7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.889147Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "00111",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n-5 0\n-6 0\n-7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.889147Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "00111",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n-5 0\n-6 0\n-7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.890146Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "00111",
+      "num_vars": 7,
+      "num_clauses": 3,
+      "cnf_dimacs": "p cnf 7 3\n-5 0\n-6 0\n-7 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.890146Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "01000",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.891146Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "01000",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.891146Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "01000",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.892144Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "01001",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.893218Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "01001",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.893689Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "01001",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.894159Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "01010",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.895160Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "01010",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.895160Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "01010",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.896159Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "01011",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.896159Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "01011",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.897158Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "01011",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.897158Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "01100",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.898158Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "01100",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.898158Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "01100",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.899157Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "01101",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.900156Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "01101",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.900156Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "01101",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.901157Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "01110",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.901157Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "01110",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.902156Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "01110",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.902156Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "01111",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.903156Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "01111",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.903156Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "01111",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.904155Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "10000",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.905154Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "10000",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.905154Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "10000",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.906154Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "10001",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.906154Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "10001",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.907153Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "10001",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.907153Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "10010",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.908153Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "10010",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.908153Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "10010",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.909152Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "10011",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.909152Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "10011",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.910455Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "10011",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.910455Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "10100",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.911457Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "10100",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.911457Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "10100",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.912457Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "10101",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.913456Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "10101",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.913456Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "10101",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.914455Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "10110",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.914455Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "10110",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.915454Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "10110",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.915454Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "10111",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.916454Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "10111",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.916454Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "10111",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.917453Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "11000",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.917453Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "11000",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.918452Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "11000",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.919452Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "11001",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.919452Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "11001",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.920451Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "11001",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.920451Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "11010",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.921451Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "11010",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.921451Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "11010",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.922450Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "11011",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.922450Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "11011",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.923449Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "11011",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.923449Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "11100",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.924449Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "11100",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.925448Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "11100",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.925448Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "11101",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.926448Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "11101",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.926448Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "11101",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.927774Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "11110",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.927774Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "11110",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.928776Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "11110",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.928776Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 4,
+      "b": "11111",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.929776Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "11111",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.929776Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "11111",
+      "num_vars": 4,
+      "num_clauses": 0,
+      "cnf_dimacs": "p cnf 4 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.930775Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 6,
+      "b": "0000000",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n7 0\n8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.931774Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0000000",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n7 0\n8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.931774Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0000000",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n7 0\n8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.932774Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 6,
+      "b": "0000001",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n7 0\n8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.932774Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0000001",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n7 0\n8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.933773Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0000001",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n7 0\n8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.933773Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 6,
+      "b": "0000010",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n7 0\n-8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.934772Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0000010",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n7 0\n-8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.935772Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0000010",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n7 0\n-8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.935772Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 6,
+      "b": "0000011",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n7 0\n-8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.936771Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0000011",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n7 0\n-8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.936771Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0000011",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n7 0\n-8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.937770Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 6,
+      "b": "0000100",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n-7 0\n8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.937770Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0000100",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n-7 0\n8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.938770Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0000100",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n-7 0\n8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.938770Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 6,
+      "b": "0000101",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n-7 0\n8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.939769Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0000101",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n-7 0\n8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.939769Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0000101",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n-7 0\n8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.940768Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 6,
+      "b": "0000110",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n-7 0\n-8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.941768Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0000110",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n-7 0\n-8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.941768Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0000110",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n-7 0\n-8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.942767Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 6,
+      "b": "0000111",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n-7 0\n-8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.942767Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0000111",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n-7 0\n-8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.943924Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0000111",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n6 0\n-7 0\n-8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.944279Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 6,
+      "b": "0001000",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n7 0\n8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.944792Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0001000",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n7 0\n8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.945794Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0001000",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n7 0\n8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.945794Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 6,
+      "b": "0001001",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n7 0\n8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.946793Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0001001",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n7 0\n8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.946793Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0001001",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n7 0\n8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.947792Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 6,
+      "b": "0001010",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n7 0\n-8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.947792Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0001010",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n7 0\n-8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.948792Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0001010",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n7 0\n-8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.949789Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 6,
+      "b": "0001011",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n7 0\n-8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.949789Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0001011",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n7 0\n-8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.950791Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0001011",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n7 0\n-8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.950791Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 6,
+      "b": "0001100",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n-7 0\n8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.951790Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0001100",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n-7 0\n8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.951790Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0001100",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n-7 0\n8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.952789Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 6,
+      "b": "0001101",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n-7 0\n8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.953789Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0001101",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n-7 0\n8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.953789Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0001101",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n-7 0\n8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.954788Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 6,
+      "b": "0001110",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n-7 0\n-8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.954788Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0001110",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n-7 0\n-8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.955787Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0001110",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n-7 0\n-8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.955787Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 6,
+      "b": "0001111",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n-7 0\n-8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.956787Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0001111",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n-7 0\n-8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.957784Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0001111",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n5 0\n-6 0\n-7 0\n-8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.957784Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 6,
+      "b": "0010000",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n-5 0\n6 0\n7 0\n8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.958785Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0010000",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n-5 0\n6 0\n7 0\n8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.958785Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0010000",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n-5 0\n6 0\n7 0\n8 0\n9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.959785Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA",
+      "n": 6,
+      "b": "0010001",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n-5 0\n6 0\n7 0\n8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.959785Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0010001",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n-5 0\n6 0\n7 0\n8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    },
+    {
+      "timestamp_utc": "2026-10-12T22:38:53.961194Z",
+      "data_source": "gk_sat_tau_generator.py (SAT-based tau-formula)",
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0010001",
+      "num_vars": 9,
+      "num_clauses": 5,
+      "cnf_dimacs": "p cnf 9 5\n-5 0\n6 0\n7 0\n8 0\n-9 0\n",
+      "sat_result": "SAT",
+      "proof_length": 0
+    }
+  ],
+  "sat_results": [
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "00000",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "00000",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "00000",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "00001",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "00001",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "00001",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "00010",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "00010",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "00010",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "00011",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "00011",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "00011",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "00100",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "00100",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "00100",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "00101",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "00101",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "00101",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "00110",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "00110",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "00110",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "00111",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "00111",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "00111",
+      "sat": "SAT",
+      "vars": 7,
+      "clauses": 3
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "01000",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "01000",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "01000",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "01001",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "01001",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "01001",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "01010",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "01010",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "01010",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "01011",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "01011",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "01011",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "01100",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "01100",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "01100",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "01101",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "01101",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "01101",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "01110",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "01110",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "01110",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "01111",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "01111",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "01111",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "10000",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "10000",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "10000",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "10001",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "10001",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "10001",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "10010",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "10010",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "10010",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "10011",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "10011",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "10011",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "10100",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "10100",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "10100",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "10101",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "10101",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "10101",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "10110",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "10110",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "10110",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "10111",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "10111",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "10111",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "11000",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "11000",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "11000",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "11001",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "11001",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "11001",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "11010",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "11010",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "11010",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "11011",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "11011",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "11011",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "11100",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "11100",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "11100",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "11101",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "11101",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "11101",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "11110",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "11110",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "11110",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 4,
+      "b": "11111",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 4,
+      "b": "11111",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 4,
+      "b": "11111",
+      "sat": "SAT",
+      "vars": 4,
+      "clauses": 0
+    },
+    {
+      "theory": "PA",
+      "n": 6,
+      "b": "0000000",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0000000",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0000000",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA",
+      "n": 6,
+      "b": "0000001",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0000001",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0000001",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA",
+      "n": 6,
+      "b": "0000010",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0000010",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0000010",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA",
+      "n": 6,
+      "b": "0000011",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0000011",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0000011",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA",
+      "n": 6,
+      "b": "0000100",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0000100",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0000100",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA",
+      "n": 6,
+      "b": "0000101",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0000101",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0000101",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA",
+      "n": 6,
+      "b": "0000110",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0000110",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0000110",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA",
+      "n": 6,
+      "b": "0000111",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0000111",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0000111",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA",
+      "n": 6,
+      "b": "0001000",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0001000",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0001000",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA",
+      "n": 6,
+      "b": "0001001",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0001001",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0001001",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA",
+      "n": 6,
+      "b": "0001010",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0001010",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0001010",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA",
+      "n": 6,
+      "b": "0001011",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0001011",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0001011",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA",
+      "n": 6,
+      "b": "0001100",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0001100",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0001100",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA",
+      "n": 6,
+      "b": "0001101",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0001101",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0001101",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA",
+      "n": 6,
+      "b": "0001110",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0001110",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0001110",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA",
+      "n": 6,
+      "b": "0001111",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0001111",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0001111",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA",
+      "n": 6,
+      "b": "0010000",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0010000",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0010000",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA",
+      "n": 6,
+      "b": "0010001",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_1",
+      "n": 6,
+      "b": "0010001",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    },
+    {
+      "theory": "PA+RFN_2",
+      "n": 6,
+      "b": "0010001",
+      "sat": "SAT",
+      "vars": 9,
+      "clauses": 5
+    }
+  ]
+}
