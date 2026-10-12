@@ -1,0 +1,16 @@
+from,to,R,tests,violations,passed
+PA+RFN_11,PA+RFN^omega,suffix0,33,0,True
+PA+RFN_11,PA+RFN^omega,suffix00,33,0,True
+PA+RFN_11,PA+RFN^omega,id,33,0,True
+PA+RFN_12,PA+RFN^omega,suffix0,33,0,True
+PA+RFN_12,PA+RFN^omega,suffix00,33,0,True
+PA+RFN_12,PA+RFN^omega,id,33,0,True
+PA+RFN_13,PA+RFN^omega,suffix0,33,0,True
+PA+RFN_13,PA+RFN^omega,suffix00,33,0,True
+PA+RFN_13,PA+RFN^omega,id,33,0,True
+PA+RFN_14,PA+RFN^omega,suffix0,33,0,True
+PA+RFN_14,PA+RFN^omega,suffix00,33,0,True
+PA+RFN_14,PA+RFN^omega,id,33,0,True
+PA+RFN_15,PA+RFN^omega,suffix0,33,0,True
+PA+RFN_15,PA+RFN^omega,suffix00,33,0,True
+PA+RFN_15,PA+RFN^omega,id,33,0,True
