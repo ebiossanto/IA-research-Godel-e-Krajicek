@@ -1,0 +1,18 @@
+{
+  "raw": {
+    "higuchi_D": 1.7833377100524122,
+    "hurst_from_higuchi": 0.21666228994758785,
+    "variance_slope": 8.653722886328218,
+    "hurst_from_variance": 4.826861443164109,
+    "boxcount_nboxes": 10,
+    "boxdim_legacy": 1.0
+  },
+  "donoho_filtered": {
+    "higuchi_D": 1.6637976014077855,
+    "hurst_from_higuchi": 0.33620239859221446,
+    "variance_slope": 8.68534016738812,
+    "hurst_from_variance": 4.84267008369406,
+    "boxcount_nboxes": 9,
+    "boxdim_legacy": 0.9542425094393249
+  }
+}

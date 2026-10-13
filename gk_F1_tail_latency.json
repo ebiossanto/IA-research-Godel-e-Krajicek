@@ -1,0 +1,59 @@
+{
+  "n_samples": 300,
+  "threshold": 39.0,
+  "events": [
+    {
+      "event_id": 0,
+      "start": 25,
+      "end": 45,
+      "duration": 20,
+      "mean_cpu": 57.2,
+      "rho_eff": 0.572,
+      "rho_c": 0.5963,
+      "above": true
+    },
+    {
+      "event_id": 1,
+      "start": 80,
+      "end": 100,
+      "duration": 20,
+      "mean_cpu": 52.3,
+      "rho_eff": 0.523,
+      "rho_c": 0.5963,
+      "above": true
+    },
+    {
+      "event_id": 2,
+      "start": 150,
+      "end": 170,
+      "duration": 20,
+      "mean_cpu": 48.1,
+      "rho_eff": 0.481,
+      "rho_c": 0.5963,
+      "above": true
+    },
+    {
+      "event_id": 3,
+      "start": 220,
+      "end": 235,
+      "duration": 15,
+      "mean_cpu": 51.8,
+      "rho_eff": 0.518,
+      "rho_c": 0.5963,
+      "above": true
+    },
+    {
+      "event_id": 4,
+      "start": 260,
+      "end": 295,
+      "duration": 35,
+      "mean_cpu": 55.2,
+      "rho_eff": 0.552,
+      "rho_c": 0.5963,
+      "above": true
+    }
+  ],
+  "rho_c_analytic": 0.5962955664037655,
+  "p": 0.16666666666666666,
+  "r": 0.08333333333333333
+}

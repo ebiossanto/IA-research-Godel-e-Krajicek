@@ -1,0 +1,17 @@
+{
+  "phi_len": 7,
+  "n_values": [
+    8,
+    9,
+    10,
+    11
+  ],
+  "total_tests": 288,
+  "total_valid": 288,
+  "valid_rate": 1.0,
+  "by_block_mean_overhead": {
+    "PA+RFN_1": 0.0,
+    "PA+RFN_2": 0.0,
+    "PA+RFN^omega": 0.0
+  }
+}

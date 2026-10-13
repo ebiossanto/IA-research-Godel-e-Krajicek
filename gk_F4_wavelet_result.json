@@ -1,0 +1,29 @@
+{
+  "analysis": "F4 - REA bridge pipeline under wavelet (Donoho soft-threshold) filter",
+  "n_samples": 300,
+  "filters": {
+    "raw": {
+      "hurst_H": 0.32079401476399433,
+      "entropy_shannon": 2.5263667056046133,
+      "boxdim": 0.7684583958317571
+    },
+    "ema": {
+      "hurst_H": 0.6060174585281919
+    },
+    "donoho_wavelet": {
+      "hurst_H": 0.48494408354437146,
+      "entropy_shannon": 2.155339353904478,
+      "boxdim": 0.660381479841076
+    }
+  },
+  "verdict": {
+    "raw_H": "anti-persistent (H < 0.35)",
+    "donoho_H": "persistent (H >= 0.35)",
+    "interpretation": "Donoho filtering crosses the 0.35 threshold (H=0.485). Unlike degenerate Box-Dim, H is valid here."
+  },
+  "fct_lambda_rate": 0.27192333333333335,
+  "fct_mu_rate": 0.35314718614718615,
+  "fct_eixo1_P99": 4.356540642722118,
+  "fct_eixo1_entropy": 0.7219280948873623,
+  "fct_eixo4_protection": 0.9911350188915121
+}
