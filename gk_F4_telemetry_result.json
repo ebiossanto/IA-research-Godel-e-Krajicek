@@ -1,0 +1,26 @@
+{
+  "n_samples": 300,
+  "interval_s_mean": 0.1031304347826087,
+  "cpu_mean": 27.192333333333337,
+  "cpu_std": 32.94017646137581,
+  "cpu_min": 0.0,
+  "cpu_max": 100.0,
+  "hurst_raw": 0.32079401476399433,
+  "hurst_ema": 0.6060174585281919,
+  "hurst_donoho": 0.48494408354437146,
+  "entropy_raw_shannon": 2.5263667056046133,
+  "entropy_filtered_shannon": 2.155339353904478,
+  "entropy_raw_boxdim": 0.7684583958317571,
+  "entropy_filtered_boxdim": 0.660381479841076,
+  "fct_lambda_rate": 0.27192333333333335,
+  "fct_mu_rate": 0.35314718614718615,
+  "fct_summary": {
+    "mean_entropy": 0.4304820237218406,
+    "mean_fractal_dimension": 0.0,
+    "total_telemetry_entries": 4,
+    "engine_status": "completed"
+  },
+  "fct_eixo1_P99": 4.356540642722118,
+  "fct_eixo1_entropy": 0.7219280948873623,
+  "fct_eixo4_protection": 0.9911350188915121
+}

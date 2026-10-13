@@ -1,0 +1,14 @@
+{
+  "n_cases": 216,
+  "median_theta": 36.5,
+  "mean_theta": 36.5,
+  "n_small_below_median": 108,
+  "fraction_small": 0.5,
+  "H_full_series": 0.2970294401078625,
+  "bootstrap_n": 300,
+  "spearman_H_vs_frac_small": 0.015998386551227154,
+  "spearman_p": 0.7825779879702947,
+  "H_of_bootstrap_mean": 0.09836379462158285,
+  "H_of_bootstrap_std": 0.11130932678619228,
+  "conclusion": "no detectable coupling (H and instance dissatisfaction largely decoupled)"
+}
