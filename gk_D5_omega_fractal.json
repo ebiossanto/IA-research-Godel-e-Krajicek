@@ -1,0 +1,36 @@
+{
+  "result": {
+    "chain_length": 17,
+    "converged_uniformly": true,
+    "omega_matches_limit": true,
+    "ppr_pass_rate": 1.0,
+    "max_finite_ordinal": 15,
+    "total_rbts": 0,
+    "ppr_to_omega_numeric_columns": {
+      "tests": {
+        "hurst_H": null,
+        "box_dim_D": 0.0,
+        "len": 15,
+        "mean": 33.0,
+        "std": 0.0
+      },
+      "violations": {
+        "hurst_H": null,
+        "box_dim_D": 0.0,
+        "len": 15,
+        "mean": 0.0,
+        "std": 0.0
+      },
+      "passed": {
+        "hurst_H": null,
+        "box_dim_D": 0.0,
+        "len": 15,
+        "mean": 1.0,
+        "std": 0.0
+      }
+    },
+    "delta_series_H": {},
+    "verdict": "CONVERGENCE PERSISTENT"
+  },
+  "source": "gk_omega_proof.json"
+}
