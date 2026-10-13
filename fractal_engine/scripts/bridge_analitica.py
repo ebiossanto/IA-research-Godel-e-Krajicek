@@ -7,7 +7,7 @@ Mapeamento obstruções algébricas ↔ latência de cauda (P99)
 import json
 import math
 import numpy as np
-from typing import List, Dict, Tuple, Optional, Callable
+from typing import List, Dict, Tuple, Optional, Callable, Any
 from dataclasses import dataclass, asdict
 from datetime import datetime, timezone
 from collections import Counter

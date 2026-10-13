@@ -7,7 +7,7 @@ Grupos não-abelianos são 2x mais destrutivos que abelianos
 import json
 import math
 import numpy as np
-from typing import List, Dict, Tuple, Optional, Callable
+from typing import List, Dict, Tuple, Optional, Callable, Any
 from dataclasses import dataclass, asdict
 from datetime import datetime, timezone
 

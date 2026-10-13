@@ -7,7 +7,7 @@ Para análise de sistemas complexos no Terminal-Laboratório
 import json
 import math
 import numpy as np
-from typing import List, Dict, Tuple, Optional, Callable
+from typing import List, Dict, Tuple, Optional, Callable, Any
 from dataclasses import dataclass, asdict
 from datetime import datetime, timezone
 from collections import Counter
@@ -42,7 +42,7 @@ class FractalEntropyEngine:
     
     def shannon_entropy(self, data: List[float], bins: int = 10) -> float:
         """Entropia de Shannon clássica"""
-        if not data:
+        if data is None or len(data) == 0:
             return 0.0
         
         # Discretização em bins
@@ -59,7 +59,7 @@ class FractalEntropyEngine:
     
     def shannon_entropy_discrete(self, data: List[Any]) -> float:
         """Entropia de Shannon para dados discretos"""
-        if not data:
+        if data is None or len(data) == 0:
             return 0.0
         
         counts = Counter(data)
@@ -80,7 +80,7 @@ class FractalEntropyEngine:
         if alpha == 1.0:
             return self.shannon_entropy(data)
         
-        if not data:
+        if data is None or len(data) == 0:
             return 0.0
         
         data_min, data_max = min(data), max(data)
@@ -123,7 +123,7 @@ class FractalEntropyEngine:
         if q == 1.0:
             return self.shannon_entropy(data)
         
-        if not data:
+        if data is None or len(data) == 0:
             return 0.0
         
         data_min, data_max = min(data), max(data)
@@ -197,8 +197,7 @@ class FractalEntropyEngine:
         
         for r in r_values:
             count = np.sum(distances < r)
-            C_r = count / len(distances)
-            C_r.append(C_r)
+            C_r.append(count / len(distances))
         
         # Regressão log-log para estimar dimensão
         valid = [(r, c) for r, c in zip(r_values, C_r) if c > 0]

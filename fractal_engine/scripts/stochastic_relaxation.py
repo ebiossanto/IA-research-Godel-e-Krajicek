@@ -7,7 +7,7 @@ Randomização destrói rigidez algébrica e protege o sistema
 import json
 import math
 import numpy as np
-from typing import List, Dict, Tuple, Optional, Callable
+from typing import List, Dict, Tuple, Optional, Callable, Any
 from dataclasses import dataclass, asdict
 from datetime import datetime, timezone
 from collections import Counter

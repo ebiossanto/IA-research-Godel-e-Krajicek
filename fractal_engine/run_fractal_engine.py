@@ -8,9 +8,13 @@ import sys
 import os
 import argparse
 
-# Adiciona paths
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'integrations', 'fractal_engine', 'scripts'))
-sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'integrations', 'fractal_engine', 'models'))
+import numpy as np
+
+# Adiciona paths (corrigido 13/10: apontar para scripts/ e models/ reais)
+_BASE = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(_BASE, 'scripts'))
+sys.path.insert(0, os.path.join(_BASE, 'models'))
+sys.path.insert(0, _BASE)  # permite `from scripts.fractal_engine import ...`
 
 def run_fractal_engine():
     """Executa motor fractal completo"""
