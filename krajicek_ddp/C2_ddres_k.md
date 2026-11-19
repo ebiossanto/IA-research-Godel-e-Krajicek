@@ -40,6 +40,11 @@ conferir em [K19 5.7]**: **(H-corte)** corte = literal-pivô; **(H-and)**
 ∧-introdução truncada a k literais/termo; **(H-weakening)** `F ⟹ F∨G`.
 Entrada: `Λ = ⨄_{i<m}Λ_i`, `Λ_i` CNF sobre átomos disjuntos `X_i`; linhas
 k-DNF. `D ⊇ E`: inclusão de termos. DAG: uma justificação por linha.
+**(A) RESOLVIDO 19/11/2026** — regras exatas em `C2_K19_5_7_TEXTO_EXATO.md` §2
+(Garlík CCC 2024 §2): Axiom `x∨¬x`; ∧-intro `A∨l₁, B∨(l₂…lⱼ) ⟹ A∨B∨(l₁…lⱼ)`;
+Weakening `A ⟹ A∨B`; Cut `A∨(l₁…lⱼ), B∨¬l₁∨…∨¬lⱼ ⟹ A∨B` — `(H-*)` hoje
+são **regras (A) + definições de projeção (P)**, com bloqueantes (G1)/(G2)
+declarados no §4 do documento novo.
 
 ## §2. C2.1 — Largura-k (TEOREMA, aceito nas 4 rodadas)
 

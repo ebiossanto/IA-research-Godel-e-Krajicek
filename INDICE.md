@@ -1,8 +1,9 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.21 (19/11/2026 — **Q2.4 VARVIDA** (caminho E): `krajicek_ddp/Q2.4_fonte_SIGMA1_K19_KP90.md`
-+ referee r1; KP90 integral + Pudlák §6–§7 em `fontes/`; candidatas A/B; K19
-caps.9/17 = setup/FI; v6.20: D4′ v1; v6.19: Q1 propagado; v6.18: plano-mestre+ambiente)
+**Versão:** 6.22 (19/11/2026 — **C2: texto exato [K19 5.7] OBTIDO** (caminho C):
+`krajicek_ddp/C2_K19_5_7_TEXTO_EXATO.md` + referee r1; regras `Res(k)` (A);
+"Lema 4.1"=nosso; bloqueantes (G1)/(G2); v6.21: Q2.4 varrida; v6.20: D4′ v1;
+v6.19: Q1; v6.18: plano-mestre+ambiente)
 **Status:** ✅ **Carta ENVIADA 11/10/2026 18:14 → RESPOSTA PARCIAL RECEBIDA 12/10/2026
 (Q1 respondido; Q2–Q4 pendentes — follow-up devido; `CARTA_FINAL_RECEBIDA.md`)**;
 Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥` **(condicional a `q` total —
@@ -181,7 +182,7 @@ em Core; rascunho MO (não postado)
 | **DD8** | **Nota editorial a Krajíček** | **✅ ENVIADA 11/10/2026 18:14** (protonmail + karlin); **📨 RESPOSTA PARCIAL 12/10/2026 14:48 UTC** — **Q1 respondido** (`i₀` = comprimento de elemento de `M'` ∈ `Log(M')` → leitura (A)); **Q2–Q4 pendentes** (follow-up devido) | `krajicek_ddp/CARTA_FINAL_ENVIO.md`, **`CARTA_FINAL_RECEBIDA.md`** |
 | **DD9** | **Refutação interna de `{C_{N_s}}` (N)** | **FEITO — reduzida a `EF⊢Taut(α)` (N.1); dicotomia (C1′)** | `krajicek_ddp/N1_...` |
 | **DD10** | **Residuais R-α/R-β (N2)** | **FEITO (RECOMENDADO r5)** — R-α=(∗′) com 4 formas da ameaça **(C)**→N3; N2.3′ no escopo efetivo; R-β: compressão necessária≠suficiente | `krajicek_ddp/N2_residuals_RA_RB.md` |
-| **DD11** | **`DD_{Res(k)}` (C2)** | **PARCIAL (RECOMENDADO r5)** — C2.1 **teorema** (largura-k); C2.2 = **programa (O1)–(O5)**; C2.3 família alternante **(C)** | `krajicek_ddp/C2_ddres_k.md` |
+| **DD11** | **`DD_{Res(k)}` (C2)** | **PARCIAL (RECOMENDADO r5)** — C2.1 **teorema** (largura-k); C2.2 = programa (O1)–(O5); **19/11: regras exatas [K19 5.7] OBTIDAS (A)** + correção ("Lema 4.1"=nosso) + projeção com demanda; **bloqueantes (G1) conflito de demandas / (G2) pureza** (referee r1) | `krajicek_ddp/C2_ddres_k.md`, **`krajicek_ddp/C2_K19_5_7_TEXTO_EXATO.md`** (+referee) |
 | **DD12** | **Instâncias `(τ_n,q)` (Q2)** | **FEITO (RECOMENDADO r3)**; **fonte Σ₁ varrida 19/11 (C→candidata)**: A=`Con_T(f(n))` (Pudlák §6–§7) · B=`i-RFN(G_i)` (KP90); K19 caps.9/17=setup/FI; pendências A1/A2/A5 | `krajicek_ddp/Q2_instancias_tau_n_q.md`, **`krajicek_ddp/Q2.4_fonte_SIGMA1_K19_KP90.md`** (+referee) |
 | **DD13** | **Avaliação externa 2ª onda + resposta** | **APLICADA (P1–P5, P10)** — terminologia de status; M.2 condicional; build reproduzido; PPR reclassificado; três níveis L1/L2/L3 | `CRITICA_EXTERNA_2026-10-12.md` |
 | **DD14** | **Pacote de auditoria externa (G–N + `DD_Res`)** | **PRONTO** — checklist (a)–(e) do T4.3; tabela G–N com o que checar; §C não-reivindicado; §E vias (MO congelado) | `krajicek_ddp/AUDITORIA_EXTERNA_DDRES_G-N.md` |

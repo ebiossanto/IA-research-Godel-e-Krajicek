@@ -694,6 +694,27 @@ do autor) e **Pudlák ch.VIII** (`fontes/pudlak_length_1998.pdf`).
   escopo** — não é axiomatização NP), A5 (três modalidades de §4). Nenhum
   limite inferior produzido (era varredura).
 
+### 13.6 Frente C2 — texto exato de [K19 §5.7] + fechamento candidato (caminho C, 19/11/2026)
+
+**Documento:** `krajicek_ddp/C2_K19_5_7_TEXTO_EXATO.md` (+ referee r1) ·
+fontes: `garlik_ccc2024.pdf` (LIPIcs, CC-BY) + `kra01_wphp.pdf` (IMPAN) em `fontes/`.
+
+- **Achados:** (i) **regras exatas de `Res(k)` obtidas (A)** — Axiom, ∧-intro,
+  Weakening `A⟹A∨B`, Cut `A∨(termo), B∨(¬l₁…¬lⱼ) ⟹ A∨B` (Garlík CCC2024 §2,
+  citando **K19 ch5.7**; original **Kra01 Def. 1.1** — R(f)→`Res(k)` com f≡k);
+  (ii) **correção de atribuição: "Lema 4.1" é NOSSO** (`C_disjuncao` (B), linha
+  283 "não é discutido nas fontes") — nunca houve lema de Krajíček a conferir;
+  (iii) `(H-corte)/(H-and)/(H-weakening)` **resolvidos** = regras (A) + escolhas
+  de projeção (P) com **passada reversa de demanda** (all-or-nothing);
+  (iv) candidato de fechamento de **(O1)–(O4)** com Teorema C2.2′.
+- **Referee r1: NÃO RECOMENDADO p/ fechamento, RECOMENDADO como avanço** —
+  identificou os **bloqueantes reais**: **(G1) conflito de demandas** entre
+  consumidores distintos (política de prioridade não definida) e **(G2) pureza
+  em `Res(k)`** (Lema 4.2(2) pressuposto para pivô=termo). C2.2 **segue (C)**.
+- **Família alternante (§5):** construção "reflexão + lado espectador
+  satisfatível" esboçada **(C)** — script N2 `gk_alternating_family.py`
+  (teste da promessa por construção) como próximo passo.
+
 ---
 
 ## Fase 10 — O que está em aberto (programa δ/𝒢; a Fase 11 tem seus próprios abertos)
@@ -778,6 +799,7 @@ do autor) e **Pudlák ch.VIII** (`fontes/pudlak_length_1998.pdf`).
 | **19/11/2026** | **Reanálise + restauração do ambiente** | git `safe.directory`; **sympy adulterado→restaurado**; **Julia 1.10.2 restaurada**; toolchain Lean + PATH; pysat; **`lake build` VERDE**; PR24 reproduzida (EXIT=0); **bridge v2 `#print axioms`** (10/12 PROVED, 2 SORRY permanentes, 0 NOT_FOUND); docs **PLANO**/**AMBIENTE**/diagnóstico | retomada |
 | **19/11/2026** | **Q1 propagado (INDICE v6.19) + D4′ v1 EXECUTADO** | resposta parcial Krajíček 12/10 em todos os canônicos; **ponte prova→fractal**: 188 UNSAT reais, **D_H separa `php` (4/4 IC exclui0)** = regime de crescimento; referee r1 RECOMENDADO; H_C2 deferido (`28_...`) | — |
 | **19/11/2026** | **Q2.4 varrida (caminho E)** | **KP90 integral** + Pudlák §6–§7 obtidos; K19 caps.9/17 = setup/FI (**não** fonte); candidatas A=`Con_T(f(n))` (Thm 6.2.3/§7.2.2) e B=`i-RFN` (KP90); pendências A1/A2/A5; referee r1 (`krajicek_ddp/Q2.4_fonte_SIGMA1_K19_KP90.md`) | — |
+| **19/11/2026** | **C2: [K19 5.7] texto exato (caminho C)** | regras `Res(k)` (A) via Garlík CCC2024 §2 + Kra01 Def1.1; **"Lema 4.1"=nosso** (correção de atribuição); projeção c/ demanda (P) + candidato (O1)–(O4); **referee r1: bloqueantes (G1) conflito de demandas + (G2) pureza** (`C2_K19_5_7_TEXTO_EXATO.md`); esboço alternante via reflexão | — |
 | Próximo | ~~Foundation build; rota B; (τ_n,q) concretos~~ → **auditoria externa + resposta do autor; então N3/[K19 5.7]/fonte Σ₁** | — |
 
 ---
