@@ -4,7 +4,7 @@
 **Projeto:** IA-research-Godel-e-Krajicek
 **Autor:** Euzebio Soares
 **Data da primeira versão:** Setembro 2026
-**Última atualização:** 11/10/2026 (Fase 11 — campanha DD_P, rodadas A–M)
+**Última atualização:** 19/11/2026 (Fase 13 — reanálise + restauração do ambiente; Fases 12–13 registradas abaixo)
 
 ---
 
@@ -544,6 +544,93 @@ obter auditoria externa*): criado **`krajicek_ddp/AUDITORIA_EXTERNA_DDRES_G-N.md
 
 ---
 
+## Fase 12 — Frontier/FCT + frentes N3/C2 (13/10/2026)
+
+**Contexto:** resposta à determinação da avaliação externa de 12/10 ("obter auditoria
+externa, não adicionar conjecturas") — esta fase é **experimental/descritiva**, não
+acrescenta teoremas. Commits `317886d`…`f12e324`.
+
+### 12.1 Motor fractal (FCT) — funcionando
+
+- Fixes do runner (paths, imports `Any`, guardas de entropia, correlation-dim):
+  `python fractal_engine/run_fractal_engine.py all` → **5/5 PASS**
+  (Bridge P99=5.440 H=0.7219; Bullwhip amp=1.72; Nonabelian E*=0.2458 destr=2;
+  Stochastic protection=0.9911; Fractal Entropy H=2.7562 D=0.8247).
+- Novo dado: `gk_fractal_engine_experiments.json` — **24 records** (4 regimes ×
+  3 seeds × 2 tamanhos).
+
+### 12.2 Campanha Frontier (F1–F5) e descobertas D1–D6 (nível N2)
+
+| Artefato | Resultado |
+|---|---|
+| `gk_F1_*` (ρ_c sweep analítico) | **ρ_c = 0.706** — a previsão 1/4 do PFA **não** se confirma no modelo (D1) |
+| `gk_F2_*` (filtros Donoho/EMA) | separação H não-abeliana **p = 3.6e-21** (D2) |
+| `gk_F3_*` (τ real, 4 configs Z3) | H = 0.297 estável; sweep φ_len 6..12 → **288/288 válidos** (commit `f12e324`) |
+| `gk_F4_*` (telemetria real n=300) | filtragem wavelet REA |
+| `gk_F5_*` (D4 reframe) | H vs fração-small **decoupled** (ρ=0.016, p=0.78); D4 H=0.307; D5 ω **persistente**; D6 ruído **piora** |
+| `DESCOBERTAS_FRONTIER_2026-10-13.md` | relatório completo das descobertas |
+
+### 12.3 Campanhas Z3/DRAT/ω reproduzidas (Level 2)
+
+PPR-3 real **216/216**, DRAT translation **216/216**, hardness `s_Res=21.2` vs
+`s_EF=17.0`, cadeia ordinal ω com δ→0 uniforme — todos com JSON/CSV commitados.
+
+### 12.4 Frentes iniciadas
+
+- **N3** (`krajicek_ddp/N3_construction_compactness_chi_top.md`): construção de `(∗′)`
+  por compacidade, incluindo o canto `χ≡⊤`.
+- **C2** (`krajicek_ddp/C2_O1_O5_K19_5_7.md`): obrigações (O1)–(O5) com texto de
+  [K19 5.7].
+
+---
+
+## Fase 13 — Reanálise e restauração do ambiente (19/11/2026)
+
+**Contexto:** retomada após ~5 semanas. Reanálise integral do estado (INDICE,
+consolidado, frentes) + **restauração do laboratório** (detalhes técnicos em
+`AMBIENTE_E_FERRAMENTAS.md`; plano-mestre em `PLANO_PESQUISA_E_DESENVOLVIMENTO.md`).
+
+### 13.1 Correções de ambiente (todas sem admin)
+
+1. **Git**: exceção `safe.directory` (o "dubious ownership" bloqueava todo comando git).
+2. **sympy 1.14.0 ADULTERADO → restaurado**: 4 arquivos divergiam do wheel oficial
+   (ex.: `latex.py` 1985 vs 3319 linhas) e importavam `std.unicode.greeks`
+   inexistente → `pip install --force-reinstall --no-deps sympy==1.14.0`;
+   integridade agora conferida contra o RECORD no `diagnostico_ambiente.ps1`.
+3. **Julia 1.10.2 restaurada**: `julia.exe` faltava em
+   `Desktop-Pessoal\Julia\julia-1.10.2\bin` (extraído de `julia.zip`;
+   `julia111.zip` está corrompido) — agora `julia --version` OK.
+4. **Lean**: toolchain `v4.34.0` + Lake 5.0.0 baixadas via elan; **PATH do usuário**
+   atualizado (`.elan\bin`, `julia\bin`).
+5. **pysat** (`python-sat`) instalado — dependência de 5 scripts `gk_*` + do
+   `fractal_engine`.
+
+### 13.2 Verificações de máquina executadas (N2)
+
+- **`lake build` → VERDE** (`Build completed successfully (4 jobs)`, exatamente 2
+  `sorry`s `DDP.lean:628/690`) — idêntico ao registrado no README.
+- **PR24 reproduzida**: `python test_allcov_threshold.py` → **EXIT=0**
+  (ALL_COV ⇔ δ=0; limiar σ*=maxκ, b*=maxκ+1 em 4 perfis).
+- **`gk_lean_bridge.py` REESCRITO (v2)** — o método antigo (grep da saída do lake
+  por nomes) nunca encontrava teoremas (JSON stale "False"). Agora usa
+  **`#print axioms` via `lake env lean gk_axiom_check.lean`**: os axiomas reais de
+  cada teorema são listados e `sorryAx` é detectado. Resultado regenerado em
+  `gk_lean_verification.json`: **10/12 PROVED, 2 SORRY (os permanentes por
+  natureza), 0 NOT_FOUND, build OK**.
+
+### 13.3 Documentos novos
+
+- **`PLANO_PESQUISA_E_DESENVOLVIMENTO.md`** — plano-mestre: desenvolvimento,
+  questões respondidas (T1–T15, DD1–DD14, D1–D6 frontier) vs a responder
+  (P0–P4 priorizados) + horizontes H0–H3.
+- **`AMBIENTE_E_FERRAMENTAS.md`** — estado das ferramentas, permissões, incidente
+  sympy, reidratação.
+- **`diagnostico_ambiente.ps1`** — verificação ✅/❌ automatizada (`-Build` inclui
+  `lake build`).
+- `INDICE.md` indexou os três (e passa a v6.18).
+
+---
+
 ## Fase 10 — O que está em aberto (programa δ/𝒢; a Fase 11 tem seus próprios abertos)
 
 > **Caixa PPR — regime de leitura (fixado 12/10/2026, avaliação externa P4):**
@@ -621,6 +708,8 @@ obter auditoria externa*): criado **`krajicek_ddp/AUDITORIA_EXTERNA_DDRES_G-N.md
 | **11/10/2026** | **Terceira onda N2/C2/Q2** | **3 entregas RECOMENDADO** (ref. 5/5/3 rodadas): N2 R-α=(∗′) 4-formas + N2.3′ efetivo; C2.1 teorema + C2.2 **programa (O1)–(O5)** + alternância; Q2.1 decidido + `(Q)\|_{Σ₁}`; DD10–DD12; §8 do consolidado |
 | **12/10/2026** | **Avaliação externa 2ª onda + resposta** | 5 reservas **aplicadas**: RECOMENDADO=revisão interna; **M.2 condicional a `q`**; **build Lean reproduzido** (4 jobs, 2 sorry); PPR=**modelo finito**; níveis L1/L2/L3 (ponte aberta); **DD13** |
 | **12/10/2026** | **Pacote de auditoria externa** | `AUDITORIA_EXTERNA_DDRES_G-N.md` — checklist T4.3 + tabela G–N + não-reivindicado; **auditor externo pendente (DD14)** | — |
+| **13/10/2026** | **Frontier F1–F5 + D1–D6 + N3/C2** | motor fractal **5/5 PASS**; **ρ_c=0.706** (não 1/4); sep. não-abeliana p=3.6e-21; Z3 **216/216 ×2**; φ_len 288/288; frentes **N3** (compacidade χ≡⊤) e **C2 (O1)–(O5)** iniciadas | ampliação experimental |
+| **19/11/2026** | **Reanálise + restauração do ambiente** | git `safe.directory`; **sympy adulterado→restaurado**; **Julia 1.10.2 restaurada**; toolchain Lean + PATH; pysat; **`lake build` VERDE**; PR24 reproduzida (EXIT=0); **bridge v2 `#print axioms`** (10/12 PROVED, 2 SORRY permanentes, 0 NOT_FOUND); docs **PLANO**/**AMBIENTE**/diagnóstico | retomada |
 | Próximo | ~~Foundation build; rota B; (τ_n,q) concretos~~ → **auditoria externa + resposta do autor; então N3/[K19 5.7]/fonte Σ₁** | — |
 
 ---
@@ -637,6 +726,14 @@ obter auditoria externa*): criado **`krajicek_ddp/AUDITORIA_EXTERNA_DDRES_G-N.md
 ---
 
 ## Próximo passo (a atualizar)
+
+> **Status 19/11/2026 (Fase 13):** ambiente **restaurado e verificado**
+> (`lake build` verde; bridge v2 regenerando `gk_lean_verification.json` com
+> dados reais; PR24 reproduzida). Plano-mestre consolidado em
+> **`PLANO_PESQUISA_E_DESENVOLVIMENTO.md`** (horizontes H0–H3) — começar por lá.
+> Imediatos: **verificar resposta de Krajíček** (P0.1) · **enviar 1ª via da
+> auditoria externa** (P0.2) · frente **N3** · varredura **[K19 5.7] + K19 caps
+> 9/17 + KP90** · experimento **D4′** (ponte prova→fractal).
 
 > **Próximo (PR29+):** **(0a) OBTER AUDITORIA EXTERNA INDEPENDENTE** de
 > `DD_Res ∈ P` e das frentes G–N — prioridade nº 1 segundo a avaliação de

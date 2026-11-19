@@ -1,304 +1,323 @@
-# Indice da Pesquisa Gödel–Krajíček
-
-**Versão:** 6.17 (Outubro 2026 — Campanha DD_P / Krajíček 2025, rodadas A–N + N2/C2/Q2)
-**Status:** ✅ **Carta a Krajíček ENVIADA 11/10/2026 18:14** (aguardando resposta);
-Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥` **(condicional a `q` total — Q1)**;
-`DD_Res ∈ P` **(auditoria externa pendente)**; Teorema Q condicional
-em Core; rascunho MO (não postado)
-
-> **Terminologia (fixada em 12/10/2026 — ver `CRITICA_EXTERNA_2026-10-12.md`):**
-> **"RECOMENDADO (rn)" = aprovado em `n` rodadas internas de crítica estruturada
-> (referee hostile interno; logs `*_referee.md`) — NÃO é peer review nem
-> validação da comunidade.** Os itens (P) de K/L/M/N são argumentos próprios
-> **condicionais**; a ponte modelos não-padrão → complexidade (L2→L3) está
-> **aberta** (`krajicek_ddp/RELATORIO_CONSOLIDADO.md` §9.1). PPR/RBT/RCS =
-> programa experimental **no modelo finito escolhido**. Auditoria externa
-> pendente: `krajicek_ddp/AUDITORIA_EXTERNA_DDRES_G-N.md`.
-
----
-
-## Estrutura dos Documentos
-
-### NÚCLEO ATUAL (começar por aqui)
-
+# Indice da Pesquisa Gödel–Krajíček
+
+**Versão:** 6.18 (19/11/2026 — plano-mestre `PLANO_PESQUISA_E_DESENVOLVIMENTO.md` +
+ambiente verificado/restaurado `AMBIENTE_E_FERRAMENTAS.md`; campanha DD_P A–N +
+N2/C2/Q2 + Frontier F1–F5/D1–D6; histórico Fases 12–13 em `EVOLUCAO_PROJETO.md`)
+**Status:** ✅ **Carta a Krajíček ENVIADA 11/10/2026 18:14** (aguardando resposta);
+Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥` **(condicional a `q` total — Q1)**;
+`DD_Res ∈ P` **(auditoria externa pendente)**; Teorema Q condicional
+em Core; rascunho MO (não postado)
+
+> **Terminologia (fixada em 12/10/2026 — ver `CRITICA_EXTERNA_2026-10-12.md`):**
+> **"RECOMENDADO (rn)" = aprovado em `n` rodadas internas de crítica estruturada
+> (referee hostile interno; logs `*_referee.md`) — NÃO é peer review nem
+> validação da comunidade.** Os itens (P) de K/L/M/N são argumentos próprios
+> **condicionais**; a ponte modelos não-padrão → complexidade (L2→L3) está
+> **aberta** (`krajicek_ddp/RELATORIO_CONSOLIDADO.md` §9.1). PPR/RBT/RCS =
+> programa experimental **no modelo finito escolhido**. Auditoria externa
+> pendente: `krajicek_ddp/AUDITORIA_EXTERNA_DDRES_G-N.md`.
+
+---
+
+## Estrutura dos Documentos
+
+### NÚCLEO ATUAL (começar por aqui)
+
 | Arquivo | Conteúdo | Status |
 |---------|----------|--------|
-| `EVOLUCAO_PROJETO.md` | **HISTÓRICO VIVO** | **ATUALIZAR A CADA PASSO** |
-| `09_EVOLUCAO_PERFIL_REFLEXAO_GERADORES.md` | **NÚCLEO: g^{a,b}, δ, 𝒢, ρ_b, RBT + §35–40** | **ATIVO** |
-| `08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md` | PPR, ≼_ppr, R1/R2, R3 aberto | ATIVO |
-| `10_EXPERIMENTO_GERADORES_FINITOS.md` | RBT=SIM, suffix0 (depois: vácuo) | EXECUTADO |
-| `11_PPR3_THETA_SUFFIX0.md` | suffix0 VÁCUO; CC-Θ aberta | EXECUTADO |
-| `12_NOTA_CURTA_POSICIONAMENTO_DELTA_RBT.md` | δ/RBT vs Pudlák/Krajíček; ρ_b vs P–W | NOTA |
-| **`13_EXPERIMENTO_SLOW_VS_FAST_DELTA.md`** | **RCS CONFIRMADA** | **EXECUTADO** |
-| **`14_R_RAMOS_RBT_PPR.md`** | **R_w design + testado (PPR-2)** | **TESTADO** |
-| **`15_FORMALIZACAO_LEAN_PR15.md`** | **Lean VERIFICADO (lake build limpo); lemma3=teorema (interface)** | **ATIVO** |
-| **`16_EXTENSAO_EXPERIMENTO13_RCS.md`** | **RCS ROBUSTA 4/4** | **EXECUTADO** |
-| **`17_R_RAMOS_PPR2_TESTE.md`** | **PPR-2 refinado 3/3 (cond. C)** | **EXECUTADO** |
-| **`18_R_W_E0_E3_PPR2.md`** | **R_w PPR-2 em E0–E3: 4/4 PASSA** | **EXECUTADO** |
-| **`19_PPR3_THETA_RAMOS.md`** | **Θ ramos: CC-Θ 32/32, polinomial** | **EXECUTADO** |
-| **`23_COND_B_RBT_EXPLICITO.md`** | **cond. (B) NÃO-VÁCIA: 10 disparos, PPR-2 20/20, CC-Θ 20/20** | **EXECUTADO** |
-| **`24_FOUNDATION_LEMMA3_ALLCOV.md`** | **lemma3 PROVADO; (C) ALL_COV ⇔ δ=0 (limiar maxκ)** | **EXECUTADO** |
-| **`25_FOUNDATION_INSTANCE_FP_DELTA.md`** | **Foundation instância Lemma3Hyp; PR7 comprimento vs δ SIM (modelo)** | **EXECUTADO** |
-| **`26_REVISAO_EXTERNA_PONTUAL.md`** | **Revisão externa: só banners/orig./esqueleto — sem redesenhar programa** | **EXECUTADO** |
-| **`27_TEOREMA_Q_GODEL2_BRIDGE_MO.md`** | **PR27: Q condicional; bridge δ; Gödel II rota A; FoundationBridge BUILD VERDE (0 sorry)** | **EXECUTADO** |
-| **`27_MATHOVERFLOW_PERGUNTA.md`** | **Rascunho MO (EN) — NÃO publicado sem confirmação** | **RASCUNHO** |
-| `00/02/04/05`, `support/*`, `paper2` | **PR26: REJEITADO + novidade provisória + pseudocódigo** | **CORRIGIDO** |
-| `01/06/03` | **PR12: banners REJEITADO/histórico** | **CORRIGIDO** |
-| Scripts | exp10, ppr3, reimpl, slow_vs_fast, **_ext**, test_Rw, **_E0E3**, **ppr3_ramos**, **_RBT_B**, **_allcov**, **fp_length_vs_delta** | SCRIPTS |
-| `lean4/Gothic_Generators/Core.lean` | **VERIFICADO `lake build` (0 sorry, 0 axiom; lemma3=teorema)**; Lean 4.34.0 | **OK** |
-| `lean4/Gothic_Generators/FoundationInstance.lean` | **moved → `FoundationBridge/`** | **OK** |
-| **`FoundationBridge/`** | **instância Foundation isolada; 0 sorry no fonte; `GodelSecond` rota A** | **OK (build Mathlib pendente)** |
-| `lean-toolchain`, `lakefile.toml` | Toolchain Lean 4.34 + Lake | **OK** |
+| `PLANO_PESQUISA_E_DESENVOLVIMENTO.md` | **PLANO-MESTRE: desenvolvimento + questões respondidas/a responder + P&D priorizado** (19/11/2026) | **ATIVO — começar por aqui** |
+| `AMBIENTE_E_FERRAMENTAS.md` | **Estado das ferramentas/permissões + incidente sympy + reidratação** (19/11/2026) | **ATIVO** |
+| `diagnostico_ambiente.ps1` | Script ✅/❌ de verificação do ambiente (`-Build` inclui `lake build`) | SCRIPT |
+| `EVOLUCAO_PROJETO.md` | **HISTÓRICO VIVO** | **ATUALIZAR A CADA PASSO** |
+| `09_EVOLUCAO_PERFIL_REFLEXAO_GERADORES.md` | **NÚCLEO: g^{a,b}, δ, 𝒢, ρ_b, RBT + §35–40** | **ATIVO** |
+| `08_PROGRAMA_INTERPRETABILIDADE_VS_GERADORES.md` | PPR, ≼_ppr, R1/R2, R3 aberto | ATIVO |
+| `10_EXPERIMENTO_GERADORES_FINITOS.md` | RBT=SIM, suffix0 (depois: vácuo) | EXECUTADO |
+| `11_PPR3_THETA_SUFFIX0.md` | suffix0 VÁCUO; CC-Θ aberta | EXECUTADO |
+| `12_NOTA_CURTA_POSICIONAMENTO_DELTA_RBT.md` | δ/RBT vs Pudlák/Krajíček; ρ_b vs P–W | NOTA |
+| **`13_EXPERIMENTO_SLOW_VS_FAST_DELTA.md`** | **RCS CONFIRMADA** | **EXECUTADO** |
+| **`14_R_RAMOS_RBT_PPR.md`** | **R_w design + testado (PPR-2)** | **TESTADO** |
+| **`15_FORMALIZACAO_LEAN_PR15.md`** | **Lean VERIFICADO (lake build limpo); lemma3=teorema (interface)** | **ATIVO** |
+| **`16_EXTENSAO_EXPERIMENTO13_RCS.md`** | **RCS ROBUSTA 4/4** | **EXECUTADO** |
+| **`17_R_RAMOS_PPR2_TESTE.md`** | **PPR-2 refinado 3/3 (cond. C)** | **EXECUTADO** |
+| **`18_R_W_E0_E3_PPR2.md`** | **R_w PPR-2 em E0–E3: 4/4 PASSA** | **EXECUTADO** |
+| **`19_PPR3_THETA_RAMOS.md`** | **Θ ramos: CC-Θ 32/32, polinomial** | **EXECUTADO** |
+| **`23_COND_B_RBT_EXPLICITO.md`** | **cond. (B) NÃO-VÁCIA: 10 disparos, PPR-2 20/20, CC-Θ 20/20** | **EXECUTADO** |
+| **`24_FOUNDATION_LEMMA3_ALLCOV.md`** | **lemma3 PROVADO; (C) ALL_COV ⇔ δ=0 (limiar maxκ)** | **EXECUTADO** |
+| **`25_FOUNDATION_INSTANCE_FP_DELTA.md`** | **Foundation instância Lemma3Hyp; PR7 comprimento vs δ SIM (modelo)** | **EXECUTADO** |
+| **`26_REVISAO_EXTERNA_PONTUAL.md`** | **Revisão externa: só banners/orig./esqueleto — sem redesenhar programa** | **EXECUTADO** |
+| **`27_TEOREMA_Q_GODEL2_BRIDGE_MO.md`** | **PR27: Q condicional; bridge δ; Gödel II rota A; FoundationBridge BUILD VERDE (0 sorry)** | **EXECUTADO** |
+| **`27_MATHOVERFLOW_PERGUNTA.md`** | **Rascunho MO (EN) — NÃO publicado sem confirmação** | **RASCUNHO** |
+| `00/02/04/05`, `support/*`, `paper2` | **PR26: REJEITADO + novidade provisória + pseudocódigo** | **CORRIGIDO** |
+| `01/06/03` | **PR12: banners REJEITADO/histórico** | **CORRIGIDO** |
+| Scripts | exp10, ppr3, reimpl, slow_vs_fast, **_ext**, test_Rw, **_E0E3**, **ppr3_ramos**, **_RBT_B**, **_allcov**, **fp_length_vs_delta** | SCRIPTS |
+| `lean4/Gothic_Generators/Core.lean` | **VERIFICADO `lake build` (0 sorry, 0 axiom; lemma3=teorema)**; Lean 4.34.0 | **OK** |
+| `lean4/Gothic_Generators/FoundationInstance.lean` | **moved → `FoundationBridge/`** | **OK** |
+| **`FoundationBridge/`** | **instância Foundation isolada; 0 sorry no fonte; `GodelSecond` rota A** | **OK (build Mathlib pendente)** |
+| `lean-toolchain`, `lakefile.toml` | Toolchain Lean 4.34 + Lake | **OK** |
+
+### CAMPANHA DD_P (Krajíček 2025, arXiv:2506.20221) — pasta `krajicek_ddp/`
+
+| Arquivo | Conteúdo | Status |
+|---------|----------|--------|
+| **`krajicek_ddp/RELATORIO_CONSOLIDADO.md`** | **Consolidação de TUDO (rodadas A–M)** | **ATIVO** |
+| `krajicek_ddp/CONTEXTO_COMUM.md` | Contexto centralizado (estado das frentes 11/10) | **ATIVO** |
+| `krajicek_ddp/A_teoremas_exatos.md` | Teoremas exatos do artigo (L21–22, L190/375, L341, L442, L513–518) | VERIFICADO |
+| `krajicek_ddp/B_lean_relatorio.md` + `lean4/Gothic_Generators/DDP.lean` | `DD_P` em Lean 4 — **compila** (2 `sorry`s permanentes) | **OK** |
+| `krajicek_ddp/C_disjuncao_viavel.md` | **`DD_Res ∈ P`** + refutação pura ≤ \|π\|; 3000/3000 exp. | **RECOMENDADO** |
+| `krajicek_ddp/D_geradores_consequencias.md` | NW/[8] reconstruído; `(K)⟹(ST)`; Lema 2 | VERIFICADO |
+| `krajicek_ddp/E_ataque_problema21.md` | Decomposição E1–E5 do passo (5); ponto frágil | VERIFICADO |
+| `krajicek_ddp/F1_verificacao_passo7.md` | **Lacuna verbatim em v4 e v5/LMCS** (referee 10/10) | **RECOMENDADO** |
+| `krajicek_ddp/F2_versao_finita.md` / `F3_...` | Lema de suficiência finita; obstáculos O1–O8 | RECOMENDADO |
+| `krajicek_ddp/G1_log_forcing.md` | **`Log(M[G])=Log(M)`**; **`(F-b')` refutado** (Thm 4.3) | RECOMENDADO |
+| `krajicek_ddp/G2_semente_Fsent.md` | **Obstrução ZFC** (Thm 2.1); correção `2.1→(F-sent)` | RECOMENDADO |
+| `krajicek_ddp/H1_colecao_refutacao.md` | **Thm 1.1 "no-G"**; redução (A)/(B) | RECOMENDADO |
+| `krajicek_ddp/I1_Qcompactness_ultrapoderes.md` | Ultrapoderes fora de `S`; B.1 (nenhuma instância padrão); venue `M_0⊨S` viva | **RECOMENDADO (v5)** |
+| `krajicek_ddp/J1_Qcompactness_M0.md` | **Teorema K**; K.2 (`T_PV+BB+(S2)(S3)(S4)` inconsistente); `(Hjoint)`; J.6 | **RECOMENDADO (v4)** |
+| `krajicek_ddp/J2_ponto_fixo.md` | **K-FP′**; J.6-a′; semântica `τ_N` aberta | **RECOMENDADO (v3)** |
+| `krajicek_ddp/L1_phi_insatisfativel.md` | **L.1** (`T_PV+(S4)⊢∀rφ(r)`); **L.3′** (C.3 negativa); L.3a; L.4 | **RECOMENDADO (v4)** |
+| `krajicek_ddp/M_canto_adversarial.md` | **M.0–M.5**: `m` não-padrão; **`C_{N_s}≡⊥`** — adversarial `(C)` decidido | **RECOMENDADO (v4)** |
+| `krajicek_ddp/N1_refutacao_interna_CN_s.md` | **N.1**: refutação interna de `{C_{N_s}}` ⟺ `EF⊢Taut(α)` interna; N.2 dicotomia (C1′); N.3 R-α/R-β | **RECOMENDADO (v3)** |
+| **`krajicek_ddp/NOTA_EDITORIAL_Krajicek.md`** | **Nota a Krajíček (errata + dicotomia + perguntas + carta EN)** | **RASCUNHO — aguardando autor** |
+| `krajicek_ddp/*_referee.md` | Referees hostile preservados (F–N, NOTA, L1, J1, J2, I1, H1, G2) | AUDIT |
+
+### Papers e Conjecturas
+
+| Arquivo | Conteúdo | Status |
+|---------|----------|--------|
+| `papers/paper1_barreira_interpretabilidade.md` | "Barateando a Diagonalização" | Nota exploratória |
+| `papers/paper2_hierarquia_ordinal.md` | Hierarquia ordinal e consistência lenta | Nota exploratória |
+| `CONJECTURA_FP_K.md` | FP-K | **PERGUNTA DE PESQUISA** (rebaixada; ver 09 §18 para versão δ) |
+| `07_pontos_fixos_incompletude.md` | Parte 2: pontos fixos, física | Teoremas+analogias+conjecturas separados |
+| `CONTINUIDADE_PESQUISA.md` | Documento de continuidade | Atualizado |
+
+### Documentos de Apoio (em `support/`) — CONTÊM AFIRMAÇÕES DESATUALIZADAS/REJEITADAS
+
+| Arquivo | Status |
+|---------|--------|
+| `00_avaliacao_novelidade.md` | Parcialmente válido |
+| `01_framework_estendido.md` | **DESCARTADO** (framework anterior) |
+| `02_teoremas_principais.md` | **REJEITADO** (Teoremas 4-6 não provados — auditoria 22/09/2026) |
+| `03_meta_complexidade_aplicacoes.md` | **DESCARTADO** (especulativo) |
+| `04_questoes_abertas_referencias.md` | Desatualizado (Q1 usa premissa rejeitada) |
+| `05_verificacao_lean4.md` | Plano Lean 4 ainda útil (não certifica T4-6) |
+
+### Documentos Originais (raiz) — DESATUALIZADOS
+
+| Arquivo | Status |
+|---------|--------|
+| `goedel_complexity_paper_pnp.md` | **DESCARTADO** (Teorema 1 inválido) |
+| `06_paper2_hierarquia_ordinal.md` | Substituído por `papers/paper2_...` |
+| `goedel_complexity_original_contributions.md` | Desatualizado |
+
+---
+
+## Status dos Resultados (versão honesta)
+
+### TEOREMAS (provados, na literatura ou elementares)
+
+| # | Resultado | Status | Fonte |
+|---|-----------|--------|-------|
+| T1 | Completude da lógica proposicional | PROVADO | Clássico |
+| T2 | Proposição 1: pontos fixos ↔ status lógico | PROVADO | Elementar, novo |
+| T3 | Proposição 2: distribuições invariantes (caso finito) | PROVADO | Deutsch (1991) |
+| T4 | Proposição 3: Fix(f) ≠ ∅ ≡ problema da parada | PROVADO | Elementar, novo |
+| T5 | Choquet-Bruhat–Geroch (1969) | PROVADO | Clássico |
+| T6 | Markov (1958): homeomorfismo indecidível (dim ≥ 4) | PROVADO | Clássico |
+| T7 | Tarski: geometria real decidível | PROVADO | Clássico |
+| T8 | Corolário Gödel–Turing: laco paradoxal irreconhecível | PROVADO | Corolário |
+| **T9** | **Prop. 1 (09): \|g_T^{a,b}(u)\|=\|u\|+1** | **PROVADO** | **Novo, elementar** |
+| **T10** | **Teo. 2 (09): δ_S ≤ δ_T se T⊆S** | **PROVADO** | **Novo, elementar** |
+| **T11** | **Telescoping (09 §10): δ_{T_0}−δ_{T_m}=Σ𝒢** | **PROVADO** | **Novo, elementar** |
+| **T12** | **Lema 3 (09): Φ_T^{w*}↔Con(T)** | **PROVADO** | **Novo, sob formalização** |
+| **T13** | **Teo. 4 (09): δ_T=1, δ_{T'}=0** | **PROVADO** | **Novo, sob hipóteses** |
+| **T14** | **08 Lemas 7.1-7.2: ≼_ppr é pré-ordem** | **PROVADO** | **Novo, elementar** |
+| **T15** | **08 Prop 8.1/Cor 8.2: transferência de hardness** | **PROVADO** | **Novo, elementar** |
+
+### CONJECTURAS / PERGUNTAS (não provadas)
+
+| # | Item | Status | Documento |
+|---|------|--------|-----------|
+| P1 | **FP-K**: análogo Freund–Pakhomov para g_T | **PERGUNTA DE PESQUISA** (rebaixada, originalidade não certificada) | `CONJECTURA_FP_K.md` |
+| C2 | Censura cósmica exclui estruturas Malament–Hogarth | CONJECTURA ABERTA | `07_...` |
+| C3 | Física necessariamente codifica aritmética | ESPECULATIVA | `07_...` |
+| C4 | Teorema da Incompletude Cosmológica | ESPECULATIVA | `07_...` |
+
+### PROGRAMA ATIVO (pós-auditoria + núcleo 09)
+
+| # | Problema | Status | Documento |
+|---|----------|--------|-----------|
+| **PR0** | **Espectro de Reflexão: δ, 𝒢, ρ_b, RBT** | **NÚCLEO — Teo. 2, Lema 3, Teo. 4 PROVADOS** | `09_...` |
+| **PR1** | **g_PA ≼_ppr g_{PA+RFN(PA)}?** (PPR-Reflection-1) | **ABERTO** — R1/R2 provados, R3 aberto | `08_...` §17, §25 |
+| PR2 | Conjectura PPR-Reflection: g_{T_k} ≼_ppr g_{T_{k+1}} | CONJECTURA (nova no projeto) | `08_...` §26 |
+| PR3 | Conjectura de quebra: ∃k tal que g_{T_k} ⋠_ppr g_{T_{k+1}} | CONJECTURA alternativa | `08_...` §27 |
+| PR4 | Hipótese RCS: α ↦ δ_{T_α}(Φ,b) contém info não ordinal? | HIPÓTESE falsificável | `09_...` §28 |
+| PR5 | ρ_b: independente de codificação? | ABERTO | `09_...` §32 |
+| PR6 | Transferência: δ_S ≤ δ_T ⟹? g_T ≼_ppr g_S | ABERTO | `09_...` §23 |
+| PR7 | Freund–Pakhomov: Con*(PA) aparece em δ? | **PERGUNTA GERADA** (varredura) | `10_...` §1.4 |
+| PR8 | δ/RBT: prioridade vs. Pudlák/Krajíček | **NOTA 12: busca inicial NÃO**; profundizar | `12_...` |
+| PR9 | PPR-3: Θ para `suffix0` | **FALHOU: suffix0 vácuo** — abandonado | `11_...` §4.3 |
+| PR10 | R não-vácuo (índices w ou códigos π) | **ABERTO** | `11_...` §7 |
+| PR11 | CC-Θ: Θ polinomial | **ABERTO** | `11_...` §3.3 |
+| PR12 | Aplicar correções 01/06/03 (09 §33) | **APLICADAS** (PR12) | `01/06/03` |
+| PR13 | Plano 09 §35: prova formal Φ_PA↔Con(PA) | **ABERTO** (plano) | `09_...` §35 |
+| PR14 | Iteração 09 §36: mesma Φ em T_0,T_1,... | **ABERTO** (plano) | `09_...` §36 |
+| PR15 | Formalização Lean Lema 3+Teo 4+RCS | **ESQUELETO** (sorry) | `15_...` |
+| PR16 | Estender 13 (κ, razão, \|W\|) | **FEITO — RCS ROBUSTA 4/4** | `16_...` |
+| PR17 | Testar R_w (índices) PPR-2 | **FEITO — PPR-2 3/3 (cond. A∨B∨C)** | `14_...`, `17_...` |
+| PR18 | Fechar sorry delta_mono em Lean | **FEITO — prova completa (sem sorry)** | `Core.lean` |
+| PR19 | PPR-3: Θ sobre provas de ramos | **FEITO — CC-Θ 32/32, polinomial** | `19_...` |
+| PR20 | Testar R_w nos cenários E0–E3 (RCS) | **FEITO — 4/4 PASSA PPR-2** | `18_...` |
+| PR21 | Fechar sorries theorem4/rcs em Lean | **FEITO — provas completas sem sorry** (lake build pendente) | `Core.lean`, `15_...` |
+| **DD1** | **Campanha DD_P: teoremas exatos (A)** | **FEITO** — 3 correções aos enunciados | `krajicek_ddp/A_...` |
+| **DD2** | **`DD_Res ∈ P` + refutação pura (C)** | **FEITO — RECOMENDADO** | `krajicek_ddp/C_...` |
+| **DD3** | **Lacuna do Problema 2.1 (F1)** | **FEITO — verbatim em v4 e v5; referee 10/10** | `krajicek_ddp/F1_...` |
+| **DD4** | **Obstrução ZFC + correção (G1/G2)** | **FEITO — `Log(M[G])=Log(M)`; `(F-b')` refutado; `2.1→(F-sent)`** | `krajicek_ddp/G1/G2` |
+| **DD5** | **Teorema K + K-FP′ (J1/J2)** | **FEITO — coleção impossível; ponto fixo padrão** | `krajicek_ddp/J1/J2` |
+| **DD6** | **`¬φ` insatisfatível + C.3 negativa (L)** | **FEITO — `T_PV+(S4)⊢∀rφ(r)`** | `krajicek_ddp/L1_...` |
+| **DD7** | **Canto adversarial `(C)` (M)** | **FEITO CONDICIONAL — `C_{N_s}≡⊥` sob `q` total; sob `q` parcial com merge pode falhar → Q1 da carta decide** | `krajicek_ddp/M_...` |
+| **DD8** | **Nota editorial a Krajíček** | **✅ ENVIADA 11/10/2026 18:14** (protonmail + karlin) — aguardando resposta | `krajicek_ddp/CARTA_FINAL_ENVIO.md` |
+| **DD9** | **Refutação interna de `{C_{N_s}}` (N)** | **FEITO — reduzida a `EF⊢Taut(α)` (N.1); dicotomia (C1′)** | `krajicek_ddp/N1_...` |
+| **DD10** | **Residuais R-α/R-β (N2)** | **FEITO (RECOMENDADO r5)** — R-α=(∗′) com 4 formas da ameaça **(C)**→N3; N2.3′ no escopo efetivo; R-β: compressão necessária≠suficiente | `krajicek_ddp/N2_residuals_RA_RB.md` |
+| **DD11** | **`DD_{Res(k)}` (C2)** | **PARCIAL (RECOMENDADO r5)** — C2.1 **teorema** (largura-k); C2.2 = **programa (O1)–(O5)**; C2.3 família alternante **(C)** | `krajicek_ddp/C2_ddres_k.md` |
+| **DD12** | **Instâncias `(τ_n,q)` (Q2)** | **FEITO (RECOMENDADO r3)** — Q2.1 decidido (full-range inócuo); Q2.2 `(Q)\|_{Σ₁}` corrigida; fonte Σ₁ **(C)** | `krajicek_ddp/Q2_instancias_tau_n_q.md` |
+| **DD13** | **Avaliação externa 2ª onda + resposta** | **APLICADA (P1–P5, P10)** — terminologia de status; M.2 condicional; build reproduzido; PPR reclassificado; três níveis L1/L2/L3 | `CRITICA_EXTERNA_2026-10-12.md` |
+| **DD14** | **Pacote de auditoria externa (G–N + `DD_Res`)** | **PRONTO** — checklist (a)–(e) do T4.3; tabela G–N com o que checar; §C não-reivindicado; §E vias (MO congelado) | `krajicek_ddp/AUDITORIA_EXTERNA_DDRES_G-N.md` |
+
+### 
 
-### CAMPANHA DD_P (Krajíček 2025, arXiv:2506.20221) — pasta `krajicek_ddp/`
+## Dados Frontier (13/10/2026)
 
-| Arquivo | Conteúdo | Status |
-|---------|----------|--------|
-| **`krajicek_ddp/RELATORIO_CONSOLIDADO.md`** | **Consolidação de TUDO (rodadas A–M)** | **ATIVO** |
-| `krajicek_ddp/CONTEXTO_COMUM.md` | Contexto centralizado (estado das frentes 11/10) | **ATIVO** |
-| `krajicek_ddp/A_teoremas_exatos.md` | Teoremas exatos do artigo (L21–22, L190/375, L341, L442, L513–518) | VERIFICADO |
-| `krajicek_ddp/B_lean_relatorio.md` + `lean4/Gothic_Generators/DDP.lean` | `DD_P` em Lean 4 — **compila** (2 `sorry`s permanentes) | **OK** |
-| `krajicek_ddp/C_disjuncao_viavel.md` | **`DD_Res ∈ P`** + refutação pura ≤ \|π\|; 3000/3000 exp. | **RECOMENDADO** |
-| `krajicek_ddp/D_geradores_consequencias.md` | NW/[8] reconstruído; `(K)⟹(ST)`; Lema 2 | VERIFICADO |
-| `krajicek_ddp/E_ataque_problema21.md` | Decomposição E1–E5 do passo (5); ponto frágil | VERIFICADO |
-| `krajicek_ddp/F1_verificacao_passo7.md` | **Lacuna verbatim em v4 e v5/LMCS** (referee 10/10) | **RECOMENDADO** |
-| `krajicek_ddp/F2_versao_finita.md` / `F3_...` | Lema de suficiência finita; obstáculos O1–O8 | RECOMENDADO |
-| `krajicek_ddp/G1_log_forcing.md` | **`Log(M[G])=Log(M)`**; **`(F-b')` refutado** (Thm 4.3) | RECOMENDADO |
-| `krajicek_ddp/G2_semente_Fsent.md` | **Obstrução ZFC** (Thm 2.1); correção `2.1→(F-sent)` | RECOMENDADO |
-| `krajicek_ddp/H1_colecao_refutacao.md` | **Thm 1.1 "no-G"**; redução (A)/(B) | RECOMENDADO |
-| `krajicek_ddp/I1_Qcompactness_ultrapoderes.md` | Ultrapoderes fora de `S`; B.1 (nenhuma instância padrão); venue `M_0⊨S` viva | **RECOMENDADO (v5)** |
-| `krajicek_ddp/J1_Qcompactness_M0.md` | **Teorema K**; K.2 (`T_PV+BB+(S2)(S3)(S4)` inconsistente); `(Hjoint)`; J.6 | **RECOMENDADO (v4)** |
-| `krajicek_ddp/J2_ponto_fixo.md` | **K-FP′**; J.6-a′; semântica `τ_N` aberta | **RECOMENDADO (v3)** |
-| `krajicek_ddp/L1_phi_insatisfativel.md` | **L.1** (`T_PV+(S4)⊢∀rφ(r)`); **L.3′** (C.3 negativa); L.3a; L.4 | **RECOMENDADO (v4)** |
-| `krajicek_ddp/M_canto_adversarial.md` | **M.0–M.5**: `m` não-padrão; **`C_{N_s}≡⊥`** — adversarial `(C)` decidido | **RECOMENDADO (v4)** |
-| `krajicek_ddp/N1_refutacao_interna_CN_s.md` | **N.1**: refutação interna de `{C_{N_s}}` ⟺ `EF⊢Taut(α)` interna; N.2 dicotomia (C1′); N.3 R-α/R-β | **RECOMENDADO (v3)** |
-| **`krajicek_ddp/NOTA_EDITORIAL_Krajicek.md`** | **Nota a Krajíček (errata + dicotomia + perguntas + carta EN)** | **RASCUNHO — aguardando autor** |
-| `krajicek_ddp/*_referee.md` | Referees hostile preservados (F–N, NOTA, L1, J1, J2, I1, H1, G2) | AUDIT |
+Artefatos gerados por python gk_frontier_integration.py:
+- gk_F1_analytic.csv, gk_F1_rho_c_sweep.csv — varredura ρ_c(r)=(1−r)^4
+- gk_F2_nonabelian_filters.csv, gk_F2_summary.csv — filtros Donoho/EMA, separação H
+- gk_F3_tau_real.csv, gk_F3_tau_real.json — 4 configs Z3, H=0.297 estável
+- gk_F4_telemetry_real_filtered.csv, gk_F4_telemetry_result.json — telemetria real n=300
+- gk_F5_d4_reframe.json — H vs fração-small, decoupled (ρ=0.016, p=0.78)
+- gk_frontier_resultados.json — relatório mestre
 
-### Papers e Conjecturas
+Consulte DESCOBERTAS_FRONTIER_2026-10-13.md para análise completa.
 
-| Arquivo | Conteúdo | Status |
-|---------|----------|--------|
-| `papers/paper1_barreira_interpretabilidade.md` | "Barateando a Diagonalização" | Nota exploratória |
-| `papers/paper2_hierarquia_ordinal.md` | Hierarquia ordinal e consistência lenta | Nota exploratória |
-| `CONJECTURA_FP_K.md` | FP-K | **PERGUNTA DE PESQUISA** (rebaixada; ver 09 §18 para versão δ) |
-| `07_pontos_fixos_incompletude.md` | Parte 2: pontos fixos, física | Teoremas+analogias+conjecturas separados |
-| `CONTINUIDADE_PESQUISA.md` | Documento de continuidade | Atualizado |
-
-### Documentos de Apoio (em `support/`) — CONTÊM AFIRMAÇÕES DESATUALIZADAS/REJEITADAS
-
-| Arquivo | Status |
-|---------|--------|
-| `00_avaliacao_novelidade.md` | Parcialmente válido |
-| `01_framework_estendido.md` | **DESCARTADO** (framework anterior) |
-| `02_teoremas_principais.md` | **REJEITADO** (Teoremas 4-6 não provados — auditoria 22/09/2026) |
-| `03_meta_complexidade_aplicacoes.md` | **DESCARTADO** (especulativo) |
-| `04_questoes_abertas_referencias.md` | Desatualizado (Q1 usa premissa rejeitada) |
-| `05_verificacao_lean4.md` | Plano Lean 4 ainda útil (não certifica T4-6) |
-
-### Documentos Originais (raiz) — DESATUALIZADOS
-
-| Arquivo | Status |
-|---------|--------|
-| `goedel_complexity_paper_pnp.md` | **DESCARTADO** (Teorema 1 inválido) |
-| `06_paper2_hierarquia_ordinal.md` | Substituído por `papers/paper2_...` |
-| `goedel_complexity_original_contributions.md` | Desatualizado |
-
----
-
-## Status dos Resultados (versão honesta)
-
-### TEOREMAS (provados, na literatura ou elementares)
-
-| # | Resultado | Status | Fonte |
-|---|-----------|--------|-------|
-| T1 | Completude da lógica proposicional | PROVADO | Clássico |
-| T2 | Proposição 1: pontos fixos ↔ status lógico | PROVADO | Elementar, novo |
-| T3 | Proposição 2: distribuições invariantes (caso finito) | PROVADO | Deutsch (1991) |
-| T4 | Proposição 3: Fix(f) ≠ ∅ ≡ problema da parada | PROVADO | Elementar, novo |
-| T5 | Choquet-Bruhat–Geroch (1969) | PROVADO | Clássico |
-| T6 | Markov (1958): homeomorfismo indecidível (dim ≥ 4) | PROVADO | Clássico |
-| T7 | Tarski: geometria real decidível | PROVADO | Clássico |
-| T8 | Corolário Gödel–Turing: laco paradoxal irreconhecível | PROVADO | Corolário |
-| **T9** | **Prop. 1 (09): \|g_T^{a,b}(u)\|=\|u\|+1** | **PROVADO** | **Novo, elementar** |
-| **T10** | **Teo. 2 (09): δ_S ≤ δ_T se T⊆S** | **PROVADO** | **Novo, elementar** |
-| **T11** | **Telescoping (09 §10): δ_{T_0}−δ_{T_m}=Σ𝒢** | **PROVADO** | **Novo, elementar** |
-| **T12** | **Lema 3 (09): Φ_T^{w*}↔Con(T)** | **PROVADO** | **Novo, sob formalização** |
-| **T13** | **Teo. 4 (09): δ_T=1, δ_{T'}=0** | **PROVADO** | **Novo, sob hipóteses** |
-| **T14** | **08 Lemas 7.1-7.2: ≼_ppr é pré-ordem** | **PROVADO** | **Novo, elementar** |
-| **T15** | **08 Prop 8.1/Cor 8.2: transferência de hardness** | **PROVADO** | **Novo, elementar** |
-
-### CONJECTURAS / PERGUNTAS (não provadas)
-
-| # | Item | Status | Documento |
-|---|------|--------|-----------|
-| P1 | **FP-K**: análogo Freund–Pakhomov para g_T | **PERGUNTA DE PESQUISA** (rebaixada, originalidade não certificada) | `CONJECTURA_FP_K.md` |
-| C2 | Censura cósmica exclui estruturas Malament–Hogarth | CONJECTURA ABERTA | `07_...` |
-| C3 | Física necessariamente codifica aritmética | ESPECULATIVA | `07_...` |
-| C4 | Teorema da Incompletude Cosmológica | ESPECULATIVA | `07_...` |
-
-### PROGRAMA ATIVO (pós-auditoria + núcleo 09)
-
-| # | Problema | Status | Documento |
-|---|----------|--------|-----------|
-| **PR0** | **Espectro de Reflexão: δ, 𝒢, ρ_b, RBT** | **NÚCLEO — Teo. 2, Lema 3, Teo. 4 PROVADOS** | `09_...` |
-| **PR1** | **g_PA ≼_ppr g_{PA+RFN(PA)}?** (PPR-Reflection-1) | **ABERTO** — R1/R2 provados, R3 aberto | `08_...` §17, §25 |
-| PR2 | Conjectura PPR-Reflection: g_{T_k} ≼_ppr g_{T_{k+1}} | CONJECTURA (nova no projeto) | `08_...` §26 |
-| PR3 | Conjectura de quebra: ∃k tal que g_{T_k} ⋠_ppr g_{T_{k+1}} | CONJECTURA alternativa | `08_...` §27 |
-| PR4 | Hipótese RCS: α ↦ δ_{T_α}(Φ,b) contém info não ordinal? | HIPÓTESE falsificável | `09_...` §28 |
-| PR5 | ρ_b: independente de codificação? | ABERTO | `09_...` §32 |
-| PR6 | Transferência: δ_S ≤ δ_T ⟹? g_T ≼_ppr g_S | ABERTO | `09_...` §23 |
-| PR7 | Freund–Pakhomov: Con*(PA) aparece em δ? | **PERGUNTA GERADA** (varredura) | `10_...` §1.4 |
-| PR8 | δ/RBT: prioridade vs. Pudlák/Krajíček | **NOTA 12: busca inicial NÃO**; profundizar | `12_...` |
-| PR9 | PPR-3: Θ para `suffix0` | **FALHOU: suffix0 vácuo** — abandonado | `11_...` §4.3 |
-| PR10 | R não-vácuo (índices w ou códigos π) | **ABERTO** | `11_...` §7 |
-| PR11 | CC-Θ: Θ polinomial | **ABERTO** | `11_...` §3.3 |
-| PR12 | Aplicar correções 01/06/03 (09 §33) | **APLICADAS** (PR12) | `01/06/03` |
-| PR13 | Plano 09 §35: prova formal Φ_PA↔Con(PA) | **ABERTO** (plano) | `09_...` §35 |
-| PR14 | Iteração 09 §36: mesma Φ em T_0,T_1,... | **ABERTO** (plano) | `09_...` §36 |
-| PR15 | Formalização Lean Lema 3+Teo 4+RCS | **ESQUELETO** (sorry) | `15_...` |
-| PR16 | Estender 13 (κ, razão, \|W\|) | **FEITO — RCS ROBUSTA 4/4** | `16_...` |
-| PR17 | Testar R_w (índices) PPR-2 | **FEITO — PPR-2 3/3 (cond. A∨B∨C)** | `14_...`, `17_...` |
-| PR18 | Fechar sorry delta_mono em Lean | **FEITO — prova completa (sem sorry)** | `Core.lean` |
-| PR19 | PPR-3: Θ sobre provas de ramos | **FEITO — CC-Θ 32/32, polinomial** | `19_...` |
-| PR20 | Testar R_w nos cenários E0–E3 (RCS) | **FEITO — 4/4 PASSA PPR-2** | `18_...` |
-| PR21 | Fechar sorries theorem4/rcs em Lean | **FEITO — provas completas sem sorry** (lake build pendente) | `Core.lean`, `15_...` |
-| **DD1** | **Campanha DD_P: teoremas exatos (A)** | **FEITO** — 3 correções aos enunciados | `krajicek_ddp/A_...` |
-| **DD2** | **`DD_Res ∈ P` + refutação pura (C)** | **FEITO — RECOMENDADO** | `krajicek_ddp/C_...` |
-| **DD3** | **Lacuna do Problema 2.1 (F1)** | **FEITO — verbatim em v4 e v5; referee 10/10** | `krajicek_ddp/F1_...` |
-| **DD4** | **Obstrução ZFC + correção (G1/G2)** | **FEITO — `Log(M[G])=Log(M)`; `(F-b')` refutado; `2.1→(F-sent)`** | `krajicek_ddp/G1/G2` |
-| **DD5** | **Teorema K + K-FP′ (J1/J2)** | **FEITO — coleção impossível; ponto fixo padrão** | `krajicek_ddp/J1/J2` |
-| **DD6** | **`¬φ` insatisfatível + C.3 negativa (L)** | **FEITO — `T_PV+(S4)⊢∀rφ(r)`** | `krajicek_ddp/L1_...` |
-| **DD7** | **Canto adversarial `(C)` (M)** | **FEITO CONDICIONAL — `C_{N_s}≡⊥` sob `q` total; sob `q` parcial com merge pode falhar → Q1 da carta decide** | `krajicek_ddp/M_...` |
-| **DD8** | **Nota editorial a Krajíček** | **✅ ENVIADA 11/10/2026 18:14** (protonmail + karlin) — aguardando resposta | `krajicek_ddp/CARTA_FINAL_ENVIO.md` |
-| **DD9** | **Refutação interna de `{C_{N_s}}` (N)** | **FEITO — reduzida a `EF⊢Taut(α)` (N.1); dicotomia (C1′)** | `krajicek_ddp/N1_...` |
-| **DD10** | **Residuais R-α/R-β (N2)** | **FEITO (RECOMENDADO r5)** — R-α=(∗′) com 4 formas da ameaça **(C)**→N3; N2.3′ no escopo efetivo; R-β: compressão necessária≠suficiente | `krajicek_ddp/N2_residuals_RA_RB.md` |
-| **DD11** | **`DD_{Res(k)}` (C2)** | **PARCIAL (RECOMENDADO r5)** — C2.1 **teorema** (largura-k); C2.2 = **programa (O1)–(O5)**; C2.3 família alternante **(C)** | `krajicek_ddp/C2_ddres_k.md` |
-| **DD12** | **Instâncias `(τ_n,q)` (Q2)** | **FEITO (RECOMENDADO r3)** — Q2.1 decidido (full-range inócuo); Q2.2 `(Q)\|_{Σ₁}` corrigida; fonte Σ₁ **(C)** | `krajicek_ddp/Q2_instancias_tau_n_q.md` |
-| **DD13** | **Avaliação externa 2ª onda + resposta** | **APLICADA (P1–P5, P10)** — terminologia de status; M.2 condicional; build reproduzido; PPR reclassificado; três níveis L1/L2/L3 | `CRITICA_EXTERNA_2026-10-12.md` |
-| **DD14** | **Pacote de auditoria externa (G–N + `DD_Res`)** | **PRONTO** — checklist (a)–(e) do T4.3; tabela G–N com o que checar; §C não-reivindicado; §E vias (MO congelado) | `krajicek_ddp/AUDITORIA_EXTERNA_DDRES_G-N.md` |
-
-### DESCARTADOS / REJEITADOS (não usar)
-
-| # | Resultado antigo | Motivo |
-|---|------------------|--------|
-| D1 | Teorema 1 original (barreira de interpretabilidade) | Enumeração exponencial ≠ polinomial; Krajíček (2023) já faz |
-| D2 | Tabela de bounds duplamente exponenciais | Especulativa, sem derivação |
-| D3 | Cortes ordinais C(α) | Não sabemos se hierarquia é suficiente |
-| D4 | **Teorema 4: s_P ≥ 2^{c|T_α|n}** | **REJEITADO** (auditoria): contagem ≠ lower bound; \|T_α\| ambíguo |
-| D5 | **Teorema 5: cortes estritos** | **NÃO PROVADO** (auditoria): falta ponte teorias↔sistemas |
-| D6 | **Teorema 6(a)(b)(c)** | **NÃO PROVADO** (auditoria): T_* não é r.e.; hardness ≠ completude |
-| D7 | Observação b(n) genérico | **JÁ EXISTE** — Krajíček (2023), rodapé 3, Seção 3 |
-| D8 | "g_T hard para sistemas que interpretam T" | **NÃO AFIRMADO** por Krajíček — hardness universal é aberta |
-
----
-
-## Varredura Bibliográfica (22/09/2026) — resumo
-
-| Conceito nosso | Encontrado? | Posicionamento |
-|----------------|-------------|----------------|
-| δ (déficit de cobertura) | **NÃO** (busca inicial) | Candidato a novidade; profundizar |
-| RBT (transição de ramo) | **NÃO** (busca inicial) | Nome proposto; candidato |
-| ρ_b (rank de cobertura) | **PRÓXIMO: Pakhomov–Walsh reflection rank** | DISTINTO: eles=ordinal; nós=δ=0 |
-| g^{a,b} (dois orçamentos) | **NÃO explícito** em Krajíček | Refinamento; verificar livro 2025 |
-
----
-
-## Experimento 10 — Resultados (22/09/2026)
-
-| Pergunta | Resultado |
-|----------|-----------|
-| δ diminui T₀→T₁? | **SIM** (𝒢=4, b≥20) |
-| RBT ocorre? | **SIM** (5/9 b: `0000→ALL_COV`) |
-| Candidato R? | ~~`suffix0`~~ **VÁCUO/abandonado** (11 §4.3) |
-| δ decresce com b? | **SIM** [16,16,16,5,4,4,4,4,4] |
-| Teo. 4 (δ₀=1,δ₁=0)? | **Parcial** (δ₀=4, δ₁=0, b≥20) |
-
-## Reimplementação (busca real, resolução) — 22/09/2026
-
-| Verificação | Resultado |
-|-------------|-----------|
-| δ_T0, δ_T1, G | 4, 0, **4** (estável) |
-| RBT | **SIM** |
-| Con T0 / Con T1 | False / True ✓ |
-| Natureza | **proposicional** (não PA aritmética) |
-
-## Experimento 13 — Slow vs Fast (RCS) — 22/09/2026
-
-| Verificação | Resultado |
-|-------------|-----------|
-| Mesma Φ, hierarquias lenta/rápida | **SIM** |
-| ∃α,b: δ_F ≠ δ_S | **SIM** — 3–4/30 pares (α=1, b≥3) |
-| **RCS** | **CONFIRMADA no modelo** |
-
-## PR16 — Extensão RCS (robustez) — 22/09/2026
-
-| Config | Pares δ_F≠δ_S | RCS |
-|--------|---------------|-----|
-| E0 base | 4/42 | **SIM** |
-| E1 κ rich | 7/42 | **SIM** |
-| E2 3:1 | 4/42 | **SIM** |
-| E3 \|W\|=64 | 4/42 | **SIM** |
-
-**Veredito: RCS ROBUSTA 4/4.**
-
----
-
-## Pergunta de Pesquisa Principal (núcleo 09)
-
-**ANTECESSORES (superados/rebaixados):**
-> ~~Ordinal ⟹ escala exponencial~~ → REJEITADO (auditoria)
-> ~~Conjectura FP-K como "nova"~~ → REBAIXADA (originalidade não certificada)
-> ~~PPR-Reflection-1 como única saída~~ → bloqueio estrutural identificado (min_lex)
-
-**NÚCLEO ATUAL — Espectro de Reflexão:**
-
-Como evolui o déficit de cobertura diagonal
-
-$$\delta_{T_\alpha}(\Phi,b)$$
-
-ao longo de uma hierarquia de reflexão $T_0 \subseteq T_1 \subseteq \cdots$?
-
-**O que já é PROVADO (09):**
-- δ é monotônico (Teo. 2)
-- 𝒢 ≥ 0 e telescopa (§10)
-- Φ_T^{w*} ↔ Con(T) (Lema 3)
-- Reflexão dá δ_T=1 → δ_{T'}=0 (Teorema 4)
-- Ganho unitário 𝒢=1 (corolário)
-
-**O que está ABERTO:**
-- g_PA ≼_ppr g_{PA+RFN(PA)}? (R3)
-- Hipótese RCS (informação além do ordinal?)
-- ρ_b independente de codificação?
-- Transferência δ ⟹ PPR?
-
-**Documentos:** 09 (núcleo), 08 (PPR), 10–26 (exp+**RCS**+Lean+**Foundation**+**FP-δ**+**revisão externa**), 01/06/03/00/02/04/05 **corrigidos**, EVOLUCAO, **`krajicek_ddp/` (campanha DD_P — consolidado em `RELATORIO_CONSOLIDADO.md`)**
-
-**Próximo passo:** ~~enviar a nota editorial~~ **✅ FEITO (11/10 18:14)** — agora:
-**aguardar a resposta de Krajíček** (registrar no dossiê); em paralelo: Φw* rota B
-(definability); (τ_n,q) concretas para Q (antes de limite inferior); MathOverflow
-como pergunta
-
----
-
-## Referências Obrigatórias (corrigidas)
-
-1. **Krajíček, J. (2025).** "A Proof Complexity Conjecture and the Incompleteness Theorem." JSL 90(3), 1206–1210. arXiv:2303.10637. doi:10.1017/jsl.2023.69
-2. **Krajíček, J. (2025).** *Proof Complexity Generators.* Cambridge UP (LMS Lecture Notes 497).
-3. **Beklemishev, L.D. (2005).** "Reflection principles and provability algebras in formal arithmetic." Russian Math. Surveys 60(2), 197–268.
-4. **Freund, A. & Pakhomov, F. (2020).** "Short proofs for slow consistency." Notre Dame J. Formal Logic 61(1), 31–49. doi:10.1215/00294527-2019-0031
-5. **Krajíček, J. (1997).** "Interpolation theorems, lower bounds for proof systems..." JSL 62(2), 457–486.
-6. **Deutsch (1991).** Quantum mechanics near closed timelike lines.
-7. **Choquet-Bruhat–Geroch (1969).** Global solutions of nonlinear hyperbolic equations.
-8. **Markov (1958).** The insolubility of the problem of homeomorphy.
-9. **Lawvere (1969).** Diagonal arguments and cartesian closed categories.
-10. **Hogarth (1992); Etesi–Németi (2002).** Malament–Hogarth spacetimes.
-11. **Krajíček, J. (2026).** "On NP∩coNP proof complexity generators." arXiv:2506.20221 (v4 Mar 2026; **LMCS 22(2:14)**) — **alvo da campanha DD_P** (`krajicek_ddp/`).
-12. **Krajíček, J. (2020).** "A limitation on the KPT interpolation." LMCS 16(3) — [11] do artigo DD_P (Lema 2).
-
----
-
-## Contato
-
-- **Autor:** Euzebio Santos (ebiossanto)
-- **Repositório:** https://github.com/ebiossanto/IA-research-Godel-e-Krajicek
+DESCARTADOS / REJEITADOS (não usar)
+
+| # | Resultado antigo | Motivo |
+|---|------------------|--------|
+| D1 | Teorema 1 original (barreira de interpretabilidade) | Enumeração exponencial ≠ polinomial; Krajíček (2023) já faz |
+| D2 | Tabela de bounds duplamente exponenciais | Especulativa, sem derivação |
+| D3 | Cortes ordinais C(α) | Não sabemos se hierarquia é suficiente |
+| D4 | **Teorema 4: s_P ≥ 2^{c|T_α|n}** | **REJEITADO** (auditoria): contagem ≠ lower bound; \|T_α\| ambíguo |
+| D5 | **Teorema 5: cortes estritos** | **NÃO PROVADO** (auditoria): falta ponte teorias↔sistemas |
+| D6 | **Teorema 6(a)(b)(c)** | **NÃO PROVADO** (auditoria): T_* não é r.e.; hardness ≠ completude |
+| D7 | Observação b(n) genérico | **JÁ EXISTE** — Krajíček (2023), rodapé 3, Seção 3 |
+| D8 | "g_T hard para sistemas que interpretam T" | **NÃO AFIRMADO** por Krajíček — hardness universal é aberta |
+
+---
+
+## Varredura Bibliográfica (22/09/2026) — resumo
+
+| Conceito nosso | Encontrado? | Posicionamento |
+|----------------|-------------|----------------|
+| δ (déficit de cobertura) | **NÃO** (busca inicial) | Candidato a novidade; profundizar |
+| RBT (transição de ramo) | **NÃO** (busca inicial) | Nome proposto; candidato |
+| ρ_b (rank de cobertura) | **PRÓXIMO: Pakhomov–Walsh reflection rank** | DISTINTO: eles=ordinal; nós=δ=0 |
+| g^{a,b} (dois orçamentos) | **NÃO explícito** em Krajíček | Refinamento; verificar livro 2025 |
+
+---
+
+## Experimento 10 — Resultados (22/09/2026)
+
+| Pergunta | Resultado |
+|----------|-----------|
+| δ diminui T₀→T₁? | **SIM** (𝒢=4, b≥20) |
+| RBT ocorre? | **SIM** (5/9 b: `0000→ALL_COV`) |
+| Candidato R? | ~~`suffix0`~~ **VÁCUO/abandonado** (11 §4.3) |
+| δ decresce com b? | **SIM** [16,16,16,5,4,4,4,4,4] |
+| Teo. 4 (δ₀=1,δ₁=0)? | **Parcial** (δ₀=4, δ₁=0, b≥20) |
+
+## Reimplementação (busca real, resolução) — 22/09/2026
+
+| Verificação | Resultado |
+|-------------|-----------|
+| δ_T0, δ_T1, G | 4, 0, **4** (estável) |
+| RBT | **SIM** |
+| Con T0 / Con T1 | False / True ✓ |
+| Natureza | **proposicional** (não PA aritmética) |
+
+## Experimento 13 — Slow vs Fast (RCS) — 22/09/2026
+
+| Verificação | Resultado |
+|-------------|-----------|
+| Mesma Φ, hierarquias lenta/rápida | **SIM** |
+| ∃α,b: δ_F ≠ δ_S | **SIM** — 3–4/30 pares (α=1, b≥3) |
+| **RCS** | **CONFIRMADA no modelo** |
+
+## PR16 — Extensão RCS (robustez) — 22/09/2026
+
+| Config | Pares δ_F≠δ_S | RCS |
+|--------|---------------|-----|
+| E0 base | 4/42 | **SIM** |
+| E1 κ rich | 7/42 | **SIM** |
+| E2 3:1 | 4/42 | **SIM** |
+| E3 \|W\|=64 | 4/42 | **SIM** |
+
+**Veredito: RCS ROBUSTA 4/4.**
+
+---
+
+## Pergunta de Pesquisa Principal (núcleo 09)
+
+**ANTECESSORES (superados/rebaixados):**
+> ~~Ordinal ⟹ escala exponencial~~ → REJEITADO (auditoria)
+> ~~Conjectura FP-K como "nova"~~ → REBAIXADA (originalidade não certificada)
+> ~~PPR-Reflection-1 como única saída~~ → bloqueio estrutural identificado (min_lex)
+
+**NÚCLEO ATUAL — Espectro de Reflexão:**
+
+Como evolui o déficit de cobertura diagonal
+
+$$\delta_{T_\alpha}(\Phi,b)$$
+
+ao longo de uma hierarquia de reflexão $T_0 \subseteq T_1 \subseteq \cdots$?
+
+**O que já é PROVADO (09):**
+- δ é monotônico (Teo. 2)
+- 𝒢 ≥ 0 e telescopa (§10)
+- Φ_T^{w*} ↔ Con(T) (Lema 3)
+- Reflexão dá δ_T=1 → δ_{T'}=0 (Teorema 4)
+- Ganho unitário 𝒢=1 (corolário)
+
+**O que está ABERTO:**
+- g_PA ≼_ppr g_{PA+RFN(PA)}? (R3)
+- Hipótese RCS (informação além do ordinal?)
+- ρ_b independente de codificação?
+- Transferência δ ⟹ PPR?
+
+**Documentos:** 09 (núcleo), 08 (PPR), 10–26 (exp+**RCS**+Lean+**Foundation**+**FP-δ**+**revisão externa**), 01/06/03/00/02/04/05 **corrigidos**, EVOLUCAO, **`krajicek_ddp/` (campanha DD_P — consolidado em `RELATORIO_CONSOLIDADO.md`)**
+
+**Próximo passo:** ~~enviar a nota editorial~~ **✅ FEITO (11/10 18:14)** — agora:
+**aguardar a resposta de Krajíček** (registrar no dossiê); em paralelo: Φw* rota B
+(definability); (τ_n,q) concretas para Q (antes de limite inferior); MathOverflow
+como pergunta
+
+---
+
+## Referências Obrigatórias (corrigidas)
+
+1. **Krajíček, J. (2025).** "A Proof Complexity Conjecture and the Incompleteness Theorem." JSL 90(3), 1206–1210. arXiv:2303.10637. doi:10.1017/jsl.2023.69
+2. **Krajíček, J. (2025).** *Proof Complexity Generators.* Cambridge UP (LMS Lecture Notes 497).
+3. **Beklemishev, L.D. (2005).** "Reflection principles and provability algebras in formal arithmetic." Russian Math. Surveys 60(2), 197–268.
+4. **Freund, A. & Pakhomov, F. (2020).** "Short proofs for slow consistency." Notre Dame J. Formal Logic 61(1), 31–49. doi:10.1215/00294527-2019-0031
+5. **Krajíček, J. (1997).** "Interpolation theorems, lower bounds for proof systems..." JSL 62(2), 457–486.
+6. **Deutsch (1991).** Quantum mechanics near closed timelike lines.
+7. **Choquet-Bruhat–Geroch (1969).** Global solutions of nonlinear hyperbolic equations.
+8. **Markov (1958).** The insolubility of the problem of homeomorphy.
+9. **Lawvere (1969).** Diagonal arguments and cartesian closed categories.
+10. **Hogarth (1992); Etesi–Németi (2002).** Malament–Hogarth spacetimes.
+11. **Krajíček, J. (2026).** "On NP∩coNP proof complexity generators." arXiv:2506.20221 (v4 Mar 2026; **LMCS 22(2:14)**) — **alvo da campanha DD_P** (`krajicek_ddp/`).
+12. **Krajíček, J. (2020).** "A limitation on the KPT interpolation." LMCS 16(3) — [11] do artigo DD_P (Lema 2).
+
+---
+
+## Contato
+
+- **Autor:** Euzebio Santos (ebiossanto)
+- **Repositório:** https://github.com/ebiossanto/IA-research-Godel-e-Krajicek

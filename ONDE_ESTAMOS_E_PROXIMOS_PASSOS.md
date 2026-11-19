@@ -7,6 +7,15 @@
 > Escrito em regime Ten-Proofs (ver `AGENTS.md` e skill `ten-proofs`): nenhum "verificado"
 > aqui significa comando reproduzível + saída congelada.
 
+> **ATUALIZAÇÃO 19/11/2026:** lacuna §2.4-(5) **FECHADA** — `gk_lean_bridge.py`
+> reescrito (v2, `#print axioms`): `gk_lean_verification.json` agora é gerado com
+> dados reais (10/12 PROVED, 2 SORRY permanentes, 0 NOT_FOUND). Ambiente
+> restaurado/verificado (`AMBIENTE_E_FERRAMENTAS.md`); **plano-mestre com as
+> questões respondidas/a responder e horizontes H0–H3:**
+> **`PLANO_PESQUISA_E_DESENVOLVIMENTO.md`** (substitui a leitura isolada deste
+> doc para planejamento). Itens §2.4-(1)/(2) do INDICE/EVOLUCAO **fechados**
+> (v6.18 + Fases 12–13).
+
 ---
 
 ## 1. Mapa do programa (visão geral)
