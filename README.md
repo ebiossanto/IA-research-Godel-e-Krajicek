@@ -70,7 +70,9 @@ Resultados principais (todos (P), com logs):
    está formalizado em Lean 4 (o teorema em si é prova escrita).
 8. **✅ Nota editorial enviada a Krajíček em 11/10/2026**
    (`krajicek_ddp/CARTA_FINAL_ENVIO.md`; jan.krajicek@protonmail.com) —
-   **aguardando resposta**.
+   **📨 resposta parcial recebida 12/10/2026** (`CARTA_FINAL_RECEBIDA.md`):
+   **Q1 respondido** (`i₀` = comprimento de elemento de `M'` ∈ `Log(M')` →
+   leitura (A)); **Q2–Q4 pendentes — follow-up devido**.
 
 Consolidação: `krajicek_ddp/RELATORIO_CONSOLIDADO.md` · contexto:
 `krajicek_ddp/CONTEXTO_COMUM.md` · evolução: `EVOLUCAO_PROJETO.md` ·
@@ -118,8 +120,10 @@ CRITICA_EXTERNA_2026-10-12.md ← 2ª onda da avaliação externa + ações apli
 
 ## Próximos passos
 
-1. **Aguardar/registrar a resposta de Krajíček** (perguntas Q1–Q4 da carta) —
-   Q1 decide o condicional de M.2 e o escopo de N.
+1. **Follow-up a Krajíček (Q2–Q4)** — **Q1 já respondido em 12/10/2026**
+   (`i₀` ∈ `Log(M')`, leitura (A); `CARTA_FINAL_RECEBIDA.md`); restam Q2
+   (range de `τ_N`), Q3 e Q4 — recomendação de follow-up em 2–4 semanas
+   **já vencida** (resposta tem 5+ semanas).
 2. **Obter auditoria externa independente** de `DD_Res ∈ P` e das frentes G–N —
    o dossiê está pronto em `krajicek_ddp/AUDITORIA_EXTERNA_DDRES_G-N.md`
    (prioridade segundo a avaliação de 12/10; vias em §E; MathOverflow só com

@@ -45,7 +45,9 @@ O **Motor Fractal** (`integrations/fractal_engine/` → raiz `fractal_engine/`) 
 - **L3+ (aberto declarado):** consequências para `NP≠coNP` só via
   `(2.1)+(ST)⟹NP≠coNP`; `¬2.1⟹P≠NP` — **nenhuma** afirmada incondicionalmente;
   ponte L2→L3 **não** demonstrada.
-- **Carta a Krajíček**: ENVIADA 11/10/2026 (Q1–Q4) — aguardando resposta.
+- **Carta a Krajíček**: ENVIADA 11/10/2026 (Q1–Q4) — **📨 resposta parcial
+  12/10/2026** (Q1: `i₀` ∈ `Log(M')` leitura (A); **Q2–Q4 pendentes — follow-up
+  devido**; `CARTA_FINAL_RECEBIDA.md`; status propagado 19/11 = INDICE v6.19).
   Provedor cabeça: `localhost` (não afirma notificação/notary external).
 - **Compilação:** Lean 4 raiz `lake build` → `Build completed successfully (4 jobs)` **confirmado
   em 13/10/2026**, com **2 `sorry`** documentados em `lean4/Gothic_Generators/DDP.lean:628/690`.

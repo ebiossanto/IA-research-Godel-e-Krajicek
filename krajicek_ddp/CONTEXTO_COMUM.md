@@ -121,7 +121,9 @@ Verificar o enunciado exato no artigo antes de afirmar qualquer coisa.
   **apresentação do autor** (pesquisador independente/entusiasta; pesquisa com
   OpenCode + MIMO + IAs gratuitas; GitHub `github.com/ebiossanto`; e-mail
   `euambiente@gmail.com`). **✅ ENVIADA em 11/10/2026 18:14** para
-  jan.krajicek@protonmail.com e krajicek@karlin.mff.cuni.cz — **aguardando resposta**.
+  jan.krajicek@protonmail.com e krajicek@karlin.mff.cuni.cz — **📨 resposta parcial
+  recebida 12/10/2026 (Q1 respondido; Q2–Q4 pendentes; follow-up devido —
+  `../CARTA_FINAL_RECEBIDA.md`; status propagado 19/11 = INDICE v6.19)**.
 - **Residual J.6**: semântica de `τ_N` (R1 vs alternativa) e pergunta (i)/(iii) da
   dicotomia — perguntas ao autor (§4 da nota).
 - **Frente M (nova, 11/10; `M_canto_adversarial.md` v4 RECOMENDADO, referee 3

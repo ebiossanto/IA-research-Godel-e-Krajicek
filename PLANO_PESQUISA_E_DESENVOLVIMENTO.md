@@ -41,7 +41,7 @@ honestidade de escopo (nível Ten-Proofs N0–N4).
 | 3 | 22/09/2026 | Programa PPR (`08`): ≼_ppr, Lemas 7.1–7.2, transferência | **SIM** — foco em ordem operacional |
 | 4 | 22/09/2026 | Núcleo `09`: δ, 𝒢, ρ_b, RBT — nível intermediário observável | **SIM** — núcleo atual |
 | 5–10 | 22/09–12/10/2026 | Experimentos 10/13, RCS confirmada+robusta, PPR-2/CC-Θ, Lean PR15–PR27, revisões externas | evolução incremental |
-| 11 | 10–12/10/2026 | **Campanha DD_P** — frentes A–N + N2/C2/Q2; lacuna verbatim; Teorema K; `C_{N_s}≡⊥` (cond.); nota editorial **ENVIADA 11/10 18:14** | **SIM** — foco no Problema 2.1 |
+| 11 | 10–12/10/2026 | **Campanha DD_P** — frentes A–N + N2/C2/Q2; lacuna verbatim; Teorema K; `C_{N_s}≡⊥` (cond.); nota editorial **ENVIADA 11/10 18:14** → **resposta parcial 12/10 (Q1: `i₀` ∈ `Log(M')`; Q2–Q4 pendentes)** | **SIM** — foco no Problema 2.1 |
 | 12 | 13/10/2026 | **Frontier/FCT** — motor fractal 5/5; descobertas D1–D6; frentes N3/C2-O1-O5 iniciadas; commits `317886d`…`f12e324` | ampliação experimental |
 | 13 | **19/11/2026 (hoje)** | Reanálise + **restauração do ambiente** (ver §6): Git, sympy, Julia, Lean, PATH; `lake build` **VERDE** reproduzido | — |
 
@@ -89,7 +89,7 @@ honestidade de escopo (nível Ten-Proofs N0–N4).
 | DD5 | **Teorema K** (coleção interna impossível); K-FP′ | **(P)** RECOMENDADO |
 | DD6 | `T_PV+(S4) ⊢ ∀rφ(r)`; C.3 negativa | **(P)** RECOMENDADO |
 | DD7 | Canto adversarial: `C_{N_s}≡⊥` | **(P)** **CONDICIONAL a `q` total (Q1 da carta)** |
-| DD8 | **Nota editorial ENVIADA 11/10/2026 18:14** | ✅ — **aguardando resposta** |
+| DD8 | **Nota editorial ENVIADA 11/10/2026 18:14** | ✅ — **📨 resposta parcial 12/10/2026** (Q1 respondido; Q2–Q4 pendentes) |
 | DD9/DD10 | Refutação interna reduzida a `EF⊢Taut(α)`; residuais R-α/R-β | **(P)** RECOMENDADO |
 | DD11 | `DD_{Res(k)}`: C2.1 teorema; C2.2 = programa (O1)–(O5) | **(P)** PARCIAL |
 | DD12 | Instâncias `(τ_n,q)`: Q2.1 decidido; `(Q)\|_{Σ₁}` vale | **(P)** RECOMENDADO |
@@ -116,7 +116,8 @@ honestidade de escopo (nível Ten-Proofs N0–N4).
 
 | # | Questão | Bloqueia | Via |
 |---|---|---|---|
-| **P0.1** | **Resposta de Krajíček (Q1–Q4 da carta)** — `q` total ou parcial em `τ_N`? | decide **M.2** (teorema vs trapo) e escopo de **N**; leitura (i)/(iii); convenção de código; Condition 1 | inbox protonmail/karlin — **verificar semanalmente** |
+| **P0.1a** | ✅ **Q1 RESPONDIDO (12/10/2026):** `i₀` é comprimento de elemento de `M'` → `i₀ ∈ Log(M')` (leitura **(A)**) | remove o "blocked on Q1" de **M.2** (leitura (P) do dossiê) e fecha o escopo de **N** via (A); Q2–Q4 seguem decidindo leitura (i)/(iii), convenção de código e Condition 1 | `CARTA_FINAL_RECEBIDA.md` (e-mail de 12/10/2026 14:48 UTC) |
+| **P0.1b** | **Q2–Q4 PENDENTES** — range de `τ_N` (condiciona **C2**), divergência hip, container H3 | C2/DD_{Res(k)} e leituras restantes | **follow-up curto devido** — janela de 2–4 semanas **vencida** (5+ semanas em 19/11) |
 | **P0.2** | **Auditoria externa independente** de `DD_Res ∈ P` e frentes G–N | credibilidade (N4 Ten-Proofs); prioridade nº 1 da avaliação 12/10 | dossiê pronto: `krajicek_ddp/AUDITORIA_EXTERNA_DDRES_G-N.md` |
 
 ### P1 — frentes internas em andamento (próximo passo ativo)
@@ -171,7 +172,9 @@ honestidade de escopo (nível Ten-Proofs N0–N4).
 1. ✅ **Ambiente restaurado** (19/11): Git (safe.directory), sympy (adulterado→oficial),
    Julia 1.10.2, Lean 4.34/Lake, PATH, pysat — ver `AMBIENTE_E_FERRAMENTAS.md`.
 2. ✅ **`lake build` reproduzido** (4 jobs, 2 sorry documentados).
-3. **Verificar resposta de Krajíček** → registrar no dossiê + propagar (P0.1).
+3. ~~Verificar resposta de Krajíček~~ ✅ **propagado em 19/11** (P0.1a: Q1
+   respondido 12/10; P0.1b: Q2–Q4 pendentes) — **próximo: follow-up curto
+   para Q2–Q4** (janela de 2–4 semanas vencida).
 4. **Fechar lacunas de documentação:** INDICE v6.18, EVOLUCAO Fase 12–13 (P4.1/P4.2).
 5. **Regenerar `gk_lean_bridge.py`** (P4.3).
 6. **Commit seletivo** dos artefatos novos (separar fixes de ambiente vs pesquisa).

@@ -1,11 +1,14 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.18 (19/11/2026 — plano-mestre `PLANO_PESQUISA_E_DESENVOLVIMENTO.md` +
-ambiente verificado/restaurado `AMBIENTE_E_FERRAMENTAS.md`; campanha DD_P A–N +
-N2/C2/Q2 + Frontier F1–F5/D1–D6; histórico Fases 12–13 em `EVOLUCAO_PROJETO.md`)
-**Status:** ✅ **Carta a Krajíček ENVIADA 11/10/2026 18:14** (aguardando resposta);
-Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥` **(condicional a `q` total — Q1)**;
-`DD_Res ∈ P` **(auditoria externa pendente)**; Teorema Q condicional
+**Versão:** 6.19 (19/11/2026 — propagação do status de **Q1**: resposta parcial de
+Krajíček **12/10/2026** (`CARTA_FINAL_RECEBIDA.md`); v6.18: plano-mestre
+`PLANO_PESQUISA_E_DESENVOLVIMENTO.md` + ambiente `AMBIENTE_E_FERRAMENTAS.md`;
+campanha DD_P A–N + N2/C2/Q2 + Frontier F1–F5/D1–D6; Fases 12–13 em `EVOLUCAO_PROJETO.md`)
+**Status:** ✅ **Carta ENVIADA 11/10/2026 18:14 → RESPOSTA PARCIAL RECEBIDA 12/10/2026
+(Q1 respondido; Q2–Q4 pendentes — follow-up devido; `CARTA_FINAL_RECEBIDA.md`)**;
+Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥` **(condicional a `q` total —
+Q1 respondido → leitura (A), interpretação (P) no dossiê)**;
+`DD_Res ∈ P` **(auditoria externa pendente)**; Teorema Q condicional
 em Core; rascunho MO (não postado)
 
 > **Terminologia (fixada em 12/10/2026 — ver `CRITICA_EXTERNA_2026-10-12.md`):**
@@ -175,7 +178,7 @@ em Core; rascunho MO (não postado)
 | **DD5** | **Teorema K + K-FP′ (J1/J2)** | **FEITO — coleção impossível; ponto fixo padrão** | `krajicek_ddp/J1/J2` |
 | **DD6** | **`¬φ` insatisfatível + C.3 negativa (L)** | **FEITO — `T_PV+(S4)⊢∀rφ(r)`** | `krajicek_ddp/L1_...` |
 | **DD7** | **Canto adversarial `(C)` (M)** | **FEITO CONDICIONAL — `C_{N_s}≡⊥` sob `q` total; sob `q` parcial com merge pode falhar → Q1 da carta decide** | `krajicek_ddp/M_...` |
-| **DD8** | **Nota editorial a Krajíček** | **✅ ENVIADA 11/10/2026 18:14** (protonmail + karlin) — aguardando resposta | `krajicek_ddp/CARTA_FINAL_ENVIO.md` |
+| **DD8** | **Nota editorial a Krajíček** | **✅ ENVIADA 11/10/2026 18:14** (protonmail + karlin); **📨 RESPOSTA PARCIAL 12/10/2026 14:48 UTC** — **Q1 respondido** (`i₀` = comprimento de elemento de `M'` ∈ `Log(M')` → leitura (A)); **Q2–Q4 pendentes** (follow-up devido) | `krajicek_ddp/CARTA_FINAL_ENVIO.md`, **`CARTA_FINAL_RECEBIDA.md`** |
 | **DD9** | **Refutação interna de `{C_{N_s}}` (N)** | **FEITO — reduzida a `EF⊢Taut(α)` (N.1); dicotomia (C1′)** | `krajicek_ddp/N1_...` |
 | **DD10** | **Residuais R-α/R-β (N2)** | **FEITO (RECOMENDADO r5)** — R-α=(∗′) com 4 formas da ameaça **(C)**→N3; N2.3′ no escopo efetivo; R-β: compressão necessária≠suficiente | `krajicek_ddp/N2_residuals_RA_RB.md` |
 | **DD11** | **`DD_{Res(k)}` (C2)** | **PARCIAL (RECOMENDADO r5)** — C2.1 **teorema** (largura-k); C2.2 = **programa (O1)–(O5)**; C2.3 família alternante **(C)** | `krajicek_ddp/C2_ddres_k.md` |
@@ -293,9 +296,11 @@ ao longo de uma hierarquia de reflexão $T_0 \subseteq T_1 \subseteq \cdots$?
 
 **Documentos:** 09 (núcleo), 08 (PPR), 10–26 (exp+**RCS**+Lean+**Foundation**+**FP-δ**+**revisão externa**), 01/06/03/00/02/04/05 **corrigidos**, EVOLUCAO, **`krajicek_ddp/` (campanha DD_P — consolidado em `RELATORIO_CONSOLIDADO.md`)**
 
-**Próximo passo:** ~~enviar a nota editorial~~ **✅ FEITO (11/10 18:14)** — agora:
-**aguardar a resposta de Krajíček** (registrar no dossiê); em paralelo: Φw* rota B
-(definability); (τ_n,q) concretas para Q (antes de limite inferior); MathOverflow
+**Próximo passo:** ~~enviar a nota editorial~~ **✅ FEITO (11/10 18:14)** ·
+~~aguardar a resposta~~ **✅ RESPOSTA PARCIAL 12/10/2026 — Q1 respondido**
+(`i₀` ∈ `Log(M')`; leitura (A); `CARTA_FINAL_RECEBIDA.md`); **Q2–Q4 pendentes →
+follow-up curto devido** (recomendação de 2–4 semanas já vencida); em paralelo: Φw* rota B
+(definability); (τ_n,q) concretas para Q (antes de limite inferior); MathOverflow
 como pergunta
 
 ---

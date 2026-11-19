@@ -327,7 +327,10 @@ valorações falsificantes, todos provados em Lean 4 (`lake build` limpo).
    **se o condicional fechar**; nomes padrão inofensivos (M.3–M.5).
 7. **Nota editorial a Krajíček — ✅ ENVIADA em 11/10/2026 18:14**
    (`CARTA_FINAL_ENVIO.md`; para jan.krajicek@protonmail.com e
-   krajicek@karlin.mff.cuni.cz) — **aguardando resposta do autor**.
+   krajicek@karlin.mff.cuni.cz) — **📨 resposta parcial do autor em 12/10/2026**
+   (**Q1 respondido:** `i₀` = comprimento de elemento de `M'` ∈ `Log(M')`, leitura
+   (A); **Q2–Q4 pendentes** — `../CARTA_FINAL_RECEBIDA.md`; status propagado
+   19/11 = INDICE v6.19; follow-up devido).
 8. **Refutação interna de `{C_{N_s}}` decidida por redução** (N, v3): existe
    ⟺ `Taut(α)` fechada tem prova EF interna em `M_0` (N.1); dicotomia (α)/(C1′)
    (N.2); residuais R-α/R-β **(C)** (N.3). Sombra interna de L21–22 — a mesma

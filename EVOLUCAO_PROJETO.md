@@ -456,7 +456,8 @@ código; Condition 1). **Carta EN enviada em 11/10/2026 às 18:14**
 (`CARTA_FINAL_ENVIO.md`) — de euambiente@gmail.com para **jan.krajicek@protonmail.com**
 e **krajicek@karlin.mff.cuni.cz** — com a apresentação do autor: pesquisador
 independente/entusiasta, pesquisa com **OpenCode + MIMO + outras IAs gratuitas**,
-GitHub (`github.com/ebiossanto`). **Aguardando resposta do autor.**
+GitHub (`github.com/ebiossanto`). **→ Resposta PARCIAL recebida em 12/10/2026
+(Q1; Q2–Q4 pendentes) — ver Fase 12.0 e `CARTA_FINAL_RECEBIDA.md`.**
 
 ### 11.5 Abertos desta campanha
 
@@ -549,6 +550,25 @@ obter auditoria externa*): criado **`krajicek_ddp/AUDITORIA_EXTERNA_DDRES_G-N.md
 **Contexto:** resposta à determinação da avaliação externa de 12/10 ("obter auditoria
 externa, não adicionar conjecturas") — esta fase é **experimental/descritiva**, não
 acrescenta teoremas. Commits `317886d`…`f12e324`.
+
+### 12.0 Epistolário: resposta parcial de Krajíček (12/10/2026 14:48 UTC)
+
+**Fato (A):** e-mail de Jan Krajíček em resposta à carta de 11/10 — texto original
+registrado em **`CARTA_FINAL_RECEBIDA.md`**:
+
+> *"i_0 is the length of some element of M' and, therefore, in Log(M').
+> I will analyze the rest of your email when I have more time."*
+
+- **Q1 RESPONDIDO:** `i₀` é o **comprimento** de algum elemento de `M'` →
+  `i₀ ∈ Log(M')` (leitura **(A)** da nossa pergunta Q1).
+- **Interpretação (P)** (dossiê): resolve a condição "blocked on Q1" do canto
+  adversarial **M.2** em favor da leitura (A); escopo de **N** pode ser arrolado
+  via (A); lacuna do passo (5) mantém a correção `2.1 → (F-sent)`.
+- **Q2–Q4 PENDENTES** (range de `τ_N` → condiciona C2; divergência hip; leitura
+  do container H3). **Follow-up curto recomendado em 2–4 semanas** —
+  **vencido** (5+ semanas em 19/11).
+- Propagação de status em 19/11: INDICE **v6.19**, README, EVOLUCAO (esta seção),
+  PLANO (P0.1), CONTEXTO_COMUM, RELATORIO_CONSOLIDADO.
 
 ### 12.1 Motor fractal (FCT) — funcionando
 
@@ -703,7 +723,8 @@ consolidado, frentes) + **restauração do laboratório** (detalhes técnicos em
 | **11/10/2026** | **H–I–J: Q-compactness** | no-G; ultrapoderes fora; **Teorema K**; **K-FP′** |
 | **11/10/2026** | **L: `¬φ` insatisfatível** | `T_PV+(S4)⊢∀rφ(r)`; **C.3 negativa**; L.4 |
 | **11/10/2026** | **M: adversarial decidido** | `m` não-padrão; **`C_{N_s}≡⊥`**; **nota editorial v4** |
-| **11/10/2026** | **✅ CARTA ENVIADA a Krajíček (18:14)** | protonmail + karlin; errata + dicotomia + perguntas; **aguardando resposta** |
+| **11/10/2026** | **✅ CARTA ENVIADA a Krajíček (18:14)** | protonmail + karlin; errata + dicotomia + perguntas; aguardando resposta |
+| **12/10/2026** | **📨 Resposta PARCIAL de Krajíček (Q1)** | `i₀` = comprimento de elemento de `M'` ∈ `Log(M')` (leitura **(A)**); **Q2–Q4 pendentes**; `CARTA_FINAL_RECEBIDA.md`; propagação (INDICE v6.19) em 19/11 |
 | **11/10/2026** | **N: refutação interna decidida por redução** | `N1_...` v3 RECOMENDADO (referee 2 rodadas); **N.1** `EF⊢σ_s`⟺`EF⊢Taut(α)`; N.2 (C1′); DD9 |
 | **11/10/2026** | **Terceira onda N2/C2/Q2** | **3 entregas RECOMENDADO** (ref. 5/5/3 rodadas): N2 R-α=(∗′) 4-formas + N2.3′ efetivo; C2.1 teorema + C2.2 **programa (O1)–(O5)** + alternância; Q2.1 decidido + `(Q)\|_{Σ₁}`; DD10–DD12; §8 do consolidado |
 | **12/10/2026** | **Avaliação externa 2ª onda + resposta** | 5 reservas **aplicadas**: RECOMENDADO=revisão interna; **M.2 condicional a `q`**; **build Lean reproduzido** (4 jobs, 2 sorry); PPR=**modelo finito**; níveis L1/L2/L3 (ponte aberta); **DD13** |
@@ -727,13 +748,14 @@ consolidado, frentes) + **restauração do laboratório** (detalhes técnicos em
 
 ## Próximo passo (a atualizar)
 
-> **Status 19/11/2026 (Fase 13):** ambiente **restaurado e verificado**
+> Status 19/11/2026 (Fase 13): ambiente **restaurado e verificado**
 > (`lake build` verde; bridge v2 regenerando `gk_lean_verification.json` com
 > dados reais; PR24 reproduzida). Plano-mestre consolidado em
 > **`PLANO_PESQUISA_E_DESENVOLVIMENTO.md`** (horizontes H0–H3) — começar por lá.
-> Imediatos: **verificar resposta de Krajíček** (P0.1) · **enviar 1ª via da
-> auditoria externa** (P0.2) · frente **N3** · varredura **[K19 5.7] + K19 caps
-> 9/17 + KP90** · experimento **D4′** (ponte prova→fractal).
+> Imediatos: **follow-up Q2–Q4 a Krajíček** (Q1 **já respondido** 12/10 —
+> `CARTA_FINAL_RECEBIDA.md`; P0.1 parcial — 5+ semanas sem retorno) ·
+> **enviar 1ª via da auditoria externa** (P0.2) · frente **N3** · varredura
+> **[K19 5.7] + K19 caps 9/17 + KP90** · experimento **D4′** (ponte prova→fractal).
 
 > **Próximo (PR29+):** **(0a) OBTER AUDITORIA EXTERNA INDEPENDENTE** de
 > `DD_Res ∈ P` e das frentes G–N — prioridade nº 1 segundo a avaliação de
