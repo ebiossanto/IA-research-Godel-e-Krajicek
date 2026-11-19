@@ -11,7 +11,8 @@
       45
     ],
     "csv": "gk_alternating_family_t6_n5.csv",
-    "csv_sha256": "a26a56fceaad7629e1fcb99933a3e241e9b71e97e16cb76f6f0fd2e6208f0c2c"
+    "csv_sha256": "c6606aac0d49c14db92b8a56ed600ab0439eb6ffd15d870be387e85922deea4c",
+    "sha_note": "sha256 sobre bytes normalizados CRLF->LF (multiplataforma)"
   },
   "T1_alternancia": {
     "ok": 8,

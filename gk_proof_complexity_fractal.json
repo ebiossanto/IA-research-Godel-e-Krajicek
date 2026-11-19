@@ -15,13 +15,14 @@
       "z3_proof_nodes (PROXY — nao e Extended Frege)"
     ],
     "csv": "gk_proof_fractal_series.csv",
-    "csv_sha256": "92e1ffd3b01f2585946ed24490084003a088cfee5e6525ae0d4cede2779f8334",
+    "csv_sha256": "a794b20975651d2b3bdf90593d4d9c50a89625a67ca09c03c25e59e5dd64d0ff",
     "runtime_s": 250.0,
     "caveats": [
       "Series de 64 pontos — metricas fractais com IC largo e esperado.",
       "z3_proof_nodes NAO e Extended Frege (H_C2 deferido).",
       "Nivel Ten-Proofs: N1 script reproduzivel + N2 bootstrap nesta maquina."
-    ]
+    ],
+    "sha_note": "sha256 sobre bytes normalizados CRLF->LF (multiplataforma)"
   },
   "metric_validation": {
     "white_noise": {

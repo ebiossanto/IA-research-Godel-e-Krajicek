@@ -158,8 +158,15 @@ def check_r5_links(root, fails):
                 fail(fails, "R5", f"{name}: link quebrado -> {t}")
 
 
+def _norm_bytes(b: bytes) -> bytes:
+    """Normaliza fim-de-linha: CSV gravado no Windows tem CRLF; o git
+    normaliza p/ LF no checkout (Linux/CI) — hash deve ser sobre o conteudo
+    normalizado p/ bater em qualquer plataforma."""
+    return b.replace(b"\r\n", b"\n")
+
+
 def check_r6_shas(root, fails):
-    """JSON com csv_sha256 deve bater com o CSV indicado."""
+    """JSON com csv_sha256 deve bater com o CSV indicado (bytes normalizados)."""
     checked = 0
     for jp in root.glob("gk_*.json"):
         try:
@@ -179,7 +186,7 @@ def check_r6_shas(root, fails):
         if not cp.exists():
             fail(fails, "R6", f"{jp.name}: CSV ausente ({csv_name})")
             continue
-        actual = hashlib.sha256(cp.read_bytes()).hexdigest()
+        actual = hashlib.sha256(_norm_bytes(cp.read_bytes())).hexdigest()
         if actual != sha:
             fail(fails, "R6",
                  f"{jp.name}: sha256 divergente (JSON {sha[:12]}… vs "

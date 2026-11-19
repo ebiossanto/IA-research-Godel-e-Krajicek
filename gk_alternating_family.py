@@ -301,7 +301,8 @@ def main():
         w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
         w.writeheader()
         w.writerows(rows)
-    sha = hashlib.sha256(out_csv.read_bytes()).hexdigest()
+    sha = hashlib.sha256(
+        out_csv.read_bytes().replace(b"\r\n", b"\n")).hexdigest()
 
     payload = {
         "metadata": {
