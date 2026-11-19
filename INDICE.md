@@ -1,9 +1,10 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.19 (19/11/2026 — propagação do status de **Q1**: resposta parcial de
-Krajíček **12/10/2026** (`CARTA_FINAL_RECEBIDA.md`); v6.18: plano-mestre
-`PLANO_PESQUISA_E_DESENVOLVIMENTO.md` + ambiente `AMBIENTE_E_FERRAMENTAS.md`;
-campanha DD_P A–N + N2/C2/Q2 + Frontier F1–F5/D1–D6; Fases 12–13 em `EVOLUCAO_PROJETO.md`)
+**Versão:** 6.20 (19/11/2026 — **D4′ v1 EXECUTADO** (`28_PONTE_PROVA_FRACTAL_D4.md`
++ referee r1 RECOMENDADO): ponte prova→fractal com provas DRAT/Z3 reais;
+**D_H separa `php` das demais (4/4 IC95 exclui0, raw+log1p)** = regime de
+crescimento, não dureza; H_C2 (Res-vs-EF) **deferido**; v6.19: propagação de Q1
+(resposta parcial de Krajíček 12/10); v6.18: plano-mestre + ambiente)
 **Status:** ✅ **Carta ENVIADA 11/10/2026 18:14 → RESPOSTA PARCIAL RECEBIDA 12/10/2026
 (Q1 respondido; Q2–Q4 pendentes — follow-up devido; `CARTA_FINAL_RECEBIDA.md`)**;
 Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥` **(condicional a `q` total —
@@ -49,7 +50,8 @@ em Core; rascunho MO (não postado)
 | **`25_FOUNDATION_INSTANCE_FP_DELTA.md`** | **Foundation instância Lemma3Hyp; PR7 comprimento vs δ SIM (modelo)** | **EXECUTADO** |
 | **`26_REVISAO_EXTERNA_PONTUAL.md`** | **Revisão externa: só banners/orig./esqueleto — sem redesenhar programa** | **EXECUTADO** |
 | **`27_TEOREMA_Q_GODEL2_BRIDGE_MO.md`** | **PR27: Q condicional; bridge δ; Gödel II rota A; FoundationBridge BUILD VERDE (0 sorry)** | **EXECUTADO** |
-| **`27_MATHOVERFLOW_PERGUNTA.md`** | **Rascunho MO (EN) — NÃO publicado sem confirmação** | **RASCUNHO** |
+| **`27_MATHOVERFLOW_PERGUNTA.md`** | **Rascunho MO (EN) — NÃO publicado sem confirmação** | **RASCUNHO** |
+| **`28_PONTE_PROVA_FRACTAL_D4.md`** (+ `_referee.md`) | **D4′ v1: ponte prova→fractal — 188 UNSAT reais (Cadical195 DRAT + Z3); D_H separa `php` (4/4 IC95 exclui0, raw+log1p) = regime de crescimento; refutada leitura "dura=mais fractal"; H_C2 deferido** | **EXECUTADO — RECOMENDADO r1** |
 | `00/02/04/05`, `support/*`, `paper2` | **PR26: REJEITADO + novidade provisória + pseudocódigo** | **CORRIGIDO** |
 | `01/06/03` | **PR12: banners REJEITADO/histórico** | **CORRIGIDO** |
 | Scripts | exp10, ppr3, reimpl, slow_vs_fast, **_ext**, test_Rw, **_E0E3**, **ppr3_ramos**, **_RBT_B**, **_allcov**, **fp_length_vs_delta** | SCRIPTS |

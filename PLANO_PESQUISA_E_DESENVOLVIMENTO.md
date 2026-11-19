@@ -148,7 +148,7 @@ honestidade de escopo (nível Ten-Proofs N0–N4).
 | P3.1 | **D1′** quantização PFA: varrer m∈{2..7}, n∈{4,8,16}, bootstrap de ρ_c empírico | coincidir com 1/4? → dado `gk_fractal_phase_transition.csv` |
 | P3.2 | **D2′** detector ordem de grupo (abeliano vs não) via cross-validation | acurácia + β, ρ |
 | P3.3 | **D3′** predição de colapso em `cpu_timeseries` reais | H ajustado vs colapso 24h seguintes |
-| P3.4 | **D4′** **ponte maior:** entropia de prova dos 216 casos Z3 → H/D (Res vs EF) | bootstrap; `gk_proof_complexity_fractal.json` |
+| P3.4 | **D4′** ponte prova→fractal | ✅ **EXECUTADO v1 (19/11)** — `28_PONTE_PROVA_FRACTAL_D4.md`: 188 UNSAT reais; **D_H separa `php` (4/4 IC exclui0, raw+log1p)** = regime de crescimento; Res-vs-EF **deferido**; v2: anti-quantização, séries τ maiores |
 | P3.5 | **D5′** perfil fractal da cadeia ω (η_n → H) | H→1 (persistência transfinite)? |
 | P3.6 | Validar `P₉₉ = P^ideal(1+ρ/(1−ρ)·p²)` contra telemetria real | erro relativo |
 
@@ -184,8 +184,9 @@ honestidade de escopo (nível Ten-Proofs N0–N4).
 7. **Enviar 1ª via da auditoria externa** (P0.2) — parar de acumular conjecturas   (determinação da avaliação 12/10: *obter auditoria, não adicionar resultados*).
 8. **Frente N3** — `(∗′)` por compacidade (P1.1).
 9. **Varredura [K19 5.7] + K19 caps 9/17 + KP90** (P1.2/P1.4) — destrava C2 e Q2.4.
-10. **Rodar D4′** (ponte prova→fractal, P3.4) — maior potencial de descoberta nova;
-    seed fixa + hash + comando congelado (regra de commit).
+10. ~~Rodar D4′ (ponte prova→fractal, P3.4)~~ ✅ **FEITO em 19/11** —
+    `28_PONTE_PROVA_FRACTAL_D4.md` (+referee r1): seed+hash+comando congelados;
+    H_C1 confirmada como separação de regime; pendências v2 no referee §B.
 
 ### H2 — Médio prazo (1–3 meses)
 

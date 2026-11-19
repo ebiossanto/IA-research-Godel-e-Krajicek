@@ -649,6 +649,30 @@ consolidado, frentes) + **restauração do laboratório** (detalhes técnicos em
   `lake build`).
 - `INDICE.md` indexou os três (e passa a v6.18).
 
+### 13.4 Experimento D4′ — ponte prova→fractal v1 (19/11/2026, caminho D)
+
+**Documento:** `28_PONTE_PROVA_FRACTAL_D4.md` (+ `28_..._referee.md` **r1
+RECOMENDADO**) · script `gk_proof_fractal.py` · saídas
+`gk_proof_complexity_fractal.json` + `gk_proof_fractal_series.csv`
+(seed=20261119, CSV sha256 `92e1ffd3…`, runtime250s).
+
+- **188/188 instâncias UNSAT com provas REAIS**: `implication` (grafo de
+  implicações), `php` (buraco do pombo,48→935.504 linhas DRAT), `tau`
+  (família τ(g)ᵦ de Krajíček via Tseitin) —DRAT por **Cadical195**
+  (Glucose devolvia prova vazia — corrigido); Z3 com `set_param('proof')`
+  (corrigido).
+- **Métricas validadas** em séries sintéticas antes de medir (ruído→D_H2,07;
+  RW1,73; seno1,20) — pegou2 bugs da rodada1 (sinal do Higuchi; janelas R/S
+  degeneradas) — validação sintética agora é regra.
+- **Resultado:** **D_H separa `php` das demais** (4/4 contrastes confirmatórios
+  IC95 exclui0, raw **e** log1p); `implication≈tau` (indistinguíveis).
+  **Direção contrária à ingênua:** php é mais *suave* (crescimento exponencial
+  determinístico) → leitura corrigida: **separação de regime de crescimento**
+  (exponencial vs quase-linear) — refutada "dura=mais fractal".
+- **H_C2 (Res vs EF) DEFERIDO** (EF não mensurável; proxy Z3 com caveat).
+- **Referee hostile r1:** A1–A8 — resultado autorizado restrito (ver §B do
+  referee); pendências v2: anti-quantização, séries τ maiores (k↑, PR10/PR11).
+
 ---
 
 ## Fase 10 — O que está em aberto (programa δ/𝒢; a Fase 11 tem seus próprios abertos)
@@ -731,6 +755,7 @@ consolidado, frentes) + **restauração do laboratório** (detalhes técnicos em
 | **12/10/2026** | **Pacote de auditoria externa** | `AUDITORIA_EXTERNA_DDRES_G-N.md` — checklist T4.3 + tabela G–N + não-reivindicado; **auditor externo pendente (DD14)** | — |
 | **13/10/2026** | **Frontier F1–F5 + D1–D6 + N3/C2** | motor fractal **5/5 PASS**; **ρ_c=0.706** (não 1/4); sep. não-abeliana p=3.6e-21; Z3 **216/216 ×2**; φ_len 288/288; frentes **N3** (compacidade χ≡⊤) e **C2 (O1)–(O5)** iniciadas | ampliação experimental |
 | **19/11/2026** | **Reanálise + restauração do ambiente** | git `safe.directory`; **sympy adulterado→restaurado**; **Julia 1.10.2 restaurada**; toolchain Lean + PATH; pysat; **`lake build` VERDE**; PR24 reproduzida (EXIT=0); **bridge v2 `#print axioms`** (10/12 PROVED, 2 SORRY permanentes, 0 NOT_FOUND); docs **PLANO**/**AMBIENTE**/diagnóstico | retomada |
+| **19/11/2026** | **Q1 propagado (INDICE v6.19) + D4′ v1 EXECUTADO** | resposta parcial Krajíček 12/10 em todos os canônicos; **ponte prova→fractal**: 188 UNSAT reais, **D_H separa `php` (4/4 IC exclui0)** = regime de crescimento; referee r1 RECOMENDADO; H_C2 deferido (`28_...`) | — |
 | Próximo | ~~Foundation build; rota B; (τ_n,q) concretos~~ → **auditoria externa + resposta do autor; então N3/[K19 5.7]/fonte Σ₁** | — |
 
 ---

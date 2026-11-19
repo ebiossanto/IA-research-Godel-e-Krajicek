@@ -1,0 +1,616 @@
+{
+  "metadata": {
+    "timestamp_utc": "2026-11-19T19:11:44.661837Z",
+    "data_source": "gk_proof_fractal.py (D4' prova->fractal v1)",
+    "seed": 20261119,
+    "B_boot": 300,
+    "block": 8,
+    "grid": {
+      "implication": "64 pontos",
+      "php": "60 pontos",
+      "tau": "64 pontos"
+    },
+    "systems": [
+      "resolution_drat (PySAT Cadical195, DRAT real)",
+      "z3_proof_nodes (PROXY — nao e Extended Frege)"
+    ],
+    "csv": "gk_proof_fractal_series.csv",
+    "csv_sha256": "92e1ffd3b01f2585946ed24490084003a088cfee5e6525ae0d4cede2779f8334",
+    "runtime_s": 250.0,
+    "caveats": [
+      "Series de 64 pontos — metricas fractais com IC largo e esperado.",
+      "z3_proof_nodes NAO e Extended Frege (H_C2 deferido).",
+      "Nivel Ten-Proofs: N1 script reproduzivel + N2 bootstrap nesta maquina."
+    ]
+  },
+  "metric_validation": {
+    "white_noise": {
+      "hurst_rs": 0.6208779482084428,
+      "higuchi_D": 2.075290056274313,
+      "boxdim": 0.878116539807674
+    },
+    "random_walk": {
+      "hurst_rs": 0.892791998412089,
+      "higuchi_D": 1.7248117434512933,
+      "boxdim": 0.8564421722280319
+    },
+    "sine_period16": {
+      "hurst_rs": 1.0415500514488285,
+      "higuchi_D": 1.1991048146095946,
+      "boxdim": 0.7899863328714548
+    }
+  },
+  "series_results": {
+    "implication|resolution_drat": {
+      "n": 64,
+      "mean": 12.890625,
+      "min": 3.0,
+      "max": 22.0,
+      "metrics": {
+        "hurst_rs": 0.7026857081620501,
+        "higuchi_D": 1.9995303175638521,
+        "boxdim": 0.8634966145317093
+      },
+      "metrics_log1p": {
+        "hurst_rs": 0.664216805412911,
+        "higuchi_D": 2.010804377783995,
+        "boxdim": 0.839936892219015
+      },
+      "bootstrap_ci95": {
+        "hurst_rs": {
+          "point": 0.7026857081620501,
+          "lo": 0.5078586826771657,
+          "hi": 1.2590681216668616
+        },
+        "higuchi_D": {
+          "point": 1.9995303175638521,
+          "lo": 1.6312855025789714,
+          "hi": 1.9263045358291078
+        },
+        "boxdim": {
+          "point": 0.8634966145317093,
+          "lo": 0.7445509242404929,
+          "hi": 0.895793117666608
+        }
+      }
+    },
+    "implication|z3_proof_nodes": {
+      "n": 64,
+      "mean": 106.53125,
+      "min": 39.0,
+      "max": 247.0,
+      "metrics": {
+        "hurst_rs": 0.8545298124003389,
+        "higuchi_D": 2.0051135347533275,
+        "boxdim": 0.8189893178587556
+      },
+      "metrics_log1p": {
+        "hurst_rs": 0.8904351805292016,
+        "higuchi_D": 1.9817985995883587,
+        "boxdim": 0.8315253178088636
+      },
+      "bootstrap_ci95": {
+        "hurst_rs": {
+          "point": 0.8545298124003389,
+          "lo": 0.38364730597095564,
+          "hi": 1.0475092922384666
+        },
+        "higuchi_D": {
+          "point": 2.0051135347533275,
+          "lo": 1.891169672040965,
+          "hi": 2.0664187923552046
+        },
+        "boxdim": {
+          "point": 0.8189893178587556,
+          "lo": 0.7613547161682188,
+          "hi": 0.8565994559082181
+        }
+      }
+    },
+    "php|resolution_drat": {
+      "n": 60,
+      "mean": 183250.6,
+      "min": 47.0,
+      "max": 1087445.0,
+      "metrics": {
+        "hurst_rs": 1.3625535064146417,
+        "higuchi_D": 1.2687575036807874,
+        "boxdim": 0.7829028964915975
+      },
+      "metrics_log1p": {
+        "hurst_rs": 1.3120495466052897,
+        "higuchi_D": 1.1034818765792176,
+        "boxdim": 0.9893084796083488
+      },
+      "bootstrap_ci95": {
+        "hurst_rs": {
+          "point": 1.3625535064146417,
+          "lo": 0.6454101515671135,
+          "hi": 1.4060504823957576
+        },
+        "higuchi_D": {
+          "point": 1.2687575036807874,
+          "lo": 1.1177752466491262,
+          "hi": 1.7663618033374748
+        },
+        "boxdim": {
+          "point": 0.7829028964915975,
+          "lo": 0.5956962780122583,
+          "hi": 0.8507501021587551
+        }
+      }
+    },
+    "php|z3_proof_nodes": {
+      "n": 50,
+      "mean": 137.1,
+      "min": 58.0,
+      "max": 308.0,
+      "metrics": {
+        "hurst_rs": 0.9188069731863089,
+        "higuchi_D": 1.8560411664546013,
+        "boxdim": 1.0367457763466583
+      },
+      "metrics_log1p": {
+        "hurst_rs": 0.9741786434431986,
+        "higuchi_D": 1.850438360153336,
+        "boxdim": 1.0066420329855923
+      },
+      "bootstrap_ci95": {
+        "hurst_rs": {
+          "point": 0.9188069731863089,
+          "lo": 0.30662321351544725,
+          "hi": 1.3528059745482521
+        },
+        "higuchi_D": {
+          "point": 1.8560411664546013,
+          "lo": 1.6476215195784765,
+          "hi": 2.0440563998378485
+        },
+        "boxdim": {
+          "point": 1.0367457763466583,
+          "lo": 0.8661778097771988,
+          "hi": 1.1067216080036544
+        }
+      }
+    },
+    "tau|resolution_drat": {
+      "n": 64,
+      "mean": 34.578125,
+      "min": 9.0,
+      "max": 63.0,
+      "metrics": {
+        "hurst_rs": 0.7072274507072995,
+        "higuchi_D": 1.983400620979716,
+        "boxdim": 0.8040313953543138
+      },
+      "metrics_log1p": {
+        "hurst_rs": 0.7055879082951917,
+        "higuchi_D": 1.9829761753703237,
+        "boxdim": 0.819429741111643
+      },
+      "bootstrap_ci95": {
+        "hurst_rs": {
+          "point": 0.7072274507072995,
+          "lo": 0.42964271507431556,
+          "hi": 0.9951645164295402
+        },
+        "higuchi_D": {
+          "point": 1.983400620979716,
+          "lo": 1.8506066067410458,
+          "hi": 2.050179950869106
+        },
+        "boxdim": {
+          "point": 0.8040313953543138,
+          "lo": 0.7773677488111431,
+          "hi": 0.8896008896317917
+        }
+      }
+    },
+    "tau|z3_proof_nodes": {
+      "n": 64,
+      "mean": 28.734375,
+      "min": 16.0,
+      "max": 181.0,
+      "metrics": {
+        "hurst_rs": 0.4190886744997332,
+        "higuchi_D": 2.1350454857522,
+        "boxdim": 0.9416357721779746
+      },
+      "metrics_log1p": {
+        "hurst_rs": 0.44888874975371923,
+        "higuchi_D": 2.1008019647941523,
+        "boxdim": 0.8679392127613538
+      },
+      "bootstrap_ci95": {
+        "hurst_rs": {
+          "point": 0.4190886744997332,
+          "lo": 0.3258773961020017,
+          "hi": 1.0227517023231902
+        },
+        "higuchi_D": {
+          "point": 2.1350454857522,
+          "lo": 1.8268599439032163,
+          "hi": 2.1333358715629926
+        },
+        "boxdim": {
+          "point": 0.9416357721779746,
+          "lo": 0.7859969548221026,
+          "hi": 0.9747143998186747
+        }
+      }
+    }
+  },
+  "contrasts": {
+    "resolution_drat:implication-php:higuchi_D:raw": {
+      "delta_point": 0.7307728138830647,
+      "lo": 0.050836657710368494,
+      "hi": 0.7317944119778479,
+      "excludes_zero": true
+    },
+    "resolution_drat:implication-php:boxdim:raw": {
+      "delta_point": 0.08059371804011184,
+      "lo": -0.07025523473030848,
+      "hi": 0.23799852481440087,
+      "excludes_zero": false
+    },
+    "resolution_drat:implication-php:hurst_rs:raw": {
+      "delta_point": -0.6598677982525916,
+      "lo": -0.6210411420736727,
+      "hi": 0.4822970772934343,
+      "excludes_zero": false
+    },
+    "resolution_drat:implication-php:higuchi_D:log1p": {
+      "delta_point": 0.9073225012047774,
+      "lo": 0.3322517315039937,
+      "hi": 0.8347003857117934,
+      "excludes_zero": true
+    },
+    "resolution_drat:implication-php:boxdim:log1p": {
+      "delta_point": -0.14937158738933376,
+      "lo": -0.048931359595964286,
+      "hi": 0.2175287357017377,
+      "excludes_zero": false
+    },
+    "resolution_drat:implication-php:hurst_rs:log1p": {
+      "delta_point": -0.6478327411923788,
+      "lo": -0.7362765318830249,
+      "hi": 0.3011951446938961,
+      "excludes_zero": false
+    },
+    "resolution_drat:implication-tau:higuchi_D:raw": {
+      "delta_point": 0.01612969658413621,
+      "lo": -0.3498391890705943,
+      "hi": 0.00830512437665254,
+      "excludes_zero": false
+    },
+    "resolution_drat:implication-tau:boxdim:raw": {
+      "delta_point": 0.059465219177395556,
+      "lo": -0.1115385369747256,
+      "hi": 0.07104933828050142,
+      "excludes_zero": false
+    },
+    "resolution_drat:implication-tau:hurst_rs:raw": {
+      "delta_point": -0.0045417425452494165,
+      "lo": -0.38614487580765505,
+      "hi": 0.6808685476279934,
+      "excludes_zero": false
+    },
+    "resolution_drat:implication-tau:higuchi_D:log1p": {
+      "delta_point": 0.027828202413671344,
+      "lo": -0.32943053205712225,
+      "hi": 0.059444807845645764,
+      "excludes_zero": false
+    },
+    "resolution_drat:implication-tau:boxdim:log1p": {
+      "delta_point": 0.020507151107372,
+      "lo": -0.12125315752997912,
+      "hi": 0.04336414673066946,
+      "excludes_zero": false
+    },
+    "resolution_drat:implication-tau:hurst_rs:log1p": {
+      "delta_point": -0.04137110288228074,
+      "lo": -0.2888424286730361,
+      "hi": 0.5935074693970102,
+      "excludes_zero": false
+    },
+    "resolution_drat:php-tau:higuchi_D:raw": {
+      "delta_point": -0.7146431172989285,
+      "lo": -0.8729464254817918,
+      "hi": -0.19242964121876494,
+      "excludes_zero": true
+    },
+    "resolution_drat:php-tau:boxdim:raw": {
+      "delta_point": -0.021128498862716283,
+      "lo": -0.25076867872445163,
+      "hi": 0.03684453691214551,
+      "excludes_zero": false
+    },
+    "resolution_drat:php-tau:hurst_rs:raw": {
+      "delta_point": 0.6553260557073421,
+      "lo": -0.13733653525284306,
+      "hi": 0.8306206389258399,
+      "excludes_zero": false
+    },
+    "resolution_drat:php-tau:higuchi_D:log1p": {
+      "delta_point": -0.8794942987911061,
+      "lo": -0.9135041556217556,
+      "hi": -0.48692724897669715,
+      "excludes_zero": true
+    },
+    "resolution_drat:php-tau:boxdim:log1p": {
+      "delta_point": 0.16987873849670576,
+      "lo": -0.26363864547815374,
+      "hi": -0.009742965627884792,
+      "excludes_zero": true
+    },
+    "resolution_drat:php-tau:hurst_rs:log1p": {
+      "delta_point": 0.606461638310098,
+      "lo": -0.09976271186741614,
+      "hi": 0.8680122855505386,
+      "excludes_zero": false
+    },
+    "z3_proof_nodes:implication-php:higuchi_D:raw": {
+      "delta_point": 0.14907236829872628,
+      "lo": -0.07589290059292986,
+      "hi": 0.3723859426158571,
+      "excludes_zero": false
+    },
+    "z3_proof_nodes:implication-php:boxdim:raw": {
+      "delta_point": -0.2177564584879027,
+      "lo": -0.32147637284623143,
+      "hi": -0.04364151639077274,
+      "excludes_zero": true
+    },
+    "z3_proof_nodes:implication-php:hurst_rs:raw": {
+      "delta_point": -0.06427716078597001,
+      "lo": -0.7040474691748805,
+      "hi": 0.471319652760395,
+      "excludes_zero": false
+    },
+    "z3_proof_nodes:implication-php:higuchi_D:log1p": {
+      "delta_point": 0.13136023943502262,
+      "lo": -0.09833880735102052,
+      "hi": 0.31039274244512227,
+      "excludes_zero": false
+    },
+    "z3_proof_nodes:implication-php:boxdim:log1p": {
+      "delta_point": -0.17511671517672867,
+      "lo": -0.2606088498459397,
+      "hi": -0.06329564603411397,
+      "excludes_zero": true
+    },
+    "z3_proof_nodes:implication-php:hurst_rs:log1p": {
+      "delta_point": -0.08374346291399704,
+      "lo": -0.8587338403088213,
+      "hi": 0.4428246676955888,
+      "excludes_zero": false
+    },
+    "z3_proof_nodes:implication-tau:higuchi_D:raw": {
+      "delta_point": -0.12993195099887256,
+      "lo": -0.1570870351575564,
+      "hi": 0.20251963393182937,
+      "excludes_zero": false
+    },
+    "z3_proof_nodes:implication-tau:boxdim:raw": {
+      "delta_point": -0.12264645431921894,
+      "lo": -0.1863114742566503,
+      "hi": 0.060295575041447336,
+      "excludes_zero": false
+    },
+    "z3_proof_nodes:implication-tau:hurst_rs:raw": {
+      "delta_point": 0.4354411379006057,
+      "lo": -0.3554866648053804,
+      "hi": 0.5200498315288193,
+      "excludes_zero": false
+    },
+    "z3_proof_nodes:implication-tau:higuchi_D:log1p": {
+      "delta_point": -0.11900336520579358,
+      "lo": -0.18374052521838258,
+      "hi": 0.23671259186865434,
+      "excludes_zero": false
+    },
+    "z3_proof_nodes:implication-tau:boxdim:log1p": {
+      "delta_point": -0.036413894952490145,
+      "lo": -0.11359467472259788,
+      "hi": 0.07164944152980579,
+      "excludes_zero": false
+    },
+    "z3_proof_nodes:implication-tau:hurst_rs:log1p": {
+      "delta_point": 0.44154643077548233,
+      "lo": -0.39843403560945667,
+      "hi": 0.48496916166673254,
+      "excludes_zero": false
+    },
+    "z3_proof_nodes:php-tau:higuchi_D:raw": {
+      "delta_point": -0.27900431929759884,
+      "lo": -0.43733535045241223,
+      "hi": 0.11648247748063856,
+      "excludes_zero": false
+    },
+    "z3_proof_nodes:php-tau:boxdim:raw": {
+      "delta_point": 0.09511000416868376,
+      "lo": -0.05709133128766131,
+      "hi": 0.27819768532113065,
+      "excludes_zero": false
+    },
+    "z3_proof_nodes:php-tau:hurst_rs:raw": {
+      "delta_point": 0.4997182986865757,
+      "lo": -0.37262779923952527,
+      "hi": 0.8850937722278982,
+      "excludes_zero": false
+    },
+    "z3_proof_nodes:php-tau:higuchi_D:log1p": {
+      "delta_point": -0.2503636046408162,
+      "lo": -0.3769124957907892,
+      "hi": 0.12464976419101603,
+      "excludes_zero": false
+    },
+    "z3_proof_nodes:php-tau:boxdim:log1p": {
+      "delta_point": 0.13870282022423852,
+      "lo": 0.02611848619019974,
+      "hi": 0.23295130472672831,
+      "excludes_zero": true
+    },
+    "z3_proof_nodes:php-tau:hurst_rs:log1p": {
+      "delta_point": 0.5252898936894794,
+      "lo": -0.39131149591159164,
+      "hi": 0.8591473590640477,
+      "excludes_zero": false
+    }
+  },
+  "hypotheses": {
+    "H_C1_fractal_separa_familias": {
+      "enunciado": "As metricas fractais da serie de comprimentos de prova separam famílias de refutacao (php dura vs implication facil) acima do ruido de bootstrap.",
+      "testes": {
+        "resolution_drat:implication-php:higuchi_D:raw": {
+          "delta_point": 0.7307728138830647,
+          "lo": 0.050836657710368494,
+          "hi": 0.7317944119778479,
+          "excludes_zero": true
+        },
+        "resolution_drat:implication-php:boxdim:raw": {
+          "delta_point": 0.08059371804011184,
+          "lo": -0.07025523473030848,
+          "hi": 0.23799852481440087,
+          "excludes_zero": false
+        },
+        "resolution_drat:implication-php:higuchi_D:log1p": {
+          "delta_point": 0.9073225012047774,
+          "lo": 0.3322517315039937,
+          "hi": 0.8347003857117934,
+          "excludes_zero": true
+        },
+        "resolution_drat:implication-php:boxdim:log1p": {
+          "delta_point": -0.14937158738933376,
+          "lo": -0.048931359595964286,
+          "hi": 0.2175287357017377,
+          "excludes_zero": false
+        },
+        "resolution_drat:implication-tau:higuchi_D:raw": {
+          "delta_point": 0.01612969658413621,
+          "lo": -0.3498391890705943,
+          "hi": 0.00830512437665254,
+          "excludes_zero": false
+        },
+        "resolution_drat:implication-tau:boxdim:raw": {
+          "delta_point": 0.059465219177395556,
+          "lo": -0.1115385369747256,
+          "hi": 0.07104933828050142,
+          "excludes_zero": false
+        },
+        "resolution_drat:implication-tau:higuchi_D:log1p": {
+          "delta_point": 0.027828202413671344,
+          "lo": -0.32943053205712225,
+          "hi": 0.059444807845645764,
+          "excludes_zero": false
+        },
+        "resolution_drat:implication-tau:boxdim:log1p": {
+          "delta_point": 0.020507151107372,
+          "lo": -0.12125315752997912,
+          "hi": 0.04336414673066946,
+          "excludes_zero": false
+        },
+        "resolution_drat:php-tau:higuchi_D:raw": {
+          "delta_point": -0.7146431172989285,
+          "lo": -0.8729464254817918,
+          "hi": -0.19242964121876494,
+          "excludes_zero": true
+        },
+        "resolution_drat:php-tau:boxdim:raw": {
+          "delta_point": -0.021128498862716283,
+          "lo": -0.25076867872445163,
+          "hi": 0.03684453691214551,
+          "excludes_zero": false
+        },
+        "resolution_drat:php-tau:higuchi_D:log1p": {
+          "delta_point": -0.8794942987911061,
+          "lo": -0.9135041556217556,
+          "hi": -0.48692724897669715,
+          "excludes_zero": true
+        },
+        "resolution_drat:php-tau:boxdim:log1p": {
+          "delta_point": 0.16987873849670576,
+          "lo": -0.26363864547815374,
+          "hi": -0.009742965627884792,
+          "excludes_zero": true
+        },
+        "z3_proof_nodes:implication-php:higuchi_D:raw": {
+          "delta_point": 0.14907236829872628,
+          "lo": -0.07589290059292986,
+          "hi": 0.3723859426158571,
+          "excludes_zero": false
+        },
+        "z3_proof_nodes:implication-php:boxdim:raw": {
+          "delta_point": -0.2177564584879027,
+          "lo": -0.32147637284623143,
+          "hi": -0.04364151639077274,
+          "excludes_zero": true
+        },
+        "z3_proof_nodes:implication-php:higuchi_D:log1p": {
+          "delta_point": 0.13136023943502262,
+          "lo": -0.09833880735102052,
+          "hi": 0.31039274244512227,
+          "excludes_zero": false
+        },
+        "z3_proof_nodes:implication-php:boxdim:log1p": {
+          "delta_point": -0.17511671517672867,
+          "lo": -0.2606088498459397,
+          "hi": -0.06329564603411397,
+          "excludes_zero": true
+        },
+        "z3_proof_nodes:implication-tau:higuchi_D:raw": {
+          "delta_point": -0.12993195099887256,
+          "lo": -0.1570870351575564,
+          "hi": 0.20251963393182937,
+          "excludes_zero": false
+        },
+        "z3_proof_nodes:implication-tau:boxdim:raw": {
+          "delta_point": -0.12264645431921894,
+          "lo": -0.1863114742566503,
+          "hi": 0.060295575041447336,
+          "excludes_zero": false
+        },
+        "z3_proof_nodes:implication-tau:higuchi_D:log1p": {
+          "delta_point": -0.11900336520579358,
+          "lo": -0.18374052521838258,
+          "hi": 0.23671259186865434,
+          "excludes_zero": false
+        },
+        "z3_proof_nodes:implication-tau:boxdim:log1p": {
+          "delta_point": -0.036413894952490145,
+          "lo": -0.11359467472259788,
+          "hi": 0.07164944152980579,
+          "excludes_zero": false
+        },
+        "z3_proof_nodes:php-tau:higuchi_D:raw": {
+          "delta_point": -0.27900431929759884,
+          "lo": -0.43733535045241223,
+          "hi": 0.11648247748063856,
+          "excludes_zero": false
+        },
+        "z3_proof_nodes:php-tau:boxdim:raw": {
+          "delta_point": 0.09511000416868376,
+          "lo": -0.05709133128766131,
+          "hi": 0.27819768532113065,
+          "excludes_zero": false
+        },
+        "z3_proof_nodes:php-tau:higuchi_D:log1p": {
+          "delta_point": -0.2503636046408162,
+          "lo": -0.3769124957907892,
+          "hi": 0.12464976419101603,
+          "excludes_zero": false
+        },
+        "z3_proof_nodes:php-tau:boxdim:log1p": {
+          "delta_point": 0.13870282022423852,
+          "lo": 0.02611848619019974,
+          "hi": 0.23295130472672831,
+          "excludes_zero": true
+        }
+      }
+    },
+    "H_C2_Res_vs_EFrege": {
+      "status": "DEFERIDO",
+      "motivo": "Extended Frege nao e mensuravel com o tooling disponivel (PySAT da DRAT=Resolution; Z3 proof e outro calculo). z3_proof_nodes reportado como PROXY com caveat — NAO e EF. Requer: sistema EF implementavel ou export de prova EF."
+    }
+  }
+}
