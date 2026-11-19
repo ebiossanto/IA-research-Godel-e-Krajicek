@@ -1,5 +1,15 @@
 # C2 — `DD` para `Res(k)` (k-DNF resolution): largura-k (teorema), programa sob promessa e o ingrediente correto
 
+> **✅ RODADA 2 (19/11/2026) — ver `C2_r2_G1_contraexemplo.md` (+ referee r2
+> RECOMENDADO):** **(G1) respondido com CONTRAEXEMPLO verificado** (15 linhas,
+> promessa satisfeita, `gk_c2_projection_sim.py`): projeção por subconjunto
+> (gulosa e de demanda) **falha** onde `i*=1` existe — **candidato r1
+> RETRACTADO**; **(G2)** pureza preservada (1602 DAGs) mas insuficiente;
+> **novo TEOREMA C2.2′ (P): sob promessa de LINHA-PURA** (toda linha de um
+> só lado — exclui enfraquecimento misto) `DD_{Res(k)} ∈ P` com extração
+> `O(|Π|·m)`; **critério-LP** para a família alternante (§5 do doc r2).
+> C2.2 original permanece **(C)**.
+
 > Frente C2, **v5 — rebaixamento honesto após 4 rodadas de referee**; **rodada
 > 5: RECOMENDADO** (menores r5 — (O5), (O3)-amplo, marcador (C) em `Res(1)`,
 > §7 restrito — aplicados neste texto).

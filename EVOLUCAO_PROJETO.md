@@ -715,6 +715,30 @@ fontes: `garlik_ccc2024.pdf` (LIPIcs, CC-BY) + `kra01_wphp.pdf` (IMPAN) em `font
   satisfatível" esboçada **(C)** — script N2 `gk_alternating_family.py`
   (teste da promessa por construção) como próximo passo.
 
+### 13.7 C2 rodada 2 — contraexemplo a (G1) + Teorema C2.2′ (caminho C, 19/11/2026)
+
+**Documento:** `krajicek_ddp/C2_r2_G1_contraexemplo.md` (+ referee r2
+RECOMENDADO) · **ferramenta nova:** `gk_c2_projection_sim.py`
+(seed `20261119`, `check_soundness` em todo DAG).
+
+- **(G1) RESPONDIDO COM CONTRAEXEMPLO (N2):** refutação `Res(2)` de15 linhas
+  **com a promessa puro-respeitadora satisfeita** e `Λ₁` UNSAT (atribuição
+  explícita) em que a projeção por subconjunto **falha** (`retenção parcial do
+  bloco` — o corte intermediário L10 **consumiu** `{+1}` como pivô) — e a
+  análise de demanda mostra que **nenhuma atribuição E válida existe** no DAG
+  (r1-A3 confirmado). A resposta `i*=1` existe; a projeção não a extrai.
+- **Candidato r1 RETRACTADO** (filtro + passada de demanda).
+- **(G2):** pureza das linhas-E **preservada em1602 DAGs válidos** — a falha é
+  de retenção, não de pureza.
+- **Novo TEOREMA C2.2′ (P):** sob **promessa linha-pura** (toda linha de um só
+  lado — exclui enfraquecimento misto, como o contraexemplo),
+  `DD_{Res(k)} ∈ P` com extração `O(|Π|·m)` — prova curta por acessibilidade
+  (§4; notas r2-A3/A6 aplicadas).
+- **Critério-LP (P)** para a família alternante: linha-pura ⟹ via fecha;
+  misto ⟹ **esta via** (C2.2/C2.2′) retraída (r2-A6: escopo restrito).
+- **Próximo N2:** `gk_alternating_family.py` — teste de pureza linha-a-linha
+  nas refutações `Res(2)` de `SAT ∧ R^kREF` (Garlík Thm 1/6).
+
 ---
 
 ## Fase 10 — O que está em aberto (programa δ/𝒢; a Fase 11 tem seus próprios abertos)
@@ -800,6 +824,7 @@ fontes: `garlik_ccc2024.pdf` (LIPIcs, CC-BY) + `kra01_wphp.pdf` (IMPAN) em `font
 | **19/11/2026** | **Q1 propagado (INDICE v6.19) + D4′ v1 EXECUTADO** | resposta parcial Krajíček 12/10 em todos os canônicos; **ponte prova→fractal**: 188 UNSAT reais, **D_H separa `php` (4/4 IC exclui0)** = regime de crescimento; referee r1 RECOMENDADO; H_C2 deferido (`28_...`) | — |
 | **19/11/2026** | **Q2.4 varrida (caminho E)** | **KP90 integral** + Pudlák §6–§7 obtidos; K19 caps.9/17 = setup/FI (**não** fonte); candidatas A=`Con_T(f(n))` (Thm 6.2.3/§7.2.2) e B=`i-RFN` (KP90); pendências A1/A2/A5; referee r1 (`krajicek_ddp/Q2.4_fonte_SIGMA1_K19_KP90.md`) | — |
 | **19/11/2026** | **C2: [K19 5.7] texto exato (caminho C)** | regras `Res(k)` (A) via Garlík CCC2024 §2 + Kra01 Def1.1; **"Lema 4.1"=nosso** (correção de atribuição); projeção c/ demanda (P) + candidato (O1)–(O4); **referee r1: bloqueantes (G1) conflito de demandas + (G2) pureza** (`C2_K19_5_7_TEXTO_EXATO.md`); esboço alternante via reflexão | — |
+| **19/11/2026** | **C2 r2: CONTRAEXEMPLO a (G1)** | `gk_c2_projection_sim.py`:15 linhas, promessa OK, Λ₁ UNSAT, projeção falha (bloco consumido); **candidato r1 retraído**; **C2.2′ TEOREMA (P) linha-puro**;1602 DAGs OK; critério-LP p/ alternante; referee r2 RECOMENDADO | — |
 | Próximo | ~~Foundation build; rota B; (τ_n,q) concretos~~ → **auditoria externa + resposta do autor; então N3/[K19 5.7]/fonte Σ₁** | — |
 
 ---

@@ -125,7 +125,7 @@ honestidade de escopo (nível Ten-Proofs N0–N4).
 | # | Questão | Status atual | Próximo passo concreto |
 |---|---|---|---|
 | **P1.1** | **N3:** construir `(∗′)` por compacidade (canto `χ≡⊤`) | aberta (origem N2.3′) | lema de omissão **não-elementar**; omitting types; excluir ultrapoder (I1 A.7/B.2) |
-| **P1.2** | **C2:** fechar o algoritmo `DD_{Res(k)}` — obrigações **(O1)–(O5)** | **19/11: [K19 5.7] TEXTO EXATO OBTIDO** (Garlík CCC2024 §2 + Kra01 Def1.1) — regras (A); "Lema 4.1"=nosso; projeção c/ demanda (P); **referee r1: bloqueantes (G1) conflito de demandas + (G2) pureza `Res(k)`** — C2.2 segue (C) | `krajicek_ddp/C2_K19_5_7_TEXTO_EXATO.md` |
+| **P1.2** | **C2:** fechar o algoritmo `DD_{Res(k)}` — obrigações **(O1)–(O5)** | **r2 (19/11): (G1) CONTRAEXEMPLO verificado** (candidato r1 retraído) → **C2.2′ TEOREMA (P) linha-puro**; C2.2 original segue **(C)** com evidência negativa; próximo: **critério-LP na família alternante** (`gk_alternating_family.py`) | `krajicek_ddp/C2_r2_G1_contraexemplo.md`, `gk_c2_projection_sim.py` |
 | **P1.3** | **C2.3:** família **alternante** (exatamente 1 lado insat, alternando com γ) | **(C)** | atacar via reflexão com lado "espectador" satisfatível |
 | **P1.4** | **Q2.4:** fonte **Σ₁** para a hierarquia de velocidade | ✅ **VARREDURA EXECUTADA (19/11)** — `(C)` → **candidatas A/B qualificadas** (`Q2.4_fonte_SIGMA1_K19_KP90.md` + referee r1); K19 caps.9/17 = setup/FI; fonte real = Pudlák §6–§7; **pendências A1/A2/A5 bloqueiam o 1º limite inferior** |
 | **P1.5** | **Rota B:** Φw* com padding w* (definability + FGH) | aberta | `FoundationBridge/` — especificar Φ e provar pad-Prf |
