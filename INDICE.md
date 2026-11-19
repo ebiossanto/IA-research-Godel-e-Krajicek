@@ -184,7 +184,7 @@ em Core; rascunho MO (não postado)
 | **DD9** | **Refutação interna de `{C_{N_s}}` (N)** | **FEITO — reduzida a `EF⊢Taut(α)` (N.1); dicotomia (C1′)** | `krajicek_ddp/N1_...` |
 | **DD10** | **Residuais R-α/R-β (N2)** | **FEITO (RECOMENDADO r5)** — R-α=(∗′) com 4 formas da ameaça **(C)**→N3; N2.3′ no escopo efetivo; R-β: compressão necessária≠suficiente | `krajicek_ddp/N2_residuals_RA_RB.md` |
 | **DD11** | **`DD_{Res(k)}` (C2)** | **PARCIAL (RECOMENDADO r5)** — C2.1 **teorema** (largura-k); C2.2 = **programa (O1)–(O5)**; C2.3 família alternante **(C)** | `krajicek_ddp/C2_ddres_k.md` |
-| **DD12** | **Instâncias `(τ_n,q)` (Q2)** | **FEITO (RECOMENDADO r3)** — Q2.1 decidido (full-range inócuo); Q2.2 `(Q)\|_{Σ₁}` corrigida; fonte Σ₁ **(C)** | `krajicek_ddp/Q2_instancias_tau_n_q.md` |
+| **DD12** | **Instâncias `(τ_n,q)` (Q2)** | **FEITO (RECOMENDADO r3)**; **fonte Σ₁ varrida 19/11 (C→candidata)**: A=`Con_T(f(n))` (Pudlák §6–§7) · B=`i-RFN(G_i)` (KP90); K19 caps.9/17=setup/FI; pendências A1/A2/A5 | `krajicek_ddp/Q2_instancias_tau_n_q.md`, **`krajicek_ddp/Q2.4_fonte_SIGMA1_K19_KP90.md`** (+referee) |
 | **DD13** | **Avaliação externa 2ª onda + resposta** | **APLICADA (P1–P5, P10)** — terminologia de status; M.2 condicional; build reproduzido; PPR reclassificado; três níveis L1/L2/L3 | `CRITICA_EXTERNA_2026-10-12.md` |
 | **DD14** | **Pacote de auditoria externa (G–N + `DD_Res`)** | **PRONTO** — checklist (a)–(e) do T4.3; tabela G–N com o que checar; §C não-reivindicado; §E vias (MO congelado) | `krajicek_ddp/AUDITORIA_EXTERNA_DDRES_G-N.md` |
 

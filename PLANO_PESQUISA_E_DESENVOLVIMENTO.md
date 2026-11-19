@@ -127,7 +127,7 @@ honestidade de escopo (nível Ten-Proofs N0–N4).
 | **P1.1** | **N3:** construir `(∗′)` por compacidade (canto `χ≡⊤`) | aberta (origem N2.3′) | lema de omissão **não-elementar**; omitting types; excluir ultrapoder (I1 A.7/B.2) |
 | **P1.2** | **C2:** fechar o algoritmo `DD_{Res(k)}` — obrigações **(O1)–(O5)** | programa (C) | obter texto exato de **[K19 5.7]** + Lema 4.1 |
 | **P1.3** | **C2.3:** família **alternante** (exatamente 1 lado insat, alternando com γ) | **(C)** | atacar via reflexão com lado "espectador" satisfatível |
-| **P1.4** | **Q2.4:** fonte **Σ₁** para a hierarquia de velocidade | **(C)** | revisar **K19 caps. 9/17 + KP90** (`IΣ_k`) — evita claim vazio |
+| **P1.4** | **Q2.4:** fonte **Σ₁** para a hierarquia de velocidade | ✅ **VARREDURA EXECUTADA (19/11)** — `(C)` → **candidatas A/B qualificadas** (`Q2.4_fonte_SIGMA1_K19_KP90.md` + referee r1); K19 caps.9/17 = setup/FI; fonte real = Pudlák §6–§7; **pendências A1/A2/A5 bloqueiam o 1º limite inferior** |
 | **P1.5** | **Rota B:** Φw* com padding w* (definability + FGH) | aberta | `FoundationBridge/` — especificar Φ e provar pad-Prf |
 
 ### P2 — programa δ/𝒢 (Eixo 1, matemática pura)
@@ -183,7 +183,9 @@ honestidade de escopo (nível Ten-Proofs N0–N4).
 
 7. **Enviar 1ª via da auditoria externa** (P0.2) — parar de acumular conjecturas   (determinação da avaliação 12/10: *obter auditoria, não adicionar resultados*).
 8. **Frente N3** — `(∗′)` por compacidade (P1.1).
-9. **Varredura [K19 5.7] + K19 caps 9/17 + KP90** (P1.2/P1.4) — destrava C2 e Q2.4.
+9. ~~Varredura [K19 5.7] + K19 caps 9/17 + KP90 (P1.2/P1.4)~~ — **P1.4 FEITO
+   em 19/11** (`Q2.4_fonte_SIGMA1_K19_KP90.md`: candidatas A/B, K19 caps.9/17 =
+   setup/FI); **resta [K19 5.7] para P1.2 (C2)** — obter texto exato do §5.7.
 10. ~~Rodar D4′ (ponte prova→fractal, P3.4)~~ ✅ **FEITO em 19/11** —
     `28_PONTE_PROVA_FRACTAL_D4.md` (+referee r1): seed+hash+comando congelados;
     H_C1 confirmada como separação de regime; pendências v2 no referee §B.

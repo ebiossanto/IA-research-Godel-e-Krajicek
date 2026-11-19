@@ -425,7 +425,7 @@ RECOMENDADO** (logs `*_referee.md`):
 |---|---|---|---|
 | N2 | RECOMENDADO (r5) | classificação da ameaça; (U1); N2.3′ no escopo efetivo | (∗′)=R-α **(C)** → `N3` |
 | C2 | RECOMENDADO (r5) | C2.1 teorema; C2.3 redução+ingrediente | C2.2 **programa (O1)–(O5)**; alternância **(C)** |
-| Q2 | RECOMENDADO (r3) | Q2.1 decidido; Q2.2 corrigida e citada | fonte Σ₁ **(C)** (K19/KP90) |
+| Q2 | RECOMENDADO (r3) | Q2.1 decidido; Q2.2 corrigida e citada | fonte Σ₁ **(C) — varredura 19/11: candidatas A (Pudlák §6–§7, Thm 6.2.3/§7.2.2) e B (KP90 `i-RFN`), K19 caps.9/17 = setup/FI — ver `Q2.4_fonte_SIGMA1_K19_KP90.md` + referee r1** |
 
 ## 9. Avaliação externa de 12/10/2026 — resposta e regime de apresentação
 

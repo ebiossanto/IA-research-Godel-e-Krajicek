@@ -673,6 +673,27 @@ RECOMENDADO**) · script `gk_proof_fractal.py` · saídas
 - **Referee hostile r1:** A1–A8 — resultado autorizado restrito (ver §B do
   referee); pendências v2: anti-quantização, séries τ maiores (k↑, PR10/PR11).
 
+### 13.5 Varredura Q2.4 — fonte Σ₁ (caminho E, 19/11/2026)
+
+**Documento:** `krajicek_ddp/Q2.4_fonte_SIGMA1_K19_KP90.md` (+ referee r1
+RECOMENDADO) · fontes obtidas: **KP90 integral** (`fontes/kp90_scan11.pdf`, scan
+do autor) e **Pudlák ch.VIII** (`fontes/pudlak_length_1998.pdf`).
+
+- **Pergunta:** a hierarquia de velocidade (K19 caps. 9/17 + KP90) fornece a
+  **fonte Σ₁** da Q2.4 (famílias Σ₁ com testemunhas curtas + limites
+  superpolinomiais)?
+- **Resposta: PARCIAL** — (i) **K19 caps.9/17 NÃO são a fonte** (cap.9 = setup
+  `PV/S^i_2/T^i_2`; cap.17 = FI — método proposicional); (ii) **fonte real =
+  Pudlák §6–§7**: Thm 6.2.3 `‖Con_T(n)‖_T ≥ n^ε` (T de axiomas NP) + §7.2.2
+  speed-up por f provavelmente total → **candidata A** (`Con_T(f(n))`, Δ₀⊆Σ₁,
+  sem testemunha); (iii) **KP90** (integral) → **candidata B**: `i-RFN` ∀Σ^b_i
+  (Lemma 1.3), `S^{i+1}_2 ⊢ i-RFN(G_i)` (Thm 5.1), equivalências §8 → máquina
+  da rota fragmentos.
+- **Q2.4 permanece (C)** — pendências **bloqueantes** A1 (convenção de numeral:
+  binário vs sucessor decide superpolinomialidade), A2 (T fixado; **PA fora de
+  escopo** — não é axiomatização NP), A5 (três modalidades de §4). Nenhum
+  limite inferior produzido (era varredura).
+
 ---
 
 ## Fase 10 — O que está em aberto (programa δ/𝒢; a Fase 11 tem seus próprios abertos)
@@ -756,6 +777,7 @@ RECOMENDADO**) · script `gk_proof_fractal.py` · saídas
 | **13/10/2026** | **Frontier F1–F5 + D1–D6 + N3/C2** | motor fractal **5/5 PASS**; **ρ_c=0.706** (não 1/4); sep. não-abeliana p=3.6e-21; Z3 **216/216 ×2**; φ_len 288/288; frentes **N3** (compacidade χ≡⊤) e **C2 (O1)–(O5)** iniciadas | ampliação experimental |
 | **19/11/2026** | **Reanálise + restauração do ambiente** | git `safe.directory`; **sympy adulterado→restaurado**; **Julia 1.10.2 restaurada**; toolchain Lean + PATH; pysat; **`lake build` VERDE**; PR24 reproduzida (EXIT=0); **bridge v2 `#print axioms`** (10/12 PROVED, 2 SORRY permanentes, 0 NOT_FOUND); docs **PLANO**/**AMBIENTE**/diagnóstico | retomada |
 | **19/11/2026** | **Q1 propagado (INDICE v6.19) + D4′ v1 EXECUTADO** | resposta parcial Krajíček 12/10 em todos os canônicos; **ponte prova→fractal**: 188 UNSAT reais, **D_H separa `php` (4/4 IC exclui0)** = regime de crescimento; referee r1 RECOMENDADO; H_C2 deferido (`28_...`) | — |
+| **19/11/2026** | **Q2.4 varrida (caminho E)** | **KP90 integral** + Pudlák §6–§7 obtidos; K19 caps.9/17 = setup/FI (**não** fonte); candidatas A=`Con_T(f(n))` (Thm 6.2.3/§7.2.2) e B=`i-RFN` (KP90); pendências A1/A2/A5; referee r1 (`krajicek_ddp/Q2.4_fonte_SIGMA1_K19_KP90.md`) | — |
 | Próximo | ~~Foundation build; rota B; (τ_n,q) concretos~~ → **auditoria externa + resposta do autor; então N3/[K19 5.7]/fonte Σ₁** | — |
 
 ---

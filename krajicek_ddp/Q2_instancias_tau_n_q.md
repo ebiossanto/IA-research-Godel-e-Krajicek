@@ -162,6 +162,18 @@ só produz a metade um inócua.
   `IΣ_k` de §3 (o sketch vale com `T := IΣ_k`, k fixo) — lower bounds para
   fragmentos são mais acessíveis. **Próximo passo**: revisar K19 caps. 9/17 e
   KP90; se achadas: primeiro limite inferior do projeto com `(τ,q)` concretos.
+- **✅ VARREDURA EXECUTADA (19/11/2026)** — ver
+  **`Q2.4_fonte_SIGMA1_K19_KP90.md`** (+ referee r1 RECOMENDADO):
+  (i) **K19 caps.9/17 NÃO são a fonte** (cap.9 = setup das teorias `S^i_2`;
+  cap.17 = framework FI — método proposicional); (ii) **fonte real da
+  hierarquia de velocidade = Pudlák ch.VIII §6–§7** (Thm 6.2.3:
+  `‖Con_T(n)‖_T ≥ n^ε` p/ T de axiomas NP; §7.2.2 speed-up por f provavelmente
+  total) — candidata **A**; (iii) **KP90 integral obtido** (scan do autor) —
+  candidata **B** (`i-RFN` ∀Σ^b_i, Lemma 1.3; `S^{i+1}_2 ⊢ i-RFN(G_i)`,
+  Thm 5.1). **Q2.4 permanece (C)** — pendências bloqueantes A1 (convenção de
+  comprimento), A2 (T fixado; PA fora de escopo), A5 (três modalidades de §4).
+  Próximo: referee → fixar A1/A2 → instanciar `(τ,q)` → só então limite
+  inferior.
 
 ## §7. Escopo, conexões (atualizados)
 
