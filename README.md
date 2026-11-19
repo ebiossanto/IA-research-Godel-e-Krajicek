@@ -104,6 +104,7 @@ warnings de `sorry` (`DDP.lean:628` e `:690`).
 
 ```
 INDICE.md                  ← índice canônico (auditável)
+CONTRIBUICOES_DO_PROJETO.md ← síntese das descobertas/contribuições por área
 PLANO_PESQUISA_E_DESENVOLVIMENTO.md ← plano-mestre: dev + questões respondidas/a responder + P&D
 AMBIENTE_E_FERRAMENTAS.md  ← ferramentas, permissões, incidente sympy, reidratação
 diagnostico_ambiente.ps1   ← verificação ✅/❌ do ambiente (-Build = lake build)

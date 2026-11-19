@@ -1,9 +1,9 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.24 (19/11/2026 — **C2/LP: critério DECIDIDO, via LP RETRAÍDA**
-(`krajicek_ddp/C2_LP_familia_alternante.md` + referee; candidato `(γ,REF_t)`
-retraído + Teorema Nec); v6.23: contraexemplo (G1) + C2.2′; v6.22: [K19 5.7];
-v6.21: Q2.4; v6.20: D4′; v6.19: Q1; v6.18: plano+ambiente)
+**Versão:** 6.25 (19/11/2026 — **`CONTRIBUICOES_DO_PROJETO.md`**: síntese das
+descobertas/contribuições por área + fronteira de claims; v6.24: C2/LP via LP
+retraída; v6.23: contraexemplo (G1)+C2.2′; v6.22: [K19 5.7]; v6.21: Q2.4;
+v6.20: D4′; v6.19: Q1; v6.18: plano+ambiente)
 **Status:** ✅ **Carta ENVIADA 11/10/2026 18:14 → RESPOSTA PARCIAL RECEBIDA 12/10/2026
 (Q1 respondido; Q2–Q4 pendentes — follow-up devido; `CARTA_FINAL_RECEBIDA.md`)**;
 Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥` **(condicional a `q` total —
@@ -28,6 +28,7 @@ em Core; rascunho MO (não postado)
 
 | Arquivo | Conteúdo | Status |
 |---------|----------|--------|
+| `CONTRIBUICOES_DO_PROJETO.md` | **SÍNTESE das descobertas/contribuições por área** (complexidade de provas, aritmética limitada, reflexão/slow, geradores, negativas, metodologia) + fronteira de claims | **ATIVO — começar por aqui (visão externa)** |
 | `PLANO_PESQUISA_E_DESENVOLVIMENTO.md` | **PLANO-MESTRE: desenvolvimento + questões respondidas/a responder + P&D priorizado** (19/11/2026) | **ATIVO — começar por aqui** |
 | `AMBIENTE_E_FERRAMENTAS.md` | **Estado das ferramentas/permissões + incidente sympy + reidratação** (19/11/2026) | **ATIVO** |
 | `diagnostico_ambiente.ps1` | Script ✅/❌ de verificação do ambiente (`-Build` inclui `lake build`) | SCRIPT |
