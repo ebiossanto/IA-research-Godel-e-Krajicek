@@ -8,7 +8,9 @@
 > `τ_N` é total?") desta nota; acrescenta, **a pedido do usuário**, a apresentação
 > de **pesquisador independente/entusiasta** que pesquisa com **OpenCode + MIMO +
 > outras IAs gratuitas**, com **GitHub** (`github.com/ebiossanto`) e **e-mail**
-> (`euambiente@gmail.com`). **Aguardando resposta do autor.**
+> (`euambiente@gmail.com`). ~~Aguardando resposta do autor.~~
+> **(estado em 11/10; RESPOSTA PARCIAL recebida em 12/10/2026 — ver
+> `../CARTA_FINAL_RECEBIDA.md`)**
 > **v4 (referee rodadas 1–3: todos os CRÍTICOS/MAIOR aplicados; referee pre-comprometeu
 > APROVADO após as correções desta versão — ver §6).** Destinatário:
 > Jan Krajíček (arXiv:2506.20221v5 / LMCS 22(2:14)2026). Marcação:

@@ -1,0 +1,44 @@
+name: ci
+
+# CI do Terminal-Laboratorio (IA-research-Godel-e-Krajicek)
+# 1) claims-lint: consistencia de claims/retracoes/reprodutibilidade (rapido)
+# 2) lean: lake build (verde = 2 sorry documentados em DDP.lean)
+# 3) smoke: invariantes do simulador C2 (contraexemplo G1 = comportamento esperado)
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  claims-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: gk_claims_lint
+        run: python gk_claims_lint.py
+
+  lean:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: lake build (toolchain via lean-toolchain)
+        uses: leanprover/lean-action@v1
+        with:
+          lake-args: ""
+
+  smoke-sim:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: dependencias
+        run: pip install python-sat z3-solver
+      - name: simulador C2 (contraexemplo G1 fixo + busca aleatoria)
+        run: python gk_c2_projection_sim.py --n 400 --seed 20261119
