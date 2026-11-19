@@ -1,17 +1,34 @@
 {
-  "timestamp_utc": "2026-10-12T21:48:27.295353Z",
-  "data_source": "gk_lean_bridge.py (Lean 4 lake build)",
-  "project_path": "C:\\Users\\Euz\u00e9bio Soares\\Desktop\\Research\\IA-research-Godel-e-Krajicek\\lean4\\Gothic_Generators",
-  "build_success": false,
-  "returncode": 1,
-  "sorry_count": 1,
+  "timestamp_utc": "2026-11-19T16:35:21.073344Z",
+  "data_source": "gk_lean_bridge.py v2 (#print axioms via lake env lean)",
+  "repo_root": "D:\\Biblioteca\\CyberAmbiente\\IA-research-Godel-e-Krajicek",
+  "lake": "C:\\Users\\Euzebio\\.elan\\bin\\lake.exe",
+  "build_success": true,
+  "build_returncode": 0,
+  "build_error": null,
+  "sorry_in_sources": {
+    "Core.lean": 0,
+    "DDP.lean": 4
+  },
   "theorems": {
-    "delta_mono": "NOT_FOUND",
-    "theorem4_strict": "NOT_FOUND",
-    "rcs_exists": "NOT_FOUND",
-    "covered_mono": "NOT_FOUND",
-    "length_filter_mono": "NOT_FOUND",
-    "length_filter_sub": "NOT_FOUND",
-    "length_filter_strict": "NOT_FOUND"
-  }
+    "GothicGenerators.delta_mono": "PROVED",
+    "GothicGenerators.theorem4_strict": "PROVED",
+    "GothicGenerators.rcs_exists": "PROVED",
+    "GothicGenerators.covered_mono": "PROVED",
+    "GothicGenerators.length_filter_mono": "PROVED",
+    "GothicGenerators.length_filter_sub": "PROVED",
+    "GothicGenerators.length_filter_strict": "PROVED",
+    "GothicGenerators.lemma3_con": "PROVED",
+    "GothicGenerators.DDP.dd_task_total": "PROVED",
+    "GothicGenerators.DDP.dd_solvable_in_m_rounds": "PROVED",
+    "GothicGenerators.DDP.dd_solvable_in_ST_O1": "SORRY",
+    "GothicGenerators.DDP.pbounded_implies_feasible": "SORRY"
+  },
+  "summary": {
+    "proved": 10,
+    "sorry": 2,
+    "not_found": 0,
+    "total": 12
+  },
+  "notes": "PROVED = teorema sem sorryAx nos axiomas reais usados. Os 2 SORRY de DDP.lean (628/690) sao PERMANENTES por natureza (dd_solvable_in_ST_O1 = o que (ST) postula falso; pbounded_implies_feasible = falta so o limite de tempo)."
 }
