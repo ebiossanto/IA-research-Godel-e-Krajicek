@@ -1,10 +1,8 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.20 (19/11/2026 — **D4′ v1 EXECUTADO** (`28_PONTE_PROVA_FRACTAL_D4.md`
-+ referee r1 RECOMENDADO): ponte prova→fractal com provas DRAT/Z3 reais;
-**D_H separa `php` das demais (4/4 IC95 exclui0, raw+log1p)** = regime de
-crescimento, não dureza; H_C2 (Res-vs-EF) **deferido**; v6.19: propagação de Q1
-(resposta parcial de Krajíček 12/10); v6.18: plano-mestre + ambiente)
+**Versão:** 6.21 (19/11/2026 — **Q2.4 VARVIDA** (caminho E): `krajicek_ddp/Q2.4_fonte_SIGMA1_K19_KP90.md`
++ referee r1; KP90 integral + Pudlák §6–§7 em `fontes/`; candidatas A/B; K19
+caps.9/17 = setup/FI; v6.20: D4′ v1; v6.19: Q1 propagado; v6.18: plano-mestre+ambiente)
 **Status:** ✅ **Carta ENVIADA 11/10/2026 18:14 → RESPOSTA PARCIAL RECEBIDA 12/10/2026
 (Q1 respondido; Q2–Q4 pendentes — follow-up devido; `CARTA_FINAL_RECEBIDA.md`)**;
 Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥` **(condicional a `q` total —
