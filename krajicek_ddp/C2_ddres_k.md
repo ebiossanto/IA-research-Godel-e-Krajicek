@@ -1,5 +1,14 @@
 # C2 — `DD` para `Res(k)` (k-DNF resolution): largura-k (teorema), programa sob promessa e o ingrediente correto
 
+> **✅ RODADA LP (19/11/2026) — `C2_LP_familia_alternante.md` (+ referee):**
+> **critério-LP DECIDIDO: MISTO → RETRAÇÃO da via LP para a rota negativa** —
+> (i) candidato `(γ, REF_t)` **retraído** (0/92 γ-insat alternam em t=6;
+> exige t ≥ ref-length, ilimitado); (ii) **Teorema Nec**: família alternante +
+> π poli ⟹ **impura** em lados difíceis ⟹ C2.2′ inaplicável ao reductio.
+> **Sobra C2.2 (promessa fraca) como única via (C)** — com o contraexemplo r2
+> como evidência negativa. Saídas: `gk_alternating_family_t{6,2}_n5.{json,csv}`
+> (sha t6 `a26a56fceaad7629…`, reprodutível).
+>
 > **✅ RODADA 2 (19/11/2026) — ver `C2_r2_G1_contraexemplo.md` (+ referee r2
 > RECOMENDADO):** **(G1) respondido com CONTRAEXEMPLO verificado** (15 linhas,
 > promessa satisfeita, `gk_c2_projection_sim.py`): projeção por subconjunto

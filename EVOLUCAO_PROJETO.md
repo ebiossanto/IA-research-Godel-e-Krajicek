@@ -739,6 +739,29 @@ RECOMENDADO) · **ferramenta nova:** `gk_c2_projection_sim.py`
 - **Próximo N2:** `gk_alternating_family.py` — teste de pureza linha-a-linha
   nas refutações `Res(2)` de `SAT ∧ R^kREF` (Garlík Thm 1/6).
 
+### 13.8 C2/LP — teste da família alternante: via LP RETRAÍDA (caminho C, 19/11/2026)
+
+**Documento:** `krajicek_ddp/C2_LP_familia_alternante.md` (+ referee RECOMENDADO)
+· **ferramenta:** `gk_alternating_family.py` (seed `20261119`; saídas
+`_t6_n5`/`_t2_n5`; sha t6 `a26a56fceaad7629…` byte-reprodutível).
+
+- **Candidato `(γ, REF_t(γ))` testado** com codificação de **linhas**
+  (exatamente-um por posição; validação de fronteira **REF_5=UNSAT /
+  REF_6=SAT** exata para γ de refutação mínima6). **5 bugs** de codificação
+  encontrados e corrigidos pela validação (off-by-one, filtro de tautologia,
+  AND-vs-OR, pares sem condição de sonsidade, profundidade-vs-linhas).
+- **T1:8/100 alternam = exatamente os γ-SAT; 0/92 γ-insat** (t=6 e t=2) →
+  **o candidato só alterna pelo lado trivial**; `t` precisa ≥ ref-length
+  (ilimitado) → **retraído como construção p-tempo alternante**.
+- **T2:0/100 mistas** (48.945 adições) — coerente: γ pequenos têm prova pura
+  curta; **Nec** governa os difíceis.
+- **Teorema Nec (P):** família alternante + π poli + lado difícil para
+  `Res(k)` ⟹ **π impuro** (por C2.2′ + acessibilidade + alternância) →
+  **critério-LP = MISTO → RETRAÇÃO da via LP para a rota negativa**.
+- **Estado final da linha C:** C2.1 teorema · C2.2′ teorema standalone
+  (inaplicável ao reductio) · **C2.2 (promessa fraca) = única via (C)** ·
+  C2.3 candidato retrado · rota negativa via LP **fechada**.
+
 ---
 
 ## Fase 10 — O que está em aberto (programa δ/𝒢; a Fase 11 tem seus próprios abertos)
@@ -825,6 +848,7 @@ RECOMENDADO) · **ferramenta nova:** `gk_c2_projection_sim.py`
 | **19/11/2026** | **Q2.4 varrida (caminho E)** | **KP90 integral** + Pudlák §6–§7 obtidos; K19 caps.9/17 = setup/FI (**não** fonte); candidatas A=`Con_T(f(n))` (Thm 6.2.3/§7.2.2) e B=`i-RFN` (KP90); pendências A1/A2/A5; referee r1 (`krajicek_ddp/Q2.4_fonte_SIGMA1_K19_KP90.md`) | — |
 | **19/11/2026** | **C2: [K19 5.7] texto exato (caminho C)** | regras `Res(k)` (A) via Garlík CCC2024 §2 + Kra01 Def1.1; **"Lema 4.1"=nosso** (correção de atribuição); projeção c/ demanda (P) + candidato (O1)–(O4); **referee r1: bloqueantes (G1) conflito de demandas + (G2) pureza** (`C2_K19_5_7_TEXTO_EXATO.md`); esboço alternante via reflexão | — |
 | **19/11/2026** | **C2 r2: CONTRAEXEMPLO a (G1)** | `gk_c2_projection_sim.py`:15 linhas, promessa OK, Λ₁ UNSAT, projeção falha (bloco consumido); **candidato r1 retraído**; **C2.2′ TEOREMA (P) linha-puro**;1602 DAGs OK; critério-LP p/ alternante; referee r2 RECOMENDADO | — |
+| **19/11/2026** | **C2/LP: via LP RETRAÍDA** | `gk_alternating_family.py` (encoder de linhas validado na fronteira5/6;5 bugs corrigidos): candidato `(γ,REF_t)` **0/92 alternam** (só lado SAT) + **Teorema Nec** (lado difícil⟹π impuro) → **critério-LP = MISTO**; C2.2 = única via (C); referee RECOMENDADO (`C2_LP_familia_alternante.md`) | — |
 | Próximo | ~~Foundation build; rota B; (τ_n,q) concretos~~ → **auditoria externa + resposta do autor; então N3/[K19 5.7]/fonte Σ₁** | — |
 
 ---

@@ -126,7 +126,7 @@ honestidade de escopo (nível Ten-Proofs N0–N4).
 |---|---|---|---|
 | **P1.1** | **N3:** construir `(∗′)` por compacidade (canto `χ≡⊤`) | aberta (origem N2.3′) | lema de omissão **não-elementar**; omitting types; excluir ultrapoder (I1 A.7/B.2) |
 | **P1.2** | **C2:** fechar o algoritmo `DD_{Res(k)}` — obrigações **(O1)–(O5)** | **r2 (19/11): (G1) CONTRAEXEMPLO verificado** (candidato r1 retraído) → **C2.2′ TEOREMA (P) linha-puro**; C2.2 original segue **(C)** com evidência negativa; próximo: **critério-LP na família alternante** (`gk_alternating_family.py`) | `krajicek_ddp/C2_r2_G1_contraexemplo.md`, `gk_c2_projection_sim.py` |
-| **P1.3** | **C2.3:** família **alternante** (exatamente 1 lado insat, alternando com γ) | **(C)** | atacar via reflexão com lado "espectador" satisfatível |
+| **P1.3** | **C2.3:** família **alternante** (exatamente 1 lado insat, alternando com γ) | **TESTE LP EXECUTADO (19/11)** — `(C)` → **RETRAÇÕES**: candidato `(γ,REF_t)` não alterna p/ t poli (0/92) + **Nec** (lado difícil ⟹ π impuro) → **via LP retraída p/ rota negativa**; via C2.2 (promessa fraca) permanece (C) | `krajicek_ddp/C2_LP_familia_alternante.md` (+referee), `gk_alternating_family.py` |
 | **P1.4** | **Q2.4:** fonte **Σ₁** para a hierarquia de velocidade | ✅ **VARREDURA EXECUTADA (19/11)** — `(C)` → **candidatas A/B qualificadas** (`Q2.4_fonte_SIGMA1_K19_KP90.md` + referee r1); K19 caps.9/17 = setup/FI; fonte real = Pudlák §6–§7; **pendências A1/A2/A5 bloqueiam o 1º limite inferior** |
 | **P1.5** | **Rota B:** Φw* com padding w* (definability + FGH) | aberta | `FoundationBridge/` — especificar Φ e provar pad-Prf |
 
