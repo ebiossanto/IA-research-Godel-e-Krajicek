@@ -1,5 +1,17 @@
 # N3 — Construção (∗′) via compactness + χ≡⊤ (canto)
 
+> **✅ ATUALIZAÇÃO 20/11/2026 (rodada 2 da frente):** o movimento **(ii) do
+> §6 ("fechar H-separ via leitura literal de [K19 5.7] com a frente C2")
+> FOI EXECUTADO** — e com desfecho melhor que o previsto: ver **§7**.
+> Entregas: (a) **mecanismo de H-separ upgradeado para (P)** (Teorema 4.3
+> executável via `gk_dd_cert.py` — a projeção é incondicional em resolução);
+> (b) **instância de regressão executável** `n3_hsepar_instance.json` →
+> `n3_hsepar_certificate.json` (lado leal extraído,4/7 linhas, verificado);
+> (c) **Lema de constantes frescas (P)** — item1 do checklist §5;
+> (d) acoplamento H-separ×C2 **desacoplado**: o contraexemplo r2/LP afeta o
+> ramo `Res(k)`, não a projeção de resolução que H-separ usa. **Q4 (H-χ)
+> segue pendente** — o lift model-teórico de §2.4 continua (C).
+
 > Frente **N3**, aberta em `N2_residuals_RA_RB.md` (v5, rodada 4 ⟶ 5) e no
 > relatório consolidado §0.1 (versão honseta): o lema (*′) sustenta a frente
 > N2.1 (N2.1-A) e a frente N (K/N1), e é hoje (`N2_residuals_RA_RB.md` §0.1
@@ -41,11 +53,13 @@ ela será submetida quando a carta Q2–Q4 responderem.
 
 | Sub-bloco | Status a priori | Status após esta entrega |
 |---|---|---|
-| Setup de compacidade (linguagem, constantes) | (C) | (P)-esboço |
-| Introdução de χ≡⊤ como canto universal | (H) | (H) (ainda a calibrar per Q2) |
+| Setup de compacidade (linguagem, constantes) | (C) | (P)-esboço → **(P) Lema de constantes (§7.3)** |
+| Introdução de χ≡⊤ como canto universal | (H) | (H) (ainda a calibrar per Q2/Q4) |
 | Extensão conservadora `T_S^∗` | (C) | (C) (aberto) |
+| **Mecanismo de H-separ (projeção)** | (H) (via H-corte) | **(P)** — Teorema 4.3 executável (§7.1); regressão ✓ (§7.4) |
+| **Lift model-teórico (χ_⊥ omittível em todo M)** | (C) | (C) (aberto em N2/§2.4 — localizado) |
 | Conclusão "M₀ omite + preserva lado" | (C) | (C) (aberto em N2 fronteira) |
-| Contraexemplo/regressão | (P) | (P) — consolida-se com o campo χ≡⊤ |
+| Contraexemplo/regressão | (P) | (P) — **consolidado: instância executável commitada (§7.4)** |
 | Veredito sobre a frente N | (C) | (C) |
 
 **Subsítese:** esta entrega **não** fecha N3; ela deixa em claro o **mapa do
@@ -185,36 +199,127 @@ unidirecional (L2 → L3, não L3→L2).
 
 Para alcançar (P) futuramente, a entrega precisa:
 
-- [ ] Bispo horizontal na compacidade: computar o número de constantes
+- [x] **Bispo horizontal na compacidade**: computar o número de constantes
   (mínimo m) para cada literal `a_i` em `a` em função de
   `|a_i|`. (Level 1 — definição, Prova do teorema de Łoś aplicável ao
-  subconjunto finito com esse bound.)
+  subconjunto finito com esse bound.) → **FEITO em §7.3 (Lema de constantes
+  frescas, P)** — bound ≤ Σ aridades + L por subconjunto finito.
 - [ ] Verificar que `T_S^χ` é consistente para cada subconjunto finito com
   o bound de 1. (Level 2 — verification, `lea build` ou model-checker
-  para instâncias-pequena.)
+  para instâncias-pequena.) → **pendente** (plano: §7.6-iv; requer as
+  instâncias (S2)(S3)(S4) de `A_teoremas_exatos.md`/`CONTEXTO_COMUM.md`).
 - [ ] Produzir o ` certificate.json` (ten-proofs, schema
   `ten-proofs-certificate/v1`) quando (e somente quando) as duas anteriores
   fecharam com comando reproduzível + hash SHA-256. Enquanto, status
   permanece `pending`.
+  *Parcial (20/11):* `n3_hsepar_certificate.json` = regressão do **mecanismo
+  N2** (projeção/separação) — não é o certificado do lift (C).
 
-## 6. Veredito
+## 6. Veredito (atualizado em 20/11/2026)
 
-> A frente N3, por esta entrega, permanece **(C)** com construção honesta:
-> a frente "compacidade + corner suposta verdadeira" produz M₀ candidato,
-> mas a realização da "corner consistente" depende da Q4 (`χ≡⊤` como universo
-> harmônico) e do H-om. A correção incremental é o caminho para (P)
-> (se a calibração externa (Krajicek Q4) resolve harmônicos).
+> A frente N3, por esta entrega (13/10) **e a rodada 2 (20/11, §7)**,
+> permanece **(C)** com construção honesta — porém com o **mapa do gap
+> agora preciso**: o **mecanismo** de H-separ (projeção/separação finita)
+> é **(P) executável** (§7.1/§7.4); o que permanece (C) é exatamente **dois
+> itens localizados**: (1) o **lift** "χ_⊥ é omittível em toda `M ⊨ T_S`"
+> (§2.4 — a pergunta se (S3)+(S4) **produzem** χ_⊥) e (2) **H-χ** (canto
+> χ≡⊤ — calibração Q4, externa).
 
 **Lacunas honestas:**
-- 2.4 não provado (aberto);
-- 4.1 (H-χ) não provado (Q4 pendente);
+- 2.4 não provado (aberto) — lift (C);
+- 4.1 (H-χ) não provado (Q4 pendente — follow-up = caminho A);
 - Fechar H-om via compactness não refutado;
 - "N fechado" = dependente.
 
-**Próximo epistemic move:** (i) aguardar Q4 (resposta Krajicek); (ii) tentar
-fechar H-separ via leitura literal de [K19 5.7] com a frente C2; (iii)
-produzir o certificado Ten-Proofs rastreável quando as hipóteses
-passaram ao (A)/(P).
+**Próximo epistemic move (revisado):**
+1. ~~(ii) fechar H-separ via leitura literal de [K19 5.7] com a frente C2~~
+   **✅ EXECUTADO — ver §7** (mecanismo (P), acoplamento desacoplado);
+2. **(i) Q4** — pendente externo (follow-up Q2–Q4, janela vencida);
+3. **(iv) NOVO — Level-2**: model-checker de consistência finita de
+   `T_S^χ` em instâncias pequenas (checklist §5 item2) — usando as
+   instâncias (S2)(S3)(S4) de `A_teoremas_exatos.md`;
+4. **(iii) Ten-Proofs**: certificado completo quando (H-χ)+(H-om)
+   fecharem; a regressão do mecanismo já está commitada.
+
+---
+
+## 7. Rodada 2 (20/11/2026) — movimento (ii) EXECUTADO
+
+### 7.1 H-separ × C2: acoplamento DESACOPLADO (favorável)
+
+O §4.1 marcava H-separ como "requer **(H-corte)** de C2". Os resultados da
+frente C2 (rodadas 1–3, 19–20/11) mudam o quadro:
+
+| Evento C2 | Efeito sobre H-separ |
+|---|---|
+| **r1**: texto exato de [K19 5.7] (regras de `Res(k)`) obtido | `(H-corte)` = **(A)** (regras) + **(P)** (projeção) |
+| **r2**: contraexemplo — projeção por subconjunto **falha** em `Res(k)` sob promessa fraca | bloqueia o ramo **`Res(k)`** (C2.2) — **não** a projeção de resolução |
+| **r3/LP**: via LP retraída; Nec | idem — ramo `Res(k)` |
+| **`gk_dd_cert.py`**: Teorema 4.3 **executável** (DRAT/DAG/provador + verificador independente; teste7/7) | **mecanismo de H-separ = (P)** — incondicional em resolução |
+
+**Conclusão:** a projeção que H-separ usa é o **Lema 4.1/Teorema 4.3 de
+RESOLUÇÃO** (com enfraquecimento) — teorema **incondicional**
+(`C_disjuncao_viavel.md` §4, RECOMENDADO) e agora **verificável por
+máquina**. O contraexemplo r2 e a retratação LP pertencem ao ramo `Res(k)`
+(C2.2) — **ramos distintos**. O "acoplamento L2–L3" do §4.2 resolve-se a
+favor: **H-separ perde a dependência de (H-corte)**; permanece (C) só o
+lift (§2.4) e H-χ (Q4).
+
+### 7.2 O que H-separ precisa — formulagem final
+
+Para cada subconjunto finito `F ⊆ T_S^χ`:
+1. **(P)** a projeção separa a refutação de `F` no lado leal (Teorema 4.3 +
+   `gk_dd_cert` — demonstrado na regressão §7.4);
+2. **(P)** o lado adversarial (tipo `χ_⊥`) é **consistente** (SAT no
+   instância finita — "tipo consistente" = o que a omissão exige);
+3. **(C)** o lift: vale para **todo** F (compacidade) ⟹ `χ_⊥` omittível em
+   toda `M ⊨ T_S` — **a pergunta §2.4** ("(S3)+(S4) produzem `χ_⊥`?");
+4. **(H)** H-χ (canto `χ≡⊤` — Q4).
+
+### 7.3 Lema de constantes frescas (P) — item1 do checklist §5
+
+> **Lema (P).** Seja `F ⊆ T_S^χ` finito com k sentenças universais
+> `∀x̄_j θ_j` (aridade `a_j ≤ |θ_j|`) e sentenças de canto
+> `{χ_⊥(x_l) → ⊥ : l ≤ L}` (mais `χ≡⊤`, sem constante). Então a extensão
+> de Henkin/frescas de `F` usa **≤ Σ_j a_j + L** constantes novas — em
+> particular ≤ `k·N + L` se `|θ_j| ≤ N`.
+>
+> **Prova.** Cada universal instancia-se com no máximo `a_j` constantes
+> (lema da constante fresca — padrão, (A)); cada canto indexado `l` usa
+> exatamente `x_l`; `χ≡⊤` é sentença. A ordem das adições é irrelevante
+> (soma comutativa). ∎
+>
+> **Consequência (A):** o subconjunto finito é satisfatível-sobrevivente
+> com cardinalidade finita de símbolos → a instância de Łoś/compacidade é
+> aplicável **com bound explícito** — o "bispo horizontal" do checklist
+> está formalizado.
+
+### 7.4 Regressão executável do mecanismo (checklist §5, parcial)
+
+- **Entrada:** `n3_hsepar_instance.json` — lado0 (leal, inconsistente),
+  lado1 (adversarial/`χ_⊥`, **SAT = tipo consistente**), π **misto**
+  (enfraquecimento cruza lados: `[1,3]`).
+- **Saída:** `n3_hsepar_certificate.json` — **lado0,4/7 linhas**;
+  verificador independente **ACEITO** (`gk_dd_cert.py verify`, exit0).
+- **Demonstra:** a projeção **separa** a contradição do lado leal mesmo
+  com π misto — exatamente o passo (1)+(2) da §7.2.
+- **Não demonstra:** o lift (3) [(C)] — declarado.
+
+### 7.5 Impacto nas hipóteses (§4.1 atualizado)
+
+- **H-separ**: mecanismo **(P)** (era (H)-corte-dependente) — lift (C);
+- **H-χ**: inalterado — **(H)**/Q4 externo pendente;
+- **H-om**: inalterado **(C)** — agora identificada com a pergunta
+  §2.4 ((S3)+(S4) produzem `χ_⊥`?);
+- **H-c corners (U1)**: confirmados (N2 §2.1).
+
+### 7.6 Próximos passos (rodada 3+)
+
+1. **Q4** → follow-up Q2–Q4 (caminho A — item nº1 do projeto);
+2. **Level-2**: model-checker de `T_S^χ` para instâncias finitas pequenas
+   (checklist §5 item2) — encoder SAT de (S2)(S3)(S4) instanciados +
+   canto, buscar modelo para cada F pequeno (evidência N2, não prova);
+3. Ten-Proofs completo quando (H-χ)+(H-om) fecharem.
 
 ---
 

@@ -1,0 +1,73 @@
+{
+  "type": "dd_certificate",
+  "engine": "resolution",
+  "side": 0,
+  "n_lines_input": 7,
+  "n_lines_cert": 4,
+  "size_bound_respected": true,
+  "side_leaves": [
+    [
+      [
+        1
+      ]
+    ],
+    [
+      [
+        -1
+      ]
+    ]
+  ],
+  "steps": [
+    {
+      "step": 0,
+      "orig": 0,
+      "kind": "leaf",
+      "prems": [],
+      "line": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "step": 1,
+      "orig": 1,
+      "kind": "leaf",
+      "prems": [],
+      "line": [
+        [
+          -1
+        ]
+      ]
+    },
+    {
+      "step": 4,
+      "orig": 4,
+      "kind": "weaken",
+      "prems": [
+        0
+      ],
+      "line": [
+        [
+          1
+        ]
+      ]
+    },
+    {
+      "step": 5,
+      "orig": 5,
+      "kind": "resolve",
+      "prems": [
+        4,
+        1
+      ],
+      "line": []
+    }
+  ],
+  "root": 5,
+  "meta": {
+    "source": "dag"
+  },
+  "generated_utc": "2026-11-20T17:44:40.253137Z",
+  "verifier": "python gk_dd_cert.py verify <este arquivo>"
+}

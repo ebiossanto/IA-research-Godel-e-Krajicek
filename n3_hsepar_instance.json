@@ -1,0 +1,89 @@
+{
+  "_comentario": "Instancia de REGRESSAO N3 (H-separ): o mecanismo finito que a prova de H-separ usara em cada subconjunto finito — a projecao (Teorema 4.3, Lema 4.1) deve SEPARAR o lado leal do lado adversarial (tipo chi_perp). Lado0 (leal) = o bloco finito inconsistente; Lado1 (adversarial) = testemunhas do tipo chi_perp (SAT = tipo CONSISTENTE — o que a omicao exige). pi misto (enfraquecimento cruza lados) — o extrator deve devolver o lado leal com certificado puro. Escopo: N2 (mecanismo finito); o lift para M_0 segue (C) (N3 2.4). Ver gk_dd_cert.py. NOTA (referee r2-A2): o lado1 e uma ABSTRACAO proposicional do tipo chi_perp (clausulas [3,4],[-3]), NAO uma instancia das (S2)(S3)(S4) reais — o lift ate as (S2)(S3)(S4) e o item (C) da sec.7.2 do doc N3.",
+  "engine": "resolution",
+  "sides": [
+    [
+      [
+        1
+      ],
+      [
+        -1
+      ]
+    ],
+    [
+      [
+        3,
+        4
+      ],
+      [
+        -3
+      ]
+    ]
+  ],
+  "dag": [
+    {
+      "id": 0,
+      "kind": "leaf",
+      "line": [
+        1
+      ],
+      "side": 0
+    },
+    {
+      "id": 1,
+      "kind": "leaf",
+      "line": [
+        -1
+      ],
+      "side": 0
+    },
+    {
+      "id": 2,
+      "kind": "leaf",
+      "line": [
+        3,
+        4
+      ],
+      "side": 1
+    },
+    {
+      "id": 3,
+      "kind": "leaf",
+      "line": [
+        -3
+      ],
+      "side": 1
+    },
+    {
+      "id": 4,
+      "kind": "weaken",
+      "prems": [
+        0
+      ],
+      "line": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": 5,
+      "kind": "resolve",
+      "prems": [
+        4,
+        1
+      ],
+      "line": [
+        3
+      ]
+    },
+    {
+      "id": 6,
+      "kind": "resolve",
+      "prems": [
+        5,
+        3
+      ],
+      "line": []
+    }
+  ]
+}

@@ -1,8 +1,9 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.28 (20/11/2026 — **extrator de certificados DD** (`gk_dd_cert.py`):
-Teorema 4.3 executável, DRAT→DAG, verificador independente, detecção G1
-automática; teste7/7 no CI; referee r1 RECOMENDADO; v6.27: minref; …)
+**Versão:** 6.29 (20/11/2026 — **N3 rodada2: movimento (ii) EXECUTADO**
+(`N3_...` §7 + referee): H-separ mecanismo **(P) executável**, acoplamento C2
+desacoplado, lema de constantes (P), regressão `n3_hsepar_*`; v6.28:
+extrator dd-cert; v6.27: minref; …)
 **Status:** ✅ **Carta ENVIADA 11/10/2026 18:14 → RESPOSTA PARCIAL RECEBIDA 12/10/2026
 (Q1 respondido; Q2–Q4 pendentes — follow-up devido; `CARTA_FINAL_RECEBIDA.md`)**;
 Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥` **(condicional a `q` total —
@@ -185,7 +186,7 @@ em Core; rascunho MO (não postado)
 | **DD7** | **Canto adversarial `(C)` (M)** | **FEITO CONDICIONAL — `C_{N_s}≡⊥` sob `q` total; sob `q` parcial com merge pode falhar → Q1 da carta decide** | `krajicek_ddp/M_...` |
 | **DD8** | **Nota editorial a Krajíček** | **✅ ENVIADA 11/10/2026 18:14** (protonmail + karlin); **📨 RESPOSTA PARCIAL 12/10/2026 14:48 UTC** — **Q1 respondido** (`i₀` = comprimento de elemento de `M'` ∈ `Log(M')` → leitura (A)); **Q2–Q4 pendentes** (follow-up devido) | `krajicek_ddp/CARTA_FINAL_ENVIO.md`, **`CARTA_FINAL_RECEBIDA.md`** |
 | **DD9** | **Refutação interna de `{C_{N_s}}` (N)** | **FEITO — reduzida a `EF⊢Taut(α)` (N.1); dicotomia (C1′)** | `krajicek_ddp/N1_...` |
-| **DD10** | **Residuais R-α/R-β (N2)** | **FEITO (RECOMENDADO r5)** — R-α=(∗′) com 4 formas da ameaça **(C)**→N3; N2.3′ no escopo efetivo; R-β: compressão necessária≠suficiente | `krajicek_ddp/N2_residuals_RA_RB.md` |
+| **DD10** | **Residuais R-α/R-β (N2)** | **FEITO (RECOMENDADO r5)** — R-α=(∗′) com 4 formas da ameaça **(C)**→N3; N2.3′ no escopo efetivo; R-β: compressão necessária≠suficiente; **N3 rodada2 (20/11): movimento (ii) EXECUTADO** — H-separ mecanismo **(P) executável**, acoplamento C2 desacoplado, lema de constantes (P), regressão commitada; lift §2.4 + Q4 seguem (C)/(H) | `krajicek_ddp/N2_residuals_RA_RB.md`, **`krajicek_ddp/N3_construction_compactness_chi_top.md` §7** (+`N3_rodada2_referee.md`, `n3_hsepar_*`) |
 | **DD11** | **`DD_{Res(k)}` (C2)** | **PARCIAL (RECOMENDADO r5)** — C2.1 **teorema**; **r1:** regras exatas [K19 5.7] (A) + "Lema 4.1"=nosso; **r2: contraexemplo (G1)** (candidato retraído) → **C2.2′ teorema (P) linha-puro**; **r3/LP: critério DECIDIDO — via LP RETRAÍDA** (candidato `(γ,REF_t)` não alterna p/ t poli + **Nec**); **C2.2 = única via (C)** | `krajicek_ddp/C2_r2_G1_contraexemplo.md`, **`krajicek_ddp/C2_LP_familia_alternante.md`** (+referees), `gk_alternating_family.py`, `gk_c2_projection_sim.py` |
 | **DD12** | **Instâncias `(τ_n,q)` (Q2)** | **FEITO (RECOMENDADO r3)**; **fonte Σ₁ varrida 19/11 (C→candidata)**: A=`Con_T(f(n))` (Pudlák §6–§7) · B=`i-RFN(G_i)` (KP90); K19 caps.9/17=setup/FI; pendências A1/A2/A5 | `krajicek_ddp/Q2_instancias_tau_n_q.md`, **`krajicek_ddp/Q2.4_fonte_SIGMA1_K19_KP90.md`** (+referee) |
 | **DD13** | **Avaliação externa 2ª onda + resposta** | **APLICADA (P1–P5, P10)** — terminologia de status; M.2 condicional; build reproduzido; PPR reclassificado; três níveis L1/L2/L3 | `CRITICA_EXTERNA_2026-10-12.md` |
