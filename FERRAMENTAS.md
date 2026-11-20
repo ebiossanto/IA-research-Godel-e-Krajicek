@@ -26,6 +26,24 @@ e viraram software verificável. Documentação completa por ferramenta em
 | **c2-projection-sim** | `gk_c2_projection_sim.py` | Projeção `E` em `Res(k)` com invariantes I1–I5 + **contraexemplo G1** determinístico (frente C2) | detector automático de contraexemplos; caixa de ensaio (O1)–(O5); regressão do CI | [`ferramentas/gk_c2_projection_sim.md`](ferramentas/gk_c2_projection_sim.md) |
 | **diagnóstico** | `diagnostico_ambiente.ps1` | Verificação ✅/❌ do ambiente (Git/Python/Julia/Lean/PATH; `-Build` = `lake build`; hash do sympy) | setup e reidratação do laboratório | [`AMBIENTE_E_FERRAMENTAS.md`](AMBIENTE_E_FERRAMENTAS.md) |
 
+## Repositórios separados (distribuições autocontidas)
+
+Cada ferramenta pronta também tem seu **próprio repositório público**
+(extração deste — mesmo código, MIT e `CITATION.cff`, com CI próprio):
+
+| Ferramenta | Repositório |
+|---|---|
+| minref | <https://github.com/ebiossanto/IA-Research-GK-MinRef> |
+| dd-cert | <https://github.com/ebiossanto/IA-Research-GK-DD-Cert> |
+| claims-lint | <https://github.com/ebiossanto/IA-Research-GK-ClaimsLint> |
+| proof-fractal | <https://github.com/ebiossanto/IA-Research-GK-ProofFractal> |
+| alternating-family | <https://github.com/ebiossanto/IA-Research-GK-AltFamily> |
+| c2-projection-sim | <https://github.com/ebiossanto/IA-Research-GK-C2Sim> |
+
+A **proveniência teórica permanece aqui**: cada repo cita este como origem
+(seção "Extração de …" no README) e remete aos documentos/referees
+(`krajicek_ddp/`, `ferramentas/`) para o núcleo de cada resultado.
+
 ## Uso rápido
 
 ```bash

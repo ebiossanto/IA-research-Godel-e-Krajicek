@@ -1,8 +1,9 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.30 (20/11/2026 — **FERRAMENTAS.md + `ferramentas/`**: docs por
-ferramenta com citação, README, aplicações, uso e **arcabouço matemático**;
-v6.29: N3 rodada2; v6.28: dd-cert; …)
+**Versão:** 6.31 (20/11/2026 — **repositório GitHub separado por
+ferramenta**: 6 extras públicos `IA-Research-GK-*` (MinRef, DD-Cert,
+ClaimsLint, ProofFractal, AltFamily, C2Sim), todos com CI verde, linkados
+em `FERRAMENTAS.md`; v6.30: FERRAMENTAS.md + `ferramentas/`; …)
 **Status:** ✅ **Carta ENVIADA 11/10/2026 18:14 → RESPOSTA PARCIAL RECEBIDA 12/10/2026
 (Q1 respondido; Q2–Q4 pendentes — follow-up devido; `CARTA_FINAL_RECEBIDA.md`)**;
 Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥` **(condicional a `q` total —

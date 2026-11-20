@@ -18,6 +18,10 @@ está em [`../FERRAMENTAS.md`](../FERRAMENTAS.md).
 **Como citar qualquer ferramenta:** ver a seção "Como citar" de cada
 documento (formato compatível com [`../CITATION.cff`](../CITATION.cff)).
 
+**Repositórios separados:** cada ferramenta pronta também está
+distribuída em seu próprio repo público (extração deste, CI próprio) —
+links na seção "Repositórios separados" de [`../FERRAMENTAS.md`](../FERRAMENTAS.md).
+
 **Testes:** `python gk_dd_cert_test.py` · `python gk_minref.py demo` ·
 `python gk_c2_projection_sim.py --n 400` · `python gk_claims_lint.py` —
 todos rodando no CI (`.github/workflows/ci.yml`).
