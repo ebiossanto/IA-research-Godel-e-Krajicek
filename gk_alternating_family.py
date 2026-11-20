@@ -79,7 +79,15 @@ def res_pairs(c, n, index):
     """Todos os pares (c1,c2) com resolvente exatamente c:
     c1 = S1 u {l}, c2 = S2 u {~l}, S1 u S2 = c, S1,S2 ⊆ c (subconjuntos!).
     (A versao anterior so tinha S1=S2=c — incompleta: ex. [-1] resolve
-    [1,2] -> [2] exige S2=∅.)"""
+    [1,2] -> [2] exige S2=∅.)
+
+    *** NOTA pos-minref (19/11, 6o bug do projeto): ***
+    esta versao ainda exige S1,S2 DISJUNTOS (particao) — a resolucao
+    permite SOBREPOSICAO (ex. (a∨b),(b∨¬a)->(b) com {b} nos dois pais).
+    O encoder COMPLETO (fecho + pares por forca bruta) esta em
+    `gk_minref.py` — usar para execucoes futuras. Os artefatos T1 ja
+    commitados foram verificados INTEGROS (92/92 REF_6=UNSAT no encoder
+    completo — ver gk_minref_referee.md A3): nenhum rerun necessario."""
     out = []
     cl = list(c)
     for v in range(1, n + 1):
@@ -98,18 +106,15 @@ def res_pairs(c, n, index):
     return list(dict.fromkeys(out))  # dedup (mesmo par via l/mask diferentes)
 
 
-def build_ref_t(gamma_clauses, n, t):
+def build_ref_t(gamma_clauses, n, t, amo="pairwise"):
     """
     Variaveis: y_{j,C} id = 1 + idx_C + (j-1)*|pool| (lado 2).
     Restricoes:
       (1) y_{t,∅}
-      (2) cada passo j deriva alguma clausula
-      (3) y_{j,C} -> [C ∈ γ]  ∨  ⋁_{j'<j} y_{j',c} (copia)
-                      ∨  ⋁_{pares} (copia(c1) ∧ copia(c2))   (corte)
-      (3) implementado com auxiliar a_par por par:
-          y_{j,C} -> ⋁ a_par            (com copias na MESMA clausula)
-          a_par -> copia(c1); a_par -> copia(c2)
-      passo 1: so folhas (y_{1,c} -> [C ∈ γ]).
+      (2) cada passo j deriva EXATAMENTE uma clausula
+          (2a) ≥1 ; (2b) AMO: 'pairwise' (padrao, saida identica a v1) ou
+               'seq' (contador sequencial O(N) — p/ minref em n maior)
+      (3) y_{j,C} -> [C ∈ γ]  ∨  copia  ∨  corte (pares com auxiliares)
     """
     pool = all_clauses(n)                       # inclui ∅
     index = {c: i for i, c in enumerate(pool)}
@@ -123,12 +128,25 @@ def build_ref_t(gamma_clauses, n, t):
     cnf = [[y(t, frozenset())]]                              # (1)
     for j in range(1, t + 1):
         cnf.append([y(j, c) for c in pool])                  # (2a) ≥1
-        # (2b) EXATAMENTE-UM por posicao: a semantica correta e
-        # "sequencia de <= t LINHAS" (nao profundidade em camadas —
-        # com folhas em paralelo o t antigo contava profundidade)
-        for i1 in range(N):
-            for i2 in range(i1 + 1, N):
-                cnf.append([-y(j, pool[i1]), -y(j, pool[i2])])
+        if amo == "pairwise":
+            # (2b-p) EXATAMENTE-UM por posicao (codificacao original:
+            # "sequencia de <= t LINHAS" — nao profundidade em camadas)
+            for i1 in range(N):
+                for i2 in range(i1 + 1, N):
+                    cnf.append([-y(j, pool[i1]), -y(j, pool[i2])])
+        elif amo == "seq":
+            # (2b-s) contador sequencial O(N): r_i = "algum y_k, k<=i"
+            if N >= 2:
+                r = list(range(next_aux, next_aux + N - 1))
+                next_aux += N - 1
+                cnf.append([-y(j, pool[0]), r[0]])                 # y1 -> r1
+                for i in range(1, N - 1):                          # 2..N-1
+                    cnf.append([-y(j, pool[i]), r[i]])             # yi -> ri
+                    cnf.append([-r[i - 1], r[i]])                  # r monotono
+                for i in range(1, N):                              # 2..N
+                    cnf.append([-y(j, pool[i]), -r[i - 1]])        # yi & r_{i-1} proibido
+        else:
+            raise ValueError(f"amo desconhecido: {amo}")
     for j in range(1, t + 1):
         for c in pool:
             if c in gamma_set:

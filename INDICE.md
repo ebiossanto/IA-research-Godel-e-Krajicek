@@ -1,10 +1,9 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.26 (19/11/2026 — **claims-lint + CI**: `gk_claims_lint.py`
-(10 regras) + `.github/workflows/ci.yml` (lint · lake build · smoke C2);
-lint achou e corrigiu4 falhas reais (status obsoleto na nota editorial,
-JSON t2 com CSV errado, ONDE_ESTAMOS não indexado, janela R1); v6.25:
-CONTRIBUICOES; v6.24: C2/LP; …)
+**Versão:** 6.27 (19/11/2026 — **minref**: comprimento mínimo exato de
+refutação (`gk_minref.py` + referee + benchmark17/17); **6º bug**
+(sobreposição) encontrado e impacto no T1 verificado **92/92 sustentado**;
+v6.26: claims-lint+CI; v6.25: CONTRIBUICOES; …)
 **Status:** ✅ **Carta ENVIADA 11/10/2026 18:14 → RESPOSTA PARCIAL RECEBIDA 12/10/2026
 (Q1 respondido; Q2–Q4 pendentes — follow-up devido; `CARTA_FINAL_RECEBIDA.md`)**;
 Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥` **(condicional a `q` total —
@@ -34,6 +33,7 @@ em Core; rascunho MO (não postado)
 | `AMBIENTE_E_FERRAMENTAS.md` | **Estado das ferramentas/permissões + incidente sympy + reidratação** (19/11/2026) | **ATIVO** |
 | `diagnostico_ambiente.ps1` | Script ✅/❌ de verificação do ambiente (`-Build` inclui `lake build`) | SCRIPT |
 | **`gk_claims_lint.py` + `.github/workflows/ci.yml`** | **Sistema imunológico**: lint de claims (10 regras: retrações, status obsoletos, disclaimer, links, sha256, lean JSON, DESCARTADOS, indexação) + **CI** (lint · `lake build` · smoke do simulador C2) | **ATIVO — rodar a cada entrega** |
+| **`gk_minref.py` (+ `gk_minref_referee.md`, `gk_minref_results.*`)** | **Comprimento MÍNIMO exato de refutação** via REF_t (fecho + pares completos); validação (units=3, ABC=5, sat=∞); benchmark17/17 exatos `{7:6,9:4,11:1,5:2}`; **6º bug (sobreposição)** encontrado; **T1 do teste LP verificado92/92** | **ATIVO — RECOMENDADO r1** |
 | `EVOLUCAO_PROJETO.md` | **HISTÓRICO VIVO** | **ATUALIZAR A CADA PASSO** |
 | `ONDE_ESTAMOS_E_PROXIMOS_PASSOS.md` | Estado honesto (Level 0→4) + descobertas possíveis D1–D6 (13/10) + gaps | ATIVO (indexado em 19/11 pelo claims-lint) |
 | `09_EVOLUCAO_PERFIL_REFLEXAO_GERADORES.md` | **NÚCLEO: g^{a,b}, δ, 𝒢, ρ_b, RBT + §35–40** | **ATIVO** |

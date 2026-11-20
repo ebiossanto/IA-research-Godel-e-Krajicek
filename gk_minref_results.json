@@ -1,0 +1,174 @@
+{
+  "metadata": {
+    "timestamp_utc": "2026-11-20T00:32:17Z",
+    "data_source": "gk_minref.py v2 (fecho + pares completos)",
+    "seed": 20261119,
+    "tmax": 64,
+    "amo": "seq",
+    "csv": "gk_minref_results.csv",
+    "csv_sha256": "02f93939c486ff167798be5e3200ec7585201677a8a4520c71626cf952453957",
+    "sha_note": "sha256 sobre bytes normalizados CRLF->LF",
+    "escopo": "n<=6; resolucao (nao DRAT/EF); sem claim de lower bound geral"
+  },
+  "distribution_minref": {
+    "9": 4,
+    "7": 6,
+    "11": 1,
+    "5": 2
+  },
+  "rows": [
+    {
+      "family": "random2sat_n5_m12",
+      "n_vars": 5,
+      "n_clauses": 12,
+      "sat": "SAT",
+      "minref": "SAT",
+      "fecho": null,
+      "seconds": 0.0
+    },
+    {
+      "family": "random2sat_n5_m12",
+      "n_vars": 5,
+      "n_clauses": 12,
+      "sat": "UNSAT",
+      "minref": "9",
+      "fecho": 51,
+      "seconds": 0.76
+    },
+    {
+      "family": "random2sat_n5_m12",
+      "n_vars": 5,
+      "n_clauses": 12,
+      "sat": "SAT",
+      "minref": "SAT",
+      "fecho": null,
+      "seconds": 0.0
+    },
+    {
+      "family": "random2sat_n5_m16",
+      "n_vars": 5,
+      "n_clauses": 16,
+      "sat": "UNSAT",
+      "minref": "9",
+      "fecho": 51,
+      "seconds": 0.74
+    },
+    {
+      "family": "random2sat_n5_m16",
+      "n_vars": 5,
+      "n_clauses": 16,
+      "sat": "SAT",
+      "minref": "SAT",
+      "fecho": null,
+      "seconds": 0.0
+    },
+    {
+      "family": "random2sat_n5_m16",
+      "n_vars": 5,
+      "n_clauses": 16,
+      "sat": "UNSAT",
+      "minref": "7",
+      "fecho": 51,
+      "seconds": 0.14
+    },
+    {
+      "family": "random2sat_n6_m15",
+      "n_vars": 6,
+      "n_clauses": 15,
+      "sat": "SAT",
+      "minref": "SAT",
+      "fecho": null,
+      "seconds": 0.0
+    },
+    {
+      "family": "random2sat_n6_m15",
+      "n_vars": 6,
+      "n_clauses": 15,
+      "sat": "UNSAT",
+      "minref": "7",
+      "fecho": 62,
+      "seconds": 0.18
+    },
+    {
+      "family": "random2sat_n6_m15",
+      "n_vars": 6,
+      "n_clauses": 15,
+      "sat": "UNSAT",
+      "minref": "7",
+      "fecho": 73,
+      "seconds": 0.29
+    },
+    {
+      "family": "random2sat_n6_m20",
+      "n_vars": 6,
+      "n_clauses": 20,
+      "sat": "UNSAT",
+      "minref": "7",
+      "fecho": 62,
+      "seconds": 0.2
+    },
+    {
+      "family": "random2sat_n6_m20",
+      "n_vars": 6,
+      "n_clauses": 20,
+      "sat": "UNSAT",
+      "minref": "7",
+      "fecho": 73,
+      "seconds": 0.36
+    },
+    {
+      "family": "random2sat_n6_m20",
+      "n_vars": 6,
+      "n_clauses": 20,
+      "sat": "UNSAT",
+      "minref": "9",
+      "fecho": 52,
+      "seconds": 0.44
+    },
+    {
+      "family": "cadeia_k3",
+      "n_vars": 3,
+      "n_clauses": 4,
+      "sat": "UNSAT",
+      "minref": "7",
+      "fecho": 10,
+      "seconds": 0.01
+    },
+    {
+      "family": "cadeia_k4",
+      "n_vars": 4,
+      "n_clauses": 5,
+      "sat": "UNSAT",
+      "minref": "9",
+      "fecho": 15,
+      "seconds": 0.05
+    },
+    {
+      "family": "cadeia_k5",
+      "n_vars": 5,
+      "n_clauses": 6,
+      "sat": "UNSAT",
+      "minref": "11",
+      "fecho": 21,
+      "seconds": 0.41
+    },
+    {
+      "family": "sobreposicao+u",
+      "n_vars": 5,
+      "n_clauses": 4,
+      "sat": "UNSAT",
+      "minref": "5",
+      "fecho": 8,
+      "seconds": 0.01
+    },
+    {
+      "family": "sobreposicao+e",
+      "n_vars": 5,
+      "n_clauses": 4,
+      "sat": "UNSAT",
+      "minref": "5",
+      "fecho": 8,
+      "seconds": 0.01
+    }
+  ]
+}

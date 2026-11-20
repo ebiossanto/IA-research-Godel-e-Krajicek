@@ -146,11 +146,22 @@ independente.
 
 ---
 
+> **Nota pós-minref (19/11/2026):** o desenvolvimento de `gk_minref.py`
+> revelou o **6º bug** deste encoder — os pares eram **particionados** e a
+> resolução permite **sobreposição** (`(a∨b),(b∨¬a)→(b)`); a fronteira
+> "t=5 UNSAT/t=6 SAT" citada abaixo era **artefato** (com o encoder
+> completo, o mínimo real de ABC é **5**). **Verificação exaustiva 92/92:**
+> todas as γ-insat da rodada T1 têm `minref >6` no encoder completo →
+> **os números de T1 deste documento se sustentam integralmente; nenhum
+> rerun necessário** (detalhes: `../gk_minref_referee.md` §A3). Encoder
+> completo: `gk_minref.py` (fecho + pares por força bruta).
+
 *Reprodução:*
 ```
 python gk_alternating_family.py --n 5 --t 6 --samples 100 --m-min 25 --m-max 45
 python gk_alternating_family.py --n 5 --t 2 --samples 100 --m-min 25 --m-max 45
 ```
-Validação do encoder: `build_ref_t({[1,2],[1,-2],[-1]},5,t)` → t=5 UNSAT, t=6 SAT.
+Validação do encoder (v1, pares particionados): `build_ref_t({[1,2],[1,-2],[-1]},5,t)`
+→ t=5 UNSAT, t=6 SAT — **ver Nota acima** (encoder completo em `gk_minref.py`).
 Referências: `C2_r2_G1_contraexemplo.md` (r2 §5) · Garlík CCC 2024 Thm 1/18 ·
-`gk_alternating_family.py`.
+`gk_alternating_family.py` · `gk_minref.py`.
