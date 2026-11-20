@@ -1,9 +1,8 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.27 (19/11/2026 — **minref**: comprimento mínimo exato de
-refutação (`gk_minref.py` + referee + benchmark17/17); **6º bug**
-(sobreposição) encontrado e impacto no T1 verificado **92/92 sustentado**;
-v6.26: claims-lint+CI; v6.25: CONTRIBUICOES; …)
+**Versão:** 6.28 (20/11/2026 — **extrator de certificados DD** (`gk_dd_cert.py`):
+Teorema 4.3 executável, DRAT→DAG, verificador independente, detecção G1
+automática; teste7/7 no CI; referee r1 RECOMENDADO; v6.27: minref; …)
 **Status:** ✅ **Carta ENVIADA 11/10/2026 18:14 → RESPOSTA PARCIAL RECEBIDA 12/10/2026
 (Q1 respondido; Q2–Q4 pendentes — follow-up devido; `CARTA_FINAL_RECEBIDA.md`)**;
 Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥` **(condicional a `q` total —
@@ -34,6 +33,7 @@ em Core; rascunho MO (não postado)
 | `diagnostico_ambiente.ps1` | Script ✅/❌ de verificação do ambiente (`-Build` inclui `lake build`) | SCRIPT |
 | **`gk_claims_lint.py` + `.github/workflows/ci.yml`** | **Sistema imunológico**: lint de claims (10 regras: retrações, status obsoletos, disclaimer, links, sha256, lean JSON, DESCARTADOS, indexação) + **CI** (lint · `lake build` · smoke do simulador C2) | **ATIVO — rodar a cada entrega** |
 | **`gk_minref.py` (+ `gk_minref_referee.md`, `gk_minref_results.*`)** | **Comprimento MÍNIMO exato de refutação** via REF_t (fecho + pares completos); validação (units=3, ABC=5, sat=∞); benchmark17/17 exatos `{7:6,9:4,11:1,5:2}`; **6º bug (sobreposição)** encontrado; **T1 do teste LP verificado92/92** | **ATIVO — RECOMENDADO r1** |
+| **`gk_dd_cert.py` (+ teste/referee/demo)** | **EXTRATOR DE CERTIFICADOS DD** — Teorema 4.3 executável: saturação/DAG/**DRAT→DAG** (UP com rastreio) → certificado da sub-derivação pura + **verificador independente** (recusa adulteração); motor Res(k) com **detecção automática de violação (G1)**; teste7/7 no CI | **ATIVO — RECOMENDADO r1 · peça da auditoria externa** |
 | `EVOLUCAO_PROJETO.md` | **HISTÓRICO VIVO** | **ATUALIZAR A CADA PASSO** |
 | `ONDE_ESTAMOS_E_PROXIMOS_PASSOS.md` | Estado honesto (Level 0→4) + descobertas possíveis D1–D6 (13/10) + gaps | ATIVO (indexado em 19/11 pelo claims-lint) |
 | `09_EVOLUCAO_PERFIL_REFLEXAO_GERADORES.md` | **NÚCLEO: g^{a,b}, δ, 𝒢, ρ_b, RBT + §35–40** | **ATIVO** |

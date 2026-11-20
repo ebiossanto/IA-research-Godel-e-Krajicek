@@ -1,0 +1,40 @@
+{
+  "results": [
+    {
+      "demo": "D1_resolucao_provador",
+      "ok": true,
+      "side": 0
+    },
+    {
+      "demo": "D2_resolucao_misto",
+      "ok": true,
+      "side": 0
+    },
+    {
+      "demo": "D3_resk_puro",
+      "ok": true,
+      "side": 1
+    },
+    {
+      "demo": "D4_resk_violacao",
+      "ok": true,
+      "status": "VIOLATION"
+    },
+    {
+      "verify": "D1",
+      "ok": true,
+      "fails": []
+    },
+    {
+      "verify": "D2",
+      "ok": true,
+      "fails": []
+    },
+    {
+      "verify": "D3",
+      "ok": true,
+      "fails": []
+    }
+  ],
+  "seed_note": "deterministico (sem RNG)"
+}

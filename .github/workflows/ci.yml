@@ -42,3 +42,5 @@ jobs:
         run: pip install python-sat z3-solver
       - name: simulador C2 (contraexemplo G1 fixo + busca aleatoria)
         run: python gk_c2_projection_sim.py --n 400 --seed 20261119
+      - name: extrator de certificados DD (extract/verify/adulteracao)
+        run: python gk_dd_cert_test.py
