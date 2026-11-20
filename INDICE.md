@@ -1,9 +1,10 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.33 (20/11/2026 — **D4′ v2 r2 EXECUTADO**: BCa (selftest vs
-scipy OK) + TOST com margens declaradas + MDE80; 0 separações, equivalência
-±0,20=6/6, exclusão r1 → INCOERENTE, BCa não resolve saturação; referee
-§C–D; v6.32: D4′ v2; …)
+**Versão:** 6.34 (20/11/2026 — **D4′ v3 PRÉ-REGISTRADO** (`30_...D4V3.md`
++ `gk_proof_fractal_v3.py`): boxdim como métrica primária, dados disjuntos
+do r2, margem 0,05 ancorada em efeito prévio, delete-d jackknife,
+selftests S1–S5 OK — **commit anterior ao run** (prioridade temporal);
+v6.33: r2 BCa/TOST; …)
 **Status:** ✅ **Carta ENVIADA 11/10/2026 18:14 → RESPOSTA PARCIAL RECEBIDA 12/10/2026
 (Q1 respondido; Q2–Q4 pendentes — follow-up devido; `CARTA_FINAL_RECEBIDA.md`)**;
 Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥` **(condicional a `q` total —
@@ -57,7 +58,8 @@ em Core; rascunho MO (não postado)
 | **`27_TEOREMA_Q_GODEL2_BRIDGE_MO.md`** | **PR27: Q condicional; bridge δ; Gödel II rota A; FoundationBridge BUILD VERDE (0 sorry)** | **EXECUTADO** |
 | **`27_MATHOVERFLOW_PERGUNTA.md`** | **Rascunho MO (EN) — NÃO publicado sem confirmação** | **RASCUNHO** |
 | **`28_PONTE_PROVA_FRACTAL_D4.md`** (+ `_referee.md`) | **D4′ v1: ponte prova→fractal — 188 UNSAT reais (Cadical195 DRAT + Z3); D_H separa `php` (4/4 IC95 exclui0, raw+log1p) = regime de crescimento; refutada leitura "dura=mais fractal"; H_C2 deferido** | **EXECUTADO — RECOMENDADO r1** |
-| **`29_PONTE_PROVA_FRACTAL_D4V2.md`** (+ `_referee.md`) | **D4′ v2+r2: comprimentos MÍNIMOS canônicos (minref) vs DRAT pareado, famílias n≤6 (controle do regime), 12 testes a priori — H_C3/H_C4 sem separação; r2: BCa+TOST+MDE80 → equivalência ±0,20=6/6 (±0,10 inacessível, MDE≈0,19), exclusão r1 → INCOERENTE, BCa não resolve saturação (8/81), pista boxdim 2/3; 7º/8º bugs (tau invertido; seed não-determinístico)** | **EXECUTADO (2 rodadas) — RECOMENDADO r2** |
+| **`29_PONTE_PROVA_FRACTAL_D4V2.md`** (+ `_referee.md`) | **D4′ v2+r2: comprimentos MÍNIMOS canônicos (minref) vs DRAT pareado, famílias n≤6 (controle do regime), 12 testes a priori — H_C3/H_C4 sem separação; r2: BCa+TOST+MDE80 → equivalência ±0,20=6/6 (±0,10 inacessível, MDE≈0,19), exclusão r1 → INCOERENTE, BCa não resolve saturação (8/81), pista boxdim 2/3; 7º/8º bugs (tau invertido; seed não-determinístico)** | **EXECUTADO (2 rodadas) — RECOMENDADO r2** |
+| **`30_PONTE_PROVA_FRACTAL_D4V3.md`** | **D4′ v3/r3: boxdim PRÉ-REGISTRADO (métrica primária) em dados novos disjuntos do r2 (seeds 16..31/64..127); H_B1 padrão-τ (3 testes, Bonferroni), H_B2 fonte, H_B3 pista A4, H_B4 anti-saturação; margem 0,05 ancorada no efeito r2 0,053; delete-d jackknife (C2/C3); selftests S1–S5 (tipo-I 0,04; poder 9/10; DISJ OK)** | **PRÉ-REGISTRADO — commit anterior ao run (prioridade temporal C1); execução pendente** |
 | `00/02/04/05`, `support/*`, `paper2` | **PR26: REJEITADO + novidade provisória + pseudocódigo** | **CORRIGIDO** |
 | `01/06/03` | **PR12: banners REJEITADO/histórico** | **CORRIGIDO** |
 | Scripts | exp10, ppr3, reimpl, slow_vs_fast, **_ext**, test_Rw, **_E0E3**, **ppr3_ramos**, **_RBT_B**, **_allcov**, **fp_length_vs_delta** | SCRIPTS |
