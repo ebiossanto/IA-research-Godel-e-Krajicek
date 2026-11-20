@@ -88,3 +88,44 @@ fractais"; generalização para PA/τ reais além das famílias testadas.
 **Pendências para r2 (v2 do experimento):** normalização anti-quantização (A2);
 correção de múltiplas comparações ou registro explícito do teste primário (A4);
 séries τ maiores (k↑) ligadas a PR10/PR11.
+
+---
+
+## C. Rodadas adicionais — achados do desenvolvimento da v2 (20/11/2026)
+
+### A9 (GRAVE, 7º bug do projeto) — unidades de saída do `gen_tau` invertidas
+O gerador `gen_tau` do v1 codificava `saída = ¬b` (cláusula `[o]` quando
+`b_i=0`), contradizendo o próprio comentário (`# saida = b`). A família só
+era UNSAT quando `¬b ∉ imagem` — em `k=2,w=3`, **10/24 seeds davam SAT**
+(sonda da v2). **Impacto no v1: NENHUM na validade dos dados.** O CSV
+congelado tem **188/188 UNSAT verificado por solver** (as 64 instâncias τ
+do v1 são τ com testemunha `¬b ∉ imagem`, igualmente legítimas); o que
+estava errado era a *garantia construtiva* documentada ("b fora da
+imagem"). **Corrigido** em `gk_proof_fractal.gen_tau` (unidades passam a
+codificar `saída = b` de fato). Artefatos v1 não são regenerados
+(frozen + sha registrado). ✅
+
+### A10 (GRAVE, 8º bug do projeto) — "seed fixa" não reproduzia entre processos
+Os geradores usavam `random.Random((SEED,"imp",m,seed).__hash__())` — o
+`__hash__` de tuplas contendo strings é **randomizado por PYTHONHASHSEED**
+e muda a cada processo (verificado: 3 processos → 3 hashes distintos).
+Consequência: o v1 (e a primeira execução da v2) **não era regenerável
+entre execuções** apesar do seed declarado; o CSV congelado permanece
+válido *dentro* do processo que o gerou (sha256 registrado, dados reais),
+mas a promessa "Reproduzir: `python -u gk_proof_fractal.py` → mesmo sha"
+era **falsa entre máquinas/execuções**. **Corrigido:** `_det_seed()`
+(CRC32 de `repr(parts)`) — verificado determinístico entre processos.
+Atingia apenas os 4 geradores do fractal; os demais `gk_*` usam
+`random.Random(int)` (determinístico). **Efeito colateral honesto:** uma
+re-execução pós-correção gera instâncias *diferentes* das congeladas
+(mesma distribuição, seed agora real) — por isso os artefatos v1 não são
+sobrescritos. ✅
+
+### A11 — O que a v2 (minref) perguntou e o que isso implica para A1/A2
+A v2 troca "prova do solver" por **comprimento mínimo exato** (fonte
+canônica) e controla o regime (escopo n≤6 elimina o php exponencial).
+Isso transforma A1 de *interpretação* em *hipótese testável*: se a
+métrica media regime (e não família), **controlado o regime a separação
+deve desaparecer** — registrado a priori como H_C3 no
+`gk_proof_fractal_v2.py`, com H_C4 (invariância de fonte) como controle.
+Veredictos e números: `29_PONTE_PROVA_FRACTAL_D4V2.md`. ✅

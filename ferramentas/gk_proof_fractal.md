@@ -4,9 +4,12 @@
 [IA-research-Godel-e-Krajicek](https://github.com/ebiossanto/IA-research-Godel-e-Krajicek)
 (MIT) — núcleo: experimento **D4′** (`ONDE_ESTAMOS_E_PROXIMOS_PASSOS.md`
 §5-D4; Eixo FCT — Fractal Control Theory).
-**Código:** `gk_proof_fractal.py` · **Dados:** `gk_proof_complexity_fractal.json`
-+ `gk_proof_fractal_series.csv` · **Auditoria:**
-[`28_PONTE_PROVA_FRACTAL_D4.md`](../28_PONTE_PROVA_FRACTAL_D4.md) (+referee)
+**Código:** `gk_proof_fractal.py` (v1) + `gk_proof_fractal_v2.py` (v2) ·
+**Dados:** `gk_proof_complexity_fractal.json` + `gk_proof_fractal_series.csv`
+(v1); `gk_proof_fractal_v2.json` + `gk_proof_fractal_v2_series.csv` (v2) ·
+**Auditoria:** [`28_PONTE_PROVA_FRACTAL_D4.md`](../28_PONTE_PROVA_FRACTAL_D4.md)
+e [`29_PONTE_PROVA_FRACTAL_D4V2.md`](../29_PONTE_PROVA_FRACTAL_D4V2.md)
+(cada um + referee)
 
 ## Como citar
 
@@ -31,16 +34,21 @@ ordinal de comprimentos por (tamanho, semente) → métricas **Hurst R/S**,
    desse tipo em refutações reais;
 2. Calibrar a leitura "prova dura = mais fractal" — **refutada** no projeto
    (resultado negativo documentado);
-3. Base para **D4′ v2**: provas *mínimas* (via `gk_minref`) em vez de
-   provas de solver; normalização anti-quantização (pendência do referee);
+3. **D4′ v2 executado** (`gk_proof_fractal_v2.py`): provas *mínimas*
+   canônicas (via `gk_minref`) vs DRAT pareado, famílias n≤6 (controle de
+   regime), variante anti-quantização `relinc`, hipóteses a priori —
+   H_C3 confirmada / H_C4 nominal com ressalva (ver §4.5);
 4. Ferramenta interdisciplinar: prova de complexidade ↔ sistemas complexos.
 
 ## 3. Como usar
 
 ```bash
-python gk_proof_fractal.py                    # seed20261119, n=4 famílias
+python gk_proof_fractal.py                    # v1: seed20261119, 3 famílias
 # → gk_proof_fractal_series.csv + gk_proof_complexity_fractal.json
-# (sha256 normalizado CRLF→LF registrado no JSON)
+python gk_proof_fractal_v2.py                 # v2: minref canônico + DRAT
+# → gk_proof_fractal_v2_series.csv + gk_proof_fractal_v2.json
+# (sha256 normalizado CRLF→LF registrado no JSON; CSV sem colunas de
+#  tempo → reprodução byte-a-byte entre execuções)
 ```
 
 ## 4. Arcabouço matemático
@@ -88,6 +96,36 @@ IC[−0,873;−0,192]` — **4/4 confirmatórios excluem0 (raw e log1p)**;
 
 **Interpretação honesta:** separação por **regime de crescimento**
 (exponencial vs quase-linear) — **não** "dura=mais fractal" (refutado).
+
+### 4.5 D4′ v2 (20/11/2026): comprimentos MÍNIMOS canônicos + controle de regime
+
+O v2 (`gk_proof_fractal_v2.py`) troca a fonte e controla o regime:
+
+- **Fonte canônica:** em vez de provas do solver, mede **`minref`**
+  (comprimento mínimo exato, `gk_minref`) na **mesma instância** em que
+  mede DRAT — contraste **pareado** minref-vs-DRAT por família;
+- **Famílias n≤6** (escopo do minref): `implication` (m=3–6), `cadeia`+
+  ruído binário (k=3–6), `tau_tiny` (τ com k=2, w=3, prof.1) — 64 pontos
+  cada, 192/192 UNSAT verificados, 0 censuras;
+- **Anti-quantização (pendência A2 do referee):** variante **`relinc`** =
+  Δ de `log1p(x)` (remove nível/escala/tendência), além de raw/log1p;
+- **Hipóteses a priori (pendência A4):** 12 contrastes confirmatórios
+  declarados no código (D_H × raw+relinc) — **H_C3** (famílias não separam
+  quando o regime é controlado) e **H_C4** (fonte não distingue).
+
+**Resultados:** H_C3 **CONFIRMADA** (6/6 incluem 0) — sustenta a leitura
+A1: no v1 a métrica media **regime**, não família. H_C4 **REFUTADA
+(NOMINAL)** (1/6 exclui) **mas incoerente** — o ponto está fora do próprio
+IC95 (saturação do Higuchi no teto D_H≈2; flag `point_outside_ci` marca
+9/93 contrastes) → leitura sustentada: invariance de fonte mantida com
+ressalva. minref é sistematicamente **menor** que DRAT (cadeia 7,5 vs
+11,8) sem que as métricas distingam. Detalhes, diagnóstico e pendências
+r2 (TOST, BCa, τ k↑): `29_PONTE_PROVA_FRACTAL_D4V2.md` + referee.
+
+> **Bugs corrigidos na rodada (7º e 8º do projeto):** `gen_tau` com
+> unidades de saída invertidas (v1 permanece válido: 188/188 UNSAT por
+> solver) e geradores usando `tuple.__hash__()` — seed não reproduzia
+> entre processos; corrigido com `_det_seed()` (CRC32). Errata no 28_ §5.
 
 ## 5. Validação e limitações
 

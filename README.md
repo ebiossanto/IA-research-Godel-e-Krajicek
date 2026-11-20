@@ -111,7 +111,7 @@ AMBIENTE_E_FERRAMENTAS.md  ← ferramentas, permissões, incidente sympy, reidra
 diagnostico_ambiente.ps1   ← verificação ✅/❌ do ambiente (-Build = lake build)
 EVOLUCAO_PROJETO.md        ← cronologia + próximos passos
 CONTINUIDADE_PESQUISA.md   ← continuidade entre fases
-00_… a 27_…                ← documentos de apoio numerados (canônicos)
+00_… a 29_…                ← documentos de apoio numerados (canônicos)
 papers/                    ← os 2 documentos exploratórios (set/2026)
 krajicek_ddp/              ← campanha DD_P completa (out/2026) — linha atual
 ferramentas/               ← docs por ferramenta (matemática, uso, citação)

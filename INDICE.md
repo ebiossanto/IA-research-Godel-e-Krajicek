@@ -1,9 +1,9 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.31 (20/11/2026 — **repositório GitHub separado por
-ferramenta**: 6 extras públicos `IA-Research-GK-*` (MinRef, DD-Cert,
-ClaimsLint, ProofFractal, AltFamily, C2Sim), todos com CI verde, linkados
-em `FERRAMENTAS.md`; v6.30: FERRAMENTAS.md + `ferramentas/`; …)
+**Versão:** 6.32 (20/11/2026 — **D4′ v2 EXECUTADO** (`29_...D4V2.md`+referee):
+minref canônico vs DRAT pareado, famílias n≤6, H_C3 confirmada / H_C4 nominal
+com ressalva; **7º e 8º bugs** do projeto corrigidos (tau invertido; seed
+não-determinístico); v6.31: repos por ferramenta; v6.30: FERRAMENTAS; …)
 **Status:** ✅ **Carta ENVIADA 11/10/2026 18:14 → RESPOSTA PARCIAL RECEBIDA 12/10/2026
 (Q1 respondido; Q2–Q4 pendentes — follow-up devido; `CARTA_FINAL_RECEBIDA.md`)**;
 Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥` **(condicional a `q` total —
@@ -56,7 +56,8 @@ em Core; rascunho MO (não postado)
 | **`26_REVISAO_EXTERNA_PONTUAL.md`** | **Revisão externa: só banners/orig./esqueleto — sem redesenhar programa** | **EXECUTADO** |
 | **`27_TEOREMA_Q_GODEL2_BRIDGE_MO.md`** | **PR27: Q condicional; bridge δ; Gödel II rota A; FoundationBridge BUILD VERDE (0 sorry)** | **EXECUTADO** |
 | **`27_MATHOVERFLOW_PERGUNTA.md`** | **Rascunho MO (EN) — NÃO publicado sem confirmação** | **RASCUNHO** |
-| **`28_PONTE_PROVA_FRACTAL_D4.md`** (+ `_referee.md`) | **D4′ v1: ponte prova→fractal — 188 UNSAT reais (Cadical195 DRAT + Z3); D_H separa `php` (4/4 IC95 exclui0, raw+log1p) = regime de crescimento; refutada leitura "dura=mais fractal"; H_C2 deferido** | **EXECUTADO — RECOMENDADO r1** |
+| **`28_PONTE_PROVA_FRACTAL_D4.md`** (+ `_referee.md`) | **D4′ v1: ponte prova→fractal — 188 UNSAT reais (Cadical195 DRAT + Z3); D_H separa `php` (4/4 IC95 exclui0, raw+log1p) = regime de crescimento; refutada leitura "dura=mais fractal"; H_C2 deferido** | **EXECUTADO — RECOMENDADO r1** |
+| **`29_PONTE_PROVA_FRACTAL_D4V2.md`** (+ `_referee.md`) | **D4′ v2: comprimentos MÍNIMOS canônicos (minref) vs DRAT pareado, famílias n≤6 (controle do regime exponencial), anti-quantização `relinc`, 12 testes a priori — H_C3 CONFIRMADA (famílias não separam sem regime → sustenta A1), H_C4 REFUTADA NOMINAL com exclusão incoerente (saturação Higuchi, flag `point_outside_ci`); 7º e 8º bugs do projeto (tau invertido; seed não-determinístico)** | **EXECUTADO — RECOMENDADO r1** |
 | `00/02/04/05`, `support/*`, `paper2` | **PR26: REJEITADO + novidade provisória + pseudocódigo** | **CORRIGIDO** |
 | `01/06/03` | **PR12: banners REJEITADO/histórico** | **CORRIGIDO** |
 | Scripts | exp10, ppr3, reimpl, slow_vs_fast, **_ext**, test_Rw, **_E0E3**, **ppr3_ramos**, **_RBT_B**, **_allcov**, **fp_length_vs_delta** | SCRIPTS |

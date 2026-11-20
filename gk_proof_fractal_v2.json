@@ -1,0 +1,1334 @@
+{
+  "metadata": {
+    "timestamp_utc": "2026-11-20T22:15:18.891590Z",
+    "data_source": "gk_proof_fractal_v2.py (D4' v2 — minref canonico, familias n<=6)",
+    "seed": 20261119,
+    "B_boot": 300,
+    "block": 8,
+    "grid": {
+      "implication": "64 pontos",
+      "cadeia": "64 pontos",
+      "tau_tiny": "64 pontos"
+    },
+    "systems": [
+      "minref (comprimento minimo exato, gk_minref)",
+      "resolution_drat (Cadical195, mesma instancia)"
+    ],
+    "variants": [
+      "raw",
+      "log1p",
+      "relinc (diff de log1p — A2)"
+    ],
+    "instances": {
+      "rows": 192,
+      "censored": 0,
+      "skipped": 0
+    },
+    "csv": "gk_proof_fractal_v2_series.csv",
+    "csv_sha256": "b8aecc2dd6cc7b331b7d2be1ba5a8b1fc31dd94ceb0b42ac66c84afe1cbedba9",
+    "sha_note": "sha256 sobre bytes normalizados CRLF->LF",
+    "runtime_s": 1080.2,
+    "caveats": [
+      "Escopo n<=6 do minref: SEM familia exponencial — o v2 controla o regime (A1), nao replica o php do v1.",
+      "Serie relinc tem n-1 pontos (63) — mesmas metricas.",
+      "Censura minref '>' registrada e excluida da serie (total 0).",
+      "Nivel Ten-Proofs: N1 + N2; sem N4; sem claim de EF (H_C2 deferido) e sem lower bound.",
+      "7o bug corrigido no gerador tau do v1 (unidades de saida invertidas); CSV v1 congelado permanece valido (188/188 UNSAT por solver).",
+      "8o bug corrigido: geradores usavam tuple.__hash__() (randomizado por processo) — seed agora deterministico (_det_seed = CRC32); artefatos v1 congelados nao sao regeneraveis entre execucoes (errata no 28_ §5).",
+      "Higuchi satura no teto D_H~2 com series quantizadas de inteiros pequenos: contrastes com ponto FORA do IC95 sao marcados point_outside_ci e nao contam como refutacao ( artefato de IC, nao de efeito)."
+    ]
+  },
+  "metric_validation": {
+    "raw": {
+      "white_noise": {
+        "hurst_rs": 0.6208779482084428,
+        "higuchi_D": 2.075290056274313,
+        "boxdim": 0.878116539807674
+      },
+      "random_walk": {
+        "hurst_rs": 0.892791998412089,
+        "higuchi_D": 1.7248117434512933,
+        "boxdim": 0.8564421722280319
+      },
+      "sine_period16": {
+        "hurst_rs": 1.0415500514488285,
+        "higuchi_D": 1.1991048146095946,
+        "boxdim": 0.7899863328714548
+      }
+    },
+    "relinc": {
+      "white_noise": {
+        "hurst_rs": 0.22659528211021943,
+        "higuchi_D": 2.119582220578666,
+        "boxdim": 1.0946743643028596
+      },
+      "random_walk": {
+        "hurst_rs": 0.6191209708093081,
+        "higuchi_D": 2.027945132547814,
+        "boxdim": 1.110133454494884
+      },
+      "sine_period16": {
+        "hurst_rs": 0.995751255736785,
+        "higuchi_D": 1.2179790440439466,
+        "boxdim": 1.120062635049286
+      }
+    }
+  },
+  "series_results": {
+    "cadeia|drat": {
+      "n": 64,
+      "mean": 11.75,
+      "min": 6.0,
+      "max": 18.0,
+      "variants": {
+        "raw": {
+          "n": 64,
+          "metrics": {
+            "hurst_rs": 0.5557886565636069,
+            "higuchi_D": 1.9537756848560257,
+            "boxdim": 0.8600484772835207
+          },
+          "bootstrap_ci95": {
+            "hurst_rs": {
+              "point": 0.5557886565636069,
+              "lo": 0.4579152791643186,
+              "hi": 1.150938898761685
+            },
+            "higuchi_D": {
+              "point": 1.9537756848560257,
+              "lo": 1.6934881401416841,
+              "hi": 1.9688281270734058
+            },
+            "boxdim": {
+              "point": 0.8600484772835207,
+              "lo": 0.7446998860545415,
+              "hi": 0.861293673724758
+            }
+          }
+        },
+        "log1p": {
+          "n": 64,
+          "metrics": {
+            "hurst_rs": 0.5193269647632631,
+            "higuchi_D": 1.9614343261180835,
+            "boxdim": 0.8715961990255142
+          },
+          "bootstrap_ci95": {
+            "hurst_rs": {
+              "point": 0.5193269647632631,
+              "lo": 0.507507116095533,
+              "hi": 1.1488015840696206
+            },
+            "higuchi_D": {
+              "point": 1.9614343261180835,
+              "lo": 1.6953576432520072,
+              "hi": 1.9793990951170006
+            },
+            "boxdim": {
+              "point": 0.8715961990255142,
+              "lo": 0.752724700286487,
+              "hi": 0.8787458584917737
+            }
+          }
+        },
+        "relinc": {
+          "n": 63,
+          "metrics": {
+            "hurst_rs": -0.00327020801570836,
+            "higuchi_D": 2.0947567660596245,
+            "boxdim": 1.0969740034029778
+          },
+          "bootstrap_ci95": {
+            "hurst_rs": {
+              "point": -0.00327020801570836,
+              "lo": 0.10669042213116119,
+              "hi": 0.6458519623327122
+            },
+            "higuchi_D": {
+              "point": 2.0947567660596245,
+              "lo": 2.0224799188657254,
+              "hi": 2.122198244961598
+            },
+            "boxdim": {
+              "point": 1.0969740034029778,
+              "lo": 0.9704835750916174,
+              "hi": 1.1149381399181841
+            }
+          }
+        }
+      }
+    },
+    "cadeia|minref": {
+      "n": 64,
+      "mean": 7.46875,
+      "min": 5.0,
+      "max": 13.0,
+      "variants": {
+        "raw": {
+          "n": 64,
+          "metrics": {
+            "hurst_rs": 0.6609274986816275,
+            "higuchi_D": 1.9647708231280003,
+            "boxdim": 0.7759888183221835
+          },
+          "bootstrap_ci95": {
+            "hurst_rs": {
+              "point": 0.6609274986816275,
+              "lo": 0.42101328908166746,
+              "hi": 0.9607858475931487
+            },
+            "higuchi_D": {
+              "point": 1.9647708231280003,
+              "lo": 1.7526870496749551,
+              "hi": 2.0271591022313684
+            },
+            "boxdim": {
+              "point": 0.7759888183221835,
+              "lo": 0.6632360550936895,
+              "hi": 0.7888172449665932
+            }
+          }
+        },
+        "log1p": {
+          "n": 64,
+          "metrics": {
+            "hurst_rs": 0.6599816987028618,
+            "higuchi_D": 1.9558934963744155,
+            "boxdim": 0.7759888183221835
+          },
+          "bootstrap_ci95": {
+            "hurst_rs": {
+              "point": 0.6599816987028618,
+              "lo": 0.36694438618857395,
+              "hi": 0.9723788648798055
+            },
+            "higuchi_D": {
+              "point": 1.9558934963744155,
+              "lo": 1.7517599431129047,
+              "hi": 2.02500206196638
+            },
+            "boxdim": {
+              "point": 0.7759888183221835,
+              "lo": 0.6632360550936894,
+              "hi": 0.7878221252777249
+            }
+          }
+        },
+        "relinc": {
+          "n": 63,
+          "metrics": {
+            "hurst_rs": -0.03276216573876425,
+            "higuchi_D": 2.078115601213778,
+            "boxdim": 1.0180572245641821
+          },
+          "bootstrap_ci95": {
+            "hurst_rs": {
+              "point": -0.03276216573876425,
+              "lo": 0.1544409164859432,
+              "hi": 0.6989918864595012
+            },
+            "higuchi_D": {
+              "point": 2.078115601213778,
+              "lo": 2.0145622370840868,
+              "hi": 2.118453962015609
+            },
+            "boxdim": {
+              "point": 1.0180572245641821,
+              "lo": 0.875488750216347,
+              "hi": 1.0772696406961906
+            }
+          }
+        }
+      }
+    },
+    "implication|drat": {
+      "n": 64,
+      "mean": 4.984375,
+      "min": 3.0,
+      "max": 7.0,
+      "variants": {
+        "raw": {
+          "n": 64,
+          "metrics": {
+            "hurst_rs": 0.3775796632061017,
+            "higuchi_D": 1.9981919106062496,
+            "boxdim": 0.7584962500721157
+          },
+          "bootstrap_ci95": {
+            "hurst_rs": {
+              "point": 0.3775796632061017,
+              "lo": 0.5644724254773538,
+              "hi": 1.230776587461068
+            },
+            "higuchi_D": {
+              "point": 1.9981919106062496,
+              "lo": 1.5768330642741646,
+              "hi": 1.936695900315443
+            },
+            "boxdim": {
+              "point": 0.7584962500721157,
+              "lo": 0.6391772083501472,
+              "hi": 0.7714874006040642
+            }
+          }
+        },
+        "log1p": {
+          "n": 64,
+          "metrics": {
+            "hurst_rs": 0.3674887366320337,
+            "higuchi_D": 2.007062391964886,
+            "boxdim": 0.7584962500721157
+          },
+          "bootstrap_ci95": {
+            "hurst_rs": {
+              "point": 0.3674887366320337,
+              "lo": 0.5006027069423732,
+              "hi": 1.2328273931111164
+            },
+            "higuchi_D": {
+              "point": 2.007062391964886,
+              "lo": 1.588028037194439,
+              "hi": 1.9878488175128721
+            },
+            "boxdim": {
+              "point": 0.7584962500721157,
+              "lo": 0.6368936977156208,
+              "hi": 0.7702828004198209
+            }
+          }
+        },
+        "relinc": {
+          "n": 63,
+          "metrics": {
+            "hurst_rs": 0.21598509937804483,
+            "higuchi_D": 2.1059972220190306,
+            "boxdim": 0.9908907770399052
+          },
+          "bootstrap_ci95": {
+            "hurst_rs": {
+              "point": 0.21598509937804483,
+              "lo": 0.1651714536911086,
+              "hi": 0.702707913397751
+            },
+            "higuchi_D": {
+              "point": 2.1059972220190306,
+              "lo": 2.033763795318325,
+              "hi": 2.143557769728614
+            },
+            "boxdim": {
+              "point": 0.9908907770399052,
+              "lo": 0.8608801984489897,
+              "hi": 1.0301916887937657
+            }
+          }
+        }
+      }
+    },
+    "implication|minref": {
+      "n": 64,
+      "mean": 6.03125,
+      "min": 5.0,
+      "max": 9.0,
+      "variants": {
+        "raw": {
+          "n": 64,
+          "metrics": {
+            "hurst_rs": 0.5280216834780198,
+            "higuchi_D": 1.979505267456958,
+            "boxdim": 0.7715494063863382
+          },
+          "bootstrap_ci95": {
+            "hurst_rs": {
+              "point": 0.5280216834780198,
+              "lo": 0.42325589426993127,
+              "hi": 1.0318113547614882
+            },
+            "higuchi_D": {
+              "point": 1.979505267456958,
+              "lo": 1.787034915735701,
+              "hi": 2.074268465077602
+            },
+            "boxdim": {
+              "point": 0.7715494063863382,
+              "lo": 0.6767545725034416,
+              "hi": 0.7863222650339385
+            }
+          }
+        },
+        "log1p": {
+          "n": 64,
+          "metrics": {
+            "hurst_rs": 0.5530837662006808,
+            "higuchi_D": 1.982956921362716,
+            "boxdim": 0.7715494063863382
+          },
+          "bootstrap_ci95": {
+            "hurst_rs": {
+              "point": 0.5530837662006808,
+              "lo": 0.40753854115850874,
+              "hi": 1.00618314733928
+            },
+            "higuchi_D": {
+              "point": 1.982956921362716,
+              "lo": 1.8035055467570327,
+              "hi": 2.0834169654106827
+            },
+            "boxdim": {
+              "point": 0.7715494063863382,
+              "lo": 0.673823015820986,
+              "hi": 0.7909113037770563
+            }
+          }
+        },
+        "relinc": {
+          "n": 63,
+          "metrics": {
+            "hurst_rs": 0.3213886322913757,
+            "higuchi_D": 2.068855798340396,
+            "boxdim": 0.9301514340606378
+          },
+          "bootstrap_ci95": {
+            "hurst_rs": {
+              "point": 0.3213886322913757,
+              "lo": 0.09739197280807196,
+              "hi": 0.6572968414492137
+            },
+            "higuchi_D": {
+              "point": 2.068855798340396,
+              "lo": 1.9678042655237435,
+              "hi": 2.1431712229870388
+            },
+            "boxdim": {
+              "point": 0.9301514340606378,
+              "lo": 0.7845279730214958,
+              "hi": 1.0155473319834507
+            }
+          }
+        }
+      }
+    },
+    "tau_tiny|drat": {
+      "n": 64,
+      "mean": 8.3125,
+      "min": 3.0,
+      "max": 15.0,
+      "variants": {
+        "raw": {
+          "n": 64,
+          "metrics": {
+            "hurst_rs": 0.6535078924163036,
+            "higuchi_D": 1.9790100486242064,
+            "boxdim": 0.8297895027945458
+          },
+          "bootstrap_ci95": {
+            "hurst_rs": {
+              "point": 0.6535078924163036,
+              "lo": 0.2648747632891027,
+              "hi": 0.855906093674001
+            },
+            "higuchi_D": {
+              "point": 1.9790100486242064,
+              "lo": 1.882905097421498,
+              "hi": 2.0630804725786143
+            },
+            "boxdim": {
+              "point": 0.8297895027945458,
+              "lo": 0.7517358585280098,
+              "hi": 0.8422064766172813
+            }
+          }
+        },
+        "log1p": {
+          "n": 64,
+          "metrics": {
+            "hurst_rs": 0.664356662390925,
+            "higuchi_D": 1.989556291518115,
+            "boxdim": 0.8297895027945459
+          },
+          "bootstrap_ci95": {
+            "hurst_rs": {
+              "point": 0.664356662390925,
+              "lo": 0.2953439740342559,
+              "hi": 0.8102659165831183
+            },
+            "higuchi_D": {
+              "point": 1.989556291518115,
+              "lo": 1.8943573887204994,
+              "hi": 2.0676468372666763
+            },
+            "boxdim": {
+              "point": 0.8297895027945459,
+              "lo": 0.7583535661884582,
+              "hi": 0.8498904595741065
+            }
+          }
+        },
+        "relinc": {
+          "n": 63,
+          "metrics": {
+            "hurst_rs": 0.2856724220486969,
+            "higuchi_D": 2.0685811523754554,
+            "boxdim": 1.0904247212524003
+          },
+          "bootstrap_ci95": {
+            "hurst_rs": {
+              "point": 0.2856724220486969,
+              "lo": 0.1246198030768785,
+              "hi": 0.5839025364811575
+            },
+            "higuchi_D": {
+              "point": 2.0685811523754554,
+              "lo": 2.0290880991343494,
+              "hi": 2.1208816194824403
+            },
+            "boxdim": {
+              "point": 1.0904247212524003,
+              "lo": 0.979917130293545,
+              "hi": 1.125059365054014
+            }
+          }
+        }
+      }
+    },
+    "tau_tiny|minref": {
+      "n": 64,
+      "mean": 7.3125,
+      "min": 5.0,
+      "max": 11.0,
+      "variants": {
+        "raw": {
+          "n": 64,
+          "metrics": {
+            "hurst_rs": 0.49138319982164125,
+            "higuchi_D": 2.0185109121393197,
+            "boxdim": 0.7182167982846258
+          },
+          "bootstrap_ci95": {
+            "hurst_rs": {
+              "point": 0.49138319982164125,
+              "lo": 0.23040314648616847,
+              "hi": 0.8417185717385209
+            },
+            "higuchi_D": {
+              "point": 2.0185109121393197,
+              "lo": 1.9369316344597303,
+              "hi": 2.1124595625998155
+            },
+            "boxdim": {
+              "point": 0.7182167982846258,
+              "lo": 0.6900065841270095,
+              "hi": 0.7936427618273152
+            }
+          }
+        },
+        "log1p": {
+          "n": 64,
+          "metrics": {
+            "hurst_rs": 0.5237971825968147,
+            "higuchi_D": 2.0124374762391506,
+            "boxdim": 0.7182167982846258
+          },
+          "bootstrap_ci95": {
+            "hurst_rs": {
+              "point": 0.5237971825968147,
+              "lo": 0.22288158563605687,
+              "hi": 0.8420566032641309
+            },
+            "higuchi_D": {
+              "point": 2.0124374762391506,
+              "lo": 1.9272035645159995,
+              "hi": 2.124473595488295
+            },
+            "boxdim": {
+              "point": 0.7182167982846258,
+              "lo": 0.6923593225203163,
+              "hi": 0.7910892526166015
+            }
+          }
+        },
+        "relinc": {
+          "n": 63,
+          "metrics": {
+            "hurst_rs": 0.3093867871653046,
+            "higuchi_D": 2.0888904341415877,
+            "boxdim": 0.9471029655336727
+          },
+          "bootstrap_ci95": {
+            "hurst_rs": {
+              "point": 0.3093867871653046,
+              "lo": 0.10251703253313961,
+              "hi": 0.6666883965299046
+            },
+            "higuchi_D": {
+              "point": 2.0888904341415877,
+              "lo": 2.0197160194425274,
+              "hi": 2.145578664879255
+            },
+            "boxdim": {
+              "point": 0.9471029655336727,
+              "lo": 0.921853137208768,
+              "hi": 1.0704668855830448
+            }
+          }
+        }
+      }
+    }
+  },
+  "contrasts": {
+    "minref:implication-cadeia:higuchi_D:raw": {
+      "delta_point": 0.014734444328957652,
+      "lo": -0.11756517993848514,
+      "hi": 0.21140700094199083,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": true
+    },
+    "minref:implication-cadeia:boxdim:raw": {
+      "delta_point": -0.004439411935845294,
+      "lo": -0.07745865433013965,
+      "hi": 0.08182637822418204,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "minref:implication-cadeia:hurst_rs:raw": {
+      "delta_point": -0.13290581520360767,
+      "lo": -0.4303963019644369,
+      "hi": 0.3885718901007835,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "minref:implication-cadeia:higuchi_D:log1p": {
+      "delta_point": 0.02706342498830061,
+      "lo": -0.13382432646012932,
+      "hi": 0.24941207014096434,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "minref:implication-cadeia:boxdim:log1p": {
+      "delta_point": -0.004439411935845294,
+      "lo": -0.07369655941662079,
+      "hi": 0.08504236439494894,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "minref:implication-cadeia:hurst_rs:log1p": {
+      "delta_point": -0.10689793250218105,
+      "lo": -0.44056919902366887,
+      "hi": 0.48085039822672593,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "minref:implication-cadeia:higuchi_D:relinc": {
+      "delta_point": -0.009259802873381684,
+      "lo": -0.108893372359401,
+      "hi": 0.08978404870247969,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": true
+    },
+    "minref:implication-cadeia:boxdim:relinc": {
+      "delta_point": -0.0879057905035443,
+      "lo": -0.22582948327143582,
+      "hi": 0.08821901549801936,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "minref:implication-cadeia:hurst_rs:relinc": {
+      "delta_point": 0.35415079803013993,
+      "lo": -0.35077341315090316,
+      "hi": 0.3001256493664445,
+      "excludes_zero": false,
+      "point_outside_ci": true,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "minref:implication-tau_tiny:higuchi_D:raw": {
+      "delta_point": -0.03900564468236167,
+      "lo": -0.2314706653561216,
+      "hi": 0.11175050699372857,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": true
+    },
+    "minref:implication-tau_tiny:boxdim:raw": {
+      "delta_point": 0.053332608101712364,
+      "lo": -0.0814647754605149,
+      "hi": 0.07088192113132707,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "minref:implication-tau_tiny:hurst_rs:raw": {
+      "delta_point": 0.03663848365637856,
+      "lo": -0.28841860055603696,
+      "hi": 0.6386303959673467,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "minref:implication-tau_tiny:higuchi_D:log1p": {
+      "delta_point": -0.029480554876434528,
+      "lo": -0.24535198142725045,
+      "hi": 0.09545342515040245,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "minref:implication-tau_tiny:boxdim:log1p": {
+      "delta_point": 0.053332608101712364,
+      "lo": -0.09862404221823295,
+      "hi": 0.060532897488156046,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "minref:implication-tau_tiny:hurst_rs:log1p": {
+      "delta_point": 0.029286583603866045,
+      "lo": -0.24939542015771654,
+      "hi": 0.5863373976236401,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "minref:implication-tau_tiny:higuchi_D:relinc": {
+      "delta_point": -0.02003463580119158,
+      "lo": -0.11059027004431443,
+      "hi": 0.07991531391938933,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": true
+    },
+    "minref:implication-tau_tiny:boxdim:relinc": {
+      "delta_point": -0.016951531473034853,
+      "lo": -0.24408906643206107,
+      "hi": 0.026848146015845953,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "minref:implication-tau_tiny:hurst_rs:relinc": {
+      "delta_point": 0.012001845126071109,
+      "lo": -0.3661883466502647,
+      "hi": 0.3636864877647792,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "minref:cadeia-tau_tiny:higuchi_D:raw": {
+      "delta_point": -0.053740089011319325,
+      "lo": -0.30668586429622113,
+      "hi": 0.029756058301362964,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": true
+    },
+    "minref:cadeia-tau_tiny:boxdim:raw": {
+      "delta_point": 0.05777202003755766,
+      "lo": -0.100946095088701,
+      "hi": 0.07607957635677909,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "minref:cadeia-tau_tiny:hurst_rs:raw": {
+      "delta_point": 0.16954429885998623,
+      "lo": -0.26983605914025827,
+      "hi": 0.5687728476865657,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "minref:cadeia-tau_tiny:higuchi_D:log1p": {
+      "delta_point": -0.05654397986473514,
+      "lo": -0.2903620189886924,
+      "hi": 0.055882183178595835,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "minref:cadeia-tau_tiny:boxdim:log1p": {
+      "delta_point": 0.05777202003755766,
+      "lo": -0.07768472684393535,
+      "hi": 0.07092448366077575,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "minref:cadeia-tau_tiny:hurst_rs:log1p": {
+      "delta_point": 0.1361845161060471,
+      "lo": -0.26698384340729764,
+      "hi": 0.541155422867194,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "minref:cadeia-tau_tiny:higuchi_D:relinc": {
+      "delta_point": -0.010774832927809896,
+      "lo": -0.09034320247005878,
+      "hi": 0.06037781889469507,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": true
+    },
+    "minref:cadeia-tau_tiny:boxdim:relinc": {
+      "delta_point": 0.07095425903050945,
+      "lo": -0.14788371343358353,
+      "hi": 0.10438380915751333,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "minref:cadeia-tau_tiny:hurst_rs:relinc": {
+      "delta_point": -0.3421489529040688,
+      "lo": -0.3183216503594319,
+      "hi": 0.4230446151736247,
+      "excludes_zero": false,
+      "point_outside_ci": true,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:implication-cadeia:higuchi_D:raw": {
+      "delta_point": 0.04441622575022386,
+      "lo": -0.345001207450663,
+      "hi": 0.16529796789363327,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:implication-cadeia:boxdim:raw": {
+      "delta_point": -0.101552227211405,
+      "lo": -0.19406398695600668,
+      "hi": -0.008851528647622287,
+      "excludes_zero": true,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:implication-cadeia:hurst_rs:raw": {
+      "delta_point": -0.17820899335750517,
+      "lo": -0.3274575757949493,
+      "hi": 0.6367168670502286,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:implication-cadeia:higuchi_D:log1p": {
+      "delta_point": 0.045628065846802235,
+      "lo": -0.2883876698322152,
+      "hi": 0.15421656700796493,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:implication-cadeia:boxdim:log1p": {
+      "delta_point": -0.11309994895339848,
+      "lo": -0.19726977382739774,
+      "hi": -0.02162055240994165,
+      "excludes_zero": true,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:implication-cadeia:hurst_rs:log1p": {
+      "delta_point": -0.15183822813122944,
+      "lo": -0.41014399538202195,
+      "hi": 0.5914017655352427,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:implication-cadeia:higuchi_D:relinc": {
+      "delta_point": 0.011240455959406148,
+      "lo": -0.06383435374729274,
+      "hi": 0.08197164978720695,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:implication-cadeia:boxdim:relinc": {
+      "delta_point": -0.10608322636307255,
+      "lo": -0.21845697317231427,
+      "hi": -0.002679937431002366,
+      "excludes_zero": true,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:implication-cadeia:hurst_rs:relinc": {
+      "delta_point": 0.21925530739375318,
+      "lo": -0.28443017335474785,
+      "hi": 0.4209800281023453,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:implication-tau_tiny:higuchi_D:raw": {
+      "delta_point": 0.01918186198204319,
+      "lo": -0.41888282067237803,
+      "hi": -0.0107984392112086,
+      "excludes_zero": true,
+      "point_outside_ci": true,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:implication-tau_tiny:boxdim:raw": {
+      "delta_point": -0.07129325272243003,
+      "lo": -0.17028950045124913,
+      "hi": -0.012515574195101853,
+      "excludes_zero": true,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:implication-tau_tiny:hurst_rs:raw": {
+      "delta_point": -0.2759282292102019,
+      "lo": -0.06552282960483513,
+      "hi": 0.8134569132616146,
+      "excludes_zero": false,
+      "point_outside_ci": true,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:implication-tau_tiny:higuchi_D:log1p": {
+      "delta_point": 0.0175061004467707,
+      "lo": -0.4405296851060987,
+      "hi": -0.009829930535355746,
+      "excludes_zero": true,
+      "point_outside_ci": true,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:implication-tau_tiny:boxdim:log1p": {
+      "delta_point": -0.07129325272243014,
+      "lo": -0.17939668394563235,
+      "hi": -0.004803809289603667,
+      "excludes_zero": true,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:implication-tau_tiny:hurst_rs:log1p": {
+      "delta_point": -0.29686792575889126,
+      "lo": -0.09914993340558464,
+      "hi": 0.7846098861894519,
+      "excludes_zero": false,
+      "point_outside_ci": true,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:implication-tau_tiny:higuchi_D:relinc": {
+      "delta_point": 0.037416069643575245,
+      "lo": -0.07018019410345078,
+      "hi": 0.10836574054019277,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:implication-tau_tiny:boxdim:relinc": {
+      "delta_point": -0.09953394421249506,
+      "lo": -0.23461710978033568,
+      "hi": 0.009191843649046572,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:implication-tau_tiny:hurst_rs:relinc": {
+      "delta_point": -0.06968732267065209,
+      "lo": -0.3116911674246555,
+      "hi": 0.3866241011450932,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:cadeia-tau_tiny:higuchi_D:raw": {
+      "delta_point": -0.025234363768180668,
+      "lo": -0.3157231338086428,
+      "hi": 0.007229688985404437,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:cadeia-tau_tiny:boxdim:raw": {
+      "delta_point": 0.030258974488974966,
+      "lo": -0.06700101145136772,
+      "hi": 0.08113272494583867,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:cadeia-tau_tiny:hurst_rs:raw": {
+      "delta_point": -0.0977192358526967,
+      "lo": -0.19904381004260718,
+      "hi": 0.6139512468081273,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:cadeia-tau_tiny:higuchi_D:log1p": {
+      "delta_point": -0.028121965400031534,
+      "lo": -0.2808388691841386,
+      "hi": 0.011860364913917287,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:cadeia-tau_tiny:boxdim:log1p": {
+      "delta_point": 0.04180669623096833,
+      "lo": -0.07602225289858378,
+      "hi": 0.10078531079960074,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:cadeia-tau_tiny:hurst_rs:log1p": {
+      "delta_point": -0.14502969762766182,
+      "lo": -0.19125339314631934,
+      "hi": 0.6557877568883147,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:cadeia-tau_tiny:higuchi_D:relinc": {
+      "delta_point": 0.026175613684169097,
+      "lo": -0.0732368939963739,
+      "hi": 0.077917720824346,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:cadeia-tau_tiny:boxdim:relinc": {
+      "delta_point": 0.0065492821505774845,
+      "lo": -0.11996038788385088,
+      "hi": 0.10516877138758463,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "drat:cadeia-tau_tiny:hurst_rs:relinc": {
+      "delta_point": -0.2889426300644053,
+      "lo": -0.3239949638833661,
+      "hi": 0.3068609275097079,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "independente",
+      "confirmatorio_H_C3": false
+    },
+    "fonte:implication:higuchi_D:raw": {
+      "delta_point": -0.018686643149291582,
+      "lo": 0.010853182489837465,
+      "hi": 0.3853532069785153,
+      "excludes_zero": true,
+      "point_outside_ci": true,
+      "kind": "pareado",
+      "confirmatorio_H_C4": true
+    },
+    "fonte:implication:boxdim:raw": {
+      "delta_point": 0.013053156314222436,
+      "lo": -0.05695681601340763,
+      "hi": 0.08663095293612655,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": false
+    },
+    "fonte:implication:hurst_rs:raw": {
+      "delta_point": 0.1504420202719181,
+      "lo": -0.5643952315871755,
+      "hi": 0.2123456132509277,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": false
+    },
+    "fonte:implication:higuchi_D:log1p": {
+      "delta_point": -0.02410547060216972,
+      "lo": -0.01592178099775121,
+      "hi": 0.3812170267646984,
+      "excludes_zero": false,
+      "point_outside_ci": true,
+      "kind": "pareado",
+      "confirmatorio_H_C4": false
+    },
+    "fonte:implication:boxdim:log1p": {
+      "delta_point": 0.013053156314222436,
+      "lo": -0.0504020803223717,
+      "hi": 0.10087913753071553,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": false
+    },
+    "fonte:implication:hurst_rs:log1p": {
+      "delta_point": 0.1855950295686471,
+      "lo": -0.5747028358885847,
+      "hi": 0.17378051005883077,
+      "excludes_zero": false,
+      "point_outside_ci": true,
+      "kind": "pareado",
+      "confirmatorio_H_C4": false
+    },
+    "fonte:implication:higuchi_D:relinc": {
+      "delta_point": -0.03714142367863449,
+      "lo": -0.1323854090517722,
+      "hi": 0.07172409801156876,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": true
+    },
+    "fonte:implication:boxdim:relinc": {
+      "delta_point": -0.06073934297926742,
+      "lo": -0.16726385400282506,
+      "hi": 0.08618395167422732,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": false
+    },
+    "fonte:implication:hurst_rs:relinc": {
+      "delta_point": 0.10540353291333088,
+      "lo": -0.4127568388854161,
+      "hi": 0.3382391974599515,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": false
+    },
+    "fonte:cadeia:higuchi_D:raw": {
+      "delta_point": 0.010995138271974625,
+      "lo": -0.10205666309548045,
+      "hi": 0.22415388828554983,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": true
+    },
+    "fonte:cadeia:boxdim:raw": {
+      "delta_point": -0.08405965896133727,
+      "lo": -0.14232157105744747,
+      "hi": 0.0019808312882140244,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": false
+    },
+    "fonte:cadeia:hurst_rs:raw": {
+      "delta_point": 0.1051388421180206,
+      "lo": -0.48652216672913773,
+      "hi": 0.27517057288954083,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": false
+    },
+    "fonte:cadeia:higuchi_D:log1p": {
+      "delta_point": -0.0055408297436680964,
+      "lo": -0.08075251345360313,
+      "hi": 0.21900379815994975,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": false
+    },
+    "fonte:cadeia:boxdim:log1p": {
+      "delta_point": -0.09560738070333075,
+      "lo": -0.1556931629916125,
+      "hi": -0.01012937885697629,
+      "excludes_zero": true,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": false
+    },
+    "fonte:cadeia:hurst_rs:log1p": {
+      "delta_point": 0.1406547339395987,
+      "lo": -0.5278225737512297,
+      "hi": 0.29473767063364464,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": false
+    },
+    "fonte:cadeia:higuchi_D:relinc": {
+      "delta_point": -0.016641164845846657,
+      "lo": -0.0783014661682011,
+      "hi": 0.06628323998275976,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": true
+    },
+    "fonte:cadeia:boxdim:relinc": {
+      "delta_point": -0.07891677883879566,
+      "lo": -0.21830325049879273,
+      "hi": 0.04767380412901889,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": false
+    },
+    "fonte:cadeia:hurst_rs:relinc": {
+      "delta_point": -0.029491957723055885,
+      "lo": -0.28125862302277715,
+      "hi": 0.3598161123725212,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": false
+    },
+    "fonte:tau_tiny:higuchi_D:raw": {
+      "delta_point": 0.03950086351511328,
+      "lo": -0.0632268178171762,
+      "hi": 0.12639210035921433,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": true
+    },
+    "fonte:tau_tiny:boxdim:raw": {
+      "delta_point": -0.11157270450991996,
+      "lo": -0.1265729775636606,
+      "hi": 0.006619702647572945,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": false
+    },
+    "fonte:tau_tiny:hurst_rs:raw": {
+      "delta_point": -0.16212469259466233,
+      "lo": -0.3112551405088924,
+      "hi": 0.2673732243644543,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": false
+    },
+    "fonte:tau_tiny:higuchi_D:log1p": {
+      "delta_point": 0.022881184721035508,
+      "lo": -0.052730175357369014,
+      "hi": 0.1273336000199845,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": false
+    },
+    "fonte:tau_tiny:boxdim:log1p": {
+      "delta_point": -0.11157270450992007,
+      "lo": -0.13199038919734907,
+      "hi": 0.013075940346193415,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": false
+    },
+    "fonte:tau_tiny:hurst_rs:log1p": {
+      "delta_point": -0.1405594797941102,
+      "lo": -0.2902648465920953,
+      "hi": 0.2587556886077934,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": false
+    },
+    "fonte:tau_tiny:higuchi_D:relinc": {
+      "delta_point": 0.020309281766132337,
+      "lo": -0.05244193251842111,
+      "hi": 0.07360408150225317,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": true
+    },
+    "fonte:tau_tiny:boxdim:relinc": {
+      "delta_point": -0.14332175571872763,
+      "lo": -0.18028166213391172,
+      "hi": 0.03329818940571472,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": false
+    },
+    "fonte:tau_tiny:hurst_rs:relinc": {
+      "delta_point": 0.023714365116607683,
+      "lo": -0.3185585052957105,
+      "hi": 0.31367791001436574,
+      "excludes_zero": false,
+      "point_outside_ci": false,
+      "kind": "pareado",
+      "confirmatorio_H_C4": false
+    }
+  },
+  "hypotheses": {
+    "H_C3_controle_de_regime": {
+      "enunciado": "Com todas as familias em n<=6 (sem curva exponencial — escopo do minref), os pares de familias NAO separam por D_H em minref (IC95 inclui 0 em raw e relinc) -> confirma A1 do referee do 28_: a metrica media REGIME de crescimento, nao identidade de familia.",
+      "n_testes": 6,
+      "excluem_0": [],
+      "veredito": "CONFIRMADA — nenhum par exclui 0 (raw+relinc)",
+      "bonferroni_nota": "alpha* = 0.05/12 ≈ 0.0042; com B=300 o percentil resolvivel mais extremo e [1,298] —IC95 reportado + contagem, mesma regua honesta do 28_ §3.3"
+    },
+    "H_C4_invariancia_de_fonte": {
+      "enunciado": "Contrastes pareados D_H(minref) - D_H(drat) por familia incluem 0 (raw e relinc) -> as metricas fractais nao sao artefato do solver (comprimento minimo canonico vs prova do Cadical na MESMA instancia).",
+      "n_testes": 6,
+      "excluem_0": [
+        "fonte:implication:higuchi_D:raw"
+      ],
+      "excluem_0_coerentes": [],
+      "incoerentes_ponto_fora_do_IC": [
+        "fonte:implication:higuchi_D:raw"
+      ],
+      "veredito": "REFUTADA (NOMINAL) — mas a unica exclusao e incoerente (ponto fora do proprio IC95: artefato de saturacao do Higuchi, ver diagnostico); leitura sustentada: invariancia de fonte mantida, com ressalva",
+      "bonferroni_nota": "mesma regua da H_C3: alpha*=0.05/12"
+    },
+    "H_C2_Res_vs_EFrege": {
+      "status": "DEFERIDO",
+      "motivo": "mantido do v1: EF nao e mensuravel com o tooling; v2 nao mede z3/EF (foco minref vs DRAT)"
+    }
+  }
+}

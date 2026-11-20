@@ -21,7 +21,7 @@ e viraram software verificável. Documentação completa por ferramenta em
 | **minref** | `gk_minref.py` | Comprimento **mínimo exato** de refutação Res via encoder `REF_t` (fecho + pares completos) — gadget das frentes **C2/LP** | complexidade de prova finita; calibrar D4′; validação de encoders; verificação92/92 do teste LP | [`ferramentas/gk_minref.md`](ferramentas/gk_minref.md) |
 | **dd-cert** | `gk_dd_cert.py` | **Teorema 4.3 (`DD_Res ∈ P`)** executável: π (DRAT/DAG/saturação) → **certificado da sub-derivação pura** + verificador independente | **auditoria externa** (peça do dossiê); detector de contraexemplos; certificação de evidências | [`ferramentas/gk_dd_cert.md`](ferramentas/gk_dd_cert.md) |
 | **claims-lint** | `gk_claims_lint.py` + `.github/workflows/ci.yml` | **Metodologia Ten-Proofs**:10 regras de consistência de claims/evidências (R1–R10) + CI | impedir regressão epistêmica; proteger hashes; padrão para pesquisa com IA | [`ferramentas/gk_claims_lint.md`](ferramentas/gk_claims_lint.md) |
-| **proof-fractal** | `gk_proof_fractal.py` | **D4′**: séries de comprimentos de prova → Hurst R/S, Higuchi D_H, box-counting + bootstrap (Eixo FCT) | discriminar regimes de crescimento de prova; base p/ provas mínimas (v2) | [`ferramentas/gk_proof_fractal.md`](ferramentas/gk_proof_fractal.md) |
+| **proof-fractal** | `gk_proof_fractal.py` + `gk_proof_fractal_v2.py` | **D4′**: séries de comprimentos de prova → Hurst R/S, Higuchi D_H, box-counting + bootstrap (Eixo FCT); **v2** = comprimentos **mínimos canônicos** (`minref`) vs DRAT pareado, famílias n≤6 (controle de regime), anti-quantização `relinc`, hipóteses a priori | discriminar regimes de crescimento de prova; testar invariância à fonte (v2) | [`ferramentas/gk_proof_fractal.md`](ferramentas/gk_proof_fractal.md) |
 | **alternating-family** | `gk_alternating_family.py` | Codificação `REF_t` (semântica de linhas) + **critério-LP** e **Teorema Nec** da família alternante (C2.3) | decidir a via LP da rota negativa; fronteira exata de t | [`ferramentas/gk_alternating_family.md`](ferramentas/gk_alternating_family.md) |
 | **c2-projection-sim** | `gk_c2_projection_sim.py` | Projeção `E` em `Res(k)` com invariantes I1–I5 + **contraexemplo G1** determinístico (frente C2) | detector automático de contraexemplos; caixa de ensaio (O1)–(O5); regressão do CI | [`ferramentas/gk_c2_projection_sim.md`](ferramentas/gk_c2_projection_sim.md) |
 | **diagnóstico** | `diagnostico_ambiente.ps1` | Verificação ✅/❌ do ambiente (Git/Python/Julia/Lean/PATH; `-Build` = `lake build`; hash do sympy) | setup e reidratação do laboratório | [`AMBIENTE_E_FERRAMENTAS.md`](AMBIENTE_E_FERRAMENTAS.md) |
@@ -51,7 +51,8 @@ python gk_claims_lint.py                 # 10/10 regras (~1s)
 python gk_minref.py demo                 # validação do minref
 python gk_dd_cert_test.py                # 7/7 do extrator de certificados
 python gk_c2_projection_sim.py --n 400   # invariantes + contraexemplo G1
-python gk_proof_fractal.py               # D4′ (seed fixa, ~4min)
+python gk_proof_fractal.py               # D4′ v1 (seed fixa, ~4min)
+python gk_proof_fractal_v2.py            # D4′ v2: minref canônico (~17min)
 python -File diagnostico_ambiente.ps1    # ambiente (-Build = lean)
 ```
 

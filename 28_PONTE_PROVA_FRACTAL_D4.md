@@ -124,6 +124,14 @@ sob a régua mais severa). Verdict final mantido, força do veredito modulada.
   Python3.15.2.
 - Saídas: `gk_proof_complexity_fractal.json` (validação + séries + bootstrap +
   contrastes + hipóteses), `gk_proof_fractal_series.csv` (188 linhas).
+- **Errata (20/11/2026, 8º bug — referee §A10):** a geração das instâncias
+  usava `tuple.__hash__()` (randomizado por processo) — o seed **não**
+  reproduzia os mesmos dados *entre execuções*, apesar de o artefato
+  congelado acima ser íntegro (sha registrado; 188/188 UNSAT verificado
+  na própria execução). Corrigido com `_det_seed()` (CRC32 determinístico);
+  re-execuções pós-correção geram instâncias da mesma distribuição mas
+  possivelmente distintas das congeladas. Detalhes: referee §A10 e
+  `29_PONTE_PROVA_FRACTAL_D4V2.md`.
 
 ## 6. Limitações e H_C2 DEFERIDO (honestidade de escopo)
 

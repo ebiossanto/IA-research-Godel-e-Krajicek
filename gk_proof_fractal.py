@@ -50,6 +50,18 @@ B_BOOT = 300
 BLOCK = 8
 Z3_TIMEOUT_MS = 5000
 
+
+def _det_seed(*parts):
+    """Seed DETERMINISTICO entre processos (8o BUG do projeto, 20/11/2026):
+    os geradores usavam tuple.__hash__() cujo valor para strings e
+    randomizado por PYTHONHASHSEED — o 'seed=20261119' NUNCA reproduzia as
+    mesmas instancias entre execucoes. CRC32 de repr() e estavel.
+    (Os artefatos v1 congelados permanecem validos: gerados num unico
+    processo, sha256 registrado, 188/188 UNSAT verificado por solver —
+    o que faltava era a EXATA regeneracao entre execucoes.)"""
+    import zlib
+    return zlib.crc32(repr(parts).encode("utf-8"))
+
 OUT_JSON = Path("gk_proof_complexity_fractal.json")
 OUT_CSV = Path("gk_proof_fractal_series.csv")
 
@@ -74,7 +86,7 @@ except ImportError:
 
 def gen_implication(m: int, seed: int):
     """Grafo de implicacoes aleatorio + unidades com caminho s->t -> UNSAT."""
-    rng = random.Random((SEED, "imp", m, seed).__hash__() & 0xFFFFFFFF)
+    rng = random.Random(_det_seed(SEED, "imp", m, seed))
     edges = []
     for _ in range(2 * m):
         a = rng.randrange(1, m + 1)
@@ -108,7 +120,7 @@ def gen_implication(m: int, seed: int):
 
 def gen_php(m: int, seed: int):
     """PHP_{m+1 -> m}: UNSAT classico. Seed = permutacao de variaveis."""
-    rng = random.Random((SEED, "php", m, seed).__hash__() & 0xFFFFFFFF)
+    rng = random.Random(_det_seed(SEED, "php", m, seed))
     npig, nholes = m + 1, m
     # variaveis p[i][j] -> numeracao aleatoria
     ids = list(range(1, npig * nholes + 1))
@@ -152,7 +164,7 @@ def gen_tau(depth: int, seed: int, k: int = 8, w: int = 10):
     CNF de Tseitin de (circuit AND saida=b) e UNSAT iff b fora da imagem.
     Seed escolhe (a) a estrutura do circuito e (b) qual b da imagem-complemento.
     """
-    rng = random.Random((SEED, "tau", depth, seed).__hash__() & 0xFFFFFFFF)
+    rng = random.Random(_det_seed(SEED, "tau", depth, seed))
     # camadas: layer0 = entradas 1..k; gate ids seguem
     layers = [list(range(1, k + 1))]
     nxt = k + 1
@@ -214,9 +226,13 @@ def gen_tau(depth: int, seed: int, k: int = 8, w: int = 10):
             clauses.append([a, bvar, -idx])
             clauses.append([a, -bvar, idx])
             clauses.append([-a, bvar, idx])
-    # saida = b  (se b_i=1 -> unit [-out]; se 0 -> unit [out]); UNSAT iff b fora
+    # saida = b  (b_i=1 -> unit [out] (out=1); b_i=0 -> unit [-out]);
+    # UNSAT iff b fora da imagem. 7o BUG (20/11/2026): a v1 estava INVERTIDA
+    # ([o] se b_i=0) e codificava saida = NOT b — so era UNSAT quando NOT b
+    # fora da imagem (10/24 seeds SAT na sonda do v2). O CSV v1 congelado
+    # permanece valido: 188/188 UNSAT verificado por solver (testemunha NOT b).
     for pos, o in enumerate(outputs):
-        clauses.append([o] if b[pos] == 0 else [-o])
+        clauses.append([-o] if b[pos] == 0 else [o])
     tag = "b_out=" + "".join(map(str, b))
     return nvars, clauses, tag
 

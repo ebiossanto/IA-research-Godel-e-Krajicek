@@ -164,13 +164,20 @@ de monitoração real; se não → delimita honestamente o domínio (laboratoria
 **Novo dado:** `fractal_collapse_prediction_log.csv` (timestamp, H, predição, rótulo real).
 
 ### D4. "Proof Length → Fractal Dimension" (ponte original de maior valor)
-Combinar a campanha PPR (216 testes Z3 reais) com o motor fractal: pegar
-os 216 casos, calcular a **curva de "entropia de prova"** (`prob(z/¬z)` do
-interpolante) como série ordinal e extrair H/D; testar se a provas de
-Resolution (s_Res=21.2) exibem **fractalidade mais alta** que Extended Frege
-(s_EF=17.0) e se essa diferença é estatisticamente significativa.
-**Novo dado:** `gk_proof_complexity_fractal.json` (174?² tests × H,D).
-**Nível previsto:** N1 (script reproduzível), N2 (estatística via bootstrap).
+**EXECUTADO em duas rodadas (20/11/2026):** v1 = `28_PONTE_PROVA_FRACTAL_D4.md`
+(D_H separa `php` = regime de crescimento; leitura "dura=mais fractal"
+refutada; H_C2 EF **deferido**); v2 = `29_PONTE_PROVA_FRACTAL_D4V2.md`
+(comprimentos **mínimos canônicos** `minref` vs DRAT pareado, famílias n≤6
+controlando o regime, anti-quantização `relinc`, testes a priori — H_C3
+confirmada, H_C4 nominal com ressalva; 7º/8º bugs corrigidos). **Pendências
+r2:** TOST/equivalência, inferência BCa, τ k↑ (exige escopo minref>n6),
+séries em b com minref, H_C2 (EF) permanece deferido.
+Original (para histórico): Combinar a campanha PPR (216 testes Z3 reais) com
+o motor fractal: pegar os 216 casos, calcular a **curva de "entropia de
+prova"** (`prob(z/¬z)` do interpolante) como série ordinal e extrair H/D;
+testar se provas de Resolution (s_Res=21.2) exibem **fractalidade mais alta**
+que Extended Frege (s_EF=17.0).
+**Nível:** N1 (script reproduzível) + N2 (bootstrap).
 **Hipótese (C):** extensões de eficiência (EF) "aplaçam" a curva de prova → H
 mais baixo; Resolution mantém auto-similaridade (H mais alto). Se falsa,
 documenta.
