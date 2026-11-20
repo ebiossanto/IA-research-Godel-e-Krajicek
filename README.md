@@ -105,6 +105,7 @@ warnings de `sorry` (`DDP.lean:628` e `:690`).
 ```
 INDICE.md                  ← índice canônico (auditável)
 CONTRIBUICOES_DO_PROJETO.md ← síntese das descobertas/contribuições por área
+FERRAMENTAS.md              ← catálogo das ferramentas executáveis (+ ferramentas/)
 PLANO_PESQUISA_E_DESENVOLVIMENTO.md ← plano-mestre: dev + questões respondidas/a responder + P&D
 AMBIENTE_E_FERRAMENTAS.md  ← ferramentas, permissões, incidente sympy, reidratação
 diagnostico_ambiente.ps1   ← verificação ✅/❌ do ambiente (-Build = lake build)
@@ -113,6 +114,7 @@ CONTINUIDADE_PESQUISA.md   ← continuidade entre fases
 00_… a 27_…                ← documentos de apoio numerados (canônicos)
 papers/                    ← os 2 documentos exploratórios (set/2026)
 krajicek_ddp/              ← campanha DD_P completa (out/2026) — linha atual
+ferramentas/               ← docs por ferramenta (matemática, uso, citação)
 lean4/  FoundationBridge/  ← formalização
 archive/                   ← snapshots antigos (não canônicos; ver archive/README.md)
 CRITICA_EXTERNA_2026-10-11.md ← resposta pontual à crítica externa recebida

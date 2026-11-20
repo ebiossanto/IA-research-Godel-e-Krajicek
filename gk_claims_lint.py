@@ -52,6 +52,7 @@ DOCS_LINKED_FROM = [  # R5: arquivos cujos links locais devem resolver
     "README.md",
     "AMBIENTE_E_FERRAMENTAS.md",
     "INDICE.md",
+    "FERRAMENTAS.md",
 ]
 
 R3_FILES = ["README.md", "INDICE.md", "CONTRIBUICOES_DO_PROJETO.md"]

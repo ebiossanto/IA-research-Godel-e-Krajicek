@@ -1,9 +1,8 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.29 (20/11/2026 — **N3 rodada2: movimento (ii) EXECUTADO**
-(`N3_...` §7 + referee): H-separ mecanismo **(P) executável**, acoplamento C2
-desacoplado, lema de constantes (P), regressão `n3_hsepar_*`; v6.28:
-extrator dd-cert; v6.27: minref; …)
+**Versão:** 6.30 (20/11/2026 — **FERRAMENTAS.md + `ferramentas/`**: docs por
+ferramenta com citação, README, aplicações, uso e **arcabouço matemático**;
+v6.29: N3 rodada2; v6.28: dd-cert; …)
 **Status:** ✅ **Carta ENVIADA 11/10/2026 18:14 → RESPOSTA PARCIAL RECEBIDA 12/10/2026
 (Q1 respondido; Q2–Q4 pendentes — follow-up devido; `CARTA_FINAL_RECEBIDA.md`)**;
 Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥` **(condicional a `q` total —
@@ -29,6 +28,7 @@ em Core; rascunho MO (não postado)
 | Arquivo | Conteúdo | Status |
 |---------|----------|--------|
 | `CONTRIBUICOES_DO_PROJETO.md` | **SÍNTESE das descobertas/contribuições por área** (complexidade de provas, aritmética limitada, reflexão/slow, geradores, negativas, metodologia) + fronteira de claims | **ATIVO — começar por aqui (visão externa)** |
+| **`FERRAMENTAS.md` + `ferramentas/`** | **Catálogo das ferramentas executáveis** (minref, dd-cert, claims-lint, proof-fractal, alternating-family, c2-sim) — cada uma como extensão do projeto, com README, arcabouço matemático, aplicações, uso e citação | **ATIVO** |
 | `PLANO_PESQUISA_E_DESENVOLVIMENTO.md` | **PLANO-MESTRE: desenvolvimento + questões respondidas/a responder + P&D priorizado** (19/11/2026) | **ATIVO — começar por aqui** |
 | `AMBIENTE_E_FERRAMENTAS.md` | **Estado das ferramentas/permissões + incidente sympy + reidratação** (19/11/2026) | **ATIVO** |
 | `diagnostico_ambiente.ps1` | Script ✅/❌ de verificação do ambiente (`-Build` inclui `lake build`) | SCRIPT |
