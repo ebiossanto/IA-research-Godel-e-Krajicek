@@ -147,3 +147,135 @@ ressalva da flag `point_outside_ci`; generalização para n>6.
 (v) τ k↑ exigindo extensão do escopo do minref (A5/§6.3).
 *(vi) sha run3 — **FECHADO**: previsão `b8aecc2d…` confirmada
 (`b8aecc2dd6cc7b33…`), determinismo byte-a-byte demonstrado.)*
+
+---
+
+## C. Rodada r2 — BCa + TOST + MDE80 (20/11/2026)
+
+**Alvo da rodada:** `gk_proof_fractal_v2_r2.py`,
+`gk_proof_fractal_v2_r2.json`, `gk_proof_fractal_v2_r2_contrasts.csv`.
+**Pendências atacadas:** (i)–(iv) da r1.
+
+### C1 (GRAVE) — Margens "declaradas a priori" foram escolhidas DEPOIS de ver os ICs do r1
+As margens 0,10/0,15/0,20 foram fixadas após o r1 já ter revelado ICs de
+amplitude ~±0,15. "A priori" aqui é **relativo à execução do r2, não aos
+dados** — o r1 é a mesma série.
+
+**Resposta:** **ACEITO como limitação de verdade; mitigado, não eliminado.**
+(1) A margem primária 0,10 tem âncora **independente do r1**: é ~1/7 do
+efeito que a própria métrica separou no v1 (0,731) — "menos que isso seria
+desprezível frente ao que a métrica já demonstrou capaz". (2) A tabela
+**sensibilidade completa** (0,10/0,15/0,20) é reportada sem promover
+nenhuma margem: o padrão é **monótono** (H_C3: 1/6 → 4/6 → 6/6), então a
+história não depende de uma margem escolhida. (3) Nenhuma margem é usada
+para **claim de separação** — só para limite quantitativo. Declarado no
+doc §8.1. ✅
+
+### C2 (GRAVE) — A promessa "BCa corrige a incoerência" NÃO se materializou
+r1: 8/93 com ponto fora do IC (percentil). r2 com BCa: **8/81 ainda** — a
+flag não diminuiu em nada; pior, **2 ICs BCa degenerados** (`lo==hi`,
+hurst em `drat:implication-tau_tiny`). O remédio proposto para A2 não
+funcionou no caso concreto.
+
+**Resposta:** **ACEITO — e é o achado mais importante do r2.** O BCa
+corrige **viés e assimetria da distribuição bootstrap** (z0/aceleração),
+mas aqui a patologia é outra: a **estatística em si** (Higuchi/Hurst
+saturando no teto/piso sob reamostragem de séries quantizadas) gera
+distribuições **degeneradas** — nenhum método de IC conserta uma
+estatística colapsada. Consequências assumidas: (1) a **regra da
+incoerência (iii)** — aplicada automaticamente no `classify()` — é de
+fato o remédio que vale (8 testes viram `INCOERENTE` e não contam em
+nenhuma direção); (2) o doc §8.2 passa a dizer "**BCa não resolve a
+saturação**" em vez de "BCa corrige"; (3) r3 precisa de estatística
+diferente (rank-based / contagem de saltos) ou n maior — registrado em
+§7/pendências. O selftest BCa-vs-scipy (OK, diff 0,013) valida a
+**implementação**, não a adequação da estatística — também declarado. ✅
+
+### C3 — Jackknife delete-1 em série ordinal: aceleração confiável?
+Delete-1 em série temporal quebra adjacências; pooled delete-1 em duas
+amostras seriais não é padrão; a aceleração `a` do BCa pode estar errada
+e os ICs ajustados herdam o erro.
+
+**Resposta:** **ACEITO como validade condicionada.** Declarado em
+`metadata.caveats`: o selftest valida o código em iid, **não** a
+suitabilidade para dados seriais; alternativas (delete-d block jackknife)
+ficam para r3. **Verificação de robustez (executada — e refutou uma
+primeira redação desta resposta):** os veredictos de **equivalência**
+NÃO são estáveis a ±0,02 de margem (H_C3: 1/6 a 0,10 → 3/6 a 0,12) —
+por isso a **tabela de sensibilidade 0,08–0,20 é reportada por inteiro**
+e nenhuma margem isolada é promovida. O que é estável: (1) **0
+SEPARA** nos confirmatórios em qualquer margem (exclusão de 0 não depende
+de margem — ver `bca_lo/bca_hi` no CSV); (2) a monotonicidade
+(eq cresce com a margem); (3) os `EQUIVALENTE` de margem folgada
+(0,20: 6/6) usam IC90 inteiramente contido — folga de ±0,02 nas bordas
+não os derruba — **FALSO na checagem**: a 0,18 (=0,20−0,02) o H_C3 cai
+para 5/6 (um par tem `bca90` com borda entre 0,18 e 0,20). Portanto
+**nenhuma margem é invariante a folga de ±0,02** e a única leitura
+autorizada é a **tabela de sensibilidade inteira** (§8.3), com a margem
+principal usada como referência, nunca como fronteira de verdade. O que
+permanece estável em todas as margens testadas (0,08–0,20): **0 SEPARA**
+nos confirmatórios e a monotonicidade das contagens. ✅
+
+### C4 — MDE80 = 2,8016×SE é fórmula normal; com distribuição enviesada o poder real difere
+**Resposta:** **ACEITO como métrica de planejamento, não de teste.** O
+MDE80 é reportado **como ordem de grandeza** ("esta amostra detectaria
+efeitos ≥ ~0,19 em D_H raw") e serve para **explicar** o padrão de
+margens (0,19 > 0,10 → por isso eq@0,10 falha; 0,20 ≥ MDE → 6/6 passa).
+Nenhum veredito é decidido pelo MDE. Declarado no doc §8.4. ✅
+
+### C5 — 18 SEPARA exploratórios (vs 8 no r1): BCa ficou mais agressivo?
+O r1 tinha 8/81 exclusões percentis; o r2 tem **18 SEPARA coerentes**
+(12 boxdim + 6 hurst) — mais que o esperado por chance (~3–4). Se BCa
+aumenta exclusões, ele não é conservador e as EQUIVALÊNCIAS do r2
+também podem ser otimistas.
+
+**Resposta:** **ACEITO o fato; leitura controlada.** (1) BCa com correção
+de viés **estreita** o IC quando a distribuição bootstrap é enviesada —
+não é "mais conservador", é **diferente**; por isso o r2 reporta **os
+dois** (percentil e BCa) no CSV. (2) Os 18 são **exploratórios** (69
+testes, séries correlacionadas — contagem nominal superestima
+independência) e **nenhum** tocou os confirmatórios (0 SEPARA em 12).
+(3) O padrão métrica-dependente é **o achado**: boxdim separa 12/27
+enquanto Higuchi separa 0/15 coerentemente → candidata a métrica
+primária **pré-registrada** em r3 (não promovida aqui — seria p-hacking,
+A4 da r1). Equivalências do r2: checadas sob BC90 **e** reportadas com
+MDE80 — a leitura "eq@0,20 = 6/6" é a **mais conservadora** e é ela que
+o doc usa como limite quantitative principal. ✅
+
+### C6 — H_C3 "CONFIRMADA" virou "0 SEPARA + 1 EQUIVALENTE": o veredito mudou de natureza
+r1 dizia "CONFIRMADA (6/6 incluem 0)"; r2 mostra que **só 1/6 é
+verdadeiramente equivalente** a ±0,10 — 5/6 são INCONCLUSIVOS. A frase
+"famílias não separam" do r1 era, na verdade, **ausência de evidência**
+exatamente como A1 da r1 avisou.
+
+**Resposta:** **ACEITO — o r2 corrige o enunciado do r1, que era o objeto
+da pendência.** O doc §8.3 passa a dizer: "nenhuma separação detectada
+(0/6); **equivalência demonstrada** em ±0,20 (6/6) e ±0,15 (4/6);
+**±0,10 inacessível com n=64** (MDE80≈0,19)". A claim final autorizada
+usa o **limite quantitativo (±0,20)**, não "não separam" puro. O veredito
+"H_C3 CONFIRMADA" do r1 permanece como registro histórico com esta
+ressalva explícita no §8.3. ✅
+
+## D. Veredito da rodada r2
+
+**RECOMENDADO (r2)** — com C1–C6 incorporados. Resultado autorizado
+acrescenta ao do r1:
+
+> "Com BCa (validado contra scipy, diff 0,013) e TOST com margem
+> ancorada no efeito v1: os pares de famílias **não separam** sob a
+> métrica primária D_H (0/6) e são **equivalentes dentro de ±0,20**
+> (6/6) e ±0,15 (4/6); **±0,10 é inacessível** com n=64 (MDE80≈0,19).
+> A exclusão nominal do r1 tornou-se **INCOERENTE** (ponto fora do IC nos
+> DOIS métodos) e não conta — invariancia de fonte mantida. **BCa não
+> resolveu a saturação** da estatística (8/81 incoerentes persistem, 2
+> degenerados) — a regra de incoerência é o remédio vigente. Pista
+> exploratória **boxdim** sobrevive em 2/3 variantes."
+
+**Não autorizado:** "BCa corrigiu o IC" (C2); "famílias equivalentes a
+±0,10" (C6); promover boxdim a confirmatório sem pré-registro (C5);
+qualquer claim de poder > o MDE80 declarado.
+
+**Pendências para r3:** estatística anti-saturação (rank/saltos) ou n↑
+(C2); delete-d block jackknife (C3); boxdim **pré-registrado** como
+métrica primária (C5); τ k↑ (A5 da r1, inalterada); margens ancoradas
+em efeito-prévio documentado **antes** de qualquer nova série (C1).

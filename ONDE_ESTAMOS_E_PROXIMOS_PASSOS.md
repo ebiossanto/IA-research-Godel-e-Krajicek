@@ -169,8 +169,11 @@ de monitoração real; se não → delimita honestamente o domínio (laboratoria
 refutada; H_C2 EF **deferido**); v2 = `29_PONTE_PROVA_FRACTAL_D4V2.md`
 (comprimentos **mínimos canônicos** `minref` vs DRAT pareado, famílias n≤6
 controlando o regime, anti-quantização `relinc`, testes a priori — H_C3
-confirmada, H_C4 nominal com ressalva; 7º/8º bugs corrigidos). **Pendências
-r2:** TOST/equivalência, inferência BCa, τ k↑ (exige escopo minref>n6),
+confirmada, H_C4 nominal com ressalva; 7º/8º bugs corrigidos); **r2
+EXECUTADO** (BCa+TOST+MDE80: equivalência ±0,20=6/6, ±0,10 inacessível,
+exclusão r1 → incoerente, BCa não resolve saturação — `29_...` §8).
+**Pendências r3:** estatística anti-saturação ou n↑, delete-d block
+jackknife, boxdim pré-registrado, τ k↑ (exige escopo minref>n6),
 séries em b com minref, H_C2 (EF) permanece deferido.
 Original (para histórico): Combinar a campanha PPR (216 testes Z3 reais) com
 o motor fractal: pegar os 216 casos, calcular a **curva de "entropia de

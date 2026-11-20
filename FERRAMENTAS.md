@@ -21,7 +21,7 @@ e viraram software verificável. Documentação completa por ferramenta em
 | **minref** | `gk_minref.py` | Comprimento **mínimo exato** de refutação Res via encoder `REF_t` (fecho + pares completos) — gadget das frentes **C2/LP** | complexidade de prova finita; calibrar D4′; validação de encoders; verificação92/92 do teste LP | [`ferramentas/gk_minref.md`](ferramentas/gk_minref.md) |
 | **dd-cert** | `gk_dd_cert.py` | **Teorema 4.3 (`DD_Res ∈ P`)** executável: π (DRAT/DAG/saturação) → **certificado da sub-derivação pura** + verificador independente | **auditoria externa** (peça do dossiê); detector de contraexemplos; certificação de evidências | [`ferramentas/gk_dd_cert.md`](ferramentas/gk_dd_cert.md) |
 | **claims-lint** | `gk_claims_lint.py` + `.github/workflows/ci.yml` | **Metodologia Ten-Proofs**:10 regras de consistência de claims/evidências (R1–R10) + CI | impedir regressão epistêmica; proteger hashes; padrão para pesquisa com IA | [`ferramentas/gk_claims_lint.md`](ferramentas/gk_claims_lint.md) |
-| **proof-fractal** | `gk_proof_fractal.py` + `gk_proof_fractal_v2.py` | **D4′**: séries de comprimentos de prova → Hurst R/S, Higuchi D_H, box-counting + bootstrap (Eixo FCT); **v2** = comprimentos **mínimos canônicos** (`minref`) vs DRAT pareado, famílias n≤6 (controle de regime), anti-quantização `relinc`, hipóteses a priori | discriminar regimes de crescimento de prova; testar invariância à fonte (v2) | [`ferramentas/gk_proof_fractal.md`](ferramentas/gk_proof_fractal.md) |
+| **proof-fractal** | `gk_proof_fractal.py` + `gk_proof_fractal_v2.py` + `gk_proof_fractal_v2_r2.py` | **D4′**: séries de comprimentos de prova → Hurst R/S, Higuchi D_H, box-counting + bootstrap (Eixo FCT); **v2** = comprimentos **mínimos canônicos** (`minref`) vs DRAT pareado, famílias n≤6 (controle de regime), anti-quantização `relinc`, hipóteses a priori; **r2** = BCa + TOST (margens declaradas) + MDE80 | discriminar regimes de crescimento de prova; testar invariância à fonte e equivalência quantitativa (v2/r2) | [`ferramentas/gk_proof_fractal.md`](ferramentas/gk_proof_fractal.md) |
 | **alternating-family** | `gk_alternating_family.py` | Codificação `REF_t` (semântica de linhas) + **critério-LP** e **Teorema Nec** da família alternante (C2.3) | decidir a via LP da rota negativa; fronteira exata de t | [`ferramentas/gk_alternating_family.md`](ferramentas/gk_alternating_family.md) |
 | **c2-projection-sim** | `gk_c2_projection_sim.py` | Projeção `E` em `Res(k)` com invariantes I1–I5 + **contraexemplo G1** determinístico (frente C2) | detector automático de contraexemplos; caixa de ensaio (O1)–(O5); regressão do CI | [`ferramentas/gk_c2_projection_sim.md`](ferramentas/gk_c2_projection_sim.md) |
 | **diagnóstico** | `diagnostico_ambiente.ps1` | Verificação ✅/❌ do ambiente (Git/Python/Julia/Lean/PATH; `-Build` = `lake build`; hash do sympy) | setup e reidratação do laboratório | [`AMBIENTE_E_FERRAMENTAS.md`](AMBIENTE_E_FERRAMENTAS.md) |
@@ -53,8 +53,30 @@ python gk_dd_cert_test.py                # 7/7 do extrator de certificados
 python gk_c2_projection_sim.py --n 400   # invariantes + contraexemplo G1
 python gk_proof_fractal.py               # D4′ v1 (seed fixa, ~4min)
 python gk_proof_fractal_v2.py            # D4′ v2: minref canônico (~17min)
+python gk_proof_fractal_v2_r2.py         # r2: BCa + TOST + MDE80 (~40s)
 python -File diagnostico_ambiente.ps1    # ambiente (-Build = lean)
 ```
+
+## Tabela de evidências (afirmação ↔ arquivo que comprova)
+
+> Diretriz de rigor: cada claim do catálogo é cruzado com o artefato que
+> o testa — sem promessa sem prova.
+
+| Afirmação (onde é feita) | Evidência executável / artefato |
+|---|---|
+| minref devolve comprimento mínimo **exato** (unidades=3, ABC=5, cadeias 2k+1) | `python gk_minref.py demo` → `VALIDACAO OK` (fronteiras conhecidas); auditoria: `gk_minref_referee.md` §A3 (92/92) |
+| minref é determinístico e reproduzível | `gk_minref_results.json` (sha256 registrado) + R6 do lint |
+| dd-cert extrai e **verifica** certificados (7/7) e recusa adulteração | `python gk_dd_cert_test.py` → `TODOS OS TESTES OK` (T3 adulteração RECUSADA); CI job `smoke` |
+| claims-lint detecta claims inconsistentes (10/10 regras) | `python gk_claims_lint.py` → `LINT OK`; fixtures: `demo/` (exit 0) + `demo_bad/` (exit 1) no CI do repo `IA-Research-GK-ClaimsLint` |
+| D4′ v1: D_H separa `php` (4/4 IC95 exclui 0) | `gk_proof_complexity_fractal.json` (§`contrasts`) + `gk_proof_fractal_series.csv` (sha `92e1ffd3…`); referee `28_..._referee.md` §B |
+| D4′ v2: 192/192 UNSAT, 0 censuras, minref<DRAT | `gk_proof_fractal_v2_series.csv` (sha `b8aecc2d…` — reprodução byte-a-byte demonstrada, referee §A6) |
+| D4′ v2: H_C3/H_C4 **sem separação** (6/6 incluem 0) | `gk_proof_fractal_v2.json` → `hypotheses.*.veredito` + `contrasts` |
+| D4′ r2: BCa implementação correta | `gk_proof_fractal_v2_r2.json` → `selftest_bca` = `OK` vs `scipy.stats.bootstrap` (diff 0,013) |
+| D4′ r2: equivalência ±0,20 = 6/6; ±0,10 inacessível (MDE80≈0,19) | `gk_proof_fractal_v2_r2_contrasts.csv` (colunas `equivalente_d*`, `mde80`; sha `ce26b53a…`) + doc `29_...` §8.2/§8.4 |
+| D4′ r2: exclusão r1 **não conta** (incoerente) | `gk_proof_fractal_v2_r2.json` → `H_C4.*.incoerentes` + regra `metadata.regra_incoerencia` |
+| 7º/8º bugs corrigidos sem invalidar v1 | referee `28_...` §A9–A11 + errata `28_...` §5 (v1: 188/188 UNSAT por solver, CSV congelado) |
+| Ferramentas públicas autocontidas com CI verde | 6 repos `IA-Research-GK-*` (links acima) + `.github/workflows/ci.yml` de cada um |
+| Ambiente verificável | `python -File diagnostico_ambiente.ps1` → ✅/❌ (`AMBIENTE_E_FERRAMENTAS.md`) |
 
 ## Como citar
 

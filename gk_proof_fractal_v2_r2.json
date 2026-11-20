@@ -1,0 +1,2646 @@
+{
+  "metadata": {
+    "timestamp_utc": "2026-11-20T22:45:39.359061Z",
+    "data_source": "gk_proof_fractal_v2_r2.py (r2: BCa + TOST + MDE80 — re-analise do CSV congelado)",
+    "input_csv": "gk_proof_fractal_v2_series.csv",
+    "input_csv_sha256": "b8aecc2dd6cc7b331b7d2be1ba5a8b1fc31dd94ceb0b42ac66c84afe1cbedba9",
+    "seed_r2": 20261122,
+    "n_boot": 1000,
+    "block": 8,
+    "margens": {
+      "primaria": 0.1,
+      "sensibilidade": [
+        0.15,
+        0.2
+      ]
+    },
+    "mde80_formula": "2.8016 * SE_boot (z.975 + z.80, alfa .05)",
+    "regra_incoerencia": "point_outside (pct ou BCa) => teste NAO conta como refutacao nem como confirmacao — declarada a priori",
+    "csv": "gk_proof_fractal_v2_r2_contrasts.csv",
+    "csv_sha256": "ce26b53a5e7c9302a04645a3406be9120f1edeacfe080f8931a62b1c44d29f78",
+    "sha_note": "sha256 sobre bytes normalizados CRLF->LF",
+    "runtime_s": 40.2,
+    "caveats": [
+      "BCa usa jackknife delete-1 (pareado nos pares de fonte; pooled em duas amostras) — em serie ordinal o delete-1 altera adjacencias; delete-d block jackknife fica para r3.",
+      "Margens escolhidas ANTES desta execucao; 0.10 primaria (~1/7 do efeito v1 0.731); 0.15/0.20 apenas sensibilidade — nao promovidos.",
+      "Percentis do r2 usam B=1000 (r1 usou 300) — valores percentis do r1 nao sao bit-identicos aos daqui; o artefato r1 permanece congelado.",
+      "N1+N2; sem N4; H_C2 (EF) deferido; tau k↑ aberta."
+    ]
+  },
+  "selftest_bca": {
+    "status": "OK",
+    "minha_BC95": [
+      0.802,
+      1.464
+    ],
+    "scipy_BC95": [
+      0.8031,
+      1.4507
+    ],
+    "max_diff": 0.01331,
+    "info": {
+      "z0": 0.1387,
+      "aceleracao": 0.04227,
+      "pct_ajustado": [
+        0.0603,
+        0.9927
+      ]
+    },
+    "scipy_version": "1.18.1"
+  },
+  "contrasts": {
+    "minref:implication-cadeia:higuchi_D:raw": {
+      "point": 0.014734444328957652,
+      "bca_lo": -0.22165944256459014,
+      "bca_hi": 0.16541760063851219,
+      "bca_info": {
+        "z0": -0.4538,
+        "aceleracao": 0.00442,
+        "pct_ajustado": [
+          0.0022,
+          0.856
+        ]
+      },
+      "bca90_lo": -0.19347854096222594,
+      "bca90_hi": 0.1320526158769828,
+      "pct_lo": -0.13968420093238065,
+      "pct_hi": 0.24290787039509754,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.09700662216712697,
+      "mde80": 0.27177229756409044,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": true,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": true,
+      "pista_exploratoria": false
+    },
+    "minref:implication-cadeia:boxdim:raw": {
+      "point": -0.004439411935845294,
+      "bca_lo": -0.09114801952939677,
+      "bca_hi": 0.07221723408633307,
+      "bca_info": {
+        "z0": -0.1662,
+        "aceleracao": 0.0005,
+        "pct_ajustado": [
+          0.011,
+          0.9484
+        ]
+      },
+      "bca90_lo": -0.08211904486545618,
+      "bca90_hi": 0.057687749004597944,
+      "pct_lo": -0.08142472194673156,
+      "pct_hi": 0.08587261153492898,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.042958296652499714,
+      "mde80": 0.12035131952719343,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": true,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "EQUIVALENTE",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "minref:implication-cadeia:hurst_rs:raw": {
+      "point": -0.13290581520360767,
+      "bca_lo": -0.8412702526777408,
+      "bca_hi": 0.11255898997332103,
+      "bca_info": {
+        "z0": -0.803,
+        "aceleracao": 4e-05,
+        "pct_ajustado": [
+          0.0002,
+          0.6384
+        ]
+      },
+      "bca90_lo": -0.5465854784251897,
+      "bca90_hi": 0.04578362077429554,
+      "pct_lo": -0.38362963058877547,
+      "pct_hi": 0.473270930506648,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.21603570291052065,
+      "mde80": 0.6052423847385711,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "minref:implication-cadeia:higuchi_D:log1p": {
+      "point": 0.02706342498830061,
+      "bca_lo": -0.1890576397812429,
+      "bca_hi": 0.1933651849046727,
+      "bca_info": {
+        "z0": -0.2871,
+        "aceleracao": 0.00379,
+        "pct_ajustado": [
+          0.0059,
+          0.9187
+        ]
+      },
+      "bca90_lo": -0.16395544198417933,
+      "bca90_hi": 0.16092690334306003,
+      "pct_lo": -0.1428831815310636,
+      "pct_hi": 0.2438987614837349,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.09962465834155584,
+      "mde80": 0.27910694843982775,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": true,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "minref:implication-cadeia:boxdim:log1p": {
+      "point": -0.004439411935845294,
+      "bca_lo": -0.09201813625662236,
+      "bca_hi": 0.07818135049899078,
+      "bca_info": {
+        "z0": -0.1004,
+        "aceleracao": 0.0005,
+        "pct_ajustado": [
+          0.0154,
+          0.9609
+        ]
+      },
+      "bca90_lo": -0.0788556278268433,
+      "bca90_hi": 0.06705009391999328,
+      "pct_lo": -0.08340587459549487,
+      "pct_hi": 0.08865378851150407,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.044861257387195944,
+      "mde80": 0.12568262577710737,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": true,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "EQUIVALENTE",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "minref:implication-cadeia:hurst_rs:log1p": {
+      "point": -0.10689793250218105,
+      "bca_lo": -0.8861771649942549,
+      "bca_hi": 0.144876284809764,
+      "bca_info": {
+        "z0": -0.7688,
+        "aceleracao": 0.00279,
+        "pct_ajustado": [
+          0.0003,
+          0.6651
+        ]
+      },
+      "bca90_lo": -0.5512857773096789,
+      "bca90_hi": 0.07231742777743944,
+      "pct_lo": -0.3600114296608091,
+      "pct_hi": 0.47874045834950035,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.2152422219747581,
+      "mde80": 0.6030193804511527,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "minref:implication-cadeia:higuchi_D:relinc": {
+      "point": -0.009259802873381684,
+      "bca_lo": -0.12104821479625283,
+      "bca_hi": 0.07582136521045135,
+      "bca_info": {
+        "z0": -0.156,
+        "aceleracao": 0.00034,
+        "pct_ajustado": [
+          0.0116,
+          0.9504
+        ]
+      },
+      "bca90_lo": -0.10930606005918553,
+      "bca90_hi": 0.06152351781033838,
+      "pct_lo": -0.10930606005918553,
+      "pct_hi": 0.08796800885110878,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.050213221609918215,
+      "mde80": 0.14067660846402275,
+      "n_boot": 1000,
+      "n_jack": 126,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": true,
+      "pista_exploratoria": false
+    },
+    "minref:implication-cadeia:boxdim:relinc": {
+      "point": -0.0879057905035443,
+      "bca_lo": -0.2575896224838464,
+      "bca_hi": 0.05525077571405834,
+      "bca_info": {
+        "z0": -0.2327,
+        "aceleracao": 0.02503,
+        "pct_ajustado": [
+          0.0104,
+          0.9421
+        ]
+      },
+      "bca90_lo": -0.24315800408824007,
+      "bca90_hi": 0.027842412069200906,
+      "pct_lo": -0.23811726047168003,
+      "pct_hi": 0.08903554053642204,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.08171356695521804,
+      "mde80": 0.22892750347823457,
+      "n_boot": 1000,
+      "n_jack": 126,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "minref:implication-cadeia:hurst_rs:relinc": {
+      "point": 0.35415079803013993,
+      "bca_lo": 0.32462739617385006,
+      "bca_hi": 0.6544791668276856,
+      "bca_info": {
+        "z0": 1.8522,
+        "aceleracao": 0.0187,
+        "pct_ajustado": [
+          0.9595,
+          1.0
+        ]
+      },
+      "bca90_lo": 0.40897819378062206,
+      "bca90_hi": 0.6544791668276856,
+      "pct_lo": -0.39542688783104196,
+      "pct_hi": 0.3821885388516076,
+      "bca_excludes0": true,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.19547624220114018,
+      "mde80": 0.5476433080070814,
+      "n_boot": 1000,
+      "n_jack": 126,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "SEPARA",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "minref:implication-tau_tiny:higuchi_D:raw": {
+      "point": -0.03900564468236167,
+      "bca_lo": -0.18001687491255924,
+      "bca_hi": 0.13407409230227496,
+      "bca_info": {
+        "z0": 0.3213,
+        "aceleracao": 0.00046,
+        "pct_ajustado": [
+          0.0941,
+          0.9954
+        ]
+      },
+      "bca90_lo": -0.15681183232803053,
+      "bca90_hi": 0.11887156820391143,
+      "pct_lo": -0.2353171356440409,
+      "pct_hi": 0.09088947815448134,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.08226794156723546,
+      "mde80": 0.23048063107564337,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": true,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": true,
+      "pista_exploratoria": false
+    },
+    "minref:implication-tau_tiny:boxdim:raw": {
+      "point": 0.053332608101712364,
+      "bca_lo": 0.045567948377619016,
+      "bca_hi": 0.11986452419142868,
+      "bca_info": {
+        "z0": 1.706,
+        "aceleracao": -0.00027,
+        "pct_ajustado": [
+          0.9268,
+          1.0
+        ]
+      },
+      "bca90_lo": 0.05654653995609382,
+      "bca90_hi": 0.11986452419142868,
+      "pct_lo": -0.07640572174654303,
+      "pct_hi": 0.06250259151539339,
+      "bca_excludes0": true,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.03652705156187569,
+      "mde80": 0.10233363974997751,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "SEPARA",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "minref:implication-tau_tiny:hurst_rs:raw": {
+      "point": 0.03663848365637856,
+      "bca_lo": -0.624738651019736,
+      "bca_hi": 0.31669798637405,
+      "bca_info": {
+        "z0": -0.716,
+        "aceleracao": -0.00229,
+        "pct_ajustado": [
+          0.0003,
+          0.7
+        ]
+      },
+      "bca90_lo": -0.438103928298627,
+      "bca90_hi": 0.25063292720577335,
+      "pct_lo": -0.2411251612343197,
+      "pct_hi": 0.637019330650689,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.2211074686052117,
+      "mde80": 0.619451367432332,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "minref:implication-tau_tiny:higuchi_D:log1p": {
+      "point": -0.029480554876434528,
+      "bca_lo": -0.14521757404053726,
+      "bca_hi": 0.16372809138802746,
+      "bca_info": {
+        "z0": 0.5799,
+        "aceleracao": 0.00123,
+        "pct_ajustado": [
+          0.2125,
+          0.9991
+        ]
+      },
+      "bca90_lo": -0.11638114631111063,
+      "bca90_hi": 0.13520087947849246,
+      "pct_lo": -0.2480199956992888,
+      "pct_hi": 0.07610302345486009,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.08423280189458644,
+      "mde80": 0.23598535429584497,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "minref:implication-tau_tiny:boxdim:log1p": {
+      "point": 0.053332608101712364,
+      "bca_lo": 0.037611198737051876,
+      "bca_hi": 0.10630671368320721,
+      "bca_info": {
+        "z0": 1.5805,
+        "aceleracao": -0.00027,
+        "pct_ajustado": [
+          0.8851,
+          1.0
+        ]
+      },
+      "bca90_lo": 0.05017595547243103,
+      "bca90_hi": 0.10630671368320721,
+      "pct_lo": -0.08407814732736119,
+      "pct_hi": 0.06599642314584053,
+      "bca_excludes0": true,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.03765241918476157,
+      "mde80": 0.10548645280174024,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "SEPARA",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "minref:implication-tau_tiny:hurst_rs:log1p": {
+      "point": 0.029286583603866045,
+      "bca_lo": -0.5320817980331343,
+      "bca_hi": 0.2981942698028477,
+      "bca_info": {
+        "z0": -0.7095,
+        "aceleracao": 0.00447,
+        "pct_ajustado": [
+          0.0004,
+          0.7081
+        ]
+      },
+      "bca90_lo": -0.4345292974043533,
+      "bca90_hi": 0.23160505598052078,
+      "pct_lo": -0.2507229937738529,
+      "pct_hi": 0.6113780704406607,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.2183364524953835,
+      "mde80": 0.611688130264279,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "minref:implication-tau_tiny:higuchi_D:relinc": {
+      "point": -0.02003463580119158,
+      "bca_lo": -0.12644298209668592,
+      "bca_hi": 0.0650263077894988,
+      "bca_info": {
+        "z0": -0.1307,
+        "aceleracao": 0.00216,
+        "pct_ajustado": [
+          0.0135,
+          0.956
+        ]
+      },
+      "bca90_lo": -0.11076976763121227,
+      "bca90_hi": 0.055292414671842316,
+      "pct_lo": -0.11421115673551352,
+      "pct_hi": 0.07282894509289406,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.05076952039936629,
+      "mde80": 0.1422351268080586,
+      "n_boot": 1000,
+      "n_jack": 126,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": true,
+      "pista_exploratoria": false
+    },
+    "minref:implication-tau_tiny:boxdim:relinc": {
+      "point": -0.016951531473034853,
+      "bca_lo": -0.08270262890324609,
+      "bca_hi": 0.15274131311411465,
+      "bca_info": {
+        "z0": 1.0027,
+        "aceleracao": 0.04363,
+        "pct_ajustado": [
+          0.5334,
+          1.0
+        ]
+      },
+      "bca90_lo": -0.060734758729372174,
+      "bca90_hi": 0.15274131311411465,
+      "pct_lo": -0.231506626437457,
+      "pct_hi": 0.04979495689301461,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.0716289721026588,
+      "mde80": 0.20067465380822735,
+      "n_boot": 1000,
+      "n_jack": 126,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": true,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "minref:implication-tau_tiny:hurst_rs:relinc": {
+      "point": 0.012001845126071109,
+      "bca_lo": -0.41449508265967594,
+      "bca_hi": 0.3866837959971053,
+      "bca_info": {
+        "z0": -0.1055,
+        "aceleracao": 0.00485,
+        "pct_ajustado": [
+          0.0158,
+          0.9613
+        ]
+      },
+      "bca90_lo": -0.33260170040311393,
+      "bca90_hi": 0.3174192392874351,
+      "pct_lo": -0.3916406709107334,
+      "pct_hi": 0.4363609302645748,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.20173745619287078,
+      "mde80": 0.5651846312081039,
+      "n_boot": 1000,
+      "n_jack": 126,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "minref:cadeia-tau_tiny:higuchi_D:raw": {
+      "point": -0.053740089011319325,
+      "bca_lo": -0.15001448020276076,
+      "bca_hi": 0.1177681702457336,
+      "bca_info": {
+        "z0": 0.8416,
+        "aceleracao": -0.00712,
+        "pct_ajustado": [
+          0.3876,
+          0.9998
+        ]
+      },
+      "bca90_lo": -0.12407437703829238,
+      "bca90_hi": 0.1170902354275849,
+      "pct_lo": -0.31548768835452146,
+      "pct_hi": 0.04256771711552254,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.08815020221858486,
+      "mde80": 0.24696028428255407,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": true,
+      "pista_exploratoria": false
+    },
+    "minref:cadeia-tau_tiny:boxdim:raw": {
+      "point": 0.05777202003755766,
+      "bca_lo": 0.04685833170068254,
+      "bca_hi": 0.09788715677932958,
+      "bca_info": {
+        "z0": 1.6546,
+        "aceleracao": -0.00043,
+        "pct_ajustado": [
+          0.9114,
+          1.0
+        ]
+      },
+      "bca90_lo": 0.058534359219188814,
+      "bca90_hi": 0.09788715677932958,
+      "pct_lo": -0.08960505137566122,
+      "pct_hi": 0.06559257639527372,
+      "bca_excludes0": true,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.041118263215726765,
+      "mde80": 0.11519630945123188,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": true,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "SEPARA",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "minref:cadeia-tau_tiny:hurst_rs:raw": {
+      "point": 0.16954429885998623,
+      "bca_lo": -0.2230179792271184,
+      "bca_hi": 0.6907245627478346,
+      "bca_info": {
+        "z0": 0.1611,
+        "aceleracao": -0.00166,
+        "pct_ajustado": [
+          0.0502,
+          0.9885
+        ]
+      },
+      "bca90_lo": -0.14723087764537568,
+      "bca90_hi": 0.6060454198180648,
+      "pct_lo": -0.28762691789508754,
+      "pct_hi": 0.6060454198180648,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.22827509536471088,
+      "mde80": 0.6395320830473435,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "minref:cadeia-tau_tiny:higuchi_D:log1p": {
+      "point": -0.05654397986473514,
+      "bca_lo": -0.15631453964372932,
+      "bca_hi": 0.13542571628747013,
+      "bca_info": {
+        "z0": 0.7588,
+        "aceleracao": -0.00475,
+        "pct_ajustado": [
+          0.3266,
+          0.9997
+        ]
+      },
+      "bca90_lo": -0.1310379873337879,
+      "bca90_hi": 0.11185123310550571,
+      "pct_lo": -0.3001227707463936,
+      "pct_hi": 0.043212959162967746,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.08763426401078676,
+      "mde80": 0.24551483953866005,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "minref:cadeia-tau_tiny:boxdim:log1p": {
+      "point": 0.05777202003755766,
+      "bca_lo": 0.04431576037975071,
+      "bca_hi": 0.131813038165417,
+      "bca_info": {
+        "z0": 1.5632,
+        "aceleracao": -0.00043,
+        "pct_ajustado": [
+          0.8783,
+          1.0
+        ]
+      },
+      "bca90_lo": 0.05581319222773673,
+      "bca90_hi": 0.131813038165417,
+      "pct_lo": -0.09513139827616146,
+      "pct_hi": 0.07119647340447632,
+      "bca_excludes0": true,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.04300465001353572,
+      "mde80": 0.12048118240817147,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "SEPARA",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "minref:cadeia-tau_tiny:hurst_rs:log1p": {
+      "point": 0.1361845161060471,
+      "bca_lo": -0.3049134818210393,
+      "bca_hi": 0.563922712123174,
+      "bca_info": {
+        "z0": -0.0175,
+        "aceleracao": 0.00073,
+        "pct_ajustado": [
+          0.0232,
+          0.9731
+        ]
+      },
+      "bca90_lo": -0.22316489516502147,
+      "bca90_hi": 0.5016767693622456,
+      "pct_lo": -0.29445606836898824,
+      "pct_hi": 0.5652128221324599,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.2217861827331179,
+      "mde80": 0.6213528427523621,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "minref:cadeia-tau_tiny:higuchi_D:relinc": {
+      "point": -0.010774832927809896,
+      "bca_lo": -0.08686778697576303,
+      "bca_hi": 0.0682789151119021,
+      "bca_info": {
+        "z0": 0.0577,
+        "aceleracao": 0.00255,
+        "pct_ajustado": [
+          0.0332,
+          0.9815
+        ]
+      },
+      "bca90_lo": -0.0710921023105846,
+      "bca90_hi": 0.05612519724567244,
+      "pct_lo": -0.08998230845609534,
+      "pct_hi": 0.06353916803130488,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.03934070928968862,
+      "mde80": 0.1102163410353523,
+      "n_boot": 1000,
+      "n_jack": 126,
+      "equivalente_d0.10": true,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "EQUIVALENTE",
+      "confirmatorio_H_C3": true,
+      "pista_exploratoria": false
+    },
+    "minref:cadeia-tau_tiny:boxdim:relinc": {
+      "point": 0.07095425903050945,
+      "bca_lo": 0.034809167536901664,
+      "bca_hi": 0.16820244967381381,
+      "bca_info": {
+        "z0": 1.3165,
+        "aceleracao": 0.0385,
+        "pct_ajustado": [
+          0.7545,
+          1.0
+        ]
+      },
+      "bca90_lo": 0.053098000938753165,
+      "bca90_hi": 0.16820244967381381,
+      "pct_lo": -0.14394762884465362,
+      "pct_hi": 0.10325317962788505,
+      "bca_excludes0": true,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.0678699596038204,
+      "mde80": 0.1901434607766692,
+      "n_boot": 1000,
+      "n_jack": 126,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": true,
+      "veredito": "SEPARA",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "minref:cadeia-tau_tiny:hurst_rs:relinc": {
+      "point": -0.3421489529040688,
+      "bca_lo": -0.6137132901741303,
+      "bca_hi": -0.35555858713884503,
+      "bca_info": {
+        "z0": -1.9954,
+        "aceleracao": -0.01154,
+        "pct_ajustado": [
+          0.0,
+          0.0211
+        ]
+      },
+      "bca90_lo": -0.6137132901741303,
+      "bca90_hi": -0.42735184533860027,
+      "pct_lo": -0.33494614764919645,
+      "pct_hi": 0.44426702732839374,
+      "bca_excludes0": true,
+      "pct_excludes0": false,
+      "point_outside_bca": true,
+      "point_outside_pct": true,
+      "se_boot": 0.19696133824633796,
+      "mde80": 0.5518039308108668,
+      "n_boot": 1000,
+      "n_jack": 126,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCOERENTE",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:implication-cadeia:higuchi_D:raw": {
+      "point": 0.04441622575022386,
+      "bca_lo": -0.08707062764839901,
+      "bca_hi": 0.2760900886054336,
+      "bca_info": {
+        "z0": 0.8416,
+        "aceleracao": -0.00644,
+        "pct_ajustado": [
+          0.3879,
+          0.9998
+        ]
+      },
+      "bca90_lo": -0.052038925520110135,
+      "bca90_hi": 0.2698927755865552,
+      "pct_lo": -0.2864068259060193,
+      "pct_hi": 0.17721090331689182,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.11800736490411272,
+      "mde80": 0.3306076634048887,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:implication-cadeia:boxdim:raw": {
+      "point": -0.101552227211405,
+      "bca_lo": -0.20134599999476788,
+      "bca_hi": -0.005560712742470275,
+      "bca_info": {
+        "z0": -0.0577,
+        "aceleracao": 0.00013,
+        "pct_ajustado": [
+          0.019,
+          0.9675
+        ]
+      },
+      "bca90_lo": -0.18429240943527259,
+      "bca90_hi": -0.022462151650164297,
+      "pct_lo": -0.19637627486039577,
+      "pct_hi": -0.0020540346880674187,
+      "bca_excludes0": true,
+      "pct_excludes0": true,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.04979285646354117,
+      "mde80": 0.13949891977540999,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": true,
+      "veredito": "SEPARA",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": true
+    },
+    "drat:implication-cadeia:hurst_rs:raw": {
+      "point": -0.17820899335750517,
+      "bca_lo": -0.6212374754361215,
+      "bca_hi": -0.009177125077185044,
+      "bca_info": {
+        "z0": -1.2591,
+        "aceleracao": -0.00823,
+        "pct_ajustado": [
+          0.0,
+          0.287
+        ]
+      },
+      "bca90_lo": -0.6212374754361215,
+      "bca90_hi": -0.0922804806986195,
+      "pct_lo": -0.36986252811526227,
+      "pct_hi": 0.5881518780133247,
+      "bca_excludes0": true,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.25300121101050604,
+      "mde80": 0.7088043977488686,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "SEPARA",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:implication-cadeia:higuchi_D:log1p": {
+      "point": 0.045628065846802235,
+      "bca_lo": -0.10123218317585203,
+      "bca_hi": 0.27354660217676297,
+      "bca_info": {
+        "z0": 0.8099,
+        "aceleracao": -0.01048,
+        "pct_ajustado": [
+          0.3616,
+          0.9998
+        ]
+      },
+      "bca90_lo": -0.05376780521781521,
+      "bca90_hi": 0.25569379886335053,
+      "pct_lo": -0.26799706027400716,
+      "pct_hi": 0.17690586568632982,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.11608358887995322,
+      "mde80": 0.32521804135224375,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:implication-cadeia:boxdim:log1p": {
+      "point": -0.11309994895339848,
+      "bca_lo": -0.21322385989813608,
+      "bca_hi": -0.016134649330345363,
+      "bca_info": {
+        "z0": -0.0376,
+        "aceleracao": 5e-05,
+        "pct_ajustado": [
+          0.0209,
+          0.9703
+        ]
+      },
+      "bca90_lo": -0.19973852370896072,
+      "bca90_hi": -0.03288383395630956,
+      "pct_lo": -0.21039386294798634,
+      "pct_hi": -0.012922827950936688,
+      "bca_excludes0": true,
+      "pct_excludes0": true,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.05060356719087201,
+      "mde80": 0.14177019478843916,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": true,
+      "veredito": "SEPARA",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": true
+    },
+    "drat:implication-cadeia:hurst_rs:log1p": {
+      "point": -0.15183822813122944,
+      "bca_lo": -0.7787444558786083,
+      "bca_hi": 0.10558522016494365,
+      "bca_info": {
+        "z0": -1.0364,
+        "aceleracao": -0.00426,
+        "pct_ajustado": [
+          0.0,
+          0.4536
+        ]
+      },
+      "bca90_lo": -0.7787444558786083,
+      "bca90_hi": 0.021310559308464483,
+      "pct_lo": -0.3780344961238161,
+      "pct_hi": 0.6266671080055048,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.2585553545868502,
+      "mde80": 0.7243648030802008,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:implication-cadeia:higuchi_D:relinc": {
+      "point": 0.011240455959406148,
+      "bca_lo": -0.0680005403006545,
+      "bca_hi": 0.07621426315319679,
+      "bca_info": {
+        "z0": 0.005,
+        "aceleracao": -0.01792,
+        "pct_ajustado": [
+          0.0216,
+          0.9715
+        ]
+      },
+      "bca90_lo": -0.054697539054899824,
+      "bca90_hi": 0.06841622424126337,
+      "pct_lo": -0.06686325728930154,
+      "pct_hi": 0.07801067030071351,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.03817967291618533,
+      "mde80": 0.10696359894689107,
+      "n_boot": 1000,
+      "n_jack": 126,
+      "equivalente_d0.10": true,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "EQUIVALENTE",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:implication-cadeia:boxdim:relinc": {
+      "point": -0.10608322636307255,
+      "bca_lo": -0.20397375374134563,
+      "bca_hi": 0.02560808148418381,
+      "bca_info": {
+        "z0": 0.2793,
+        "aceleracao": 0.00164,
+        "pct_ajustado": [
+          0.0812,
+          0.9942
+        ]
+      },
+      "bca90_lo": -0.18857315364996008,
+      "bca90_hi": 0.009501775949899427,
+      "pct_lo": -0.23008426099778234,
+      "pct_hi": -0.0019898812952992007,
+      "bca_excludes0": false,
+      "pct_excludes0": true,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.05858663018732429,
+      "mde80": 0.16413542433335493,
+      "n_boot": 1000,
+      "n_jack": 126,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": true,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": true
+    },
+    "drat:implication-cadeia:hurst_rs:relinc": {
+      "point": 0.21925530739375318,
+      "bca_lo": 0.010161306620156407,
+      "bca_hi": 0.6191329169234684,
+      "bca_info": {
+        "z0": 0.779,
+        "aceleracao": 0.00698,
+        "pct_ajustado": [
+          0.3474,
+          0.9998
+        ]
+      },
+      "bca90_lo": 0.06337647582797529,
+      "bca90_hi": 0.5986003963899933,
+      "pct_lo": -0.2797801264221774,
+      "pct_hi": 0.44674525828892636,
+      "bca_excludes0": true,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.1840803718542228,
+      "mde80": 0.5157168085812128,
+      "n_boot": 1000,
+      "n_jack": 126,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "SEPARA",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:implication-tau_tiny:higuchi_D:raw": {
+      "point": 0.01918186198204319,
+      "bca_lo": 0.042522770666339804,
+      "bca_hi": 0.09511095997132712,
+      "bca_info": {
+        "z0": 2.4573,
+        "aceleracao": -0.00997,
+        "pct_ajustado": [
+          0.9984,
+          1.0
+        ]
+      },
+      "bca90_lo": 0.0662545743453411,
+      "bca90_hi": 0.09511095997132712,
+      "pct_lo": -0.4254087649286704,
+      "pct_hi": -0.0177802539198344,
+      "bca_excludes0": true,
+      "pct_excludes0": true,
+      "point_outside_bca": true,
+      "point_outside_pct": true,
+      "se_boot": 0.1061089424104485,
+      "mde80": 0.2972732214229764,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": true,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "INCOERENTE",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:implication-tau_tiny:boxdim:raw": {
+      "point": -0.07129325272243003,
+      "bca_lo": -0.13988457180910863,
+      "bca_hi": 0.012717056734512733,
+      "bca_info": {
+        "z0": 0.388,
+        "aceleracao": -1e-05,
+        "pct_ajustado": [
+          0.1182,
+          0.9969
+        ]
+      },
+      "bca90_lo": -0.1263456021579169,
+      "bca90_hi": 0.005804666821969895,
+      "pct_lo": -0.17275266703963255,
+      "pct_hi": -0.008078135050678337,
+      "bca_excludes0": false,
+      "pct_excludes0": true,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.04329985312703191,
+      "mde80": 0.12130821902289571,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:implication-tau_tiny:hurst_rs:raw": {
+      "point": -0.2759282292102019,
+      "bca_lo": -0.435805442985036,
+      "bca_hi": -0.435805442985036,
+      "bca_info": {
+        "z0": -2.7478,
+        "aceleracao": -0.00472,
+        "pct_ajustado": [
+          0.0,
+          0.0002
+        ]
+      },
+      "bca90_lo": -0.435805442985036,
+      "bca90_hi": -0.435805442985036,
+      "pct_lo": -0.11832268155150183,
+      "pct_hi": 0.7882139602420464,
+      "bca_excludes0": true,
+      "pct_excludes0": false,
+      "point_outside_bca": true,
+      "point_outside_pct": true,
+      "se_boot": 0.23065522614181208,
+      "mde80": 0.6462002217305086,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCOERENTE",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:implication-tau_tiny:higuchi_D:log1p": {
+      "point": 0.0175061004467707,
+      "bca_lo": 0.03970464664733697,
+      "bca_hi": 0.165599165599855,
+      "bca_info": {
+        "z0": 2.1201,
+        "aceleracao": -0.01629,
+        "pct_ajustado": [
+          0.9887,
+          1.0
+        ]
+      },
+      "bca90_lo": 0.07899349580782178,
+      "bca90_hi": 0.165599165599855,
+      "pct_lo": -0.4084729575849515,
+      "pct_hi": 0.00011241776266301962,
+      "bca_excludes0": true,
+      "pct_excludes0": false,
+      "point_outside_bca": true,
+      "point_outside_pct": true,
+      "se_boot": 0.1030978188926622,
+      "mde80": 0.28883730294239907,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": true,
+      "veredito": "INCOERENTE",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:implication-tau_tiny:boxdim:log1p": {
+      "point": -0.07129325272243014,
+      "bca_lo": -0.13777912062569175,
+      "bca_hi": 0.024392046622953245,
+      "bca_info": {
+        "z0": 0.4959,
+        "aceleracao": -2e-05,
+        "pct_ajustado": [
+          0.1664,
+          0.9984
+        ]
+      },
+      "bca90_lo": -0.12380356879428356,
+      "bca90_hi": 0.01254939273318545,
+      "pct_lo": -0.18992953190555062,
+      "pct_hi": -0.013836054374151474,
+      "bca_excludes0": false,
+      "pct_excludes0": true,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.045320009259422554,
+      "mde80": 0.12696785814105935,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:implication-tau_tiny:hurst_rs:log1p": {
+      "point": -0.29686792575889126,
+      "bca_lo": -0.3376804267640189,
+      "bca_hi": -0.3376804267640189,
+      "bca_info": {
+        "z0": -3.0902,
+        "aceleracao": -0.00346,
+        "pct_ajustado": [
+          0.0,
+          0.0
+        ]
+      },
+      "bca90_lo": -0.3376804267640189,
+      "bca90_hi": -0.3376804267640189,
+      "pct_lo": -0.10552246757404038,
+      "pct_hi": 0.8043541048536892,
+      "bca_excludes0": true,
+      "pct_excludes0": false,
+      "point_outside_bca": true,
+      "point_outside_pct": true,
+      "se_boot": 0.23729073128634998,
+      "mde80": 0.6647901534108689,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCOERENTE",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:implication-tau_tiny:higuchi_D:relinc": {
+      "point": 0.037416069643575245,
+      "bca_lo": -0.018470091417075896,
+      "bca_hi": 0.14089019669902414,
+      "bca_info": {
+        "z0": 0.571,
+        "aceleracao": -0.01561,
+        "pct_ajustado": [
+          0.198,
+          0.9987
+        ]
+      },
+      "bca90_lo": -0.006731041647803249,
+      "bca90_hi": 0.12127092255391458,
+      "pct_lo": -0.059740876002409404,
+      "pct_hi": 0.09180683620684627,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.03941471690282525,
+      "mde80": 0.11042367965420168,
+      "n_boot": 1000,
+      "n_jack": 126,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:implication-tau_tiny:boxdim:relinc": {
+      "point": -0.09953394421249506,
+      "bca_lo": -0.19869000647773527,
+      "bca_hi": 0.040998764193168946,
+      "bca_info": {
+        "z0": 0.3826,
+        "aceleracao": 0.00738,
+        "pct_ajustado": [
+          0.1197,
+          0.9972
+        ]
+      },
+      "bca90_lo": -0.1832456560294845,
+      "bca90_hi": 0.034178827143215185,
+      "pct_lo": -0.23791560957126134,
+      "pct_hi": 0.007783873028996968,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.062472930696158266,
+      "mde80": 0.17502322554439656,
+      "n_boot": 1000,
+      "n_jack": 126,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": true,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:implication-tau_tiny:hurst_rs:relinc": {
+      "point": -0.06968732267065209,
+      "bca_lo": -0.4554538659862921,
+      "bca_hi": 0.13932924558796642,
+      "bca_info": {
+        "z0": -0.6935,
+        "aceleracao": -0.01241,
+        "pct_ajustado": [
+          0.0003,
+          0.71
+        ]
+      },
+      "bca90_lo": -0.4545349376890072,
+      "bca90_hi": 0.08918330520671158,
+      "pct_lo": -0.28980220563512427,
+      "pct_hi": 0.4016739178226799,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.17486932056637658,
+      "mde80": 0.48991126545895214,
+      "n_boot": 1000,
+      "n_jack": 126,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:cadeia-tau_tiny:higuchi_D:raw": {
+      "point": -0.025234363768180668,
+      "bca_lo": -0.04750424592618896,
+      "bca_hi": 0.07816262275147956,
+      "bca_info": {
+        "z0": 1.6646,
+        "aceleracao": 0.00299,
+        "pct_ajustado": [
+          0.9146,
+          1.0
+        ]
+      },
+      "bca90_lo": -0.022859719470382345,
+      "bca90_hi": 0.07816262275147956,
+      "pct_lo": -0.3057843816440593,
+      "pct_hi": 0.0020753647635758377,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.07879041301358179,
+      "mde80": 0.22073803924265556,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": true,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "EQUIVALENTE",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:cadeia-tau_tiny:boxdim:raw": {
+      "point": 0.030258974488974966,
+      "bca_lo": -0.030888342351946152,
+      "bca_hi": 0.11563279423912076,
+      "bca_info": {
+        "z0": 0.4705,
+        "aceleracao": -8e-05,
+        "pct_ajustado": [
+          0.1541,
+          0.9981
+        ]
+      },
+      "bca90_lo": -0.01716822011841901,
+      "bca90_hi": 0.1024608620095081,
+      "pct_lo": -0.06765965044668432,
+      "pct_hi": 0.08392610194694239,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.039947622362056574,
+      "mde80": 0.11191665959520228,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:cadeia-tau_tiny:hurst_rs:raw": {
+      "point": -0.0977192358526967,
+      "bca_lo": -0.39854096168876896,
+      "bca_hi": 0.00037407930997646055,
+      "bca_info": {
+        "z0": -1.4985,
+        "aceleracao": 0.00389,
+        "pct_ajustado": [
+          0.0,
+          0.15
+        ]
+      },
+      "bca90_lo": -0.39854096168876896,
+      "bca90_hi": -0.06901660974779156,
+      "pct_lo": -0.1868873563709187,
+      "pct_hi": 0.6551659641266803,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.21943863568872454,
+      "mde80": 0.6147759901659954,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:cadeia-tau_tiny:higuchi_D:log1p": {
+      "point": -0.028121965400031534,
+      "bca_lo": -0.0583035358672066,
+      "bca_hi": 0.11723241271126761,
+      "bca_info": {
+        "z0": 1.6072,
+        "aceleracao": 0.00089,
+        "pct_ajustado": [
+          0.8952,
+          1.0
+        ]
+      },
+      "bca90_lo": -0.03118734200307305,
+      "bca90_hi": 0.11723241271126761,
+      "pct_lo": -0.2984872823853575,
+      "pct_hi": -0.001165625641668111,
+      "bca_excludes0": false,
+      "pct_excludes0": true,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.0787650417719308,
+      "mde80": 0.22066695955261478,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:cadeia-tau_tiny:boxdim:log1p": {
+      "point": 0.04180669623096833,
+      "bca_lo": -0.026881251326135613,
+      "bca_hi": 0.13690807304527908,
+      "bca_info": {
+        "z0": 0.4902,
+        "aceleracao": -4e-05,
+        "pct_ajustado": [
+          0.1636,
+          0.9984
+        ]
+      },
+      "bca90_lo": -0.010042479534209114,
+      "bca90_hi": 0.12279954196365794,
+      "pct_lo": -0.07159356465203504,
+      "pct_hi": 0.10094501773152897,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.04412391561123801,
+      "mde80": 0.12361690011771026,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:cadeia-tau_tiny:hurst_rs:log1p": {
+      "point": -0.14502969762766182,
+      "bca_lo": -0.5200344404423172,
+      "bca_hi": -0.08156833395853946,
+      "bca_info": {
+        "z0": -1.6849,
+        "aceleracao": 0.00192,
+        "pct_ajustado": [
+          0.0,
+          0.0793
+        ]
+      },
+      "bca90_lo": -0.5200344404423172,
+      "bca90_hi": -0.1526562623428378,
+      "pct_lo": -0.1883354714739413,
+      "pct_hi": 0.6567756595518894,
+      "bca_excludes0": true,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.21859537585911162,
+      "mde80": 0.6124135260762493,
+      "n_boot": 1000,
+      "n_jack": 128,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "SEPARA",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:cadeia-tau_tiny:higuchi_D:relinc": {
+      "point": 0.026175613684169097,
+      "bca_lo": -0.025278923681210763,
+      "bca_hi": 0.12501644547485347,
+      "bca_info": {
+        "z0": 0.628,
+        "aceleracao": 0.00286,
+        "pct_ajustado": [
+          0.2423,
+          0.9994
+        ]
+      },
+      "bca90_lo": -0.013742225021613041,
+      "bca90_hi": 0.12234748189686262,
+      "pct_lo": -0.07116905971506338,
+      "pct_hi": 0.0782697013811049,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.03881246937056483,
+      "mde80": 0.10873643200153388,
+      "n_boot": 1000,
+      "n_jack": 126,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:cadeia-tau_tiny:boxdim:relinc": {
+      "point": 0.0065492821505774845,
+      "bca_lo": -0.08680059610738966,
+      "bca_hi": 0.12062670959792599,
+      "bca_info": {
+        "z0": 0.2301,
+        "aceleracao": 0.01042,
+        "pct_ajustado": [
+          0.0709,
+          0.9933
+        ]
+      },
+      "bca90_lo": -0.0736098328467576,
+      "bca90_hi": 0.1107170384791839,
+      "pct_lo": -0.11218237171739676,
+      "pct_hi": 0.10172246016341502,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.05552917938617154,
+      "mde80": 0.1555697160306074,
+      "n_boot": 1000,
+      "n_jack": 126,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "drat:cadeia-tau_tiny:hurst_rs:relinc": {
+      "point": -0.2889426300644053,
+      "bca_lo": -0.5739360162284431,
+      "bca_hi": -0.22918614301124796,
+      "bca_info": {
+        "z0": -1.5382,
+        "aceleracao": -0.02358,
+        "pct_ajustado": [
+          0.0,
+          0.1312
+        ]
+      },
+      "bca90_lo": -0.5739360162284431,
+      "bca90_hi": -0.2733793588992635,
+      "pct_lo": -0.36017191760763156,
+      "pct_hi": 0.30639357964070923,
+      "bca_excludes0": true,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.1733016377441439,
+      "mde80": 0.4855192687794274,
+      "n_boot": 1000,
+      "n_jack": 126,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "SEPARA",
+      "confirmatorio_H_C3": false,
+      "pista_exploratoria": false
+    },
+    "fonte:implication:higuchi_D:raw": {
+      "point": -0.018686643149291582,
+      "bca_lo": -0.15560404774661007,
+      "bca_hi": -0.03162237153938663,
+      "bca_info": {
+        "z0": -2.1444,
+        "aceleracao": -0.00543,
+        "pct_ajustado": [
+          0.0,
+          0.0099
+        ]
+      },
+      "bca90_lo": -0.15560404774661007,
+      "bca90_hi": -0.059998087008055645,
+      "pct_lo": 1.6908375486401894e-05,
+      "pct_hi": 0.3914776963206781,
+      "bca_excludes0": true,
+      "pct_excludes0": true,
+      "point_outside_bca": true,
+      "point_outside_pct": true,
+      "se_boot": 0.10015182155673666,
+      "mde80": 0.2805838409960301,
+      "n_boot": 1000,
+      "n_jack": 64,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": true,
+      "veredito": "INCOERENTE",
+      "confirmatorio_H_C4": true,
+      "pista_exploratoria": false
+    },
+    "fonte:implication:boxdim:raw": {
+      "point": 0.013053156314222436,
+      "bca_lo": -0.08082512047832335,
+      "bca_hi": 0.07387546568460757,
+      "bca_info": {
+        "z0": -0.3451,
+        "aceleracao": -0.00987,
+        "pct_ajustado": [
+          0.0034,
+          0.8933
+        ]
+      },
+      "bca90_lo": -0.06900904163150867,
+      "bca90_hi": 0.06353923511676451,
+      "pct_lo": -0.05366436678471054,
+      "pct_hi": 0.09766131612655904,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.040127351258538266,
+      "mde80": 0.11242018537565193,
+      "n_boot": 1000,
+      "n_jack": 64,
+      "equivalente_d0.10": true,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "EQUIVALENTE",
+      "confirmatorio_H_C4": false,
+      "pista_exploratoria": false
+    },
+    "fonte:implication:hurst_rs:raw": {
+      "point": 0.1504420202719181,
+      "bca_lo": 0.11232802738246161,
+      "bca_hi": 0.552480073253968,
+      "bca_info": {
+        "z0": 1.7866,
+        "aceleracao": 0.00048,
+        "pct_ajustado": [
+          0.9467,
+          1.0
+        ]
+      },
+      "bca90_lo": 0.18403399219374306,
+      "bca90_hi": 0.552480073253968,
+      "pct_lo": -0.5707916929373231,
+      "pct_hi": 0.19424403070383922,
+      "bca_excludes0": true,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.19494616117441646,
+      "mde80": 0.5461582409538276,
+      "n_boot": 1000,
+      "n_jack": 64,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "SEPARA",
+      "confirmatorio_H_C4": false,
+      "pista_exploratoria": false
+    },
+    "fonte:implication:higuchi_D:log1p": {
+      "point": -0.02410547060216972,
+      "bca_lo": -0.1333647742950097,
+      "bca_hi": -0.049585932474536465,
+      "bca_info": {
+        "z0": -2.1444,
+        "aceleracao": -0.00106,
+        "pct_ajustado": [
+          0.0,
+          0.0099
+        ]
+      },
+      "bca90_lo": -0.1333647742950097,
+      "bca90_hi": -0.07019347878063864,
+      "pct_lo": -0.007013895574321527,
+      "pct_hi": 0.3795002512771899,
+      "bca_excludes0": true,
+      "pct_excludes0": false,
+      "point_outside_bca": true,
+      "point_outside_pct": true,
+      "se_boot": 0.10138920732310475,
+      "mde80": 0.28405048239830044,
+      "n_boot": 1000,
+      "n_jack": 64,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "INCOERENTE",
+      "confirmatorio_H_C4": false,
+      "pista_exploratoria": false
+    },
+    "fonte:implication:boxdim:log1p": {
+      "point": 0.013053156314222436,
+      "bca_lo": -0.07753116370572732,
+      "bca_hi": 0.07531093794773158,
+      "bca_info": {
+        "z0": -0.3213,
+        "aceleracao": -0.00987,
+        "pct_ajustado": [
+          0.004,
+          0.9017
+        ]
+      },
+      "bca90_lo": -0.06603525096709195,
+      "bca90_hi": 0.06288086944115057,
+      "pct_lo": -0.060065128950018254,
+      "pct_hi": 0.09681515825173947,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.039919836518512254,
+      "mde80": 0.11183881519271616,
+      "n_boot": 1000,
+      "n_jack": 64,
+      "equivalente_d0.10": true,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "EQUIVALENTE",
+      "confirmatorio_H_C4": false,
+      "pista_exploratoria": false
+    },
+    "fonte:implication:hurst_rs:log1p": {
+      "point": 0.1855950295686471,
+      "bca_lo": 0.1885544917340528,
+      "bca_hi": 0.4090258322382522,
+      "bca_info": {
+        "z0": 2.0141,
+        "aceleracao": -0.00071,
+        "pct_ajustado": [
+          0.9807,
+          1.0
+        ]
+      },
+      "bca90_lo": 0.22382119779942666,
+      "bca90_hi": 0.4090258322382522,
+      "pct_lo": -0.5420672475121459,
+      "pct_hi": 0.17280580577259386,
+      "bca_excludes0": true,
+      "pct_excludes0": false,
+      "point_outside_bca": true,
+      "point_outside_pct": true,
+      "se_boot": 0.18823142451382507,
+      "mde80": 0.5273463354465646,
+      "n_boot": 1000,
+      "n_jack": 64,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCOERENTE",
+      "confirmatorio_H_C4": false,
+      "pista_exploratoria": false
+    },
+    "fonte:implication:higuchi_D:relinc": {
+      "point": -0.03714142367863449,
+      "bca_lo": -0.17164214152575585,
+      "bca_hi": 0.031698575310221244,
+      "bca_info": {
+        "z0": -0.4344,
+        "aceleracao": 0.00447,
+        "pct_ajustado": [
+          0.0025,
+          0.8647
+        ]
+      },
+      "bca90_lo": -0.15451330139823738,
+      "bca90_hi": 0.017375916816107395,
+      "pct_lo": -0.12180510886329587,
+      "pct_hi": 0.07392936337469269,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.049320911543007134,
+      "mde80": 0.13817672596521566,
+      "n_boot": 1000,
+      "n_jack": 63,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": true,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C4": true,
+      "pista_exploratoria": false
+    },
+    "fonte:implication:boxdim:relinc": {
+      "point": -0.06073934297926742,
+      "bca_lo": -0.25599747664422434,
+      "bca_hi": 0.038718592152394704,
+      "bca_info": {
+        "z0": -0.5476,
+        "aceleracao": 0.01134,
+        "pct_ajustado": [
+          0.0014,
+          0.8127
+        ]
+      },
+      "bca90_lo": -0.20953383030529182,
+      "bca90_hi": 0.01862356951854005,
+      "pct_lo": -0.156265346101093,
+      "pct_hi": 0.10485733831288968,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.06941314642464295,
+      "mde80": 0.19446682982608335,
+      "n_boot": 1000,
+      "n_jack": 63,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C4": false,
+      "pista_exploratoria": false
+    },
+    "fonte:implication:hurst_rs:relinc": {
+      "point": 0.10540353291333088,
+      "bca_lo": -0.10667817317610517,
+      "bca_hi": 0.6366533555016858,
+      "bca_info": {
+        "z0": 0.7554,
+        "aceleracao": 0.03007,
+        "pct_ajustado": [
+          0.342,
+          0.9999
+        ]
+      },
+      "bca90_lo": -0.051869161913891626,
+      "bca90_hi": 0.6366533555016858,
+      "pct_lo": -0.4201783290055381,
+      "pct_hi": 0.33524196491967306,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.19179888544199825,
+      "mde80": 0.5373408804710207,
+      "n_boot": 1000,
+      "n_jack": 63,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C4": false,
+      "pista_exploratoria": false
+    },
+    "fonte:cadeia:higuchi_D:raw": {
+      "point": 0.010995138271974625,
+      "bca_lo": -0.19975525739009803,
+      "bca_hi": 0.10453626960407214,
+      "bca_info": {
+        "z0": -0.779,
+        "aceleracao": 0.0016,
+        "pct_ajustado": [
+          0.0002,
+          0.657
+        ]
+      },
+      "bca90_lo": -0.16591412549510998,
+      "bca90_hi": 0.08005339185922433,
+      "pct_lo": -0.07780662352819201,
+      "pct_hi": 0.23414357339789382,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.08000702403739304,
+      "mde80": 0.2241464784377998,
+      "n_boot": 1000,
+      "n_jack": 64,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": true,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C4": true,
+      "pista_exploratoria": false
+    },
+    "fonte:cadeia:boxdim:raw": {
+      "point": -0.08405965896133727,
+      "bca_lo": -0.1631766862838716,
+      "bca_hi": -0.016548793031310516,
+      "bca_info": {
+        "z0": -0.2378,
+        "aceleracao": -0.00325,
+        "pct_ajustado": [
+          0.0071,
+          0.9299
+        ]
+      },
+      "bca90_lo": -0.15590795769550048,
+      "bca90_hi": -0.025457282708559736,
+      "pct_lo": -0.15050319886836727,
+      "pct_hi": 0.007305203259371895,
+      "bca_excludes0": true,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.0399682673404067,
+      "mde80": 0.1119744982568733,
+      "n_boot": 1000,
+      "n_jack": 64,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": true,
+      "veredito": "SEPARA",
+      "confirmatorio_H_C4": false,
+      "pista_exploratoria": false
+    },
+    "fonte:cadeia:hurst_rs:raw": {
+      "point": 0.1051388421180206,
+      "bca_lo": -0.053678621596186527,
+      "bca_hi": 0.4675716280352674,
+      "bca_info": {
+        "z0": 1.1217,
+        "aceleracao": -0.00617,
+        "pct_ajustado": [
+          0.6099,
+          1.0
+        ]
+      },
+      "bca90_lo": 0.005739056283879718,
+      "bca90_hi": 0.4675716280352674,
+      "pct_lo": -0.4921824125213113,
+      "pct_hi": 0.27622055372734644,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.19087697297127146,
+      "mde80": 0.5347580643217196,
+      "n_boot": 1000,
+      "n_jack": 64,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C4": false,
+      "pista_exploratoria": false
+    },
+    "fonte:cadeia:higuchi_D:log1p": {
+      "point": -0.0055408297436680964,
+      "bca_lo": -0.14170413576367724,
+      "bca_hi": 0.07795228184913494,
+      "bca_info": {
+        "z0": -0.8742,
+        "aceleracao": 0.00476,
+        "pct_ajustado": [
+          0.0001,
+          0.586
+        ]
+      },
+      "bca90_lo": -0.14170413576367724,
+      "bca90_hi": 0.05538107876212228,
+      "pct_lo": -0.0848876460942729,
+      "pct_hi": 0.21445403072089353,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.0755253090342071,
+      "mde80": 0.2115905729105991,
+      "n_boot": 1000,
+      "n_jack": 64,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C4": false,
+      "pista_exploratoria": false
+    },
+    "fonte:cadeia:boxdim:log1p": {
+      "point": -0.09560738070333075,
+      "bca_lo": -0.17456596771425648,
+      "bca_hi": -0.019955710067596333,
+      "bca_info": {
+        "z0": -0.2353,
+        "aceleracao": -0.00119,
+        "pct_ajustado": [
+          0.0074,
+          0.9313
+        ]
+      },
+      "bca90_lo": -0.16160109369803854,
+      "bca90_hi": -0.03226160899035868,
+      "pct_lo": -0.1569097082044486,
+      "pct_hi": -0.0011559143478736544,
+      "bca_excludes0": true,
+      "pct_excludes0": true,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.041032534318888765,
+      "mde80": 0.114956132659784,
+      "n_boot": 1000,
+      "n_jack": 64,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": true,
+      "veredito": "SEPARA",
+      "confirmatorio_H_C4": false,
+      "pista_exploratoria": false
+    },
+    "fonte:cadeia:hurst_rs:log1p": {
+      "point": 0.1406547339395987,
+      "bca_lo": -0.02267222171718164,
+      "bca_hi": 0.508532550519091,
+      "bca_info": {
+        "z0": 1.1601,
+        "aceleracao": 1e-05,
+        "pct_ajustado": [
+          0.6407,
+          1.0
+        ]
+      },
+      "bca90_lo": 0.043640337268247564,
+      "bca90_hi": 0.508532550519091,
+      "pct_lo": -0.493652092344982,
+      "pct_hi": 0.29483740775409994,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.20410711368138054,
+      "mde80": 0.5718234280830505,
+      "n_boot": 1000,
+      "n_jack": 64,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C4": false,
+      "pista_exploratoria": false
+    },
+    "fonte:cadeia:higuchi_D:relinc": {
+      "point": -0.016641164845846657,
+      "bca_lo": -0.09524536570506426,
+      "bca_hi": 0.039342935256484246,
+      "bca_info": {
+        "z0": -0.3372,
+        "aceleracao": 0.00769,
+        "pct_ajustado": [
+          0.0047,
+          0.9043
+        ]
+      },
+      "bca90_lo": -0.08444305110259265,
+      "bca90_hi": 0.03076085784942917,
+      "pct_lo": -0.07250448883011584,
+      "pct_hi": 0.05720284991179181,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.03401369102411876,
+      "mde80": 0.09529224656780577,
+      "n_boot": 1000,
+      "n_jack": 63,
+      "equivalente_d0.10": true,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "EQUIVALENTE",
+      "confirmatorio_H_C4": true,
+      "pista_exploratoria": false
+    },
+    "fonte:cadeia:boxdim:relinc": {
+      "point": -0.07891677883879566,
+      "bca_lo": -0.22957948228066893,
+      "bca_hi": 0.023988130627682125,
+      "bca_info": {
+        "z0": -0.1434,
+        "aceleracao": -0.00027,
+        "pct_ajustado": [
+          0.0123,
+          0.9528
+        ]
+      },
+      "bca90_lo": -0.20564437402960323,
+      "bca90_hi": 0.010706497760373801,
+      "pct_lo": -0.206187375977952,
+      "pct_hi": 0.03686348142431717,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.0650491408030169,
+      "mde80": 0.1822406971366201,
+      "n_boot": 1000,
+      "n_jack": 63,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C4": false,
+      "pista_exploratoria": false
+    },
+    "fonte:cadeia:hurst_rs:relinc": {
+      "point": -0.029491957723055885,
+      "bca_lo": -0.3907332122135188,
+      "bca_hi": 0.19311787098679922,
+      "bca_info": {
+        "z0": -0.5651,
+        "aceleracao": 0.00448,
+        "pct_ajustado": [
+          0.0011,
+          0.7991
+        ]
+      },
+      "bca90_lo": -0.3768133765133186,
+      "bca90_hi": 0.14467809973590795,
+      "pct_lo": -0.24775002084001896,
+      "pct_hi": 0.38051604568173647,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.1645639378384275,
+      "mde80": 0.4610398597890709,
+      "n_boot": 1000,
+      "n_jack": 63,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C4": false,
+      "pista_exploratoria": false
+    },
+    "fonte:tau_tiny:higuchi_D:raw": {
+      "point": 0.03950086351511328,
+      "bca_lo": -0.0540528053226601,
+      "bca_hi": 0.13978852519543095,
+      "bca_info": {
+        "z0": 0.0502,
+        "aceleracao": 0.00421,
+        "pct_ajustado": [
+          0.0326,
+          0.9811
+        ]
+      },
+      "bca90_lo": -0.035411445688315446,
+      "bca90_hi": 0.12590617502569956,
+      "pct_lo": -0.06089189872584844,
+      "pct_hi": 0.13406264834117398,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.04898762634931493,
+      "mde80": 0.13724299916584548,
+      "n_boot": 1000,
+      "n_jack": 64,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C4": true,
+      "pista_exploratoria": false
+    },
+    "fonte:tau_tiny:boxdim:raw": {
+      "point": -0.11157270450991996,
+      "bca_lo": -0.21772238977574887,
+      "bca_hi": -0.08974868623290488,
+      "bca_info": {
+        "z0": -1.3852,
+        "aceleracao": -0.00797,
+        "pct_ajustado": [
+          0.0,
+          0.2081
+        ]
+      },
+      "bca90_lo": -0.21772238977574887,
+      "bca90_hi": -0.10399330935295736,
+      "pct_lo": -0.1287407925294296,
+      "pct_hi": 0.01891760896872552,
+      "bca_excludes0": true,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.03845711087056261,
+      "mde80": 0.10774086495830516,
+      "n_boot": 1000,
+      "n_jack": 64,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "SEPARA",
+      "confirmatorio_H_C4": false,
+      "pista_exploratoria": false
+    },
+    "fonte:tau_tiny:hurst_rs:raw": {
+      "point": -0.16212469259466233,
+      "bca_lo": -0.7331470513474486,
+      "bca_hi": 0.012394912616851828,
+      "bca_info": {
+        "z0": -0.8524,
+        "aceleracao": 0.00068,
+        "pct_ajustado": [
+          0.0001,
+          0.601
+        ]
+      },
+      "bca90_lo": -0.7331470513474486,
+      "bca90_hi": -0.03491945358475368,
+      "pct_lo": -0.3472720699034237,
+      "pct_hi": 0.26638422301518283,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.15724886503601723,
+      "mde80": 0.4405460615519304,
+      "n_boot": 1000,
+      "n_jack": 64,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C4": false,
+      "pista_exploratoria": false
+    },
+    "fonte:tau_tiny:higuchi_D:log1p": {
+      "point": 0.022881184721035508,
+      "bca_lo": -0.09739304453514319,
+      "bca_hi": 0.09724106721170123,
+      "bca_info": {
+        "z0": -0.2456,
+        "aceleracao": -0.00271,
+        "pct_ajustado": [
+          0.0069,
+          0.928
+        ]
+      },
+      "bca90_lo": -0.07735152638761678,
+      "bca90_hi": 0.08311417823971512,
+      "pct_lo": -0.06390348548446978,
+      "pct_hi": 0.11762419923631096,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.04601938377108414,
+      "mde80": 0.12892721528231277,
+      "n_boot": 1000,
+      "n_jack": 64,
+      "equivalente_d0.10": true,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "EQUIVALENTE",
+      "confirmatorio_H_C4": false,
+      "pista_exploratoria": false
+    },
+    "fonte:tau_tiny:boxdim:log1p": {
+      "point": -0.11157270450992007,
+      "bca_lo": -0.18762817317336156,
+      "bca_hi": -0.06611750194523613,
+      "bca_info": {
+        "z0": -1.1077,
+        "aceleracao": -0.00447,
+        "pct_ajustado": [
+          0.0,
+          0.398
+        ]
+      },
+      "bca90_lo": -0.18762817317336156,
+      "bca90_hi": -0.08407505951784033,
+      "pct_lo": -0.13324340882397623,
+      "pct_hi": 0.004637573422220154,
+      "bca_excludes0": true,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.03745871668837647,
+      "mde80": 0.1049437787934052,
+      "n_boot": 1000,
+      "n_jack": 64,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": true,
+      "veredito": "SEPARA",
+      "confirmatorio_H_C4": false,
+      "pista_exploratoria": false
+    },
+    "fonte:tau_tiny:hurst_rs:log1p": {
+      "point": -0.1405594797941102,
+      "bca_lo": -0.5240489757961522,
+      "bca_hi": 0.021491725126565275,
+      "bca_info": {
+        "z0": -0.8633,
+        "aceleracao": -0.00951,
+        "pct_ajustado": [
+          0.0001,
+          0.5879
+        ]
+      },
+      "bca90_lo": -0.5240489757961522,
+      "bca90_hi": -0.022139180064959574,
+      "pct_lo": -0.3226805147333985,
+      "pct_hi": 0.27637665574849746,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.15109605809642135,
+      "mde80": 0.4233084499220626,
+      "n_boot": 1000,
+      "n_jack": 64,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C4": false,
+      "pista_exploratoria": false
+    },
+    "fonte:tau_tiny:higuchi_D:relinc": {
+      "point": 0.020309281766132337,
+      "bca_lo": -0.030642290023799035,
+      "bca_hi": 0.09507831206420514,
+      "bca_info": {
+        "z0": 0.3745,
+        "aceleracao": -0.00186,
+        "pct_ajustado": [
+          0.1121,
+          0.9965
+        ]
+      },
+      "bca90_lo": -0.021576442932949025,
+      "bca90_hi": 0.08838792077697333,
+      "pct_lo": -0.05428783463002995,
+      "pct_hi": 0.07457653814718368,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.03268473121740663,
+      "mde80": 0.09156905270771816,
+      "n_boot": 1000,
+      "n_jack": 63,
+      "equivalente_d0.10": true,
+      "equivalente_d0.15": true,
+      "equivalente_d0.20": true,
+      "veredito": "EQUIVALENTE",
+      "confirmatorio_H_C4": true,
+      "pista_exploratoria": false
+    },
+    "fonte:tau_tiny:boxdim:relinc": {
+      "point": -0.14332175571872763,
+      "bca_lo": -0.253143741785959,
+      "bca_hi": -0.11081886847160216,
+      "bca_info": {
+        "z0": -1.3787,
+        "aceleracao": -0.06711,
+        "pct_ajustado": [
+          0.0,
+          0.2063
+        ]
+      },
+      "bca90_lo": -0.253143741785959,
+      "bca90_hi": -0.13112608524814273,
+      "pct_lo": -0.17780226410838396,
+      "pct_hi": 0.04357744228831595,
+      "bca_excludes0": true,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.05719533043769698,
+      "mde80": 0.1602375798242953,
+      "n_boot": 1000,
+      "n_jack": 63,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "SEPARA",
+      "confirmatorio_H_C4": false,
+      "pista_exploratoria": false
+    },
+    "fonte:tau_tiny:hurst_rs:relinc": {
+      "point": 0.023714365116607683,
+      "bca_lo": -0.23078233694890818,
+      "bca_hi": 0.35789641257366583,
+      "bca_info": {
+        "z0": 0.2482,
+        "aceleracao": -0.00959,
+        "pct_ajustado": [
+          0.0678,
+          0.992
+        ]
+      },
+      "bca90_lo": -0.1885113458057213,
+      "bca90_hi": 0.3154285612116118,
+      "pct_lo": -0.2996114948579496,
+      "pct_hi": 0.27719368317083704,
+      "bca_excludes0": false,
+      "pct_excludes0": false,
+      "point_outside_bca": false,
+      "point_outside_pct": false,
+      "se_boot": 0.1517508166136354,
+      "mde80": 0.42514281156251177,
+      "n_boot": 1000,
+      "n_jack": 63,
+      "equivalente_d0.10": false,
+      "equivalente_d0.15": false,
+      "equivalente_d0.20": false,
+      "veredito": "INCONCLUSIVO",
+      "confirmatorio_H_C4": false,
+      "pista_exploratoria": false
+    }
+  },
+  "hypotheses": {
+    "H_C3_r2_equivalencia": {
+      "enunciado": "TOST por par (minref, D_H, raw+relinc) com margem primaria Delta=0.1: se o IC90 BCa cai dentro de +/-Delta, o par e EQUIVALENTE (limite quantitativo); se IC95 BCa exclui 0, SEPARA; senao INCONCLUSIVO.",
+      "n_testes": 6,
+      "vereditos": {
+        "SEPARA": 0,
+        "EQUIVALENTE": 1,
+        "INCONCLUSIVO": 5,
+        "INCOERENTE": 0,
+        "SEM_DADOS": 0
+      },
+      "equivalentes_D010": 1,
+      "equivalentes_D015": 4,
+      "equivalentes_D020": 6,
+      "separacoes_pct_vs_bca": {
+        "pct_excluem_0": 0,
+        "bca_excluem_0": 0
+      },
+      "incoerentes": []
+    },
+    "H_C4_r2_invariancia_de_fonte": {
+      "enunciado": "Mesma tripla regua nos 6 contrastes pareados minref-vs-drat; a exclusao nominal do r1 (implication raw, ponto fora do IC percentil) e reavaliada sob BCa — a flag point_outside_ci vale para as DUAS direcoes (regra declarada: incoerente nao conta como refutacao nem como confirmacao).",
+      "n_testes": 6,
+      "vereditos": {
+        "SEPARA": 0,
+        "EQUIVALENTE": 2,
+        "INCONCLUSIVO": 3,
+        "INCOERENTE": 1,
+        "SEM_DADOS": 0
+      },
+      "equivalentes_D010": 2,
+      "exclusoes_bca": [
+        "fonte:implication:higuchi_D:raw"
+      ],
+      "exclusoes_bca_coerentes": [],
+      "incoerentes": [
+        "fonte:implication:higuchi_D:raw"
+      ],
+      "veredito_r1_sob_BCa": "exclusao nominal do r1 (implication raw) tornou-se INCOERENTE sob BCa (ponto fora do IC95 dos DOIS metodos) — regra declarada: nao conta; leitura sustentada: invariancia de fonte mantida"
+    },
+    "pista_boxdim_r2": {
+      "enunciado": "Referee A4: boxdim implication-cadeia (drat) excluia 0 em 3 variantes no r1 — reavaliado com BCa como PISTA EXPLORATORIA (nao promovido a confirmatorio).",
+      "n_testes": 3,
+      "vereditos": {
+        "SEPARA": 2,
+        "EQUIVALENTE": 0,
+        "INCONCLUSIVO": 1,
+        "INCOERENTE": 0,
+        "SEM_DADOS": 0
+      },
+      "detalhe": {
+        "drat:implication-cadeia:boxdim:log1p": {
+          "point": -0.1131,
+          "bca": [
+            -0.2132,
+            -0.0161
+          ],
+          "veredito": "SEPARA"
+        },
+        "drat:implication-cadeia:boxdim:raw": {
+          "point": -0.1016,
+          "bca": [
+            -0.2013,
+            -0.0056
+          ],
+          "veredito": "SEPARA"
+        },
+        "drat:implication-cadeia:boxdim:relinc": {
+          "point": -0.1061,
+          "bca": [
+            -0.204,
+            0.0256
+          ],
+          "veredito": "INCONCLUSIVO"
+        }
+      }
+    },
+    "H_C2_Res_vs_EFrege": {
+      "status": "DEFERIDO",
+      "motivo": "mantido — EF nao mensuravel"
+    }
+  }
+}

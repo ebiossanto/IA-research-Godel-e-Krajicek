@@ -4,9 +4,11 @@
 [IA-research-Godel-e-Krajicek](https://github.com/ebiossanto/IA-research-Godel-e-Krajicek)
 (MIT) — núcleo: experimento **D4′** (`ONDE_ESTAMOS_E_PROXIMOS_PASSOS.md`
 §5-D4; Eixo FCT — Fractal Control Theory).
-**Código:** `gk_proof_fractal.py` (v1) + `gk_proof_fractal_v2.py` (v2) ·
+**Código:** `gk_proof_fractal.py` (v1) + `gk_proof_fractal_v2.py` (v2) +
+`gk_proof_fractal_v2_r2.py` (r2: BCa/TOST/MDE80) ·
 **Dados:** `gk_proof_complexity_fractal.json` + `gk_proof_fractal_series.csv`
-(v1); `gk_proof_fractal_v2.json` + `gk_proof_fractal_v2_series.csv` (v2) ·
+(v1); `gk_proof_fractal_v2.json` + `gk_proof_fractal_v2_series.csv` (v2);
+`gk_proof_fractal_v2_r2.json` + `gk_proof_fractal_v2_r2_contrasts.csv` (r2) ·
 **Auditoria:** [`28_PONTE_PROVA_FRACTAL_D4.md`](../28_PONTE_PROVA_FRACTAL_D4.md)
 e [`29_PONTE_PROVA_FRACTAL_D4V2.md`](../29_PONTE_PROVA_FRACTAL_D4V2.md)
 (cada um + referee)
@@ -47,6 +49,8 @@ python gk_proof_fractal.py                    # v1: seed20261119, 3 famílias
 # → gk_proof_fractal_series.csv + gk_proof_complexity_fractal.json
 python gk_proof_fractal_v2.py                 # v2: minref canônico + DRAT
 # → gk_proof_fractal_v2_series.csv + gk_proof_fractal_v2.json
+python gk_proof_fractal_v2_r2.py              # r2: BCa + TOST + MDE80
+# → gk_proof_fractal_v2_r2.json + gk_proof_fractal_v2_r2_contrasts.csv
 # (sha256 normalizado CRLF→LF registrado no JSON; CSV sem colunas de
 #  tempo → reprodução byte-a-byte entre execuções)
 ```
@@ -121,6 +125,18 @@ IC95 (saturação do Higuchi no teto D_H≈2; flag `point_outside_ci` marca
 ressalva. minref é sistematicamente **menor** que DRAT (cadeia 7,5 vs
 11,8) sem que as métricas distingam. Detalhes, diagnóstico e pendências
 r2 (TOST, BCa, τ k↑): `29_PONTE_PROVA_FRACTAL_D4V2.md` + referee.
+
+**Rodada r2 (`gk_proof_fractal_v2_r2.py`, §8 do doc 29):** re-análise do
+CSV congelado com **BCa** (selftest vs scipy: OK, diff 0,013), **TOST**
+(margens 0,10 primária — âncora ~1/7 do efeito v1 — + 0,15/0,20
+sensibilidade) e **MDE80** (poder). Achados: **0 separações** em ambas
+as hipóteses; **equivalência ±0,20 = 6/6** (±0,10 inacessível —
+MDE80≈0,19); a exclusão r1 do H_C4 virou **INCOERENTE** (ponto fora do IC
+nos dois métodos); **BCa não resolveu a saturação** (8/81 incoerentes
+persistem, 2 ICs degenerados) — a regra de incoerência é o remédio;
+pista **boxdim** sobrevive em 2/3 variantes (candidata pré-registrada a
+r3). Artefatos: `gk_proof_fractal_v2_r2.json` +
+`gk_proof_fractal_v2_r2_contrasts.csv`.
 
 > **Bugs corrigidos na rodada (7º e 8º do projeto):** `gen_tau` com
 > unidades de saída invertidas (v1 permanece válido: 188/188 UNSAT por
