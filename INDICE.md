@@ -1,11 +1,10 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.36 (20/11/2026 — **D4′ v4 PRÉ-REGISTRADO** (`31_...D4V4.md`
-+ `gk_proof_fractal_v4.py`): n=384 (alvo MDE<0,06), margem 0,08 ancorada em
-**precisão** do r3 (A1), regras exaustivas (A3), BCa primário (A4),
-diagnóstico z0 com raiz caracterizada (A5), `saltos` confirmatório;
-selftests n=384 OK (tipo-I 0/30, poder 10/10, DISJ r2+r3) — **commit
-anterior ao run**; v6.35: r3 executado; …)
+**Versão:** 6.37 (21/11/2026 — **D4′ v4 EXECUTADO** (`31_...D4V4.md`
++referee r1): `saltos` **CONFIRMADA 3/3 Bonferroni**; boxdim
+INDETERMINADO (4/6 incoerentes, régua exaustiva); mecanismo de z0 medido
+(BCa+bloco fixo degrada com n: 7%→33%); H_C4 4/6; crash CaDiCaL contido
+por checkpoint+retry; v6.36: pré-registro r4; …)
 **Status:** ✅ **Carta ENVIADA 11/10/2026 18:14 → RESPOSTA PARCIAL RECEBIDA 12/10/2026
 (Q1 respondido; Q2–Q4 pendentes — follow-up devido; `CARTA_FINAL_RECEBIDA.md`)**;
 Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥` **(condicional a `q` total —
@@ -61,7 +60,7 @@ em Core; rascunho MO (não postado)
 | **`28_PONTE_PROVA_FRACTAL_D4.md`** (+ `_referee.md`) | **D4′ v1: ponte prova→fractal — 188 UNSAT reais (Cadical195 DRAT + Z3); D_H separa `php` (4/4 IC95 exclui0, raw+log1p) = regime de crescimento; refutada leitura "dura=mais fractal"; H_C2 deferido** | **EXECUTADO — RECOMENDADO r1** |
 | **`29_PONTE_PROVA_FRACTAL_D4V2.md`** (+ `_referee.md`) | **D4′ v2+r2: comprimentos MÍNIMOS canônicos (minref) vs DRAT pareado, famílias n≤6 (controle do regime), 12 testes a priori — H_C3/H_C4 sem separação; r2: BCa+TOST+MDE80 → equivalência ±0,20=6/6 (±0,10 inacessível, MDE≈0,19), exclusão r1 → INCOERENTE, BCa não resolve saturação (8/81), pista boxdim 2/3; 7º/8º bugs (tau invertido; seed não-determinístico)** | **EXECUTADO (2 rodadas) — RECOMENDADO r2** |
 | **`30_PONTE_PROVA_FRACTAL_D4V3.md`** (+ `_referee.md`) | **D4′ v3/r3: boxdim PRÉ-REGISTRADO (commit `66f40ae` anterior ao run) em 192 instâncias novas disjuntas do r2 — H_B3 pista A4 CONFIRMADA (Δ=−0,170, Bonferroni ✓); H_B1 padrão-τ PARCIAL 2/3 (τ separa, (b) Bonferroni; imp−cadeia não separa, eq±0,05 não certificável → sensibilidade 0,08✓); H_B2 1/2 (1 incoerente); H_B4 refutada (incoerência é do par, não da métrica — higuchi 0/27 aqui); delete-d vs delete-1 0/135; tipo-I 0,04; poder 9/10; bug de filtragem pós-run corrigido sem tocar pré-registro** | **EXECUTADO — RECOMENDADO r3** |
-| **`31_PONTE_PROVA_FRACTAL_D4V4.md`** | **D4′ v4/r4: n=384/família (1152 instâncias disjuntas de r2+r3); margem 0,08 ancorada em PRECISÃO (meia-largura IC90 r3=0,0805, A1); regras de veredito exaustivas (A3); BCa primário/percentil robustez (A4); H_C1 boxdim 6 testes (Bonferroni 0,01) + H_C2 saltos 3 testes + H_C3 diagnóstico z0 (D1–D4, raiz=viés de macroestrutura assimétrica) + H_C4 alvo MDE<0,06; selftests n=384 OK (tipo-I 0/30, poder zigzag-branco 10/10 coerentes, DISJ r2+r3)** | **PRÉ-REGISTRADO — commit anterior ao run; execução pendente** |
+| **`31_PONTE_PROVA_FRACTAL_D4V4.md`** (+ `_referee.md`) | **D4′ v4/r4: n=384/família (1152 instâncias disjuntas r2+r3; crash nativo CaDiCaL ×2 → checkpoint+retry `3d244ab`, 3 processos, plumbing separado do pré-registro `9fe7165`) — H_C2 `saltos` CONFIRMADA 3/3 Bonferroni (âncoras r3±0,012, z0 saudável); H_C1 boxdim INDETERMINADO (2/6 contáveis, 4 incoerentes — régua exaustiva A3; (a) efeito≈0 sinal invertido; (d)(f) dois métodos excluem mas ponto fora → indiciação); H_C3 mecanismo z0 MEDIDO (D1 94%, D2 CONFIRMADA, incoerência 7%→33% com n → BCa+bloco fixo inadequado p/ n grande); D4 revertido; H_C4 NAO_ATINGIDO 4/6; delete-d 0/135; discordância pct-vs-BCa 39%** | **EXECUTADO — RECOMENDADO r4** |
 | `00/02/04/05`, `support/*`, `paper2` | **PR26: REJEITADO + novidade provisória + pseudocódigo** | **CORRIGIDO** |
 | `01/06/03` | **PR12: banners REJEITADO/histórico** | **CORRIGIDO** |
 | Scripts | exp10, ppr3, reimpl, slow_vs_fast, **_ext**, test_Rw, **_E0E3**, **ppr3_ramos**, **_RBT_B**, **_allcov**, **fp_length_vs_delta** | SCRIPTS |

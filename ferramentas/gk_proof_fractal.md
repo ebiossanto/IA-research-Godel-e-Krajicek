@@ -151,6 +151,22 @@ poder 9/10. Métricas novas `boxdim_rank` (invariante monotona) e `saltos`
 (0/27 incoerentes). Artefatos: `gk_proof_fractal_v3_series.csv`
 (`6d4cbdd1…`) + `gk_proof_fractal_v3_contrasts.csv` (`0cb1dce2…`) + JSONs.
 
+**Rodada r4 (`gk_proof_fractal_v4.py`, doc `31_`):** **n=384/família**
+(1152 instâncias disjuntas de r2+r3; alvo MDE80<0,06) + **margem 0,08
+ancorada em precisão** (meia-largura IC90 do r3) + **regras exaustivas
+de veredito** + **diagnóstico de z0**. Resultados: **`saltos` CONFIRMADA
+3/3 com Bonferroni** (âncoras r3 replicadas com desvio ≤0,012, z0
+saudável, percentil concorda — métrica local preservada pelo resample);
+boxdim **INDETERMINADO** (2/6 contáveis, 4 incoerentes — imp−τ virou
+efeito≈0; (d)(f) com ambos os métodos excluindo mas ponto fora do BCa);
+**mecanismo de z0 medido**: z0≈viés/SE (94%), incoerência 7%→33% com n
+→ **BCa+bloco fixo inadequado para n grande** (viés não encolhe, SE
+encolhe); H_C4 **4/6** (falha de alvo declarada); delete-d 0/135 (3ª
+rodada); discordância pct-vs-BCa 39%. Incidente: crash nativo
+`Cadical195.__del__` (Windows) contido por **checkpoint atômico +
+retry** (`3d244ab`, 3 tentativas). Artefatos: `gk_proof_fractal_v4_*
+(`c92f0968…` / `8419f25b…`).
+
 > **Bugs corrigidos na rodada (7º e 8º do projeto):** `gen_tau` com
 > unidades de saída invertidas (v1 permanece válido: 188/188 UNSAT por
 > solver) e geradores usando `tuple.__hash__()` — seed não reproduzia

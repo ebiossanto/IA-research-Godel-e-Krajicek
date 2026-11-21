@@ -1,0 +1,106 @@
+{
+  "metadata": {
+    "timestamp_utc": "2026-11-21T05:02:14.100652Z",
+    "mode": "resume+collect+analyze",
+    "seed": 20261119,
+    "seed_boot": 20261124,
+    "n_boot": 1000,
+    "block": 8,
+    "d_delete": 8,
+    "grid": {
+      "implication": "384 pontos (seeds novos vs r2+r3)",
+      "cadeia": "384 pontos (seeds novos vs r2+r3)",
+      "tau_tiny": "384 pontos (seeds novos vs r2+r3)"
+    },
+    "margens_boxdim": {
+      "primaria": 0.08,
+      "sensibilidade": [
+        0.06,
+        0.1
+      ]
+    },
+    "ancora_margem": "maior meia-largura IC90 dos pre-registrados r3 = 0.0805 (H_B3); demais 0.061-0.073 — ancora em PRECISAO (A1)",
+    "ic_primario": "BCa delete-d (A4); percentil = robustez",
+    "regra_incoerencia": "ponto fora do IC (pct ou BCa) => INCOERENTE, nao conta em nenhuma direcao (A3: regras globais exaustivas declaradas no topo do script)",
+    "runtime_s": 6585.8,
+    "caveats": [
+      "Pre-registro: hipoteses/margens/regras fixadas neste codigo e no doc 31_ ANTES do run (commit anterior).",
+      "Dados disjuntos de r2 E r3 (DISJ aborta em interseccao).",
+      "Alvo MDE<0.06 por escala sqrt(64/384) — se nao atingido, e falha de ALVO (H_C4), nao de hipotese.",
+      "Escopo: distribuicao dos geradores (mesmos, seeds novos).",
+      "delete-d janelas sobrepostas (aceleracao aproximada); delete-1 reportado como concordancia.",
+      "N1+N2; sem N4; H_C2 (EF) deferido; tau k↑ aberta."
+    ],
+    "data_source": "gk_proof_fractal_v4.py (r4 coleta)",
+    "instances": {
+      "rows": 1152
+    },
+    "selftests": {
+      "S1_bca_scipy": {
+        "status": "OK",
+        "minha_BC95": [
+          0.802,
+          1.464
+        ],
+        "scipy_BC95": [
+          0.8031,
+          1.4507
+        ],
+        "max_diff": 0.01331,
+        "info": {
+          "z0": 0.1387,
+          "aceleracao": 0.04227,
+          "pct_ajustado": [
+            0.0603,
+            0.9927
+          ]
+        },
+        "scipy_version": "1.18.1"
+      },
+      "S2S3": {
+        "status": "OK",
+        "S2_invariancia_erro": 0.0,
+        "saltos": {
+          "ruido": 0.675392670157068,
+          "rampa": 0.0,
+          "seno": 0.1256544502617801
+        },
+        "boxdim": {
+          "ruido": 1.03337163904362,
+          "seno": 0.9679805280696463
+        },
+        "S3_saltos_ok": true,
+        "boxdim_seno_menor_ok": true
+      },
+      "S4_tipo1": {
+        "n": 30,
+        "exclusoes": 0,
+        "taxa": 0.0,
+        "gate_ok": true,
+        "nota": "calibracao previa 0/30"
+      },
+      "S5_poder": {
+        "n": 10,
+        "detectou": 10,
+        "coerentes": 10,
+        "gate_ok": true,
+        "z0_range": [
+          -0.5918,
+          0.2353
+        ],
+        "nota": "construct estacionario zigzag-vs-branco (calib n=384: 10/10 coerentes); gate >=7/10 coerentes"
+      },
+      "DISJ": {
+        "status": "OK",
+        "n_prev": 384,
+        "n_r4": 1152,
+        "fontes_checadas": 2,
+        "interseccao": []
+      },
+      "status": "OK"
+    },
+    "csv": "gk_proof_fractal_v4_series.csv",
+    "csv_sha256": "c92f09685cf921ddfc24aae193877b4aa483aa38ee4543ae717c6c87a9de03a2",
+    "sha_note": "sha256 bytes normalizados CRLF->LF"
+  }
+}

@@ -21,7 +21,7 @@ e viraram software verificável. Documentação completa por ferramenta em
 | **minref** | `gk_minref.py` | Comprimento **mínimo exato** de refutação Res via encoder `REF_t` (fecho + pares completos) — gadget das frentes **C2/LP** | complexidade de prova finita; calibrar D4′; validação de encoders; verificação92/92 do teste LP | [`ferramentas/gk_minref.md`](ferramentas/gk_minref.md) |
 | **dd-cert** | `gk_dd_cert.py` | **Teorema 4.3 (`DD_Res ∈ P`)** executável: π (DRAT/DAG/saturação) → **certificado da sub-derivação pura** + verificador independente | **auditoria externa** (peça do dossiê); detector de contraexemplos; certificação de evidências | [`ferramentas/gk_dd_cert.md`](ferramentas/gk_dd_cert.md) |
 | **claims-lint** | `gk_claims_lint.py` + `.github/workflows/ci.yml` | **Metodologia Ten-Proofs**:10 regras de consistência de claims/evidências (R1–R10) + CI | impedir regressão epistêmica; proteger hashes; padrão para pesquisa com IA | [`ferramentas/gk_claims_lint.md`](ferramentas/gk_claims_lint.md) |
-| **proof-fractal** | `gk_proof_fractal.py` + `_v2.py` + `_v2_r2.py` + `_v3.py` | **D4′**: séries de comprimentos de prova → Hurst R/S, Higuchi D_H, box-counting + bootstrap (Eixo FCT); **v2** = comprimentos **mínimos canônicos** (`minref`) vs DRAT pareado, famílias n≤6; **r2** = BCa + TOST + MDE80; **r3** = **boxdim pré-registrado** em dados disjuntos (pista A4 confirmada com Bonferroni) | discriminar regimes de crescimento de prova; invariância de fonte, equivalência quantitativa e replicação pré-registrada (v2/r2/r3) | [`ferramentas/gk_proof_fractal.md`](ferramentas/gk_proof_fractal.md) |
+| **proof-fractal** | `gk_proof_fractal.py` + `_v2.py` + `_v2_r2.py` + `_v3.py` + `_v4.py` | **D4′**: séries de comprimentos de prova → Hurst R/S, Higuchi D_H, box-counting, **boxdim** e **saltos** + bootstrap (Eixo FCT); **v2** = mínimos canônicos (`minref`) vs DRAT; **r2** = BCa+TOST+MDE80; **r3** = boxdim pré-registrado; **r4** = n=384 + diagnóstico de z0 (**`saltos` CONFIRMADA 3/3 Bonferroni**; BCa+bloco fixo medido como inadequado p/ n grande) | discriminar regimes de crescimento de prova; invariância de fonte, equivalência, replicação pré-registrada e diagnóstico de método (v2→r4) | [`ferramentas/gk_proof_fractal.md`](ferramentas/gk_proof_fractal.md) |
 | **alternating-family** | `gk_alternating_family.py` | Codificação `REF_t` (semântica de linhas) + **critério-LP** e **Teorema Nec** da família alternante (C2.3) | decidir a via LP da rota negativa; fronteira exata de t | [`ferramentas/gk_alternating_family.md`](ferramentas/gk_alternating_family.md) |
 | **c2-projection-sim** | `gk_c2_projection_sim.py` | Projeção `E` em `Res(k)` com invariantes I1–I5 + **contraexemplo G1** determinístico (frente C2) | detector automático de contraexemplos; caixa de ensaio (O1)–(O5); regressão do CI | [`ferramentas/gk_c2_projection_sim.md`](ferramentas/gk_c2_projection_sim.md) |
 | **diagnóstico** | `diagnostico_ambiente.ps1` | Verificação ✅/❌ do ambiente (Git/Python/Julia/Lean/PATH; `-Build` = `lake build`; hash do sympy) | setup e reidratação do laboratório | [`AMBIENTE_E_FERRAMENTAS.md`](AMBIENTE_E_FERRAMENTAS.md) |
@@ -56,6 +56,7 @@ python gk_proof_fractal_v2.py            # D4′ v2: minref canônico (~17min)
 python gk_proof_fractal_v2_r2.py         # r2: BCa + TOST + MDE80 (~40s)
 python gk_proof_fractal_v3.py            # r3: boxdim pré-registrado (~35min)
 python gk_proof_fractal_v3.py --analyze-only  # re-análise (~1min)
+python gk_proof_fractal_v4.py            # r4: n=384 + z0 (~1.9h; usa --resume p/ retomar)
 python -File diagnostico_ambiente.ps1    # ambiente (-Build = lean)
 ```
 
@@ -82,6 +83,11 @@ python -File diagnostico_ambiente.ps1    # ambiente (-Build = lean)
 | D4′ r3: padrão-τ 2/3; imp−cadeia não separa (eq±0,05 não certificável) | `gk_proof_fractal_v3_analysis.json` → `H_B1` (BC90/BC97,5% por teste) + tabela de sensibilidade `30_...` §3.1 |
 | D4′ r3: incoerência é do par, não da métrica (H_B4 refutada) | `H_B4.por_metrica` (boxdim 3/27, higuchi 0/27, saltos 0/27) |
 | D4′ r3: delete-d ≡ delete-1 (0/135) + tipo-I 0,04 + poder 9/10 | `contrasts.csv` coluna `jack_concordancia` + `gk_proof_fractal_v3.json` → `selftests.S4S5` |
+| D4′ r4: **`saltos` CONFIRMADA 3/3 Bonferroni** (âncoras r3 replicadas) | `gk_proof_fractal_v4_contrasts.csv` → 3 chaves `*:saltos:raw` (`bca_bonf3_*` + `pct_*` concordam; sha `8419f25b…`) + `H_C2` no `gk_proof_fractal_v4_analysis.json` |
+| D4′ r4: boxdim INDETERMINADO (2/6 contáveis, 4 incoerentes) pela régua exaustiva | `H_C1.veredito` no JSON (regras A3 no doc `31_` §1.5) + `veredito=INCOERENTE` no CSV |
+| D4′ r4: mecanismo de z0 medido (viés/SE; incoerência 7%→33% com n) | `H_C3` no JSON (D1=0,94; D2 CONFIRMADA; 16 degenerados no clamp) + colunas `z0,bias_over_se,degenerate` |
+| D4′ r4: alvo de poder 4/6 (falha declarada) | `H_C4_alvo_MDE.valores` (0,0609 e 0,0684 ≥ 0,06) |
+| D4′ r4: crash CaDiCaL contido por checkpoint (3 tentativas, dados íntegros) | `3d244ab` (plumbing separado do pré-registro `9fe7165`) + `mode=resume+collect+analyze` no JSON + sha `c92f0968…` |
 | 7º/8º bugs corrigidos sem invalidar v1 | referee `28_...` §A9–A11 + errata `28_...` §5 (v1: 188/188 UNSAT por solver, CSV congelado) |
 | Ferramentas públicas autocontidas com CI verde | 6 repos `IA-Research-GK-*` (links acima) + `.github/workflows/ci.yml` de cada um |
 | Ambiente verificável | `python -File diagnostico_ambiente.ps1` → ✅/❌ (`AMBIENTE_E_FERRAMENTAS.md`) |

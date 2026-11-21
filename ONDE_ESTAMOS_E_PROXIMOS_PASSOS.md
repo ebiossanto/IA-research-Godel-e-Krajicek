@@ -174,10 +174,15 @@ EXECUTADO** (BCa+TOST+MDE80: equivalência ±0,20=6/6, ±0,10 inacessível,
 exclusão r1 → incoerente, BCa não resolve saturação — `29_...` §8);
 **r3 EXECUTADO** (boxdim pré-registrado em dados disjuntos: pista A4
 **confirmada com Bonferroni**, padrão-τ 2/3, incoerência é do par de
-séries — `30_...`). **Pendências r4:** margem ancorada também em
-precisão (IC90→≥0,08), veredito global pré-definido para INCOERENTE,
-primariedade de IC declarada, diagnóstico de z0 extremo (+`saltos`),
-n maior (MDE80<0,06), estatística anti-saturação, τ k↑ (exige escopo
+séries — `30_...`); **r4 EXECUTADO** (n=384: **`saltos` CONFIRMADA 3/3
+Bonferroni**, boxdim INDETERMINADO 4/6 incoerentes, mecanismo de z0
+medido — BCa+bloco fixo degrada com n; crash CaDiCaL contido por
+checkpoint+retry — `31_...`). **Pendências r5:** método de IC decidido
+antes da série (bloco escalonado d=n/32 / stationary bootstrap /
+percentil-com-nota) + **calibração de incidência** de incoerência em
+dados com grade; `saltos` como métrica primária pré-registrada; regra
+de incoerência em 2 níveis (concordante/discordante); expectativas só
+com série-base; n≈512 ou alvo por família p/ MDE; τ k↑ (exige escopo
 minref>n6), séries em b com minref, H_C2 (EF) permanece deferido.
 Original (para histórico): Combinar a campanha PPR (216 testes Z3 reais) com
 o motor fractal: pegar os 216 casos, calcular a **curva de "entropia de
