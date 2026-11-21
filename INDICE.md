@@ -1,10 +1,11 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.37 (21/11/2026 — **D4′ v4 EXECUTADO** (`31_...D4V4.md`
-+referee r1): `saltos` **CONFIRMADA 3/3 Bonferroni**; boxdim
-INDETERMINADO (4/6 incoerentes, régua exaustiva); mecanismo de z0 medido
-(BCa+bloco fixo degrada com n: 7%→33%); H_C4 4/6; crash CaDiCaL contido
-por checkpoint+retry; v6.36: pré-registro r4; …)
+**Versão:** 6.38 (21/11/2026 — **D4′ v5 PRÉ-REGISTRADO** (`32_...D4V5.md`
++ `gk_proof_fractal_v5.py`): `saltos` primário; método de IC novo
+**selecionado pela calibração** (percentil+estratificado: tipo-I 0,075 vs
+BCa 0,325; incidência 0,000 vs bloco8 0,20); regra de 2 níveis; n=512
+(H_D4 previsão 6/6); margem 0,05 por precisão r4; selftests OK —
+**commit anterior ao run**; v6.37: r4 executado; …)
 **Status:** ✅ **Carta ENVIADA 11/10/2026 18:14 → RESPOSTA PARCIAL RECEBIDA 12/10/2026
 (Q1 respondido; Q2–Q4 pendentes — follow-up devido; `CARTA_FINAL_RECEBIDA.md`)**;
 Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥` **(condicional a `q` total —
@@ -60,7 +61,8 @@ em Core; rascunho MO (não postado)
 | **`28_PONTE_PROVA_FRACTAL_D4.md`** (+ `_referee.md`) | **D4′ v1: ponte prova→fractal — 188 UNSAT reais (Cadical195 DRAT + Z3); D_H separa `php` (4/4 IC95 exclui0, raw+log1p) = regime de crescimento; refutada leitura "dura=mais fractal"; H_C2 deferido** | **EXECUTADO — RECOMENDADO r1** |
 | **`29_PONTE_PROVA_FRACTAL_D4V2.md`** (+ `_referee.md`) | **D4′ v2+r2: comprimentos MÍNIMOS canônicos (minref) vs DRAT pareado, famílias n≤6 (controle do regime), 12 testes a priori — H_C3/H_C4 sem separação; r2: BCa+TOST+MDE80 → equivalência ±0,20=6/6 (±0,10 inacessível, MDE≈0,19), exclusão r1 → INCOERENTE, BCa não resolve saturação (8/81), pista boxdim 2/3; 7º/8º bugs (tau invertido; seed não-determinístico)** | **EXECUTADO (2 rodadas) — RECOMENDADO r2** |
 | **`30_PONTE_PROVA_FRACTAL_D4V3.md`** (+ `_referee.md`) | **D4′ v3/r3: boxdim PRÉ-REGISTRADO (commit `66f40ae` anterior ao run) em 192 instâncias novas disjuntas do r2 — H_B3 pista A4 CONFIRMADA (Δ=−0,170, Bonferroni ✓); H_B1 padrão-τ PARCIAL 2/3 (τ separa, (b) Bonferroni; imp−cadeia não separa, eq±0,05 não certificável → sensibilidade 0,08✓); H_B2 1/2 (1 incoerente); H_B4 refutada (incoerência é do par, não da métrica — higuchi 0/27 aqui); delete-d vs delete-1 0/135; tipo-I 0,04; poder 9/10; bug de filtragem pós-run corrigido sem tocar pré-registro** | **EXECUTADO — RECOMENDADO r3** |
-| **`31_PONTE_PROVA_FRACTAL_D4V4.md`** (+ `_referee.md`) | **D4′ v4/r4: n=384/família (1152 instâncias disjuntas r2+r3; crash nativo CaDiCaL ×2 → checkpoint+retry `3d244ab`, 3 processos, plumbing separado do pré-registro `9fe7165`) — H_C2 `saltos` CONFIRMADA 3/3 Bonferroni (âncoras r3±0,012, z0 saudável); H_C1 boxdim INDETERMINADO (2/6 contáveis, 4 incoerentes — régua exaustiva A3; (a) efeito≈0 sinal invertido; (d)(f) dois métodos excluem mas ponto fora → indiciação); H_C3 mecanismo z0 MEDIDO (D1 94%, D2 CONFIRMADA, incoerência 7%→33% com n → BCa+bloco fixo inadequado p/ n grande); D4 revertido; H_C4 NAO_ATINGIDO 4/6; delete-d 0/135; discordância pct-vs-BCa 39%** | **EXECUTADO — RECOMENDADO r4** |
+| **`31_PONTE_PROVA_FRACTAL_D4V4.md`** (+ `_referee.md`) | **D4′ v4/r4: n=384/família (1152 instâncias disjuntas r2+r3; crash nativo CaDiCaL ×2 → checkpoint+retry `3d244ab`, 3 processos, plumbing separado do pré-registro `9fe7165`) — H_C2 `saltos` CONFIRMADA 3/3 Bonferroni (âncoras r3±0,012, z0 saudável); H_C1 boxdim INDETERMINADO (2/6 contáveis, 4 incoerentes — régua exaustiva A3; (a) efeito≈0 sinal invertido; (d)(f) dois métodos excluem mas ponto fora → indiciação); H_C3 mecanismo z0 MEDIDO (D1 94%, D2 CONFIRMADA, incoerência 7%→33% com n → BCa+bloco fixo inadequado p/ n grande); D4 revertido; H_C4 NAO_ATINGIDO 4/6; delete-d 0/135; discordância pct-vs-BCa 39%** | **EXECUTADO — RECOMENDADO r4** |
+| **`32_PONTE_PROVA_FRACTAL_D4V5.md`** | **D4′ v5/r5: `saltos` PRIMÁRIO (H_D1, âncoras r3+r4) + método de IC NOVO selecionado pela calibração (percentil+bootstrap estratificado por parâmetro: tipo-I 0,075 vs BCa-estrat 0,325 vs bloco8 incidência 0,20–1,0; DGP: instâncias iid dentro do estrato) + regra de 2 níveis (concordante conta com flag / discordante não conta) + n=512 (H_D4 previsão 6/6 MDE<0,06); margem 0,05 ancorada na precisão r4 (1,645×SE=0,040); H_D2 boxdim 6 testes reavaliados; DISJ r2+r3+r4; selftests OK (poder 10/10, incidência 0,000)** | **PRÉ-REGISTRADO — commit anterior ao run; execução pendente** |
 | `00/02/04/05`, `support/*`, `paper2` | **PR26: REJEITADO + novidade provisória + pseudocódigo** | **CORRIGIDO** |
 | `01/06/03` | **PR12: banners REJEITADO/histórico** | **CORRIGIDO** |
 | Scripts | exp10, ppr3, reimpl, slow_vs_fast, **_ext**, test_Rw, **_E0E3**, **ppr3_ramos**, **_RBT_B**, **_allcov**, **fp_length_vs_delta** | SCRIPTS |
