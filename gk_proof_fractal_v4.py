@@ -105,6 +105,7 @@ import csv
 import hashlib
 import json
 import math
+import os
 import random
 import time
 from datetime import datetime, timezone
@@ -282,16 +283,30 @@ def selftests():
 
 # ---------------- coleta ----------------
 
-def collect():
-    rows = []
+def collect(existing=None):
+    """Coleta com CHECKPOINT por instancia (escrita atomica) — um crash
+    nativo (teardown CaDiCaL no Windows, familia do 0xC0000409 do v1)
+    perde no maximo a instancia em voo; --resume continua de onde parou."""
+    rows = list(existing) if existing else []
+    done = {(r["family"], str(r["param"]), str(r["seed"])) for r in rows}
+    if rows:
+        print(f"resumo: {len(rows)} instancias ja coletadas "
+              f"(checkpoint) — pulando", flush=True)
     censored = skipped = 0
     t_all = time.time()
     for fam, points in GRID.items():
-        print(f"\n--- família: {fam} ({len(points)} instâncias novas) ---",
-              flush=True)
+        todo = [(p, s) for p, s in points
+                if (fam, str(p), str(s)) not in done]
+        if not todo:
+            print(f"\n--- família: {fam} (ja completa: "
+                  f"{sum(1 for r in rows if r['family']==fam)}) ---",
+                  flush=True)
+            continue
+        print(f"\n--- família: {fam} ({len(todo)} novas de "
+              f"{len(points)}) ---", flush=True)
         t_f = time.time()
         slow = 0
-        for param, seed in points:
+        for param, seed in todo:
             nvars, clauses, tag = GENS[fam](param, seed)
             ne = len({abs(l) for c in clauses for l in c})
             if ne > 6:
@@ -323,13 +338,18 @@ def collect():
                 "sat_drat": st_r, "proof_drat": len_r,
                 # SEM coluna de tempo (byte-reprodutivel — 8o bug)
             })
-        done = [r for r in rows if r["family"] == fam]
-        exact = [r for r in done if not r["minref_censored"]]
-        unsat = [r for r in done if r["sat_drat"] == "UNSAT"]
-        vals = sorted({r["minref"] for r in exact})
-        print(f"  UNSAT: {len(unsat)}/{len(done)} | exatos: {len(exact)} "
+            write_series(rows)          # checkpoint a cada instancia
+        done = {(r["family"], str(r["param"]), str(r["seed"]))
+                for r in rows}
+        done_n = sum(1 for r in rows if r["family"] == fam)
+        exact = [r for r in rows if r["family"] == fam
+                 and str(r["minref_censored"]) == "False"]
+        unsat = [r for r in rows if r["family"] == fam
+                 and r["sat_drat"] == "UNSAT"]
+        vals = sorted({str(r["minref"]) for r in exact})
+        print(f"  UNSAT: {len(unsat)}/{done_n} | exatos: {len(exact)} "
               f"| valores: {vals} | censuras: "
-              f"{sum(1 for r in done if r['minref_censored'])} | "
+              f"{sum(1 for r in rows if r['family']==fam and str(r['minref_censored'])=='True')} | "
               f"lentos(>2min): {slow} | {time.time()-t_f:.0f}s",
               flush=True)
     print(f"\ncoleta total: {len(rows)} linhas, {censored} censuras, "
@@ -688,10 +708,15 @@ def _sha(p):
 
 
 def write_series(rows):
-    with open(OUT_SERIES, "w", newline="", encoding="utf-8") as f:
+    """Escrita atomica (tmp + replace): crash no meio nao trunca o CSV."""
+    if not rows:
+        return
+    tmp = OUT_SERIES.with_suffix(".csv.tmp")
+    with open(tmp, "w", newline="", encoding="utf-8") as f:
         w = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
         w.writeheader()
         w.writerows(rows)
+    os.replace(tmp, OUT_SERIES)
 
 
 def write_contrasts(contrasts):
@@ -721,6 +746,8 @@ def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--selftest-only", action="store_true")
     ap.add_argument("--analyze-only", action="store_true")
+    ap.add_argument("--resume", action="store_true",
+                    help="continua coleta do checkpoint (CSV existente)")
     args = ap.parse_args()
 
     t0 = time.time()
@@ -757,9 +784,26 @@ def main():
         print(f"\nre-usando {OUT_SERIES.name}: {len(rows)} linhas")
         mode = "analyze_only"
     else:
-        rows = collect()
+        existing = []
+        if args.resume and OUT_SERIES.exists():
+            existing = load_series_from_csv()
+            grid_keys = {(f, str(p), str(s))
+                         for f, pts in GRID.items() for p, s in pts}
+            foreign = [(r["family"], r["param"], r["seed"])
+                       for r in existing
+                       if (r["family"], r["param"], r["seed"])
+                       not in grid_keys]
+            if foreign:
+                print(f"[ERRO] checkpoint com {len(foreign)} linhas "
+                      f"fora da grade atual: {foreign[:5]} — abortando "
+                      "(CSV de outro experimento?)")
+                return 2
+            print(f"--resume: {len(existing)} instancias do checkpoint",
+                  flush=True)
+        rows = collect(existing)
         write_series(rows)
-        mode = "collect+analyze"
+        mode = ("resume+collect+analyze" if existing
+                else "collect+analyze")
 
     contrasts, hyp, n_rows = analyze(rows)
     write_contrasts(contrasts)
