@@ -171,10 +171,14 @@ refutada; H_C2 EF **deferido**); v2 = `29_PONTE_PROVA_FRACTAL_D4V2.md`
 controlando o regime, anti-quantização `relinc`, testes a priori — H_C3
 confirmada, H_C4 nominal com ressalva; 7º/8º bugs corrigidos); **r2
 EXECUTADO** (BCa+TOST+MDE80: equivalência ±0,20=6/6, ±0,10 inacessível,
-exclusão r1 → incoerente, BCa não resolve saturação — `29_...` §8).
-**Pendências r3:** estatística anti-saturação ou n↑, delete-d block
-jackknife, boxdim pré-registrado, τ k↑ (exige escopo minref>n6),
-séries em b com minref, H_C2 (EF) permanece deferido.
+exclusão r1 → incoerente, BCa não resolve saturação — `29_...` §8);
+**r3 EXECUTADO** (boxdim pré-registrado em dados disjuntos: pista A4
+**confirmada com Bonferroni**, padrão-τ 2/3, incoerência é do par de
+séries — `30_...`). **Pendências r4:** margem ancorada também em
+precisão (IC90→≥0,08), veredito global pré-definido para INCOERENTE,
+primariedade de IC declarada, diagnóstico de z0 extremo (+`saltos`),
+n maior (MDE80<0,06), estatística anti-saturação, τ k↑ (exige escopo
+minref>n6), séries em b com minref, H_C2 (EF) permanece deferido.
 Original (para histórico): Combinar a campanha PPR (216 testes Z3 reais) com
 o motor fractal: pegar os 216 casos, calcular a **curva de "entropia de
 prova"** (`prob(z/¬z)` do interpolante) como série ordinal e extrair H/D;

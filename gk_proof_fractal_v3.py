@@ -377,10 +377,11 @@ def load_series_from_csv():
 def build_series(rows):
     series = {}
     for fam in FAMS:
+        # str() unifica: coleta devolve bool False; CSV devolve "False"
         pts = [r for r in rows if r["family"] == fam
-               and r["minref_censored"] == "False"
+               and str(r["minref_censored"]) == "False"
                and r["sat_drat"] == "UNSAT"
-               and r["proof_drat"] not in ("", "None")]
+               and str(r["proof_drat"]) not in ("", "None")]
         pts.sort(key=lambda r: (int(r["param"]), int(r["seed"])))
         series[(fam, "minref")] = [float(r["minref"]) for r in pts]
         series[(fam, "drat")] = [float(r["proof_drat"]) for r in pts]
@@ -563,7 +564,13 @@ def analyze(rows):
                         "dado": contrasts.get(key)}
         oks = [v["resultado"].startswith("OK") for v in res.values()]
         n_ok = sum(oks)
-        if name == "H_B1":
+        n_sem = sum(1 for v in res.values()
+                    if v["resultado"] == "SEM_DADOS")
+        if n_sem == len(spec):
+            v = "SEM_DADOS"          # nao e refutacao: nao ha teste
+        elif n_sem > 0:
+            v = f"INCOMPLETO ({n_sem} sem dados)"
+        elif name == "H_B1":
             contrad = any(v["resultado"] == "CONTRADITA"
                           for v in res.values())
             if n_ok == 3:
@@ -600,8 +607,10 @@ def analyze(rows):
     hyp["H_B4_anti_saturacao"] = {
         "enunciado": "boxdim tem 0 incoerentes em r3 (como no r2: 0/27)",
         "por_metrica": incoh,
-        "veredito": ("CONFIRMADA" if incoh["boxdim"]["incoerentes"] == 0
-                     else "REFUTADA"),
+        "veredito": (
+            "SEM_DADOS" if incoh["boxdim"]["n"] == 0 else
+            "CONFIRMADA" if incoh["boxdim"]["incoerentes"] == 0
+            else "REFUTADA"),
     }
     # concordancia delete-d vs delete-1 nos pre-registrados
     pre_keys = [k for k, _, _ in H_B1 + H_B2 + H_B3]
@@ -730,6 +739,9 @@ def main():
         "ancora_margem": ("menor efeito r2 boxdim=0.053; ~1/3 da "
                           "amplitude entre-series r2 (0.142)"),
         "runtime_s": round(time.time() - t0, 1),
+        "mode": ("analyze_only (re-usa CSV de coleta; runtime da "
+                 "coleta original=2055s, ver log)"
+                 if args.analyze_only else "collect+analyze"),
         "caveats": [
             ("Pre-registro: hipoteses/margens fixadas neste codigo e no "
              "doc 30_ ANTES do run (commit anterior)."),

@@ -138,6 +138,19 @@ pista **boxdim** sobrevive em 2/3 variantes (candidata pré-registrada a
 r3). Artefatos: `gk_proof_fractal_v2_r2.json` +
 `gk_proof_fractal_v2_r2_contrasts.csv`.
 
+**Rodada r3 (`gk_proof_fractal_v3.py`, doc `30_`):** **boxdim
+pré-registrado** (commit anterior ao run — prioridade temporal) em **192
+instâncias novas disjuntas** do r2. Resultados: **pista A4 CONFIRMADA**
+(`drat:implication−cadeia`, Δ=−0,170, sobrevive Bonferroni); padrão-τ em
+`minref` **2/3** (τ separa ambos; imp−cadeia não separa, mas equivalência
+a ±0,05 não certificável → sensibilidade pré-declarada: eq a ±0,08 ✓);
+H_B2 1/2 (1 incoerente); **H_B4 refutada** — incoerência instável entre
+métricas (higuchi 0/27 aqui) → é **do par de séries**, não do
+instrumento; **delete-d vs delete-1: 0/135** discordâncias; tipo-I 0,04 ·
+poder 9/10. Métricas novas `boxdim_rank` (invariante monotona) e `saltos`
+(0/27 incoerentes). Artefatos: `gk_proof_fractal_v3_series.csv`
+(`6d4cbdd1…`) + `gk_proof_fractal_v3_contrasts.csv` (`0cb1dce2…`) + JSONs.
+
 > **Bugs corrigidos na rodada (7º e 8º do projeto):** `gen_tau` com
 > unidades de saída invertidas (v1 permanece válido: 188/188 UNSAT por
 > solver) e geradores usando `tuple.__hash__()` — seed não reproduzia
