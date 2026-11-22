@@ -534,6 +534,7 @@ def reanalise_r5():
     for fam in FAMS:
         combos.append((f"fonte:{fam}", "fonte", fam, fam, True))
     contrasts = {}
+    n_done = 0
     for label, sysname, fa, fb, paired in combos:
         if sysname == "fonte":
             a0, b0 = series.get((fa, "minref"), []), \
@@ -552,6 +553,10 @@ def reanalise_r5():
             if c is None:
                 continue
             contrasts[key] = c
+            n_done += 1
+            if n_done % 9 == 0:
+                print(f"  relinc: {n_done}/45 contrastes "
+                      f"({time.time()-t0:.0f}s)", flush=True)
     # comparacao com o r5 congelado
     old = {}
     if R5_CONTRASTS.exists():
