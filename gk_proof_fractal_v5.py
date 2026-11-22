@@ -843,8 +843,10 @@ def analyze(rows):
     allc = list(contrasts.items())
     inc_strat = sum(1 for _, c in allc if c["point_outside"])
     disc_strat = sum(1 for _, c in allc if c["discordante"])
-    block8_out = [k for k, c in pre if c.get("block8_outside")]
-    block8_disc = [k for k, c in pre if c.get("block8_outside")
+    block8_out = [k for k, c in pre.items()
+                  if c.get("block8_outside")]
+    block8_disc = [k for k, c in pre.items()
+                   if c.get("block8_outside")
                    and not c["concordante"]]
     hyp["H_D3_incidencia"] = {
         "metodo_primario": "estratificado",
