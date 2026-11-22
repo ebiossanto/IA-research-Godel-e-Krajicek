@@ -195,10 +195,13 @@ PRE_KEYS = [k for k, _, _ in H_D1] + [k for k, _, _ in H_D2]  # 9 chaves
 # ---------------- estratos + reamostragem ----------------
 
 def runs_of(pts):
-    """Tamanhos dos estratos (runs de param consecutivo) da serie."""
+    """Tamanhos dos estratos (runs de param consecutivo) da serie.
+    int() obrigatorio: linhas do CSV chegam como string e linhas
+    frescas como int — mistura quebrava o run (mesma familia de bug do
+    r3: bool x str)."""
     runs, cur, n = [], None, 0
     for r in pts:
-        p = r["param"]
+        p = int(r["param"])
         if p == cur:
             n += 1
         else:
