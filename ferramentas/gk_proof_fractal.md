@@ -183,6 +183,21 @@ reais (resposta empírica registrada). Incidentes: 3 crashes CaDiCaL +
 procedimento). Artefatos: `gk_proof_fractal_v5_*` (`df3737ce…` /
 `c30b13f2…`).
 
+**Rodada r6 (`gk_proof_fractal_v6.py`, doc `33_`) — CONSOLIDAÇÃO:**
+**estratos exatos do `relinc`** (transformação recalculada dentro de
+cada réplica — corrige a fronteira aproximada do r5): H_E1 **PARCIAL**
+(5/45→2/45, todos os5 originais resolvidos) + H_F3 **CONFIRMADA**
+(1/45 em dado novo). Resultados: **saltos CONFIRMADA 3/3 na4ª rodada**
+(com (b) salvo pelo ramo concordante **pela1ª vez em dado real**) +
+**Cochran Q SEM HETEROGENEIDADE** (p=0,13–0,71 — sem tendência
+detectável em4 rodadas); **boxdim CONFIRMADA 6/6** (5/6 teriam sido
+bloqueados pelo método do r4); H_F4 ramo **disparou4×** (mantido);
+H_F5 **6/6** (MDE 0,014–0,042). z0 extremos12→28 (monitoramento
+§6.2). **Linha de inferência consolidada** — próxima rodada =
+científica (τ k↑ / séries em b). Artefatos: `gk_proof_fractal_v6_*`
+(`5571b05f…` / `c567dbfd…`) + `gk_proof_fractal_v6_reanalise_r5*`
+(`d3b6b336…`).
+
 > **Bugs corrigidos na rodada (7º e 8º do projeto):** `gen_tau` com
 > unidades de saída invertidas (v1 permanece válido: 188/188 UNSAT por
 > solver) e geradores usando `tuple.__hash__()` — seed não reproduzia

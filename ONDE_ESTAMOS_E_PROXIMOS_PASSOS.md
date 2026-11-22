@@ -183,12 +183,16 @@ calibração** (percentil+estratificado: tipo-I 0,075 vs BCa 0,325) →
 incidência **4,4%** vs 33%, head-to-head bloco8 0/9 vs 4/9; H_D2 PARCIAL
 5/6 com **eq±0,05 certificada**; H_D4 **6/6 ATINGIDO**; regra de 2 níveis
 com ramo concordante 0 ocorrências; 2 bugs de plumbing + smoke test
-obrigatório — `32_...`). **Pendências r6:** estratos exatos do `relinc`
-(5/6 discordantes lá); redefinir H_D2(a) como equivalência (3 falhas
-direcionais); ramo concordante da regra (0 ocorrências — remover se r6
-repetir); teste de tendência de magnitude de `saltos` (≥4 rodadas);
-**τ k↑** (exige escopo minref>n6) e **séries em b** como próximas
-perguntas científicas; H_C2 (EF) permanece deferido.
+obrigatório — `32_...`); **r6 EXECUTADO — CONSOLIDAÇÃO** (estratos
+exatos do `relinc`: H_E1 5/45→2/45 + H_F3 1/45; `saltos` **3/3 na4ª
+rodada** com flag real + Cochran **sem heterogeneidade**; boxdim
+**6/6**; H_F4 disparou4×; H_F5 **6/6** — `33_...`). **A linha de
+IC/infra está consolidada** (método + régua + margens + métrica + poder
+estáveis por2 rodadas) — **próxima rodada = científica: τ k↑**
+(pendência original; exige estender o escopo do minref p/ n>6 ou método
+alternativo de comprimento mínimo) **ou séries em b** (índice lex — a
+série ordinal original do D4′); monitorar z0 (`drat:cadeia−τ`), flags ≥4
+→ estreitar concordância, H_C2 (EF) permanece deferido.
 Original (para histórico): Combinar a campanha PPR (216 testes Z3 reais) com
 o motor fractal: pegar os 216 casos, calcular a **curva de "entropia de
 prova"** (`prob(z/¬z)` do interpolante) como série ordinal e extrair H/D;

@@ -1,0 +1,97 @@
+{
+  "metadata": {
+    "timestamp_utc": "2026-11-22T20:40:47.905584Z",
+    "mode": "resume+collect+analyze",
+    "seed": 20261119,
+    "seed_boot": 20261126,
+    "n_boot": 1000,
+    "metodo_primario": "percentil BOOTSTRAP ESTRATIFICADO (herdado e validado do r5: S4-S6 re-executados); relinc com estratos EXATOS — transformacao recalculada dentro de cada replicata (r6-i)",
+    "regra_2_niveis": "identica ao r5 (2 niveis; exaustiva); bonf boxdim agora 0.05/4 (4 direcionais)",
+    "margens_boxdim": {
+      "primaria": 0.05,
+      "sensibilidade": [
+        0.03,
+        0.08
+      ]
+    },
+    "grid": {
+      "implication": "512 pontos (seeds novos vs r2..r5)",
+      "cadeia": "512 pontos (seeds novos vs r2..r5)",
+      "tau_tiny": "512 pontos (seeds novos vs r2..r5)"
+    },
+    "runtime_s": 5937.3,
+    "caveats": [
+      "Pre-registro: hipoteses/margens/regras fixados neste codigo e no doc 33_ ANTES do run.",
+      "Dados disjuntos de r2..r5 (DISJ aborta).",
+      "raw/log1p identicos ao r5 (transformacao ponto-a-ponto comuta); so relinc muda (estratos exatos).",
+      "H_F1b (Cochran Q) compara rodadas com n/grades diferentes — captura variacao total, nao so declinio.",
+      "Checkpoint atomico + --resume (crash CaDiCaL).",
+      "N1+N2; sem N4; H_C2 (EF) deferido; tau k↑ aberta."
+    ],
+    "data_source": "gk_proof_fractal_v6.py (r6 coleta)",
+    "instances": {
+      "rows": 1536
+    },
+    "selftests": {
+      "S1_bca_scipy": {
+        "status": "OK",
+        "max_diff": 0.01331
+      },
+      "S2_metricas": {
+        "status": "OK",
+        "inv_err": 0.0
+      },
+      "calibracao": {
+        "S4_tipo1": {
+          "n": 40,
+          "percentil_cru": 3,
+          "regra_2niveis": 3,
+          "bca_cru": 13,
+          "taxa_pct": 0.075,
+          "taxa_regra": 0.075,
+          "taxa_bca": 0.325,
+          "gate_ok": true,
+          "nota": "percentil deve calibrar (~0.05); BCa cru reportado (prototipo: 0.20 — por isso NAO e primario); regra de 2 niveis nao pode inflacionar a taxa"
+        },
+        "S5_poder": {
+          "n": 10,
+          "regra_detectou": 10,
+          "gate_ok": true,
+          "z0_bca_range": [
+            -1.185,
+            -0.1815
+          ],
+          "nota": "construct perfilA+iid vs perfilB+zig; efeito -0.049 medido; deteccao = regra da direita com sinal negativo"
+        },
+        "S6_incidencia": {
+          "percentil_estratificado": {
+            "incidencia": 0.0,
+            "discordancia": 0.0,
+            "gate_ok": true
+          },
+          "bloco8_bca_comparacao": {
+            "incidencia": 0.2,
+            "n": 50
+          },
+          "nota": "alvo: discordancia do primario <= 0.10 (prototipo: percentil ~0.03, bloco8-BCa ~0.5-1.0); o primario e o percentil estratificado — calibrado no S4"
+        },
+        "status": "OK"
+      },
+      "S7_smoke": {
+        "status": "OK",
+        "n_contrastes": 135,
+        "nota": "analyze() completo com stub (caminhos de fim)"
+      },
+      "DISJ": {
+        "status": "OK",
+        "n_prev": 3072,
+        "n_r6": 1536,
+        "fontes": 4,
+        "interseccao": []
+      }
+    },
+    "csv": "gk_proof_fractal_v6_series.csv",
+    "csv_sha256": "5571b05fc88765c57018aafd0adc539b011f33010ee89f87323e0f65cfd22c90",
+    "sha_note": "sha256 bytes normalizados CRLF->LF"
+  }
+}

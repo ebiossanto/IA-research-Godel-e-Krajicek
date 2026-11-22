@@ -1,11 +1,11 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.40 (22/11/2026 — **D4′ v6 PRÉ-REGISTRADO** (`33_...D4V6.md` +
-`gk_proof_fractal_v6.py`): estratos **exatos** do `relinc` (transformação
-recalculada por réplica — corrige A4 do r5) + **consolidação** (H_E1
-re-análise r5; H_F1 4ª rodada + Cochran Q r3–r6; (a)→equivalência; H_F4 ramo
-concordante; S7 smoke obrigatório) — **commit anterior a qualquer execução**;
-v6.39: r5 executado; …)
+**Versão:** 6.41 (22/11/2026 — **D4′ v6 EXECUTADO** (`33_...D4V6.md`+referee
+r1): estratos **exatos** do `relinc` (H_E1 5/45→2/45; H_F3 1/45); `saltos`
+**3/3 na4ª rodada** com flag real + Cochran **sem heterogeneidade**; boxdim
+**6/6**; H_F4 disparou4× (ramo mantido); H_F5 **6/6** (MDE 0,014–0,042) —
+**linha de IC consolidada**; próxima rodada = científica (τ k↑ / séries em b);
+v6.40: pré-registro r6; …)
 **Status:** ✅ **Carta ENVIADA 11/10/2026 18:14 → RESPOSTA PARCIAL RECEBIDA 12/10/2026
 (Q1 respondido; Q2–Q4 pendentes — follow-up devido; `CARTA_FINAL_RECEBIDA.md`)**;
 Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥` **(condicional a `q` total —
@@ -63,7 +63,7 @@ em Core; rascunho MO (não postado)
 | **`30_PONTE_PROVA_FRACTAL_D4V3.md`** (+ `_referee.md`) | **D4′ v3/r3: boxdim PRÉ-REGISTRADO (commit `66f40ae` anterior ao run) em 192 instâncias novas disjuntas do r2 — H_B3 pista A4 CONFIRMADA (Δ=−0,170, Bonferroni ✓); H_B1 padrão-τ PARCIAL 2/3 (τ separa, (b) Bonferroni; imp−cadeia não separa, eq±0,05 não certificável → sensibilidade 0,08✓); H_B2 1/2 (1 incoerente); H_B4 refutada (incoerência é do par, não da métrica — higuchi 0/27 aqui); delete-d vs delete-1 0/135; tipo-I 0,04; poder 9/10; bug de filtragem pós-run corrigido sem tocar pré-registro** | **EXECUTADO — RECOMENDADO r3** |
 | **`31_PONTE_PROVA_FRACTAL_D4V4.md`** (+ `_referee.md`) | **D4′ v4/r4: n=384/família (1152 instâncias disjuntas r2+r3; crash nativo CaDiCaL ×2 → checkpoint+retry `3d244ab`, 3 processos, plumbing separado do pré-registro `9fe7165`) — H_C2 `saltos` CONFIRMADA 3/3 Bonferroni (âncoras r3±0,012, z0 saudável); H_C1 boxdim INDETERMINADO (2/6 contáveis, 4 incoerentes — régua exaustiva A3; (a) efeito≈0 sinal invertido; (d)(f) dois métodos excluem mas ponto fora → indiciação); H_C3 mecanismo z0 MEDIDO (D1 94%, D2 CONFIRMADA, incoerência 7%→33% com n → BCa+bloco fixo inadequado p/ n grande); D4 revertido; H_C4 NAO_ATINGIDO 4/6; delete-d 0/135; discordância pct-vs-BCa 39%** | **EXECUTADO — RECOMENDADO r4** |
 | **`32_PONTE_PROVA_FRACTAL_D4V5.md`** (+ `_referee.md`) | **D4′ v5/r5: `saltos` PRIMÁRIO — H_D1 CONFIRMADA 3/3 Bonferroni (3ª rodada: r3→r4→r5, magnitude 0,08–0,19, ICs sobrepostos); método de IC novo SELECIONADO PELA CALIBRAÇÃO (percentil+estratificado: tipo-I 0,075 vs BCa 0,325; S4–S6 pré-run) — H_D3 incidência real 4,4% (r4:33%), z0 extremos 61→12, degenerados 16→2, head-to-head bloco8 4/9 bloqueado vs primário 0/9; H_D2 PARCIAL 5/6 (eq±0,05 certificada, pista (d) e fonte (f) limpas pela 1ª vez, (a) sem efeito 3ª vez); H_D4 ATINGIDO 6/6 (MDE 0,014–0,052); regra 2 níveis (ramo concordante 0 ocorrências); 2 bugs de plumbing pós-pré-reg + smoke test; n=512 disjunto r2–r4** | **EXECUTADO — RECOMENDADO r5** |
-| **`33_PONTE_PROVA_FRACTAL_D4V6.md`** | **D4′ v6/r6: estratos EXATOS do `relinc` (transformação recalculada dentro de cada réplica — corrige a fronteira aproximada do r5, A4) + CONSOLIDAÇÃO: H_E1 (re-análise do CSV r5: discordância relinc 5/45→≤1/45), H_F1 saltos 4ª rodada + H_F1b meta-análise de Cochran entre r3–r6 (teste de tendência, A1), H_F2 boxdim com (a) REDEFINIDO como equivalência (A5; Bonferroni 0,05/4), H_F3 relinc novos dados ≤10%, H_F4 ramo concordante (0/135 → remover em r7), H_F5 MDE 6/6; S7 smoke obrigatório; n=512 disjunto r2–r5** | **PRÉ-REGISTRADO — commit anterior a qualquer execução; execução pendente** |
+| **`33_PONTE_PROVA_FRACTAL_D4V6.md`** (+ `_referee.md`) | **D4′ v6/r6 CONSOLIDAÇÃO: estratos EXATOS do `relinc` (transformação recalculada por réplica) — H_E1 PARCIAL (5/45→2/45, todos os5 originais resolvidos) + H_F3 CONFIRMADA (1/45 em dado novo); H_F1 saltos **CONFIRMADA 3/3 na4ª rodada** com (b) salvo pelo ramo concordante **pela1ª vez em dado real** (flag visível) + H_F1b Cochran Q **SEM HETEROGENEIDADE** (p=0,13–0,71, sem tendência em4 rodadas); H_F2 boxdim **CONFIRMADA 6/6** (5/6 teriam sido bloqueados pelo método r4); H_F4 DISPAROU 4× (ramo mantido); H_F5 **6/6** (MDE 0,014–0,042); z0 extremos 12→28 (monitoramento); S7 smoke em toda execução; n=512 disjunto r2–r5** | **EXECUTADO — RECOMENDADO r6** |
 | `00/02/04/05`, `support/*`, `paper2` | **PR26: REJEITADO + novidade provisória + pseudocódigo** | **CORRIGIDO** |
 | `01/06/03` | **PR12: banners REJEITADO/histórico** | **CORRIGIDO** |
 | Scripts | exp10, ppr3, reimpl, slow_vs_fast, **_ext**, test_Rw, **_E0E3**, **ppr3_ramos**, **_RBT_B**, **_allcov**, **fp_length_vs_delta** | SCRIPTS |
