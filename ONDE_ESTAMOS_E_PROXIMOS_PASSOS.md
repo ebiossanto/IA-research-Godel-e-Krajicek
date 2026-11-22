@@ -177,13 +177,18 @@ exclusão r1 → incoerente, BCa não resolve saturação — `29_...` §8);
 séries — `30_...`); **r4 EXECUTADO** (n=384: **`saltos` CONFIRMADA 3/3
 Bonferroni**, boxdim INDETERMINADO 4/6 incoerentes, mecanismo de z0
 medido — BCa+bloco fixo degrada com n; crash CaDiCaL contido por
-checkpoint+retry — `31_...`). **Pendências r5:** método de IC decidido
-antes da série (bloco escalonado d=n/32 / stationary bootstrap /
-percentil-com-nota) + **calibração de incidência** de incoerência em
-dados com grade; `saltos` como métrica primária pré-registrada; regra
-de incoerência em 2 níveis (concordante/discordante); expectativas só
-com série-base; n≈512 ou alvo por família p/ MDE; τ k↑ (exige escopo
-minref>n6), séries em b com minref, H_C2 (EF) permanece deferido.
+checkpoint+retry — `31_...`); **r5 EXECUTADO** (`saltos` **PRIMÁRIO
+CONFIRMADO 3/3 Bonferroni** — 3ª rodada; método novo **selecionado pela
+calibração** (percentil+estratificado: tipo-I 0,075 vs BCa 0,325) →
+incidência **4,4%** vs 33%, head-to-head bloco8 0/9 vs 4/9; H_D2 PARCIAL
+5/6 com **eq±0,05 certificada**; H_D4 **6/6 ATINGIDO**; regra de 2 níveis
+com ramo concordante 0 ocorrências; 2 bugs de plumbing + smoke test
+obrigatório — `32_...`). **Pendências r6:** estratos exatos do `relinc`
+(5/6 discordantes lá); redefinir H_D2(a) como equivalência (3 falhas
+direcionais); ramo concordante da regra (0 ocorrências — remover se r6
+repetir); teste de tendência de magnitude de `saltos` (≥4 rodadas);
+**τ k↑** (exige escopo minref>n6) e **séries em b** como próximas
+perguntas científicas; H_C2 (EF) permanece deferido.
 Original (para histórico): Combinar a campanha PPR (216 testes Z3 reais) com
 o motor fractal: pegar os 216 casos, calcular a **curva de "entropia de
 prova"** (`prob(z/¬z)` do interpolante) como série ordinal e extrair H/D;

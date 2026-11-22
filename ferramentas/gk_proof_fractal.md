@@ -167,6 +167,22 @@ rodada); discordância pct-vs-BCa 39%. Incidente: crash nativo
 retry** (`3d244ab`, 3 tentativas). Artefatos: `gk_proof_fractal_v4_*
 (`c92f0968…` / `8419f25b…`).
 
+**Rodada r5 (`gk_proof_fractal_v5.py`, doc `32_`):** os 3 itens pedidos —
+**`saltos` como métrica primária**, **método de IC novo com calibração de
+incidência** e **regra de 2 níveis**. Método **selecionado pela calibração
+pré-run** (S4–S6): percentil + **bootstrap estratificado por parâmetro**
+(DGP real: instâncias iid dentro do estrato; tipo-I 0,075 vs BCa-estrat
+0,325 → BCa virou parceiro da regra). Resultados: **H_D1 `saltos`
+CONFIRMADA 3/3 Bonferroni** (3ª rodada: r3→r4→r5); **H_D2 boxdim PARCIAL
+5/6** (equivalência ±0,05 certificada, pista (d) e fonte (f) limpas pela
+1ª vez, (a) sem efeito 3ª vez); **H_D3 incidência 4,4%** (r4: 33%;
+head-to-head: bloco8 bloquearia 4/9 vs primário 0/9); **H_D4 6/6 ATINGIDO**
+(MDE 0,014–0,052). Ramo concordante da regra: 0 ocorrências em dados
+reais (resposta empírica registrada). Incidentes: 3 crashes CaDiCaL +
+2 bugs de plumbing pós-pré-reg (corrigidos, smoke test virou
+procedimento). Artefatos: `gk_proof_fractal_v5_*` (`df3737ce…` /
+`c30b13f2…`).
+
 > **Bugs corrigidos na rodada (7º e 8º do projeto):** `gen_tau` com
 > unidades de saída invertidas (v1 permanece válido: 188/188 UNSAT por
 > solver) e geradores usando `tuple.__hash__()` — seed não reproduzia

@@ -21,7 +21,7 @@ e viraram software verificável. Documentação completa por ferramenta em
 | **minref** | `gk_minref.py` | Comprimento **mínimo exato** de refutação Res via encoder `REF_t` (fecho + pares completos) — gadget das frentes **C2/LP** | complexidade de prova finita; calibrar D4′; validação de encoders; verificação92/92 do teste LP | [`ferramentas/gk_minref.md`](ferramentas/gk_minref.md) |
 | **dd-cert** | `gk_dd_cert.py` | **Teorema 4.3 (`DD_Res ∈ P`)** executável: π (DRAT/DAG/saturação) → **certificado da sub-derivação pura** + verificador independente | **auditoria externa** (peça do dossiê); detector de contraexemplos; certificação de evidências | [`ferramentas/gk_dd_cert.md`](ferramentas/gk_dd_cert.md) |
 | **claims-lint** | `gk_claims_lint.py` + `.github/workflows/ci.yml` | **Metodologia Ten-Proofs**:10 regras de consistência de claims/evidências (R1–R10) + CI | impedir regressão epistêmica; proteger hashes; padrão para pesquisa com IA | [`ferramentas/gk_claims_lint.md`](ferramentas/gk_claims_lint.md) |
-| **proof-fractal** | `gk_proof_fractal.py` + `_v2.py` + `_v2_r2.py` + `_v3.py` + `_v4.py` | **D4′**: séries de comprimentos de prova → Hurst R/S, Higuchi D_H, box-counting, **boxdim** e **saltos** + bootstrap (Eixo FCT); **v2** = mínimos canônicos (`minref`) vs DRAT; **r2** = BCa+TOST+MDE80; **r3** = boxdim pré-registrado; **r4** = n=384 + diagnóstico de z0 (**`saltos` CONFIRMADA 3/3 Bonferroni**; BCa+bloco fixo medido como inadequado p/ n grande) | discriminar regimes de crescimento de prova; invariância de fonte, equivalência, replicação pré-registrada e diagnóstico de método (v2→r4) | [`ferramentas/gk_proof_fractal.md`](ferramentas/gk_proof_fractal.md) |
+| **proof-fractal** | `gk_proof_fractal.py` + `_v2.py` + `_v2_r2.py` + `_v3.py` + `_v4.py` + `_v5.py` | **D4′**: séries de comprimentos de prova → Hurst R/S, Higuchi D_H, box-counting, **boxdim** e **saltos** + bootstrap (Eixo FCT); **v2** = mínimos canônicos (`minref`) vs DRAT; **r2** = BCa+TOST+MDE80; **r3** = boxdim pré-registrado; **r4** = diagnóstico de z0; **r5** = `saltos` **primário CONFIRMADO 3/3 Bonferroni** + método **percentil+estratificado selecionado pela calibração** (incidência 4,4% vs 33%) + regra de 2 níveis | discriminar regimes de crescimento de prova; invariância de fonte, equivalência, replicação pré-registrada e calibração de método (v2→r5) | [`ferramentas/gk_proof_fractal.md`](ferramentas/gk_proof_fractal.md) |
 | **alternating-family** | `gk_alternating_family.py` | Codificação `REF_t` (semântica de linhas) + **critério-LP** e **Teorema Nec** da família alternante (C2.3) | decidir a via LP da rota negativa; fronteira exata de t | [`ferramentas/gk_alternating_family.md`](ferramentas/gk_alternating_family.md) |
 | **c2-projection-sim** | `gk_c2_projection_sim.py` | Projeção `E` em `Res(k)` com invariantes I1–I5 + **contraexemplo G1** determinístico (frente C2) | detector automático de contraexemplos; caixa de ensaio (O1)–(O5); regressão do CI | [`ferramentas/gk_c2_projection_sim.md`](ferramentas/gk_c2_projection_sim.md) |
 | **diagnóstico** | `diagnostico_ambiente.ps1` | Verificação ✅/❌ do ambiente (Git/Python/Julia/Lean/PATH; `-Build` = `lake build`; hash do sympy) | setup e reidratação do laboratório | [`AMBIENTE_E_FERRAMENTAS.md`](AMBIENTE_E_FERRAMENTAS.md) |
@@ -57,6 +57,7 @@ python gk_proof_fractal_v2_r2.py         # r2: BCa + TOST + MDE80 (~40s)
 python gk_proof_fractal_v3.py            # r3: boxdim pré-registrado (~35min)
 python gk_proof_fractal_v3.py --analyze-only  # re-análise (~1min)
 python gk_proof_fractal_v4.py            # r4: n=384 + z0 (~1.9h; usa --resume p/ retomar)
+python gk_proof_fractal_v5.py            # r5: saltos prim. + estratificado (~3h; --resume)
 python -File diagnostico_ambiente.ps1    # ambiente (-Build = lean)
 ```
 
@@ -88,6 +89,12 @@ python -File diagnostico_ambiente.ps1    # ambiente (-Build = lean)
 | D4′ r4: mecanismo de z0 medido (viés/SE; incoerência 7%→33% com n) | `H_C3` no JSON (D1=0,94; D2 CONFIRMADA; 16 degenerados no clamp) + colunas `z0,bias_over_se,degenerate` |
 | D4′ r4: alvo de poder 4/6 (falha declarada) | `H_C4_alvo_MDE.valores` (0,0609 e 0,0684 ≥ 0,06) |
 | D4′ r4: crash CaDiCaL contido por checkpoint (3 tentativas, dados íntegros) | `3d244ab` (plumbing separado do pré-registro `9fe7165`) + `mode=resume+collect+analyze` no JSON + sha `c92f0968…` |
+| D4′ r5: **`saltos` PRIMÁRIO CONFIRMADO 3/3 Bonferroni** (3ª rodada) | `gk_proof_fractal_v5_contrasts.csv` → 3 chaves `*:saltos:raw` (`pct_bonf3_*` excluem, pontos dentro) + `H_D1.veredito` no `gk_proof_fractal_v5_analysis.json` (sha `c30b13f2…`) |
+| D4′ r5: método escolhido **pela calibração** (percentil estrat.: tipo-I 0,075 vs BCa 0,325) | `gk_proof_fractal_v5.json` → `selftests.calibracao.S4/S6` (gates pré-run) + `metadata.metodo_primario` |
+| D4′ r5: incidência real 4,4% (r4:33%) + head-to-head bloco8 **0/9 vs 4/9** | `H_D3_incidencia` no JSON + colunas `block8_outside`/`discordante` no CSV |
+| D4′ r5: H_D2 PARCIAL 5/6 (eq±0,05 certificada; (a) sem efeito 3ª vez) | `H_D2_boxdim_secundario.testes` no JSON (`equivalente_d0.05` em (c)) |
+| D4′ r5: alvo de poder **6/6 ATINGIDO** (MDE 0,014–0,052) | `H_D4_alvo_MDE.valores` no JSON |
+| D4′ r5:2 bugs de plumbing pós-pré-reg corrigidos, smoke test como procedimento | `8209433` + `0919e6b` (diffs separados do pré-registro `b6c359f`) + registro no doc `32_` §3 |
 | 7º/8º bugs corrigidos sem invalidar v1 | referee `28_...` §A9–A11 + errata `28_...` §5 (v1: 188/188 UNSAT por solver, CSV congelado) |
 | Ferramentas públicas autocontidas com CI verde | 6 repos `IA-Research-GK-*` (links acima) + `.github/workflows/ci.yml` de cada um |
 | Ambiente verificável | `python -File diagnostico_ambiente.ps1` → ✅/❌ (`AMBIENTE_E_FERRAMENTAS.md`) |

@@ -138,13 +138,138 @@ primário** + BCa estratificado parceiro + Bonferroni (0,01/0,0167) + bloco8
 diagnóstico nas 9 chaves → 2 CSV/JSON (R6 protege os dois pares). Vereditos
 pelas regras §1.5.
 
-## 3. Resultados *(pós-run)*
+## 3. Resultados (execução: 21–22/11/2026)
 
-## 4. Interpretação *(pós-run)*
+**Execução e incidentes (registro honesto):**
+- **Coleta (6 tentativas):** 3 crashes nativos `Cadical195.__del__`
+  (`0xC0000005`, mesma família do r4) contidos pelo checkpoint atômico +
+  `--resume`; **1536/1536 UNSAT**, 0 censuras, 0 descartes, estratos
+  `[128×4]`/`[512]` corretos.
+- **2 bugs de plumbing** pós-pré-registro (diffs separados, hipóteses/margens/
+  regras/método **intactos**): (1) `runs_of` comparava `param` sem `int()` →
+  estrato do tau virava `[503,9]` pela mistura str/int do checkpoint vs coleta
+  fresca (corrigido `8209433`); (2) `for k, c in pre` iterava dict sem
+  `.items()` → `ValueError` no **fim** do `analyze()` antes de escrever os
+  artefatos, destruindo ~1,5h de análise (corrigido `0919e6b`). **Lição:** smoke
+  test de análise com `contrast()` stubado passou a ser obrigatório — executado
+  com sucesso **antes** do relançamento (exercitou classificadores, H_D1–H_D4,
+  diag e `write_contrasts`).
+- **Análise final:** 1 tentativa, 90min, exit 0.
+- **Artefatos:** série `df3737ce…` (input idêntico no JSON da análise ✓) ·
+  contrastes `c30b13f2…` · selftests S1–S6 OK no run.
 
-## 5. Limitações *(pós-run)*
+### 3.1 H_D1 — PRIMARIA (`saltos`): **CONFIRMADA (3/3 OK_BONF)** ✅
 
-## 6. Próximos passos *(pós-run)*
+| # | Teste | r3 (âncora) | r4 | **r5** | pct95 | Bonferroni (pct99) | z0 |
+|---|---|---|---|---|---|---|---|
+| (a) | minref:imp−τ > 0 | +0,173 | +0,185 | **+0,1383** | [+0,077; +0,181] ✅ | [+0,064; +0,198] ✅ | +0,38 |
+| (b) | drat:imp−cadeia > 0 | +0,110 | +0,117 | **+0,0799** | [+0,064; +0,165] ✅ | [+0,049; +0,175] ✅ | −1,39 |
+| (c) | fonte:cadeia > 0 | +0,120 | +0,113 | **+0,1035** | [+0,069; +0,166] ✅ | [+0,061; +0,176] ✅ | −0,50 |
+
+**3/3 `OK_BONF`** — percentil **e** Bonferroni excluem, pontos dentro dos ICs,
+z0 saudáveis (|z0| ≤ 1,39), **3ª rodada consecutiva de confirmação**
+(r3→r4→r5, dados disjuntos cada vez). **Item #1 do pedido entregue.**
+
+### 3.2 H_D2 — SECUNDARIA (boxdim): **PARCIAL (5/6 contáveis; 0 discordantes)**
+
+| # | Teste | r4 | **r5 point** | pct95 | Veredito |
+|---|---|---|---|---|---|
+| (a) | minref:imp−τ > 0 | FALHA −0,024 | **−0,0115** | [−0,019; +0,035] | **FALHA_INCONCLUSIVO** (3ª vez: efeito ≈ 0) |
+| (b) | minref:cadeia−τ > 0 | INCOERENTE | **+0,0252** | [+0,016; +0,064] | **OK_BONF** (1ª limpa) |
+| (c) | minref:imp−cadeia ≡ ±0,05 | INCOERENTE | **−0,0367** | [−0,047; −0,012] | **OK = EQUIVALENTE @0,05** (TOST passa) |
+| (d) | drat:imp−cadeia < 0 [pista] | INCOERENTE | **−0,0681** | [−0,079; −0,054] | **OK_BONF** (4ª rodada) |
+| (e) | fonte:τ < 0 | OK_BONF −0,128 | **−0,0366** | [−0,070; −0,003] | **OK** (4ª rodada; magnitude caiu) |
+| (f) | fonte:cadeia < 0 | INCOERENTE | **−0,0508** | [−0,061; −0,042] | **OK_BONF** (1ª limpa) |
+
+- **(c) é o desfecho de TOST clássico:** CI95 **exclui 0** (efeito existe:
+  −0,037) **e** IC90 cabe em ±0,05 (**praticamente equivalente**) — diferença
+  estatisticamente detectável porém menor que a margem. Fecha a pendência do
+  r3 (eq@0,05 não certificável lá).
+- **(a) fracassou pela 3ª vez** — a direção positiva prevista não existe
+  (efeito ≈ 0); o padrão-τ em boxdim sobrevive só em (b).
+- **(d)(f) limpos pela 1ª vez** — o head-to-head prova que o método do r4
+  **bloquearia 4/9** das chaves (bloco8 `z0=±3,29` em todas) vs **0/9** do
+  primário (§3.3).
+
+### 3.3 H_D3 — INCIDENCIA: **CONFIRMADA** — o método novo resolveu o problema do r4
+
+| Métrica | r4 (n=384, BCa+bloco8) | **r5 (n=512, pct+estrat)** |
+|---|---|---|
+| Incoerentes/discordantes | **45/135 (33%)** | **6/135 (4,4%)** ✅ (gate ≤10%) |
+| z0 extremos | 61/135 | **12/135** |
+| ICs degenerados | 16 | **2** (ambos `saltos:relinc`) |
+| **Head-to-head (9 chaves pré-reg.)** | bloco8: **4/9 fora** | primário: **0/9 fora** |
+
+- Os 6 discordantes estão **todos em variantes `relinc`/`log1p`** (4 em
+  `saltos:relinc`) — **0 em `raw`** (a variante confirmatória). Hipótese
+  técnica registrada: o ajuste de estratos do `relinc` (1º estrato −1 ponto,
+  **aproximação declarada** no pré-registro) pode contribuir — pendência r6.
+- **Item #2 do pedido entregue:** método novo **com calibração de incidência**
+  (S4–S6 antes do run) **e** verificação em dados reais (4,4% ≤ 10%).
+
+### 3.4 H_D4 — ALVO DE DESIGN: **ATINGIDO (6/6)** ✅
+
+MDE80 dos 6 testes boxdim: **0,014 · 0,017 · 0,025 · 0,039 · 0,043 · 0,052**
+— todos < 0,06 (r4: 4/6). Fecha a pendência de poder do r4.
+
+### 3.5 Diagnósticos
+
+- **Vereditos (135):** `SEPARA 53 · INCONCLUSIVO 69 · EQUIVALENTE 7 ·
+  INCOERENTE_DISCORDANTE 6` — **nenhum `*_FLAG`**: a metade "concordante"
+  da regra de 2 níveis **não disparou uma única vez** em dados reais (todos os
+  6 pontos fora eram discordantes) — a regra de flag foi exercitada só no
+  smoke test (limitação honesta, §5).
+- **Por métrica (discordantes):** saltos 5/27 · hurst 1/27 · boxdim **0/27**
+  · boxdim_rank 0/27 · higuchi **0/27**.
+- delete-d vs delete-1 não se aplica mais (jackknife do método novo é o
+  delete-one estratificado; a concordância r3/r4 ficou sem objeto).
+
+## 4. Interpretação
+
+1. **Os três itens pedidos foram entregues e confirmados:**
+   (i) **`saltos` primário: CONFIRMADA 3/3 Bonferroni** em 3 rodadas
+   independentes — a métrica local é a âncora experimental da linha;
+   (ii) **método novo com calibração**: percentil+estratificado — incidência
+   real **4,4%** (r4: 33%), head-to-head **0/9 vs 4/9** que o método antigo
+   bloquearia, tipo-I 0,075 calibrado antes do run;
+   (iii) **regra de 2 níveis** aplicada e exaustiva — com a ressalva de que o
+   ramo "concordante" nunca precisou disparar (§3.5).
+2. **boxdim amadureceu:** as 3 chaves que o r4 perdeu para incoerência
+   (b)(d)(f) saíram **limpas e confirmadas**; (c) virou **equivalência
+   certificada a ±0,05**; (a) permanece sem efeito (3 rodadas) — o
+   "padrão-τ" é real só em (b).
+3. **O mecanismo do r4 está fechado:** o problema nunca foi "n = maior" nem a
+   métrica — era o **modelo de dependência do bootstrap** (bloco em série
+   temporal para dados iid-estratificados). Corrigido o modelo, a incoerência
+   caiu 33% → 4,4% e os ICs degenerados 16 → 2.
+4. **Poder resolvido:** MDE 6/6 < 0,06 — a régua de n do r4 está cumprida.
+
+## 5. Limitações
+
+1. **Ramo "concordante" da regra não testado em dados reais** (0 ocorrências)
+   — só em smoke test; se um dia disparar, é a primeira vez.
+2. **Discordantes concentrados em `relinc` (5/6)** — a aproximação de estratos
+   do `relinc` (1º estrato −1) é a suspeita principal; `raw` (confirmatório)
+   está limpo, mas a variante exploratória precisa de tratamento exato em r6.
+3. **(a) do H_D2: previsão direcional errada 3×** — qualquer rodada futura
+   deve redefinir (a) como hipótese de equivalência, não de separação positiva.
+4. **(e) encolheu** (−0,11/−0,13 → −0,037) — continua excluindo 0, mas a
+   magnitude não é estável entre rodadas; leitura: efeito de fonte pequeno.
+5. Escopo: distribuição dos geradores (seeds disjuntos r2–r4); n=512; N1+N2;
+   H_C2 (EF) deferido; τ k↑ aberta.
+6. Incidentes de execução (§3): 2 bugs de plumbing pós-pré-registro — nenhum
+   tocou as regras; custo: ~1,5h + 2 arranques.
+
+## 6. Próximos passos (r6)
+
+1. **Estratos exatos do `relinc`** (fronteiras recalculadas após a diferença)
+   ou retirá-lo das contagens — fecha a suspeita de §3.2/§5.2.
+2. Redefinir H_D2(a) como **equivalência** (3 falhas direcionais) e discutir
+   se `fonte:τ` (e) deve manter magnitudes entre rodadas.
+3. Consolidação da linha: com método, régua, poder e métrica primária
+   estabilizados, a próxima pergunta científica pode ser **τ k↑** (pendência
+   original) ou **séries em b** — não mais infraestrutura de IC.
+4. τ k↑ (exige escopo minref>n6) e H_C2 (EF) permanecem abertas.
 
 ---
 
