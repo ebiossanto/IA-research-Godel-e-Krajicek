@@ -83,21 +83,30 @@ def saturation(gamma):
     return order, derived
 
 
-def closure_pairs(order):
+def closure_pairs(order, both_orders=True):
     """Todo par (c1,c2) do fecho cujo resolvente (por algum l) e valido.
-    Inclui sobreposicoes — correcao do bug da v1. Retorna dict C -> [(c1,c2)]."""
+    Inclui sobreposicoes — correcao do bug da v1.
+
+    both_orders=False (usado por minref_deep): guarda so a ordem
+    canonica (i1 < i2) — SEMANTICA IDENTICA no REF_t (o auxiliar
+    a_{j,C,p} exige 'c1 e c2 apareceram antes', que e simetrico) e
+    METADE dos auxiliares/pares. Default True = comportamento
+    original preservado byte-a-byte (caminho validado do minref).
+    """
     pairs = {}
     for i, c1 in enumerate(order):
         for c2 in order[i:]:            # simetrico: (c1,c2) e (c2,c1)
+            if c1 == c2:
+                continue
             s1, s2 = set(c1), set(c2)
             for l in sorted(s1):
                 if -l in s2:
                     res = frozenset((s1 - {l}) | (s2 - {-l}))
                     if any(-x in res for x in res):
                         continue
-                    pairs.setdefault(res, set()).add(
-                        (c1, c2) if c1 <= c2 or True else (c2, c1))
-                    pairs[res].add((c2, c1))
+                    pairs.setdefault(res, set()).add((c1, c2))
+                    if both_orders:
+                        pairs[res].add((c2, c1))
     return {k: sorted(v, key=lambda p: (sorted(p[0]), sorted(p[1])))
             for k, v in pairs.items()}
 
@@ -212,6 +221,124 @@ def minref(gamma, nvars=None, tmax=TMAX, amo=AMO, with_sat_len=False):
     return (hi, sat_len) if with_sat_len else hi
 
 
+# ---------------- extensao n>6: minref_deep (tau k↑) ----------------
+#
+# O minref original enumera TODOS os pares do fecho no REF_t — para
+# n>=7 o fecho de Tseitin fica denso (n=7: ~2059 clausulas, ~1.5M
+# pares ordenados) e o orcamento de auxiliares (t x pares) estoura.
+#
+# minref_deep usa duas observacoes (sondas 21/11/2026, docs34_):
+#  (L) LIMITE INFERIOR: d(vazia) da profundidade MINIMA de arvore
+#      d(C) =1 se C em gamma; senao min_{pares} max(d(c1),d(c2))+1.
+#      Toda linha j de uma refutacao <= t linhas tem d <= j (inducao:
+#      folha d=1<=1; resolvente de linhas <j tem d<=max+1<=j-logo
+#      d(vazia) <= t — buscar comeca em t=LB, nao em 1.
+#  (S) POOL SONORO: pool_t = {C : d(C) <= t} e pares restritos ao
+#      pool (ambos os pais E alvo em pool_t) sao SUFICIENTES e
+#      NECESSARIOS para REF_t: qualquer <=t-linhas usa so clausulas
+#      de d<=t (argumento acima) e pais em posicoes < j <= t.
+#      Ref_t sobre pool_t e' equivalente ao Ref_t sobre o fecho cheio
+#      para a satisfatibilidade — com ORDENS DE GRANDEZA menos auxs.
+#  Dedup de pares nao-ordenados (both_orders=False): o auxiliar
+#  a_{j,C,p} e simetrico nos pais -> metade dos auxiliares.
+#
+# Semantica de retorno IDENTICA a minref(..., with_sat_len=True):
+#   (None, None)          se SAT
+#   (int, sat_len)        minref exato
+#   (('>', hi, nota), sat_len)  censurado (hi = maior t com REF_t
+#                             UNSAT testado, ou LB-1 se nem LB testou)
+# info opcional (with_info=True): {"lb", "pares_testados", "t_testados",
+#                                  "fecho", "iter_dp"}
+
+def tree_depths(order, pairs, leaves):
+    """d(leaf)=1; d(C)=min_{pares} max(d(c1),d(c2))+1 (fixpoint)."""
+    d = {c: 1 for c in leaves}
+    changed, it = True, 0
+    while changed and it < 256:
+        changed = False
+        it += 1
+        for tgt, ps in pairs.items():
+            cur = d.get(tgt)
+            best = cur
+            for c1, c2 in ps:
+                d1, d2 = d.get(c1), d.get(c2)
+                if d1 is None or d2 is None:
+                    continue
+                cand = max(d1, d2) + 1
+                if best is None or cand < best:
+                    best = cand
+            if best is not None and (cur is None or best < cur):
+                d[tgt] = best
+                changed = True
+    return d, it
+
+
+def minref_deep(gamma, max_aux=4_000_000, tmax=64, amo="seq",
+                with_info=False):
+    """Comprimento minimo EXATO (ou censura) para n>6 — ver bloco
+    acima. Busca t = LB, LB+1, ... (linear; o teto de orcamento
+    limita o trabalho) com pools de profundidade."""
+    gamma = [frozenset(c) for c in gamma]
+    st, _ = solve(gamma)
+    if st == "SAT":
+        info = {"lb": None, "motivo": "SAT"}
+        return (None, None, info) if with_info else (None, None)
+    sat = saturation(gamma)
+    if sat is None:
+        info = {"lb": None, "motivo": "SAT-fecho"}
+        return (None, None, info) if with_info else (None, None)
+    order, _ = sat
+    leaves = set(gamma)
+    pairs_all = closure_pairs(order, both_orders=False)
+    d, it_dp = tree_depths(order, pairs_all, leaves)
+    LB = d.get(frozenset())
+    info = {"lb": LB, "fecho": len(order), "iter_dp": it_dp,
+            "pares_total": sum(len(v) for v in pairs_all.values()),
+            "t_testados": [], "pares_testados": []}
+    if LB is None:                       # nao deveria acontecer
+        info["motivo"] = "sem-d(vazia)"
+        return (None, None, info) if with_info else (None, None)
+
+    def try_t(t):
+        """-> 'SAT' | 'UNSAT' | ('CENS', t_cap, npares)."""
+        pool = {c for c, dd in d.items() if dd <= t}
+        if frozenset() not in pool:
+            return "UNSAT"               # d(vazia) > t => REF_t UNSAT
+        pairs_t = {}
+        for tgt, ps in pairs_all.items():
+            if tgt not in pool:
+                continue
+            keep = [(c1, c2) for c1, c2 in ps
+                    if c1 in pool and c2 in pool]
+            if keep:
+                pairs_t[tgt] = keep
+        np_ = sum(len(v) for kk, v in pairs_t.items() if kk not in leaves)
+        info["t_testados"].append(t)
+        info["pares_testados"].append(np_)
+        t_cap = max_aux // max(1, np_)
+        if t > t_cap:
+            return ("CENS", t_cap, np_)
+        porder = sorted(pool, key=lambda c: (len(c), sorted(c)))
+        ref = build_ref(porder, pairs_t, leaves, t, amo=amo)
+        return solve(ref)[0]             # "SAT" | "UNSAT"
+
+    t = LB
+    last_unsat = LB - 1
+    while t <= tmax:
+        r = try_t(t)
+        if r == "SAT":
+            return (t, len(order), info) if with_info else (t, len(order))
+        if isinstance(r, tuple):         # censura
+            res = (">", last_unsat,
+                   f"orcamento(t={t},t_cap={r[1]},pares={r[2]})")
+            return (res, len(order), info) if with_info else \
+                (res, len(order))
+        last_unsat = t                   # UNSAT conhecido
+        t += 1
+    res = (">", last_unsat, f"tmax={tmax}")
+    return (res, len(order), info) if with_info else (res, len(order))
+
+
 def read_dimacs(path):
     nvars, clauses, cur = None, [], []
     for line in Path(path).read_text(encoding="utf-8").splitlines():
@@ -268,6 +395,41 @@ def run_demo():
                   f"(encoder v1 com pares particionados reportava >64 "
                   f"nesta classe)")
             break
+
+    # PROPIEDADE da extensao n>6 (minref_deep): em n<=6 onde o minref
+    # original e' exato, minref_deep deve devolver o MESMO valor
+    # (argumentos diferentes: REF_t cheio vs pools de profundidade).
+    # deep CENSURADO onde o original e' exato = FALHA; deep EXATO onde
+    # o original censurou = ACEITO (max_aux 4M vs 400k — e' o motivo
+    # da extensao); SAT tem de coincidir.
+    print("\n  propriedade minref_deep (n<=6):")
+    n_eq = n_deep_melhor = n_bad = 0
+    for fam, n, g in gen_families(20261119):
+        r1, _ = minref(g, with_sat_len=True)
+        r2, _ = minref_deep(g, max_aux=4_000_000)
+        if r1 is None or r2 is None:
+            good = (r1 is None) and (r2 is None)
+            lab = "SAT"
+        elif isinstance(r1, int):
+            good = (r2 == r1)
+            lab = f"orig={r1} deep={r2 if isinstance(r2, int) else '>' + str(r2[1])}"
+        else:  # original censurado
+            if isinstance(r2, int):
+                good, n_deep_melhor = True, n_deep_melhor + 1
+                lab = f"orig={r1[0]}>{r1[1]} deep={r2} (deep melhor)"
+            else:
+                good = True
+                lab = f"ambos censurados (>{r1[1]}/>{r2[1]})"
+        if good:
+            n_eq += 1
+        else:
+            n_bad += 1
+            print(f"    [FALHA] {fam}: {lab}")
+    mark = "OK" if n_bad == 0 else "FALHA"
+    if n_bad:
+        ok = False
+    print(f"    [{mark}] {n_eq}/{n_eq + n_bad} consistentes "
+          f"({n_deep_melhor} deep exato onde o original censurou)")
 
     print("-" * 70)
     print("*** VALIDACAO OK ***" if ok else "*** VALIDACAO FALHOU ***")

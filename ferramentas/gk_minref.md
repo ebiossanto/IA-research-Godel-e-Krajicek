@@ -122,6 +122,41 @@ projeto**, corrigido por enumeração exaustiva sobre o fecho.
 de `gk_alternating_family` têm `minref > 6` no encoder completo → os
 números do teste LP se sustentam (detalhes: `gk_minref_referee.md` §A3).
 
+### 4.7 `minref_deep` — extensão para n>6 (fronteira do τ k↑)
+
+O `minref` original enumera **todos** os pares do fecho no `REF_t` — para
+n≥7 o fecho de Tseitin fica denso (n=7: 2059 cláusulas,766k pares
+deduplicados) e `t × pares` estoura o orçamento. `minref_deep(gamma,
+max_aux=…, with_info=True)` usa duas observações:
+
+- **(L) Limite inferior:** `d(C)` = profundidade **mínima de árvore**
+  (`d=1` em γ; senão `min_pares max(d(c₁),d(c₂))+1`, fixpoint). Toda
+  linha `j` de uma refutação com `≤ t` linhas tem `d ≤ j` (indução:
+  folha d=1; resolvente de linhas <j tem d≤max+1≤j) → **`d(∅) ≤ t`** —
+  a busca começa em `t = LB = d(∅)`, não em1.
+- **(S) Pool sonoro:** `pool_t = {C : d(C) ≤ t}` com pares restritos
+  (ambos os pais **e** alvo no pool) é **suficiente e necessário** para
+  `REF_t` (argumento acima) — ordens de grandeza menos auxiliares.
+- **Dedup de pares** (`closure_pairs(both_orders=False)`): o auxiliar
+  `a_{j,C,p}` é **simétrico** nos pais → metade dos auxiliares. O
+  caminho original (`minref`) mantém o default `True` — byte-idêntico.
+
+**Fronteira empírica** (sondas, doc `34_TAU_KUP_MINREF.md` §1.1):
+
+| níveis | nvars | exatidão com `minref_deep` |
+|---|---|---|
+| k=2 | 5 | sempre exato |
+| k=3 | 7 | exato até **minref=7** (max_aux=6M; REF_7 provado:173s) |
+| k=4 | 9 | exato até **minref=5** (max_aux=8M; REF_5 provado) |
+| k≥5 | ≥11 | parede do fecho (não testado — projetado inviável) |
+
+**Propriedade (no `demo`):** em n≤6, onde o `minref` original é exato,
+`minref_deep` devolve o **mesmo valor** — `17/17 consistentes` (deep
+censurado onde o original é exato = falha; deep exato onde o original
+censurou = aceito — é o motivo da extensão). Retorno idêntico a
+`minref(…, with_sat_len=True)` + `info` opcional (`lb`, `t_testados`,
+`pares_testados`, `fecho`, `iter_dp`).
+
 ## 5. Validação e limitações
 
 - **Validação:** `demo` (fronteiras conhecidas + regressão + equivalência
