@@ -52,7 +52,67 @@ MAX_AUX = 400_000      # orcamento de auxiliares por build (clausulas ~2x)
 # ---------------- fecho + pares ----------------
 def saturation(gamma):
     """Fecho de resolucao (sem tautologias), ordem deterministica.
-    Retorna (lista_ordenada, set) ou None se gamma SAT (∅ ∉ fecho)."""
+    Retorna (lista_ordenada, dict) ou None se gamma SAT (vazio ∉ fecho).
+
+    IMPLEMENTACAO POR BUCKETS (patch de desempenho, 23/11/2026 — ver
+    `saturation_ref` abaixo e doc 34_ s2): varre pares (c1 ⊃ l, c2 ⊃ -l)
+    por literal l>0 em vez do duplo laço N² com re-sort `sorted(derived)`
+    para CADA c1 (O(N²·N log N) por passada — gargalo de horas em
+    fechos n=9 com ~19k clausulas, medido na sonda s=1539).
+    CORRECAO DE DADOS: o fecho e' ponto fixo de operador monotono
+    (conteudo unico) e o resolvente e' comutativo (res(c1,c2|l) =
+    res(c2,c1|-l)) -> mesmos resolventes; `order` final e' sort
+    deterministico sobre o mesmo conteudo -> LISTA IDENTICA.
+    Validado: equivalencia vs `saturation_ref` 28/28 (n<=6 + tau k=2 +
+    sondas k=3, `order` byte-a-byte) + fecho x CSV gravado do tau k↑ +
+    demo completo. A proveniencia (p1,p2) registrada e' a primeira da
+    nova ordem de varredura — os dois chamadores a descartam
+    (`order, _ = sat`)."""
+    gamma = [frozenset(c) for c in gamma]
+    derived = {}
+    for c in sorted(gamma, key=sorted):
+        if c not in derived:
+            derived[c] = (None, None)
+    changed = True
+    while changed:
+        changed = False
+        snap = list(derived)
+        buckets = {}
+        for c in snap:
+            for l in c:
+                buckets.setdefault(l, []).append(c)
+        added = []
+        for l in sorted(x for x in buckets if x > 0):
+            L = buckets.get(l)
+            R = buckets.get(-l)
+            if not L or not R:
+                continue
+            for c1 in L:
+                s1 = set(c1)
+                base1 = s1 - {l}
+                for c2 in R:
+                    if c1 == c2:
+                        continue
+                    res = frozenset(base1 | (set(c2) - {-l}))
+                    if any(-x in res for x in res):
+                        continue
+                    if res not in derived:
+                        added.append((res, c1, c2))
+        if added:
+            changed = True
+            for res, p1, p2 in added:
+                if res not in derived:      # dedup dentro da passada
+                    derived[res] = (p1, p2)
+    if frozenset() not in derived:
+        return None
+    order = sorted(derived, key=lambda c: (len(c), sorted(c)))
+    return order, derived
+
+
+def saturation_ref(gamma):
+    """REFERENCIA ORIGINAL (duplo laço com re-sort por c1) — mantida
+    apenas para o teste de equivalencia do `demo`. NAO usar em fechos
+    grandes (n>=7): O(N²·N log N) por passada."""
     gamma = [frozenset(c) for c in gamma]
     derived = {}
     def add(c, p1=None, p2=None):
@@ -430,6 +490,25 @@ def run_demo():
         ok = False
     print(f"    [{mark}] {n_eq}/{n_eq + n_bad} consistentes "
           f"({n_deep_melhor} deep exato onde o original censurou)")
+
+    # EQUIVALENCIA saturation (buckets) x saturation_ref (original):
+    # patch de desempenho 23/11/2026 — o conteudo do fecho e' ponto
+    # fixo unico e o resolvente e' comutativo => order IDENTICA.
+    print("\n  equivalencia saturation (buckets) x ref (original):")
+    n_s_eq = n_s_bad = 0
+    for fam, n, g in gen_families(20261119):
+        a = saturation(g)
+        b = saturation_ref(g)
+        if (a is None) != (b is None) or \
+                (a is not None and a[0] != b[0]):
+            n_s_bad += 1
+            print(f"    [FALHA] {fam}: fecho divergente")
+        else:
+            n_s_eq += 1
+    mark = "OK" if n_s_bad == 0 else "FALHA"
+    if n_s_bad:
+        ok = False
+    print(f"    [{mark}] {n_s_eq}/{n_s_eq + n_s_bad} orders identicos")
 
     print("-" * 70)
     print("*** VALIDACAO OK ***" if ok else "*** VALIDACAO FALHOU ***")

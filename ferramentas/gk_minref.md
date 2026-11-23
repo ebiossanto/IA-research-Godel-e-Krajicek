@@ -157,6 +157,23 @@ censurou = aceito — é o motivo da extensão). Retorno idêntico a
 `minref(…, with_sat_len=True)` + `info` opcional (`lb`, `t_testados`,
 `pares_testados`, `fecho`, `iter_dp`).
 
+### 4.8 `saturation` por buckets (patch de desempenho, 23/11/2026)
+
+O fecho original re-sortava `sorted(derived)` para **cada** c1 do duplo
+laço → O(N²·N log N) por passada — gargalo de horas em fechos n=9 com
+~19k cláusulas (medido: instância τ k=4 s=1539, fecho **19171**, 3h50min
+em 100% CPU antes do patch; versão nova: **25min**). A implementação
+atual varre pares (c1 ⊃ l, c2 ⊃ -l) **por literal l>0** (buckets).
+
+**Por que os dados não mudam:** o fecho é ponto fixo de operador
+monotono (conteúdo único) e o resolvente é comutativo → mesmos
+resolventes; `order` final é sort determinístico sobre o mesmo conteúdo
+→ **lista idêntica**. A versão original ficou como `saturation_ref`
+(apenas o teste de equivalência do `demo` usa). *Validação (3 camadas,
+doc `34_TAU_KUP_MINREF.md` §2.1):* equivalência direta **28/28** ·
+`demo` **17/17** · **9/9 `fecho`** + 1 `minref_deep` completo
+reproduzidos do CSV gravado do τ k↑.
+
 ## 5. Validação e limitações
 
 - **Validação:** `demo` (fronteiras conhecidas + regressão + equivalência

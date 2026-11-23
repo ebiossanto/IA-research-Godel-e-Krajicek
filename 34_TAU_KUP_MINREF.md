@@ -116,6 +116,41 @@ nível: {2:400k, 3:6M, 4:8M}, with_info)` → `solve_drat` → linha com
 (2 contrastes), assert, métricas descritivas →
 `gk_tau_kup_series.csv` + `gk_tau_kup.json` (R6 protege o par).
 
+### 2.1 Nota de execução — patch de desempenho da `saturation` (23/11, 06:29)
+
+Durante a coleta de k=4, a instância s=1539 ficou **3h50min em 100% de
+CPU dentro de `saturation`** (diagnosticado com py-spy). Causa: o laço
+original re-sorta `sorted(derived)` para **cada** c1 → O(N²·N log N) por
+passada; o fecho desta instância mediu **19171 cláusulas** (perto do
+máximo 3⁹=19683; as 3 instâncias anteriores tinham ~3551).
+
+**Patch (mesmo dia, antes de ver qualquer resultado agregado de k=4):**
+`saturation` passa a usar **buckets por literal** (pares (c1 ⊃ l, c2 ⊃ -l)
+por l>0). A versão original ficou como `saturation_ref` (só para teste).
+
+**Invariância de dados — validação em 3 camadas (todas antes do
+reinício):**
+1. **Equivalência direta** `saturation × saturation_ref`: **28/28**
+   `order` idêntico (n≤6 + tau k=2 + sondas k=3, incl. fecho 2059);
+2. **`demo`**: VALIDACAO OK — novas seções de equivalência **17/17** +
+   propriedade `minref_deep` 17/17 intacta;
+3. **Dados gravados**: **9/9 `fecho`** do CSV do experimento reproduzidos
+   + **1 `minref_deep` completo** (s=1536 k=3, `>7(orcamento…)`) idêntico
+   ao registrado.
+
+*Justificativa teórica:* o fecho é ponto fixo de operador monotono
+(conteúdo único, independente da ordem) e o resolvente é comutativo
+(`res(c1,c2|l) = res(c2,c1|-l)`) → buckets cobrem os mesmos resolventes;
+`order` final é sort determinístico sobre o mesmo conteúdo → lista
+idêntica. A proveniência `(p1,p2)` muda de ordem de registro, mas os
+dois chamadores a descartam (`order, _ = sat`). Nenhuma hipótese, regra,
+grade ou orçamento foi alterado — C1 intacto.
+
+**Reinício:** `Stop-Process` no PID antigo → o loop de retry retomou em
+5s (**tentativa 2**, PID 9880, 06:29) com `--resume`: **267 linhas do
+checkpoint preservadas**, selftests S1–S5+DISJ re-executados OK,
+k=2/k=3 marcados completos, k=4 coletando de s=1539 (129 restantes).
+
 ## 3. Resultados *(pós-execução)*
 
 ## 4. Interpretação *(pós-execução)*
