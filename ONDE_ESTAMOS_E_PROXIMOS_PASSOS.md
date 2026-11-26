@@ -188,10 +188,16 @@ exatos do `relinc`: H_E1 5/45→2/45 + H_F3 1/45; `saltos` **3/3 na4ª
 rodada** com flag real + Cochran **sem heterogeneidade**; boxdim
 **6/6**; H_F4 disparou4×; H_F5 **6/6** — `33_...`). **A linha de
 IC/infra está consolidada** (método + régua + margens + métrica + poder
-estáveis por2 rodadas) — **próxima rodada = científica: τ k↑**
-(pendência original; exige estender o escopo do minref p/ n>6 ou método
-alternativo de comprimento mínimo) **ou séries em b** (índice lex — a
-série ordinal original do D4′); monitorar z0 (`drat:cadeia−τ`), flags ≥4
+estáveis por2 rodadas) — **τ k↑ EXECUTADO** (`34_...` + referee R1 com4
+condições: H_t1 **CONFIRMADA 118/132 = 89,4%**; H_t2 **REFUTADA (0/2)
+pela regra + leitura dupla obrigatória: contrastes INCONCLUSIVOS, MDE
+0,53/0,59, censura 0/11/58%, peso em k3−k2**; ASSERT **0/396**; médias
+de minref **planas** 6,95/6,71/6,82 mas **lacuna drat−minref
+1,79→3,47→4,49** = (P) descritivo/candidata (C) **não-claim**; fronteira
+%exato 100/89/42 — n=9 exato custa dias; erratum da anotação do
+pré-registro; patch `saturation` mid-run invariante) — **próxima
+rodada = séries em b** (índice lex — a série ordinal original do D4′);
+monitorar z0 (`drat:cadeia−τ`), flags ≥4
 → estreitar concordância, H_C2 (EF) permanece deferido.
 Original (para histórico): Combinar a campanha PPR (216 testes Z3 reais) com
 o motor fractal: pegar os 216 casos, calcular a **curva de "entropia de

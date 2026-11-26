@@ -1,0 +1,266 @@
+{
+  "metadata": {
+    "timestamp_utc": "2026-11-26T14:47:21.591404Z",
+    "mode": "resume+collect+analyze",
+    "seed": 20261119,
+    "seed_boot": 20261127,
+    "n_boot": 1000,
+    "fronteira": "k=2 exato sempre; k=3 exato ate minref=7 (max_aux=6M, REF_7 provado173s); k=4 exato ate minref=5 (max_aux=8M, REF_5 provado); k>=5 parede do fecho (nao testado)",
+    "max_aux_por_nivel": {
+      "2": 400000,
+      "3": 6000000,
+      "4": 8000000
+    },
+    "grid": {
+      "2": "132 seeds (1536..1667, DISJ)",
+      "3": "132 seeds (1536..1667, DISJ)",
+      "4": "132 seeds (1536..1667, DISJ)"
+    },
+    "argmento_pools": "toda linha de refutacao <=t tem profundidade <=t -> pool {d<=t} + pares restritos sao equivalentes ao REF_t cheio",
+    "runtime_s": 37095.3,
+    "caveats": [
+      "Pre-registro: hipoteses/regras fixadas neste codigo e no doc 34_ ANTES do run (C1).",
+      "Censuras excluidas da serie (regra existente) — medias por nivel subestimam se censura correlaciona com minref alto (caveat H_t2).",
+      "Metricas DESCRIPTIVAS (sem hipotese) — boxdim cross-n confundido (licenca r4).",
+      "Checkpoint atomico + --resume (crash CaDiCaL).",
+      "N1+N2; sem N4; H_C2 (EF) deferido."
+    ],
+    "data_source": "gk_tau_kup.py (tau k↑ — minref estendido n>6)",
+    "instances": {
+      "rows": 396,
+      "censuras": 91,
+      "serie_exata_n": 305
+    },
+    "selftests": {
+      "S1_bca_scipy": {
+        "status": "OK",
+        "max_diff": 0.01331
+      },
+      "S2_metricas": {
+        "status": "OK",
+        "inv_err": 0.0,
+        "saltos": {
+          "ruido": 0.6914893617021277,
+          "rampa": 0.0,
+          "seno": 0.1276595744680851
+        },
+        "boxdim": {
+          "ruido": 0.9904557968008648,
+          "seno": 0.9325498864082306
+        }
+      },
+      "S3_maquina": {
+        "S3a_tipo1": {
+          "n": 40,
+          "exclusoes": 3,
+          "taxa": 0.075,
+          "gate_ok": true
+        },
+        "S3b_poder": {
+          "n": 10,
+          "detectou": 10,
+          "gate_ok": true,
+          "nota": "deslocamento de media =1.0 sigma"
+        },
+        "status": "OK"
+      },
+      "S5_smoke": {
+        "status": "OK",
+        "nota": "analyze() completo com stub (H_t1/H_t2/metricas)"
+      },
+      "DISJ": {
+        "status": "OK",
+        "n_prev": 4608,
+        "n_r5": 396,
+        "fontes": 5,
+        "interseccao": []
+      }
+    },
+    "csv": "gk_tau_kup_series.csv",
+    "csv_sha256": "f5d51c570455bb436eb6978fee95fc9c231ba2827d7dd310b40915846d333bfa",
+    "sha_note": "sha256 bytes normalizados CRLF->LF"
+  },
+  "pre_registro": {
+    "H_t1": "k=3: >=16/32 exatos (max_aux=6M)",
+    "H_t2": "medias crescem com k;2 contrastes adjacentes; bonf 0.05/2; caveat de censura",
+    "ASSERT": "minref_exato >= d(vazia) por instancia",
+    "regras": "2 niveis (idem r5/r6) — ver docstring"
+  },
+  "results": {
+    "H_t1_viabilidade": {
+      "alvo": "k=3: >=16/32 (50%) exatos",
+      "n_exatos_k3": 118,
+      "n_grid_k3": 132,
+      "veredito": "CONFIRMADA"
+    },
+    "H_t2_dinamica": {
+      "enunciado": "medias de minref exato crescem com k; 2 contrastes adjacentes (percentil primario + BCa + regra 2 niveis + bonf 0.05/2); caveat: censuras enviesam medias para baixo (reportar por nivel)",
+      "testes": {
+        "k3_k2": {
+          "resultado": "FALHA_INCONCLUSIVO",
+          "n_a": 118,
+          "n_b": 132,
+          "dado": {
+            "point": -0.24268104776579325,
+            "pct_lo": -0.6063174114021574,
+            "pct_hi": 0.13456599897277854,
+            "bca_lo": -0.6145351823317933,
+            "bca_hi": 0.12814586543400086,
+            "pct_bonf2_lo": -0.6492039034411912,
+            "pct_bonf2_hi": 0.1800205444273244,
+            "se_boot": 0.1893909285312191,
+            "mde80": 0.5305947845091356,
+            "z0": -0.0201,
+            "point_outside": false,
+            "excludes0": false,
+            "excludes0_bca": false,
+            "excludes0_bonf2": false,
+            "n_boot": 1000,
+            "n_jack": 250,
+            "concordante": true,
+            "discordante": false,
+            "veredito": "INCONCLUSIVO"
+          }
+        },
+        "k4_k3": {
+          "resultado": "FALHA_INCONCLUSIVO",
+          "n_a": 55,
+          "n_b": 118,
+          "dado": {
+            "point": 0.10631741140215745,
+            "pct_lo": -0.32265023112480673,
+            "pct_hi": 0.5257318952234211,
+            "bca_lo": -0.32018489984591714,
+            "bca_hi": 0.5328197226502311,
+            "pct_bonf2_lo": -0.39013867488443754,
+            "pct_bonf2_hi": 0.5691833590138673,
+            "se_boot": 0.21118988782493536,
+            "mde80": 0.5916664218820216,
+            "z0": -0.0038,
+            "point_outside": false,
+            "excludes0": false,
+            "excludes0_bca": false,
+            "excludes0_bonf2": false,
+            "n_boot": 1000,
+            "n_jack": 173,
+            "concordante": true,
+            "discordante": false,
+            "veredito": "INCONCLUSIVO"
+          }
+        }
+      },
+      "veredito": "REFUTADA"
+    },
+    "_assert": {
+      "violacoes": [],
+      "veredito": "OK (minref >= d(vazia) em todas)"
+    },
+    "metricas": {
+      "minref": {
+        "n": 305,
+        "mean": 6.836065573770492,
+        "min": 5,
+        "max": 11,
+        "metricas": {
+          "boxdim": {
+            "point": 0.8118474796839404,
+            "lo": 0.7849545968878086,
+            "hi": 0.824588102197874
+          },
+          "boxdim_rank": {
+            "point": 0.8118474796839404,
+            "lo": 0.7840264041004888,
+            "hi": 0.8205820629573909
+          },
+          "saltos": {
+            "point": 0.8035714285714286,
+            "lo": 0.7564102564102564,
+            "hi": 0.8723404255319149
+          },
+          "higuchi_D": {
+            "point": 2.028223624387427,
+            "lo": 1.9544969072675495,
+            "hi": 2.04047603222285
+          },
+          "hurst_rs": {
+            "point": 0.5421201489982904,
+            "lo": 0.5000021664406077,
+            "hi": 0.6775886546802651
+          }
+        }
+      },
+      "drat": {
+        "n": 305,
+        "mean": 9.760655737704917,
+        "min": 3.0,
+        "max": 20.0,
+        "metricas": {
+          "boxdim": {
+            "point": 0.9368061495330762,
+            "lo": 0.8953509803680388,
+            "hi": 0.944681494854133
+          },
+          "boxdim_rank": {
+            "point": 0.9299072034471407,
+            "lo": 0.8882251083375327,
+            "hi": 0.9372058006610058
+          },
+          "saltos": {
+            "point": 0.7335766423357665,
+            "lo": 0.6518518518518519,
+            "hi": 0.7453874538745388
+          },
+          "higuchi_D": {
+            "point": 1.9708585008581694,
+            "lo": 1.9591185684731198,
+            "hi": 2.0320282326658656
+          },
+          "hurst_rs": {
+            "point": 0.6418769542678734,
+            "lo": 0.5114455698845973,
+            "hi": 0.6980641606653315
+          }
+        }
+      }
+    },
+    "niveis": {
+      "2": {
+        "nvars": 5,
+        "exatos": 132,
+        "censuras": 0,
+        "minref_mean": 6.954545454545454,
+        "minref_min": 5,
+        "minref_max": 11,
+        "drat_mean": 8.742424242424242
+      },
+      "3": {
+        "nvars": 7,
+        "exatos": 118,
+        "censuras": 14,
+        "minref_mean": 6.711864406779661,
+        "minref_min": 5,
+        "minref_max": 11,
+        "drat_mean": 10.177966101694915
+      },
+      "4": {
+        "nvars": 9,
+        "exatos": 55,
+        "censuras": 77,
+        "minref_mean": 6.818181818181818,
+        "minref_min": 5,
+        "minref_max": 11,
+        "drat_mean": 11.309090909090909
+      }
+    },
+    "_diag": {
+      "n_rows": 396,
+      "serie_n": 305,
+      "estratos": [
+        132,
+        118,
+        55
+      ],
+      "censuras_total": 91
+    }
+  }
+}

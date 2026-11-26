@@ -102,6 +102,11 @@ python -File diagnostico_ambiente.ps1    # ambiente (-Build = lean)
 | D4′ r6: boxdim **CONFIRMADA 6/6** (2 equivalências +4 direcionais Bonferroni;5/6 bloqueados pelo método r4) | `H_F2_boxdim_consolidado.testes` no JSON + coluna `block8_outside` no CSV |
 | D4′ r6: ramo concordante **disparou4×** (mantido — condição de remoção não ocorreu) | `H_F4_ramo_concordante.flags` no JSON |
 | D4′ r6: poder no máximo da linha (MDE 0,014–0,042, 6/6) | `H_F5_poder.valores` no JSON |
+| τ k↑: `minref_deep` estende o minref p/ n>6 (pools `d≤t`, pares dedup) | `gk_minref.py` (`minref_deep`, `tree_depths`) + propriedade **17/17** no `demo` (`python gk_minref.py demo` → `VALIDACAO OK`) + `ferramentas/gk_minref.md` §4.7–4.8 |
+| τ k↑: **H_t1 CONFIRMADA** — n=7 exato em 89,4% (118/132) com max_aux=6M | `gk_tau_kup.json` → `H_t1_viabilidade.veredito` + distribuição 5:28/7:84/9:1/11:5 no `gk_tau_kup_series.csv` (sha `f5d51c57…`) |
+| τ k↑: **H_t2 REFUTADA (0/2) — leitura dupla: contrastes INCONCLUSIVOS** (MDE 0,53/0,59; censura 0/11/58%) | `gk_tau_kup.json` → `H_t2_dinamica.testes` (k3−k2 = −0,243 [−0,606,+0,135]; k4−k3 = +0,106 [−0,323,+0,526]) + tabela `niveis` + condição de redação no referee `34_..._referee.md` §B |
+| τ k↑: lacuna `drat−minref` cresce com k (1,79→3,47→4,49) = **(P) descritivo, não-claim** | `gk_tau_kup.json` → `niveis.*.drat_mean − minref_mean` + §4.3 do doc `34_` (candidata (C) só com pré-registro futuro) |
+| τ k↑: ASSERT `minref ≥ d(∅)` **0/396** + patch `saturation` mid-run invariante | `gk_tau_kup.json` → `_assert.violacoes=[]` + §2.1 do doc `34_` (equivalência 28/28 + demo17/17 + 9/9 fecho×CSV; s=1655 `fecho=9061` idêntico à sonda) |
 | 7º/8º bugs corrigidos sem invalidar v1 | referee `28_...` §A9–A11 + errata `28_...` §5 (v1: 188/188 UNSAT por solver, CSV congelado) |
 | Ferramentas públicas autocontidas com CI verde | 6 repos `IA-Research-GK-*` (links acima) + `.github/workflows/ci.yml` de cada um |
 | Ambiente verificável | `python -File diagnostico_ambiente.ps1` → ✅/❌ (`AMBIENTE_E_FERRAMENTAS.md`) |
