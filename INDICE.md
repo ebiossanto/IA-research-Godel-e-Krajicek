@@ -1,17 +1,18 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.43 (26/11/2026 — **τ k↑ EXECUTADO** (`34_TAU_KUP_MINREF.md`
-+ referee R1 aprovado com4 condições de redação): **H_t1 CONFIRMADA**
-(118/132 = 89,4% exatos em k=3 — `minref_deep` torna n=7 viável) ·
-**H_t2 REFUTADA pela regra pré-registrada (0/2) — E ESTISTICAMENTE
-INCONCLUSIVA** (contrast. cruzam0; MDE 0,53/0,59 → não detecta
-crescimento < ~0,5; censura diferencial 0/11/**58%** compromete k4−k3,
-peso em k3−k2 = −0,243 [−0,606,+0,135]) · **ASSERT 0/396** · médias de
-minref **PLANAS** (6,95/6,71/6,82) mas **lacuna drat−minref crescente**
-(1,79→3,47→4,49) = (P) descritivo/candidata (C) **não-claim** ·
-fronteira: %exato 100/89/42 · erratum da anotação do pré-registro
-("96 total"/"16/32" → 396/132; veredito robusto) · patch `saturation`
-mid-run com invariância3 camadas · v6.42: τ k↑ pré-registrado; …)
+**Versão:** 6.44 (26/11/2026 — **séries em b PRÉ-REGISTRADO**
+(`35_SERIES_EM_B.md` + `gk_series_b.py`): **índice lex de b para σ
+fixo** (gerador `gen_tau_at_b`, namespace `tau_b`, DISJ) — grade k=2,w=5
+(n=7, T=28-29) × **σ 6000..6031 (S=32; subiu de16 pré-commit pela taxa
+~50% de σ's sujos nas sondas @6M; max_aux=6M — @20M inviável: >2,2h/inst)**
+· **H_b1** viabilidade (≥12/32 σ's utilizáveis; escopo: σ's sem
+minref≥8) + **H_b2 estrutura serial PRIMÁRIA** (D_σ = acf₁(real) −
+média₁₀₀₀ acf₁(permutações); bootstrap sobre σ; dirn=−1 alternância;
+α=0,05 única confirmatória) + H_b3 descritiva (sem claim) + ASSERT ·
+**S3 pegou degeneração de `saltos` em série binária (poder 0/10) ANTES
+do commit → troca para acf₁** (tipo-I 1/40, poder 10/10) · (2,6)
+descartado (parede n≥8) · **commit anterior ao run**; v6.43: τ k↑
+executado; …)
 **Status:** ✅ **Carta ENVIADA 11/10/2026 18:14 → RESPOSTA PARCIAL RECEBIDA 12/10/2026
 (Q1 respondido; Q2–Q4 pendentes — follow-up devido; `CARTA_FINAL_RECEBIDA.md`)**;
 Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥` **(condicional a `q` total —
@@ -70,7 +71,8 @@ em Core; rascunho MO (não postado)
 | **`31_PONTE_PROVA_FRACTAL_D4V4.md`** (+ `_referee.md`) | **D4′ v4/r4: n=384/família (1152 instâncias disjuntas r2+r3; crash nativo CaDiCaL ×2 → checkpoint+retry `3d244ab`, 3 processos, plumbing separado do pré-registro `9fe7165`) — H_C2 `saltos` CONFIRMADA 3/3 Bonferroni (âncoras r3±0,012, z0 saudável); H_C1 boxdim INDETERMINADO (2/6 contáveis, 4 incoerentes — régua exaustiva A3; (a) efeito≈0 sinal invertido; (d)(f) dois métodos excluem mas ponto fora → indiciação); H_C3 mecanismo z0 MEDIDO (D1 94%, D2 CONFIRMADA, incoerência 7%→33% com n → BCa+bloco fixo inadequado p/ n grande); D4 revertido; H_C4 NAO_ATINGIDO 4/6; delete-d 0/135; discordância pct-vs-BCa 39%** | **EXECUTADO — RECOMENDADO r4** |
 | **`32_PONTE_PROVA_FRACTAL_D4V5.md`** (+ `_referee.md`) | **D4′ v5/r5: `saltos` PRIMÁRIO — H_D1 CONFIRMADA 3/3 Bonferroni (3ª rodada: r3→r4→r5, magnitude 0,08–0,19, ICs sobrepostos); método de IC novo SELECIONADO PELA CALIBRAÇÃO (percentil+estratificado: tipo-I 0,075 vs BCa 0,325; S4–S6 pré-run) — H_D3 incidência real 4,4% (r4:33%), z0 extremos 61→12, degenerados 16→2, head-to-head bloco8 4/9 bloqueado vs primário 0/9; H_D2 PARCIAL 5/6 (eq±0,05 certificada, pista (d) e fonte (f) limpas pela 1ª vez, (a) sem efeito 3ª vez); H_D4 ATINGIDO 6/6 (MDE 0,014–0,052); regra 2 níveis (ramo concordante 0 ocorrências); 2 bugs de plumbing pós-pré-reg + smoke test; n=512 disjunto r2–r4** | **EXECUTADO — RECOMENDADO r5** |
 | **`33_PONTE_PROVA_FRACTAL_D4V6.md`** (+ `_referee.md`) | **D4′ v6/r6 CONSOLIDAÇÃO: estratos EXATOS do `relinc` (transformação recalculada por réplica) — H_E1 PARCIAL (5/45→2/45, todos os5 originais resolvidos) + H_F3 CONFIRMADA (1/45 em dado novo); H_F1 saltos **CONFIRMADA 3/3 na4ª rodada** com (b) salvo pelo ramo concordante **pela1ª vez em dado real** (flag visível) + H_F1b Cochran Q **SEM HETEROGENEIDADE** (p=0,13–0,71, sem tendência em4 rodadas); H_F2 boxdim **CONFIRMADA 6/6** (5/6 teriam sido bloqueados pelo método r4); H_F4 DISPAROU 4× (ramo mantido); H_F5 **6/6** (MDE 0,014–0,042); z0 extremos 12→28 (monitoramento); S7 smoke em toda execução; n=512 disjunto r2–r5** | **EXECUTADO — RECOMENDADO r6** |
-| **`34_TAU_KUP_MINREF.md`** (+ `_referee.md`) | **τ k↑ (pendência original do D4′): `minref_deep` estende o minref para n>6** (pools de profundidade `d≤t`, pares deduplicados, propriedade17/17) — **EXECUTADO (396/396,26/11)**: **H_t1 CONFIRMADA 118/132 = 89,4%** (n=7 exato dentro de max_aux=6M) · **H_t2 REFUTADA (0/2) pela regra — leitura obrigatória dupla: contrastes INCONCLUSIVOS (MDE 0,53/0,59; censura 0/11/58%; peso em k3−k2 = −0,243 [−0,606,+0,135])** · **ASSERT 0/396** · médias minref **planas** 6,95/6,71/6,82 vs **drat crescente** 8,74/10,18/11,31 → **lacuna1,79→3,47→4,49 = (P) descritivo, candidata (C) não-claim** · fronteira %exato 100/89/42 · erratum anotação pré-reg ("96/16-32"→396/132) · patch `saturation` mid-run invariante (3 camadas) · CSV sha `f5d51c57…` | **EXECUTADO — R1 aprovado com4 condições de redação** |
+| **`34_TAU_KUP_MINREF.md`** (+ `_referee.md`) | **τ k↑ (pendência original do D4′): `minref_deep` estende o minref para n>6** (pools de profundidade `d≤t`, pares deduplicados, propriedade17/17) — **EXECUTADO (396/396,26/11)**: **H_t1 CONFIRMADA 118/132 = 89,4%** (n=7 exato dentro de max_aux=6M) · **H_t2 REFUTADA (0/2) pela regra — leitura obrigatória dupla: contrastes INCONCLUSIVOS (MDE 0,53/0,59; censura 0/11/58%; peso em k3−k2 = −0,243 [−0,606,+0,135])** · **ASSERT 0/396** · médias minref **planas** 6,95/6,71/6,82 vs **drat crescente** 8,74/10,18/11,31 → **lacuna1,79→3,47→4,49 = (P) descritivo, candidata (C) não-claim** · fronteira %exato 100/89/42 · erratum anotação pré-reg ("96/16-32"→396/132) · patch `saturation` mid-run invariante (3 camadas) · CSV sha `f5d51c57…` | **EXECUTADO — R1 aprovado com4 condições de redação** |
+| **`35_SERIES_EM_B.md`** | **séries em b (índice lex de b para σ fixo — a série ordinal do D4′, docs 28 §7.3 / 29 §3 "com minref"):** gerador `gen_tau_at_b` (estrutura fixa por struct_seed no namespace `tau_b`; b = complemento em ordem lex; UNSAT por construção) · grade **k=2,w=5 (n=7, T=28–29) × σ 6000..6031 (S=32, DISJ sondas e r2..τk↑)** · **H_b1** viabilidade (≥12/32 σ's utilizáveis — escopo: σ's sem minref≥8; ~50% dos σ's sujos nas sondas @6M; `max_aux=6M`, @20M inviável >2,2h/inst) · **H_b2 ESTRUTURA SERIAL (primária):** D_σ = acf₁(real) − média₁₀₀₀ acf₁(permutações internas), média sobre σ, **bootstrap percentil+BCa+regra 2 níveis**, dirn=−1 (alternância, base sonda σ=5000), α=0,05 única confirmatória · H_b3 descritiva minref×drat (sem claim) · ASSERT · **S3 pré-commit pegou degeneração de `saltos` em série binária (≡1,0 → poder 0/10) → troca para acf₁** (tipo-I 1/40, poder 10/10); (2,6) descartado = parede n≥8; (1,*) descartados = série plana | **PRÉ-REGISTRADO — commit anterior ao run; execução pendente** |
 | `00/02/04/05`, `support/*`, `paper2` | **PR26: REJEITADO + novidade provisória + pseudocódigo** | **CORRIGIDO** |
 | `01/06/03` | **PR12: banners REJEITADO/histórico** | **CORRIGIDO** |
 | Scripts | exp10, ppr3, reimpl, slow_vs_fast, **_ext**, test_Rw, **_E0E3**, **ppr3_ramos**, **_RBT_B**, **_allcov**, **fp_length_vs_delta** | SCRIPTS |
