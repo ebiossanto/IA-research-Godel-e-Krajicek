@@ -137,14 +137,24 @@ N4 exige auditor externo — nenhuma dessas frentes tem ainda.
 Propostas **executáveis já**, com o laboratório + motor fractal tentando gerar
 novos dados e talvez descobertas (todas marcadas com nível Ten-Proofs previsto):
 
-### D1. Quantização do PFA à taxa de transição ρ_c
-A fórmula `ρ_c=0.25` é derivada analiticamente. **Testar**: varrer
-`controller_states m ∈ {2,3,4,5,6,7}` e `system_states n ∈ {4,8,16}` no motor
-fractal e medir, via bootstrap sobre telemetria sintética, se o **mínimo
-empírico** da curva inflação×ρ coincide com `1/4`. Se não coincidir → paper
-refuting/enhancing a quarta onda.
-**Novo dado:** `gk_fractal_phase_transition.csv` (m, n, ρ_c empírico, CI).
-**Nível previsto:** N0 + N1, N2 via simulação. (C).
+### D1. Transição PFA→DFA: meia-mitigação ρ_{1/2} (era "ρ_c")
+**CORREÇÃO DE INTERPRETAÇÃO (28/11, `transicao_dupla/Teorema da
+Transição Dupla.md` — T1+LB1, (P) condicionais a (A)):** a fórmula
+`ρ_c=0,25` **não é** "quantização da taxa de transição" — pelo **T1**
+(Modelo A, `q=e/p=1/2`) é o ponto de **meia-mitigação `ρ_{1/2}`**
+(`M(ρ)=1/2`, com identidade `ρ_{1/2}=4√ρ*`), e pelo **LB1** é **piso de
+garantia** (lower bound de mitigação), **não** break-even — esse é
+**`ρ*=0,0625`**. **Testar** (com a leitura correta): varrer
+`controller_states m ∈ {2,…,7}` e `system_states n ∈ {4,8,16}` no motor
+fractal e medir, via bootstrap sobre telemetria sintética, (i) onde
+`M(ρ)` cruza **zero** (esperado `ρ*=1/16`) e (ii) onde cruza **1/2**
+(esperado `ρ_{1/2}=1/4`). Se não coincidir → refuta/enhance o Modelo A
+(q=1/2) ou as pontes (A) — paper de quarta onda.
+**Novo dado:** `gk_fractal_phase_transition.csv` (m, n, ρ* e ρ_{1/2}
+empíricos, CI).
+**Nível previsto:** N0 + N1, N2 via simulação. (C) · **Fonte:**
+`transicao_dupla/README.md` (flags: sympy checado mas artefato ausente;
+Lean não compila).
 
 ### D2. "Rigidez de grupos não-abelianos" como feature real
 A destruição 2× para `S_n` é calculada. **Testar** em 2 séries reais: uma
