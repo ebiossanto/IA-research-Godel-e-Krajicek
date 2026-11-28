@@ -1,18 +1,18 @@
 # Indice da Pesquisa Gödel–Krajíček
 
-**Versão:** 6.45 (28/11/2026 — **séries em b EXECUTADO** (`35_SERIES_EM_B.md`
-+ referee R1 com4 condições de redação): **H_b1 CONFIRMADA 16/32 σ's
-utilizáveis** · **H_b2 CONFIRMADA (OK): média D = −0,243 [percentil
-−0,365; −0,109], BCa concordante, dirn=−1, n=16, MDE 0,183** —
-**minref(lex b) é ANTI-PERSISTENTE para σ fixo** (14/16 σ's no sinal;
-outlier σ=6027 +0,45 registrado; leave-one-out fortalece) · **escopo
-obrigatório na claim: σ's sem instância minref≥8 (16/32)** · direção −1
-baseada em sonda única (caveat) · **H_b3 = candidata (C)** (minref
-alterna −0,23 vs drat persistente +0,80 — sem verbo confirmatório) ·
-ASSERT **0/904** · crash0xC0000005 contido por checkpoint (507→904) ·
-**varredura pequalnp da sessão executada** (`pequalnp/VARREDURA_
-2026-11-28.md`: checked +5.872, proof_complexity +219,24 artigos);
-v6.44: séries em b pré-registrado; …)
+**Versão:** 6.46 (28/11/2026 — **dia das integrações de repositórios**:
+**4 fontes analisadas e integradas** com proveniência — `motor_fractal_rea/`
+(refutações5 erros + Rigidez Dinâmica + dado D3), `lab_sistemas_complexos/`
++ `docs/` (ancestral: artefatos PPR-3 §2.2 recuperados + toolchain FCT
+único + `rea_bridge` p/ D3 + `entropy_calc` p/ D6), `transicao_dupla/`
+(**D1 CORRIGIDO**: `ρ_c=0,25`=`ρ_{1/2}` piso/meia-mitigação, não
+break-even), `espectro_limiares/` (linha irmã não indexada: **Tabela1 de
+notação** `ρ_b`≠`ρ_T`, Lema3↔gadget, verificação410k perfis) · **segurança:**
+PAT exposto removido do repo público (404; **rotação pendente**) ·
+`varredura.py` corrigido (8/24→24/24) · rotina pequalnp executada + monitores
+(L-pcx/Note2/LT inalterados) · **organização:**12 commits de sessão
+commitados, working tree limpo; v6.45: séries em b EXECUTADO (H_b2
+CONFIRMADA anti-persistência); …)
 **Status:** ✅ **Carta ENVIADA 11/10/2026 18:14 → RESPOSTA PARCIAL RECEBIDA 12/10/2026
 (Q1 respondido; Q2–Q4 pendentes — follow-up devido; `CARTA_FINAL_RECEBIDA.md`)**;
 Teorema K, K-FP′, `¬φ` insatisfatível, `C_{N_s}≡⊥` **(condicional a `q` total —
