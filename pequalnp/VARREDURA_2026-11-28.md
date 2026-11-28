@@ -47,9 +47,10 @@ os dois overviews (diff exaustivo das 33 linhas). Seguem do doc 27:
 ### 1.4 Artigos novos (24; diff completo — ver nota de limitação)
 **Nota de limitação:** o `varredura.py` imprimiu só **8** ("artigo novo"
 A-084/085/089/090/091/096/097/098); o diff `news` (autoritativo) mostra
-**24** na janela — a detecção do script aparenta usar corte por
-janela/últimos-N. **Registrado como bug/limitação da rotina** (o diff
-manual cobre).
+**24** na janela — a detecção do script usava corte `[:8]` sobre a lista
+(da API, mais-recentes-primeiro). **CORRIGIDO em 28/11/2026** (função
+`diff_news` extraída, itera a lista COMPLETA + ordena por
+`published_at`; teste offline: 24/24 nos snapshots `daily/27→28`).
 
 **proof_complexity (eixo minref/DD — (A)-nc):**
 | Art. | Título | dek (resumo) |

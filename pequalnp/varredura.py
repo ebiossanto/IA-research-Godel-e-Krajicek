@@ -92,6 +92,24 @@ def diff_overview(old: dict, new: dict) -> list[str]:
     return out
 
 
+def diff_news(old: dict, new: dict) -> list[str]:
+    """Artigos novos = ids em `new` ausentes de `old` — lista COMPLETA
+    (bug28/11: o codigo inline usava [:8] e imprimia so8/24; extraido
+    p/ teste offline). Ordenado por published_at (crescente)."""
+    oa = {a["id"] for a in (old.get("articles") or [])}
+    novos = sorted((a for a in (new.get("articles") or [])
+                    if a["id"] not in oa),
+                   key=lambda a: a.get("published_at") or "")
+    out = []
+    for a in novos:
+        out.append(f"  artigo novo: {a['id']} {a.get('published_at', '')[:16]} "
+                   f"| {a.get('title', '')[:64]} | covers={a.get('covers')}")
+    if novos:
+        out.append(f"  (total de artigos novos desde o snapshot anterior: "
+                  f"{len(novos)})")
+    return out
+
+
 def diff_plan(old: dict, new: dict) -> list[str]:
     out = []
     for k in (old.get("programs") or {}):
@@ -176,11 +194,8 @@ def main() -> int:
                     for line in diff_plan(old, new):
                         print(line)
                 elif name == "news":
-                    oa = {a["id"] for a in (old.get("articles") or [])}
-                    for a in (new.get("articles") or [])[:8]:
-                        if a["id"] not in oa:
-                            print(f"  artigo novo: {a['id']} {a.get('published_at', '')[:16]} "
-                                  f"| {a.get('title', '')[:64]} | covers={a.get('covers')}")
+                    for line in diff_news(old, new):
+                        print(line)
                 elif name == "letters":
                     st = {l["id"]: l["status"] for l in (old.get("letters") or [])}
                     for l in (new.get("letters") or []):
