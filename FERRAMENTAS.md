@@ -40,6 +40,16 @@ Cada ferramenta pronta também tem seu **próprio repositório público**
 | alternating-family | <https://github.com/ebiossanto/IA-Research-GK-AltFamily> |
 | c2-projection-sim | <https://github.com/ebiossanto/IA-Research-GK-C2Sim> |
 
+**Vertentes FCT/REA** (mesmo workspace IA-RESEARCH e método ten-proofs;
+extração documental em `motor_fractal_rea/`):
+
+| Vertente | Repositório |
+|---|---|
+| Motor Fractal (REA + FCT integrados) | <https://github.com/ebiossanto/Motor-Fractal-REA> |
+| Teoria de Controle Fractal | <https://github.com/ebiossanto/IA-Research-Fractal-Control-Theory> |
+| Papers FCT | <https://github.com/ebiossanto/IA-Research-Fractal-Control-Theory-Papers> |
+| Ponte analítica original (refutada nos5 erros) | <https://github.com/ebiossanto/IA-Researchs-An-Analytic-Bridge-Between-Group-Theoretic-Obstruction-and-Queueing-Tail-Latency> |
+
 A **proveniência teórica permanece aqui**: cada repo cita este como origem
 (seção "Extração de …" no README) e remete aos documentos/referees
 (`krajicek_ddp/`, `ferramentas/`) para o núcleo de cada resultado.

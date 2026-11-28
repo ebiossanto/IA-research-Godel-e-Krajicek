@@ -157,6 +157,11 @@ ordem de grupo de fonte de dados (talvez utilitário).
 
 ### D3. Predição de colapso em cpu_timeseries reais (aqui plausível de virar dado
 novo).
+**STATUS 28/11:** o dado foi extraído do zip da vertente para
+**`motor_fractal_rea/cpu_timeseries.csv`** (301 pontos @0,1s ≈ **30s** —
+suficiente como *input* do canary-test/smoke, mas **não** cobre a janela
+de24h do protocolo; a série longa precisa ser coletada via
+`rea_bridge.ps1`/`ps1` da vertente, ver `motor_fractal_rea/README.md`).
 Se `cpu_timeseries.csv` (presente no doc de reidratação) estiver coletado,
 rodar `run_fractal_canary_test` nela e comparar **Huste ajustado vs colapso
 observado nas 24h seguintes**. Se acertar → transforma o motor em instrumento
