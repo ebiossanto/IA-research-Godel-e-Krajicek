@@ -48,6 +48,12 @@ Nenhuma entrega é considerada concluída sem passar por uma rodada de crítica 
   2\. Preparar e auditar o dossiê de verificação independente para $D{D}_{Res}\in P$ (\`krajicek\_ddp/AUDITORIA\_EXTERNA\_DDRES\_G-N.md\`).  
   3\. Expandir os experimentos da série \`gk\_F\*\` conectando obstruções de prova à latência de cauda e dimensões fractais.
 
+\#\#\# Rotina de Varredura pequalnp.com (INÍCIO DE CADA SESSÃO — obrigatória)  
+\* Execute \`python pequalnp/varredura.py\` antes de qualquer trabalho desta sessão: baixa \`https://data.pequalnp.com/head.json\`, compara com a última execução (\`pequalnp/last_state.json\`), baixa somente o que mudou para \`pequalnp/daily/<data>_<arquivo>.json\` (evidência versionada) e imprime os deltas: contadores, status das linhas de ataque, artigos novos, letras e \`plan_v2\` (RULED_OUT/DECISÕES).  
+\* \*\*Alertas:\*\* \`files.papers\` com hash novo = saiu NOTE/novo paper → baixar e ler; \`plan_v2\` mudou = estratégia ou cemitério novos; \`letters\` com \`replied\` = resposta de especialista disponível.  
+\* Delta relevante para os eixos do projeto (minref/DD, pontes D4′, meta-complexidade, fonte Σ₁, ponte L2→L3): anotar em \`pequalnp/VARREDURA_<data>.md\`, classificar como (A)/(A)-nc/(C) e indexar no \`INDICE.md\` (seção Estudos de Fontes Externas). Sem deltas: apenas informar "sem mudanças" — não criar documento.  
+\* Contexto e endpoints: \`pequalnp/VARREDURA_2026-11-27.md\` (primeira varredura completa), \`pequalnp/PEQUALNP_MAPA.md\` §7, scripts \`_varredura_diff.py\`/\`_news_letters.py\` (diffs manuais reexecutáveis).
+
 \#\# 5\. FERRAMENTAS COMPUTACIONAIS E ÁLGEBRA SIMBÓLICA NO TERMINAL
 
 Ao testar hipóteses matemáticas, sistemas dinâmicos ou obstruções lógicas, utilize as ferramentas instaladas no terminal seguindo esta divisão de responsabilidades:

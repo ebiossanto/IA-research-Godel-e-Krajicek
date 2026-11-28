@@ -4,3 +4,10 @@ __pycache__/
 
 Foundation/
 FoundationBridge/.lake/
+
+# Clone externo do estudo pequalnp/ (repositório git embutido, ~16 mil arquivos).
+# Manter apenas os artefatos do estudo: overview.json, plan.json, *.md, _r4_test.
+pequalnp/pequalnp-proofs/
+
+# Zip de origem externa baixado (fonte do fractal_engine; rebaixavel do GitHub).
+Motor-Fractal-REA-main.zip
