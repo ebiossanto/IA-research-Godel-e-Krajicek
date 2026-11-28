@@ -169,13 +169,136 @@ possível): por `(σ, b_rank)` → `gen_tau_at_b` → `solve` (UNSAT exigido)
 (descritiva), assert, tabelas → `gk_series_b_series.csv` +
 `gk_series_b.json` (R6 protege o par).
 
-## 3. Resultados *(pós-execução)*
+## 3. Resultados *(pós-execução — run concluído 27/11 21:51 local, exit 0)*
+
+**Execução:** 904/904 instâncias (grade real: T_σ ∈ {28,29,30} —
+σ=6013 tem imagem=2 → T=30), `mode=resume+collect+analyze`,
+`runtime=41926s` (tentativa2) · coleta 698min · **0 descartes** ·
+**ASSERT 0 violações** · selftests **todos OK** no run (S1 0,013 ·
+S3 tipo-I **1/40=0,025** + poder **10/10** · S4 contratos NaN · S5
+smoke · S6 drat determinístico · DISJ ∅). Artefatos:
+`gk_series_b_series.csv` (**sha256 `50ecd215dae321c5…`**) +
+`gk_series_b.json` (R6 protege o par).
+
+**Incidente (contido):** TENTATIVA 1 morreu com **`0xC0000005`**
+(ACCESS_VIOLATION — classe nativa CaDiCaL conhecida) após **507
+linhas**; o checkpoint atômico salvou tudo → TENTATIVA 2 (`--resume`)
+retomou das507 e completou as904 + análise. Padrão τ k↑ repetido com
+sucesso.
+
+**Censuras:** 60/904 pontos (6,6%) — mas concentradas: **14/32 σ's**
+têm ≥1 ponto censurado (~4 X por σ sujo, como as sondas) → excluídos.
+
+### 3.1 H_b1 — VIABILIDADE: **CONFIRMADA**
+
+**16/32 σ's utilizáveis** (gate ≥12 ✓). Decomposição: 18 completos −
+2 constantes (σ=6003 e 6021: minref **todo 5** → acf₁ NaN) = 16;
+14 censurados (6004-6007, 6009, 6012-6013, 6016-6018, 6020, 6023,
+6028, 6030). **Os16 utilizáveis:** 6000, 6001, 6002, 6008, 6010, 6011,
+6014, 6015, 6019, 6022, 6024, 6025, 6026, 6027, 6029, 6031.
+
+### 3.2 H_b2 — ESTRUTURA SERIAL EM b (PRIMÁRIA): **CONFIRMADA (OK)**
+
+`D_σ = acf₁(real) − média₁₀₀₀ acf₁(permutações)`; média sobre os
+**16 σ's**:
+
+| Estatística | Valor |
+|---|---|
+| **ponto** | **−0,2431** |
+| percentil 95% (PRIMÁRIO) | **[−0,3653, −0,1086]** — exclui 0 |
+| BCa (parceiro) | **[−0,3543, −0,0947]** — exclui 0, mesmo sinal → **concordante** |
+| veredito interno | `SEPARA` (ponto dentro do IC) → classificação dirn=−1 → **OK** |
+| SE / MDE80 | 0,0652 / **0,1827** (|efeito| 0,243 > MDE ✓) |
+| z0 / n_boot / n_jack | 0,0527 (saudável) / 1000 / 16 |
+
+**Consistência por σ:** 14/16 D's negativos (extremos: σ=6026 −0,727 ·
+σ=6029 −0,531 · σ=6019 −0,528); ≈0 em 6000 (+0,004) e 6025 (−0,003);
+**um outlier positivo**: σ=6027 **+0,447** (registrado — ver §5).
+
+**Leitura:** a sequência `minref(b₀), minref(b₁), …` em ordem lex de
+`b` (σ fixo) é **anti-persistente**: níveis alternam (5→7→5…) mais do
+que o esperado por embaralhamento — **a série ordinal do D4′ indexada
+por b carrega estrutura serial real**.
+
+### 3.3 H_b3 (DESCRIPTIVA — sem claim): polaridades opostas
+
+Nos **10 σ's** com ambas as séries utilizáveis: `média D_minref =
+−0,225` vs `média D_drat = **+0,796**` — contraste −1,021
+(percentil [−1,271; −0,749], BCa [−1,241; −0,695], `SEPARA`).
+**minref alterna; drat é persistente** (runs longos de mesmo
+comprimento) — padrão de polaridade oposta, **(P)/candidata (C)**,
+sem verbo confirmatório (seleção pós-hoc).
+
+### 3.4 Tabelas/diagnóstico
+
+- **minref exato** nos σ's utilizáveis: valores ∈ {5,7,9,11} (alguns
+  σ's têm9/11 **exatos** @6M — instâncias de pares pequenos);
+- `T_σ` ∈ {28,29,30}; `drat_mean` por σ: 6,2–21,6 (variação grande);
+- **`saltos` ≈ 1,0 em todas as séries binárias** (degeneração
+  documentada pelo S4 — confirmada nos dados reais) → métrica inútil
+  aqui; `boxdim_rank` ∈ 0,57–0,88 varia normalmente;
+- `hurts/higuchi` NaN (T<32/36) — contrato S4 cumprido.
 
 ## 4. Interpretação *(pós-execução)*
 
+1. **A série ordinal do D4′ existe e é estruturada (P):** o índice lex
+   de `b` para σ fixo revela **anti-persistência** em `minref`
+   (H_b2 OK, efeito −0,243 > MDE 0,183, 14/16 σ's no sinal) — a
+   pergunta original do doc28 §7.3 respondida com dado novo;
+2. **Mecanismo plausível:** `minref` ∈ {5,7} alterna porque b's lex
+   vizinhos diferem em bits de baixa ordem → o resolvente/propagação
+   muda de paridade a cada passo → comprimento mínimo oscila. (Não
+   provado — interpretação (C) qualitativa.)
+3. **minref × drat com polaridades opostas (P):** a prova do solver
+   (drat) agrupa-se em runs (persistência +0,80) enquanto o mínimo
+   alterna — o solver "suaviza" a alternância canônica. Candidata (C)
+   natural a pré-registro (H de rodada futura: D_drat − D_minref > 0);
+4. **Viabilidade de n=7 com σ fixo:** 6M resolve16/32 σ's — a
+   exclusão de sujos é o preço do exato (escopo declarado).
+
 ## 5. Limitações *(pós-execução)*
 
+- **Escopo do H_b2:** fala **apenas dos σ's sem instância minref≥8**
+  (16/32) — exclusão **dirigida pelo resultado** (pré-declarada, mas
+  real): se sujos tiverem outra dinâmica, o claim não os cobre;
+- **Direção −1** derivada de UMA sonda (σ=5000) — se fosse oposta,
+  o resultado seria `CONTRADITA`; deu certo, mas é sorte de desenho
+  declarada;
+- **n=16** no bootstrap (jackknife16): MDE 0,183 — efeitos < ~0,2
+  indetectáveis; **σ=6027 (+0,45)** outlier positivo não explicado;
+- **Séries curtas e binárias** (T=28-30, valores5/7/9/11):
+  `hurst`(n≥36)/`higuchi`(n≥32) NaN; `saltos` degenerada — só
+  `acf₁`/`boxdim*` utilizáveis (contratos S4);
+- **Indexação lex é um caminho arbitrário** sobre {0,1}⁵ — a
+  anti-persistência pode ser específica da ordem lex (Gray seria
+  outra — futuro);
+- **H_b3 com10 pares** (séries drat constantes em6 σ's) — descritiva
+  por construção;
+- **Incidente0xC0000005** contido por checkpoint (507→904) — classe
+  nativa conhecida, sem perda.
+
 ## 6. Próximos passos *(pós-execução)*
+
+1. **H_b3 → candidata (C) pré-registrável:** `D_drat − D_minref > 0`
+   (polaridades opostas) com a máquina desta rodada em grade nova
+   DISJ;
+2. **Indexação alternativa:** série em **código de Gray** de `b`
+   (vizinhos diferem1 bit) — se a anti-persistência é do lex ou de
+   `b` em si;
+3. **σ's sujos:** tentar `max_aux` intermediário (~8-10M) com
+   **teto de wall-clock pré-registrado** (a sonda @20M mostrou que
+   minref=11 custa ~2h) para ampliar o escopo além dos16;
+4. **Ligar à lacuna τ k↑:** a anti-persistência do minref pode
+   explicar por que as médias ficaram planas (alternância cancela em
+   média) — nota interpretativa p/ `34_` §4 (sem reabrir veredito).
+
+---
+
+**Referências:** `28_…` §7.3 · `29_…` §3 · `34_TAU_KUP_MINREF.md` ·
+`gk_series_b.py` (pré-registro executável, commit `7f45d12`) ·
+sondas `probe_series_b*.py`, `probe_variation.py`, `calib_perm.py` ·
+`pequalnp/VARREDURA_2026-11-28.md` (rotina da sessão) ·
+Efron (1993) BCa · r5/r6 (método percentil+BCa)
 
 ---
 

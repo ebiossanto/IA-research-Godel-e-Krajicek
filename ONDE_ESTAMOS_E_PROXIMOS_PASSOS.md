@@ -195,10 +195,21 @@ pela regra + leitura dupla obrigatória: contrastes INCONCLUSIVOS, MDE
 de minref **planas** 6,95/6,71/6,82 mas **lacuna drat−minref
 1,79→3,47→4,49** = (P) descritivo/candidata (C) **não-claim**; fronteira
 %exato 100/89/42 — n=9 exato custa dias; erratum da anotação do
-pré-registro; patch `saturation` mid-run invariante) — **próxima
-rodada = séries em b** (índice lex — a série ordinal original do D4′);
-monitorar z0 (`drat:cadeia−τ`), flags ≥4
-→ estreitar concordância, H_C2 (EF) permanece deferido.
+pré-registro; patch `saturation` mid-run invariante) — **séries em b
+EXECUTADO** (`35_...` + referee R1 com4 condições de redação: **H_b1
+CONFIRMADA 16/32**; **H_b2 CONFIRMADA — minref(lex b) ANTI-PERSISTENTE
+para σ fixo**: média D=−0,243 [−0,365;−0,109] percentil + BCa
+concordante, dirn=−1, n=16, MDE 0,183, 14/16 σ's no sinal; **escopo
+obrigatório: σ's sem minref≥8 (16/32)**; direção de sonda única;
+**H_b3 candidata (C)**: minref −0,23 vs drat **+0,80** — polaridades
+opostas, sem verbo; ASSERT **0/904**; `saltos` degenerada em série
+binária pega pelo S3 → `acf₁`; crash0xC0000005 contido 507→904) —
+**próximas**: (a) H_b3 pré-registrada (polaridade minref×drat);
+(b) série em **código de Gray** (a anti-persistência é do lex ou de
+b?); (c) nota interpretativa: alternância cancela em média → explica
+médias planas do `34_`; monitorar z0 (`drat:cadeia−τ`), flags ≥4
+→ estreitar concordância, H_C2 (EF) permanece deferido; **rotina
+pequalnp diária ativa** (`pequalnp/VARREDURA_2026-11-28.md`).
 Original (para histórico): Combinar a campanha PPR (216 testes Z3 reais) com
 o motor fractal: pegar os 216 casos, calcular a **curva de "entropia de
 prova"** (`prob(z/¬z)` do interpolante) como série ordinal e extrair H/D;

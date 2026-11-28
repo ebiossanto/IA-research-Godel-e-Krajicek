@@ -1,0 +1,904 @@
+{
+  "metadata": {
+    "timestamp_utc": "2026-11-28T00:51:44.195790Z",
+    "mode": "resume+collect+analyze",
+    "seed": 20261119,
+    "seed_boot": 20261130,
+    "n_boot": 1000,
+    "b_shuf": 1000,
+    "config": "k=2 w=5 depth=1 (nvars=7, T=28-29)",
+    "max_aux": 6000000,
+    "grade": "family=tau_b, σ=6000..6031 (S=32), b_rank=0..T_σ-1 (lex), DISJ sondas 5000-5004 e r2..τk↑",
+    "gerador": "estrutura fixa por (depth,struct_seed) no namespace 'tau_b'; b = complemento ordenado lex",
+    "runtime_s": 41926.1,
+    "caveats": [
+      "Pré-registro: hipóteses/regras/grade fixadas neste código e no doc 35_ ANTES do run (C1).",
+      "Direção H_b2 (-1 alternância) baseada em sonda de engenharia σ=5000 (D=-0,36) — caveat declarado; métrica primária trocada de saltos p/ acf1 ANTES do commit (S3 pegou degeneração de saltos em série binária).",
+      "higuchi (n>=32) e hurst (n>=36) NaN em T=28 — contrato S4; não usados em claim.",
+      "σ's não utilizáveis excluídos do H_b2 (regra pré-declarada; contagem no H_b1).",
+      "H_b3 descritiva — candidata (C), sem claim.",
+      "N1+N2; sem N4; H_C2 (EF) deferido."
+    ],
+    "data_source": "gk_series_b.py (séries em b — índice lex de b, σ fixo)",
+    "instances": {
+      "rows": 904,
+      "censuras": 60,
+      "n_sigma": 32,
+      "n_usaveis": 16
+    },
+    "selftests": {
+      "S1_bca_scipy": {
+        "status": "OK",
+        "max_diff": 0.01331
+      },
+      "S3_maquina": {
+        "S3a_tipo1": {
+          "n": 40,
+          "exclusoes": 1,
+          "taxa": 0.025,
+          "gate_ok": true
+        },
+        "S3b_poder": {
+          "n": 10,
+          "detectou": 10,
+          "gate_ok": true,
+          "nota": "padrao alternante 5/7 + ruido 0.35; dirn=-1 (D=acf1 real - media shuffles)"
+        },
+        "status": "OK"
+      },
+      "S4_metricas": {
+        "status": "OK",
+        "saltos_alt_deg": 1.0,
+        "saltos_degrau_nan": true,
+        "acf1_alt": -0.9642857142857143,
+        "acf1_const_nan": true,
+        "boxdim_rank_alt": 0.8827673731814888,
+        "inv_err": 0.0,
+        "hurst_nan_esperado": true,
+        "higuchi_nan_esperado": true
+      },
+      "S6_drat": {
+        "status": "OK",
+        "run1": "('UNSAT', 9)",
+        "run2": "('UNSAT', 9)"
+      },
+      "S5_smoke": {
+        "status": "OK",
+        "nota": "analyze() completo com stub"
+      },
+      "DISJ": {
+        "status": "OK",
+        "n_prev": 5004,
+        "n_mine": 2048,
+        "fontes": 6,
+        "interseccao": []
+      }
+    },
+    "csv": "gk_series_b_series.csv",
+    "csv_sha256": "50ecd215dae321c5ed4bc7a09b8537a702c58ff110283abd246f0fb26f30d3f3",
+    "sha_note": "sha256 bytes normalizados CRLF->LF"
+  },
+  "pre_registro": {
+    "H_b1": ">=12/32 σ's utilizáveis (completos + não-degenerados)",
+    "H_b2": "estrutura serial em b: D_σ = acf1(real) - media acf1(permutacoes); bootstrap sobre σ; dirn=-1 (alternância); α=0.05 unica confirmatoria",
+    "H_b3": "descritiva (sem claim)",
+    "ASSERT": "minref_exato >= d(vazia) por instancia"
+  },
+  "results": {
+    "H_b1_viabilidade": {
+      "alvo": ">=12/32 σ's utilizáveis (completos + não-degenerados)",
+      "n_usaveis": 16,
+      "detalhe": {
+        "completos": [
+          6000,
+          6001,
+          6002,
+          6003,
+          6008,
+          6010,
+          6011,
+          6014,
+          6015,
+          6019,
+          6021,
+          6022,
+          6024,
+          6025,
+          6026,
+          6027,
+          6029,
+          6031
+        ],
+        "nao_degenerados": [
+          6000,
+          6001,
+          6002,
+          6008,
+          6010,
+          6011,
+          6014,
+          6015,
+          6019,
+          6022,
+          6024,
+          6025,
+          6026,
+          6027,
+          6029,
+          6031
+        ],
+        "usaveis": [
+          6000,
+          6001,
+          6002,
+          6008,
+          6010,
+          6011,
+          6014,
+          6015,
+          6019,
+          6022,
+          6024,
+          6025,
+          6026,
+          6027,
+          6029,
+          6031
+        ],
+        "censurados": [
+          6004,
+          6005,
+          6006,
+          6007,
+          6009,
+          6012,
+          6013,
+          6016,
+          6017,
+          6018,
+          6020,
+          6023,
+          6028,
+          6030
+        ],
+        "constantes": [
+          6003,
+          6021
+        ],
+        "acf_nan": [
+          6003,
+          6021
+        ]
+      },
+      "veredito": "CONFIRMADA"
+    },
+    "H_b2_estrutura": {
+      "enunciado": "D_σ = acf1(real) - media_1000 acf1(permutacoes internas); media sobre σ; bootstrap percentil primario + BCa + regra 2 niveis; dirn=-1 (alternância/anti-persistência — base sonda σ=5000, D=-0,36); α=0.05 unica confirmatoria",
+      "n_sigma": 16,
+      "dado": {
+        "point": -0.2430885298124082,
+        "pct_lo": -0.3653357518082795,
+        "pct_hi": -0.10864009808435521,
+        "bca_lo": -0.35425030797950935,
+        "bca_hi": -0.0947047903764667,
+        "se_boot": 0.06520705673482799,
+        "mde80": 0.18268311204244309,
+        "z0": 0.0527,
+        "point_outside": false,
+        "excludes0": true,
+        "excludes0_bca": true,
+        "n_boot": 1000,
+        "n_jack": 16,
+        "n_sigma": 16,
+        "concordante": true,
+        "discordante": false,
+        "veredito": "SEPARA"
+      },
+      "veredito": "OK",
+      "D_por_sigma": {
+        "6000": 0.0036,
+        "6001": -0.3344,
+        "6002": -0.1819,
+        "6008": -0.1381,
+        "6010": -0.3603,
+        "6011": -0.4508,
+        "6014": -0.1641,
+        "6015": -0.2168,
+        "6019": -0.5276,
+        "6022": -0.1316,
+        "6024": -0.1416,
+        "6025": -0.0025,
+        "6026": -0.7268,
+        "6027": 0.4472,
+        "6029": -0.531,
+        "6031": -0.4327
+      }
+    },
+    "H_b3_descritiva": {
+      "nota": "(P)/candidata (C) — DESCRIPTIVA, sem claim",
+      "n_pares": 10,
+      "media_D_minref": -0.22486782110272138,
+      "media_D_drat": 0.7964480087816461,
+      "contraste": {
+        "point": -1.0213158298843674,
+        "pct_lo": -1.2711594858005206,
+        "pct_hi": -0.7489095571095569,
+        "bca_lo": -1.2406711929511878,
+        "bca_hi": -0.6953844161740791,
+        "se_boot": 0.13878186978088697,
+        "mde80": 0.3888092046500862,
+        "z0": 0.0702,
+        "point_outside": false,
+        "excludes0": true,
+        "excludes0_bca": true,
+        "n_boot": 1000,
+        "n_jack": 10,
+        "n_sigma": 10,
+        "concordante": true,
+        "discordante": false,
+        "veredito": "SEPARA"
+      }
+    },
+    "_assert": {
+      "violacoes": [],
+      "veredito": "OK (minref >= d(vazia) em todas)"
+    },
+    "tabelas": {
+      "6000": {
+        "T": 28,
+        "censored": false,
+        "minref_dist": [
+          5,
+          7,
+          9,
+          11
+        ],
+        "minref_mean": 6.142857142857143,
+        "drat_mean": 13.0,
+        "D_minref": 0.0036016949152541354,
+        "D_drat": null,
+        "metricas_minref": {
+          "boxdim": 0.924,
+          "boxdim_rank": 0.7925,
+          "saltos": 0.9375,
+          "higuchi_D": null,
+          "hurst_rs": null
+        },
+        "metricas_drat": {
+          "boxdim": 0.7925,
+          "boxdim_rank": 0.7925,
+          "saltos": null
+        }
+      },
+      "6001": {
+        "T": 29,
+        "censored": false,
+        "minref_dist": [
+          5,
+          7,
+          9
+        ],
+        "minref_mean": 6.0344827586206895,
+        "drat_mean": 13.793103448275861,
+        "D_minref": -0.33443558282208585,
+        "D_drat": 0.9277439886845826,
+        "metricas_minref": {
+          "boxdim": 0.6813,
+          "boxdim_rank": 0.6813,
+          "saltos": 0.95,
+          "higuchi_D": null,
+          "hurst_rs": null
+        },
+        "metricas_drat": {
+          "boxdim": 0.7297,
+          "boxdim_rank": 0.7297,
+          "saltos": null
+        }
+      },
+      "6002": {
+        "T": 29,
+        "censored": false,
+        "minref_dist": [
+          5,
+          7
+        ],
+        "minref_mean": 5.344827586206897,
+        "drat_mean": 17.448275862068964,
+        "D_minref": -0.1818916666666669,
+        "D_drat": 0.881848474095103,
+        "metricas_minref": {
+          "boxdim": 0.6893,
+          "boxdim_rank": 0.6893,
+          "saltos": 1.0,
+          "higuchi_D": null,
+          "hurst_rs": null
+        },
+        "metricas_drat": {
+          "boxdim": 0.661,
+          "boxdim_rank": 0.8685,
+          "saltos": null
+        }
+      },
+      "6003": {
+        "T": 28,
+        "censored": false,
+        "minref_dist": [
+          5
+        ],
+        "minref_mean": 5.0,
+        "drat_mean": 21.571428571428573,
+        "D_minref": null,
+        "D_drat": null,
+        "metricas_minref": {
+          "boxdim": 0.7925,
+          "boxdim_rank": 0.7925,
+          "saltos": null,
+          "higuchi_D": null,
+          "hurst_rs": null
+        },
+        "metricas_drat": {
+          "boxdim": 0.5688,
+          "boxdim_rank": 0.5688,
+          "saltos": null
+        }
+      },
+      "6004": {
+        "T": 28,
+        "censored": true,
+        "minref_dist": null,
+        "minref_mean": null,
+        "drat_mean": 11.642857142857142,
+        "D_minref": null,
+        "D_drat": null,
+        "metricas_minref": {},
+        "metricas_drat": {
+          "boxdim": 0.5688,
+          "boxdim_rank": 0.7297,
+          "saltos": null
+        }
+      },
+      "6005": {
+        "T": 28,
+        "censored": true,
+        "minref_dist": null,
+        "minref_mean": null,
+        "drat_mean": 9.0,
+        "D_minref": null,
+        "D_drat": null,
+        "metricas_minref": {},
+        "metricas_drat": {
+          "boxdim": 0.7925,
+          "boxdim_rank": 0.7925,
+          "saltos": null
+        }
+      },
+      "6006": {
+        "T": 29,
+        "censored": true,
+        "minref_dist": null,
+        "minref_mean": null,
+        "drat_mean": 6.241379310344827,
+        "D_minref": null,
+        "D_drat": null,
+        "metricas_minref": {},
+        "metricas_drat": {
+          "boxdim": 0.6315,
+          "boxdim_rank": 0.6315,
+          "saltos": 0.75
+        }
+      },
+      "6007": {
+        "T": 28,
+        "censored": true,
+        "minref_dist": null,
+        "minref_mean": null,
+        "drat_mean": 12.714285714285714,
+        "D_minref": null,
+        "D_drat": null,
+        "metricas_minref": {},
+        "metricas_drat": {
+          "boxdim": 0.661,
+          "boxdim_rank": 0.661,
+          "saltos": null
+        }
+      },
+      "6008": {
+        "T": 28,
+        "censored": false,
+        "minref_dist": [
+          5,
+          7
+        ],
+        "minref_mean": 5.285714285714286,
+        "drat_mean": 15.0,
+        "D_minref": -0.13812500000000016,
+        "D_drat": null,
+        "metricas_minref": {
+          "boxdim": 0.6893,
+          "boxdim_rank": 0.6893,
+          "saltos": 1.0,
+          "higuchi_D": null,
+          "hurst_rs": null
+        },
+        "metricas_drat": {
+          "boxdim": 0.7925,
+          "boxdim_rank": 0.7925,
+          "saltos": null
+        }
+      },
+      "6009": {
+        "T": 28,
+        "censored": true,
+        "minref_dist": null,
+        "minref_mean": null,
+        "drat_mean": 11.0,
+        "D_minref": null,
+        "D_drat": null,
+        "metricas_minref": {},
+        "metricas_drat": {
+          "boxdim": 0.7925,
+          "boxdim_rank": 0.7925,
+          "saltos": null
+        }
+      },
+      "6010": {
+        "T": 28,
+        "censored": false,
+        "minref_dist": [
+          5,
+          7,
+          11
+        ],
+        "minref_mean": 6.0,
+        "drat_mean": 15.0,
+        "D_minref": -0.36034615384615387,
+        "D_drat": null,
+        "metricas_minref": {
+          "boxdim": 1.0437,
+          "boxdim_rank": 0.7513,
+          "saltos": 1.0,
+          "higuchi_D": null,
+          "hurst_rs": null
+        },
+        "metricas_drat": {
+          "boxdim": 0.7925,
+          "boxdim_rank": 0.7925,
+          "saltos": null
+        }
+      },
+      "6011": {
+        "T": 28,
+        "censored": false,
+        "minref_dist": [
+          5,
+          7,
+          11
+        ],
+        "minref_mean": 6.0,
+        "drat_mean": 11.0,
+        "D_minref": -0.45076923076923076,
+        "D_drat": null,
+        "metricas_minref": {
+          "boxdim": 1.085,
+          "boxdim_rank": 0.7925,
+          "saltos": 1.0,
+          "higuchi_D": null,
+          "hurst_rs": null
+        },
+        "metricas_drat": {
+          "boxdim": 0.7925,
+          "boxdim_rank": 0.7925,
+          "saltos": null
+        }
+      },
+      "6012": {
+        "T": 28,
+        "censored": true,
+        "minref_dist": null,
+        "minref_mean": null,
+        "drat_mean": 12.428571428571429,
+        "D_minref": null,
+        "D_drat": null,
+        "metricas_minref": {},
+        "metricas_drat": {
+          "boxdim": 0.5688,
+          "boxdim_rank": 0.5688,
+          "saltos": null
+        }
+      },
+      "6013": {
+        "T": 30,
+        "censored": true,
+        "minref_dist": null,
+        "minref_mean": null,
+        "drat_mean": 18.466666666666665,
+        "D_minref": null,
+        "D_drat": null,
+        "metricas_minref": {},
+        "metricas_drat": {
+          "boxdim": 0.6893,
+          "boxdim_rank": 0.7925,
+          "saltos": 0.6667
+        }
+      },
+      "6014": {
+        "T": 28,
+        "censored": false,
+        "minref_dist": [
+          5,
+          7
+        ],
+        "minref_mean": 5.857142857142857,
+        "drat_mean": 15.0,
+        "D_minref": -0.16412500000000008,
+        "D_drat": null,
+        "metricas_minref": {
+          "boxdim": 0.8828,
+          "boxdim_rank": 0.8828,
+          "saltos": 1.0,
+          "higuchi_D": null,
+          "hurst_rs": null
+        },
+        "metricas_drat": {
+          "boxdim": 0.7925,
+          "boxdim_rank": 0.7925,
+          "saltos": null
+        }
+      },
+      "6015": {
+        "T": 28,
+        "censored": false,
+        "minref_dist": [
+          5,
+          7,
+          11
+        ],
+        "minref_mean": 6.0,
+        "drat_mean": 8.428571428571429,
+        "D_minref": -0.21680769230769237,
+        "D_drat": 0.894375,
+        "metricas_minref": {
+          "boxdim": 1.085,
+          "boxdim_rank": 0.7925,
+          "saltos": 1.0,
+          "higuchi_D": null,
+          "hurst_rs": null
+        },
+        "metricas_drat": {
+          "boxdim": 0.661,
+          "boxdim_rank": 0.661,
+          "saltos": null
+        }
+      },
+      "6016": {
+        "T": 28,
+        "censored": true,
+        "minref_dist": null,
+        "minref_mean": null,
+        "drat_mean": 9.642857142857142,
+        "D_minref": null,
+        "D_drat": null,
+        "metricas_minref": {},
+        "metricas_drat": {
+          "boxdim": 0.5,
+          "boxdim_rank": 0.661,
+          "saltos": null
+        }
+      },
+      "6017": {
+        "T": 28,
+        "censored": true,
+        "minref_dist": null,
+        "minref_mean": null,
+        "drat_mean": 13.642857142857142,
+        "D_minref": null,
+        "D_drat": null,
+        "metricas_minref": {},
+        "metricas_drat": {
+          "boxdim": 0.5688,
+          "boxdim_rank": 0.7297,
+          "saltos": null
+        }
+      },
+      "6018": {
+        "T": 28,
+        "censored": true,
+        "minref_dist": null,
+        "minref_mean": null,
+        "drat_mean": 17.0,
+        "D_minref": null,
+        "D_drat": null,
+        "metricas_minref": {},
+        "metricas_drat": {
+          "boxdim": 0.7925,
+          "boxdim_rank": 0.7925,
+          "saltos": null
+        }
+      },
+      "6019": {
+        "T": 29,
+        "censored": false,
+        "minref_dist": [
+          5,
+          7
+        ],
+        "minref_mean": 5.896551724137931,
+        "drat_mean": 9.241379310344827,
+        "D_minref": -0.5275769230769227,
+        "D_drat": 0.8965614886731393,
+        "metricas_minref": {
+          "boxdim": 0.8828,
+          "boxdim_rank": 0.8828,
+          "saltos": 1.0,
+          "higuchi_D": null,
+          "hurst_rs": null
+        },
+        "metricas_drat": {
+          "boxdim": 0.5688,
+          "boxdim_rank": 0.7297,
+          "saltos": null
+        }
+      },
+      "6020": {
+        "T": 28,
+        "censored": true,
+        "minref_dist": null,
+        "minref_mean": null,
+        "drat_mean": 13.642857142857142,
+        "D_minref": null,
+        "D_drat": null,
+        "metricas_minref": {},
+        "metricas_drat": {
+          "boxdim": 0.5688,
+          "boxdim_rank": 0.7297,
+          "saltos": null
+        }
+      },
+      "6021": {
+        "T": 28,
+        "censored": false,
+        "minref_dist": [
+          5
+        ],
+        "minref_mean": 5.0,
+        "drat_mean": 20.428571428571427,
+        "D_minref": null,
+        "D_drat": null,
+        "metricas_minref": {
+          "boxdim": 0.7925,
+          "boxdim_rank": 0.7925,
+          "saltos": null,
+          "higuchi_D": null,
+          "hurst_rs": null
+        },
+        "metricas_drat": {
+          "boxdim": 0.661,
+          "boxdim_rank": 0.661,
+          "saltos": null
+        }
+      },
+      "6022": {
+        "T": 28,
+        "censored": false,
+        "minref_dist": [
+          5,
+          7
+        ],
+        "minref_mean": 5.285714285714286,
+        "drat_mean": 16.428571428571427,
+        "D_minref": -0.13162499999999994,
+        "D_drat": 0.8618958333333334,
+        "metricas_minref": {
+          "boxdim": 0.6893,
+          "boxdim_rank": 0.6893,
+          "saltos": 1.0,
+          "higuchi_D": null,
+          "hurst_rs": null
+        },
+        "metricas_drat": {
+          "boxdim": 0.5688,
+          "boxdim_rank": 0.5688,
+          "saltos": null
+        }
+      },
+      "6023": {
+        "T": 28,
+        "censored": true,
+        "minref_dist": null,
+        "minref_mean": null,
+        "drat_mean": 15.642857142857142,
+        "D_minref": null,
+        "D_drat": null,
+        "metricas_minref": {},
+        "metricas_drat": {
+          "boxdim": 0.5,
+          "boxdim_rank": 0.661,
+          "saltos": null
+        }
+      },
+      "6024": {
+        "T": 28,
+        "censored": false,
+        "minref_dist": [
+          5,
+          7
+        ],
+        "minref_mean": 5.285714285714286,
+        "drat_mean": 16.428571428571427,
+        "D_minref": -0.14162500000000022,
+        "D_drat": 0.9241458333333331,
+        "metricas_minref": {
+          "boxdim": 0.7925,
+          "boxdim_rank": 0.7925,
+          "saltos": 1.0,
+          "higuchi_D": null,
+          "hurst_rs": null
+        },
+        "metricas_drat": {
+          "boxdim": 0.661,
+          "boxdim_rank": 0.661,
+          "saltos": null
+        }
+      },
+      "6025": {
+        "T": 29,
+        "censored": false,
+        "minref_dist": [
+          5,
+          7
+        ],
+        "minref_mean": 5.068965517241379,
+        "drat_mean": 17.689655172413794,
+        "D_minref": -0.0024999999999996275,
+        "D_drat": 0.4079261363636364,
+        "metricas_minref": {
+          "boxdim": 0.661,
+          "boxdim_rank": 0.661,
+          "saltos": null,
+          "higuchi_D": null,
+          "hurst_rs": null
+        },
+        "metricas_drat": {
+          "boxdim": 0.5688,
+          "boxdim_rank": 0.5688,
+          "saltos": null
+        }
+      },
+      "6026": {
+        "T": 28,
+        "censored": false,
+        "minref_dist": [
+          5,
+          7
+        ],
+        "minref_mean": 5.857142857142857,
+        "drat_mean": 16.428571428571427,
+        "D_minref": -0.7268124999999998,
+        "D_drat": 0.8402499999999996,
+        "metricas_minref": {
+          "boxdim": 0.8828,
+          "boxdim_rank": 0.8828,
+          "saltos": 1.0,
+          "higuchi_D": null,
+          "hurst_rs": null
+        },
+        "metricas_drat": {
+          "boxdim": 0.5688,
+          "boxdim_rank": 0.5688,
+          "saltos": null
+        }
+      },
+      "6027": {
+        "T": 28,
+        "censored": false,
+        "minref_dist": [
+          5,
+          7
+        ],
+        "minref_mean": 5.285714285714286,
+        "drat_mean": 16.142857142857142,
+        "D_minref": 0.44724999999999987,
+        "D_drat": 0.49133333333333323,
+        "metricas_minref": {
+          "boxdim": 0.5688,
+          "boxdim_rank": 0.5688,
+          "saltos": 1.0,
+          "higuchi_D": null,
+          "hurst_rs": null
+        },
+        "metricas_drat": {
+          "boxdim": 0.5688,
+          "boxdim_rank": 0.5688,
+          "saltos": null
+        }
+      },
+      "6028": {
+        "T": 28,
+        "censored": true,
+        "minref_dist": null,
+        "minref_mean": null,
+        "drat_mean": 11.0,
+        "D_minref": null,
+        "D_drat": null,
+        "metricas_minref": {},
+        "metricas_drat": {
+          "boxdim": 0.7925,
+          "boxdim_rank": 0.7925,
+          "saltos": null
+        }
+      },
+      "6029": {
+        "T": 28,
+        "censored": false,
+        "minref_dist": [
+          5,
+          7,
+          9,
+          11
+        ],
+        "minref_mean": 6.142857142857143,
+        "drat_mean": 9.0,
+        "D_minref": -0.5309745762711865,
+        "D_drat": null,
+        "metricas_minref": {
+          "boxdim": 0.924,
+          "boxdim_rank": 0.7925,
+          "saltos": 1.0,
+          "higuchi_D": null,
+          "hurst_rs": null
+        },
+        "metricas_drat": {
+          "boxdim": 0.7925,
+          "boxdim_rank": 0.7925,
+          "saltos": null
+        }
+      },
+      "6030": {
+        "T": 29,
+        "censored": true,
+        "minref_dist": null,
+        "minref_mean": null,
+        "drat_mean": 8.448275862068966,
+        "D_minref": null,
+        "D_drat": null,
+        "metricas_minref": {},
+        "metricas_drat": {
+          "boxdim": 0.6893,
+          "boxdim_rank": 0.6315,
+          "saltos": 0.75
+        }
+      },
+      "6031": {
+        "T": 28,
+        "censored": false,
+        "minref_dist": [
+          5,
+          7,
+          11
+        ],
+        "minref_mean": 6.0,
+        "drat_mean": 12.714285714285714,
+        "D_minref": -0.43265384615384617,
+        "D_drat": 0.8383999999999999,
+        "metricas_minref": {
+          "boxdim": 1.0437,
+          "boxdim_rank": 0.7513,
+          "saltos": 1.0,
+          "higuchi_D": null,
+          "hurst_rs": null
+        },
+        "metricas_drat": {
+          "boxdim": 0.661,
+          "boxdim_rank": 0.661,
+          "saltos": null
+        }
+      }
+    },
+    "_diag": {
+      "n_rows": 904,
+      "n_sigma": 32,
+      "n_usaveis": 16,
+      "censuras_total": 60
+    }
+  }
+}
