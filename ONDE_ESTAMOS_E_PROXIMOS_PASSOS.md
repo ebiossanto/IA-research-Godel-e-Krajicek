@@ -61,7 +61,7 @@ Reproduzida **nesta sessão** (Level 2):
 | `gk_drat_translation_real.py` | DRAT translation real | 216/216 válidos (100%) | `gk_drat_translation*.json/csv` |
 | `gk_hardness_z3_real.py` | `s_Res=21.2`, `s_EFrege=17.0` medidos | reproduzido | `gk_hardness_z3_real*.json/csv` |
 | `gk_omega_proof.py` | `T_ω=PA+RFN^ω`, δ→0 uniforme | convergência SIM, PPR pass 100% | `gk_omega_proof*.json/csv` |
-| `gk_hardness_separation_real.py` | Resolution EXP vs EFrege POLY | (existente em JSON) | `gk_hardness_separation.json` |
+| `gk_hardness_separation_real.py` | Resolution EXP vs EFrege POLY | reproduzido ( artefatos migrados do ancestral em 28/11: `gk_hardness_separation_real_analysis.json` + `_comparison.csv`) | `gk_hardness_separation.json` |
 
 ### 2.3 Motor Fractal — **FRÁCIL, agora FUNCIONANDO (com fixes)**
 - O commit `8f77799 "Fractal Engine Integration — completo"` tinha **runner quebrado**
@@ -161,7 +161,9 @@ novo).
 **`motor_fractal_rea/cpu_timeseries.csv`** (301 pontos @0,1s ≈ **30s** —
 suficiente como *input* do canary-test/smoke, mas **não** cobre a janela
 de24h do protocolo; a série longa precisa ser coletada via
-`rea_bridge.ps1`/`ps1` da vertente, ver `motor_fractal_rea/README.md`).
+**`rea_bridge.ps1`** — ponte migrada do ancestral para
+`lab_sistemas_complexos/rea_bridge.ps1`, ver
+`lab_sistemas_complexos/README.md`).
 Se `cpu_timeseries.csv` (presente no doc de reidratação) estiver coletado,
 rodar `run_fractal_canary_test` nela e comparar **Huste ajustado vs colapso
 observado nas 24h seguintes**. Se acertar → transforma o motor em instrumento
@@ -234,7 +236,10 @@ conforme n→∞, reforça a "estabilidade transfinite" empiricamente.
 **Nível:** N2 automatizado.
 
 ### D6. Detecção de colapso por entropia (Shannon de CPU)
-Continuar a coleta via `entropy_calc.py` (+ Julia syscalls) e rodar o motor
+Continuar a coleta via `entropy_calc.py` (+ Julia syscalls — **migrado do
+ancestral em 28/11**, `lab_sistemas_complexos/`; coletor
+`collect_and_plot.py` na raiz; saída de exemplo
+`lab_sistemas_complexos/sistema_complexo_entropia.csv`) e rodar o motor
 fractal sobre as séries coletadas. Objetivo: **provar ou refutar** a tese de
 que o "atrito do observador" eleva artificialmente o H — em dados com carga
 conhecida (synthetic load), a H corrigida deve ficar **dentro de ±0.15** da H

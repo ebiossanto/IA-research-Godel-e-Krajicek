@@ -1,0 +1,23 @@
+{
+  "terminal_laboratorio": {
+    "standard_path": "C:\\Lab",
+    "description": "Pasta padrão para arquivos de leitura/coleta do Terminal-Laboratório",
+    "created": "2026-10-12T21:04:00Z",
+    "structure": {
+      "scripts/": "Scripts de coleta e análise (Python, Julia)",
+      "data/": "Dados brutos gerados (CSV, JSON, logs)",
+      "plots/": "Gráficos gerados (PNG, SVG)",
+      "logs/": "Logs de linhagem e auditoria",
+      "rea_bridge.ps1": "Ponte event-driven para REA",
+      "test_rea_event.ps1": "Simulador de eventos REA",
+      "README.md": "Documentação completa do sistema"
+    },
+    "conventions": {
+      "data_naming": "{metric}_{timestamp}.{csv|json|png}",
+      "lineage_required": true,
+      "metadata_format": "JSON-LD com timestamp_utc, data_source, metric_type, confidence_score",
+      "entropy_bins": 5,
+      "sample_rate_hz": 10
+    }
+  }
+}

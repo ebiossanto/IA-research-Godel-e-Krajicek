@@ -1,0 +1,5 @@
+system,observed_growth,theoretical_growth,theoretical_separation,matches_theory,notes
+Resolution,EXPONENTIAL,EXPONENTIAL,True,True,
+Extended_Frege,EXPONENTIAL,POLYNOMIAL,False,False,Observado EXPONENTIAL mas teoria prevê POLYNOMIAL
+Frege,EXPONENTIAL,POLYNOMIAL,False,False,Observado EXPONENTIAL mas teoria prevê POLYNOMIAL
+P_Optimal,SUPER_LINEAR,POLYNOMIAL,False,False,Observado SUPER_LINEAR mas teoria prevê POLYNOMIAL

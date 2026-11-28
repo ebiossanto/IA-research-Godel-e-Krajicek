@@ -1,0 +1,92 @@
+{
+  "metadata": {
+    "timestamp_utc": "2026-10-13T00:50:18.769317Z",
+    "source_file": "gk_hardness_z3_real.json",
+    "total_records": 640
+  },
+  "analysis": {
+    "Resolution": {
+      "avg_length": 21.25,
+      "min_length": 10,
+      "max_length": 100,
+      "growth_type_observed": "EXPONENTIAL",
+      "theory_separation": {
+        "lower_bound_type": "EXPONENTIAL",
+        "lower_bound_formula": "2^\u03a9(n^\u03b5)",
+        "upper_bound_type": "EXPONENTIAL",
+        "upper_bound_formula": "2^O(n)",
+        "separation": true
+      }
+    },
+    "Extended_Frege": {
+      "avg_length": 17.0,
+      "min_length": 8,
+      "max_length": 80,
+      "growth_type_observed": "EXPONENTIAL",
+      "theory_separation": {
+        "lower_bound_type": "POLYNOMIAL",
+        "lower_bound_formula": "n^\u03a9(1)",
+        "upper_bound_type": "POLYNOMIAL",
+        "upper_bound_formula": "n^O(1)",
+        "separation": false
+      }
+    },
+    "Frege": {
+      "avg_length": 25.5,
+      "min_length": 12,
+      "max_length": 120,
+      "growth_type_observed": "EXPONENTIAL",
+      "theory_separation": {
+        "lower_bound_type": "POLYNOMIAL",
+        "lower_bound_formula": "n^\u03a9(1)",
+        "upper_bound_type": "POLYNOMIAL",
+        "upper_bound_formula": "n^O(1)",
+        "separation": false
+      }
+    },
+    "P_Optimal": {
+      "avg_length": 5.6875,
+      "min_length": 5,
+      "max_length": 12,
+      "growth_type_observed": "SUPER_LINEAR",
+      "theory_separation": {
+        "lower_bound_type": "POLYNOMIAL",
+        "lower_bound_formula": "n^\u03a9(1)",
+        "upper_bound_type": "POLYNOMIAL",
+        "upper_bound_formula": "n^O(1)",
+        "separation": false
+      }
+    }
+  },
+  "comparison": {
+    "Resolution": {
+      "observed_growth": "EXPONENTIAL",
+      "theoretical_growth": "EXPONENTIAL",
+      "theoretical_separation": true,
+      "matches_theory": true,
+      "notes": ""
+    },
+    "Extended_Frege": {
+      "observed_growth": "EXPONENTIAL",
+      "theoretical_growth": "POLYNOMIAL",
+      "theoretical_separation": false,
+      "matches_theory": false,
+      "notes": "Observado EXPONENTIAL mas teoria prev\u00ea POLYNOMIAL"
+    },
+    "Frege": {
+      "observed_growth": "EXPONENTIAL",
+      "theoretical_growth": "POLYNOMIAL",
+      "theoretical_separation": false,
+      "matches_theory": false,
+      "notes": "Observado EXPONENTIAL mas teoria prev\u00ea POLYNOMIAL"
+    },
+    "P_Optimal": {
+      "observed_growth": "SUPER_LINEAR",
+      "theoretical_growth": "POLYNOMIAL",
+      "theoretical_separation": false,
+      "matches_theory": false,
+      "notes": "Observado SUPER_LINEAR mas teoria prev\u00ea POLYNOMIAL"
+    }
+  },
+  "separation_confirmed": true
+}
