@@ -1,23 +1,23 @@
 {
- "run_at": "2026-11-28T02:02:22+00:00",
+ "run_at": "2026-11-28T03:46:44+00:00",
  "files": {
-  "overview": "data/map/overview.79f12acc9f0c.json",
-  "plan": "data/plan.db5f9fb58f63.json",
+  "overview": "data/map/overview.ed154266b167.json",
+  "plan": "data/plan.99801e851cc1.json",
   "plan_v2": "data/plan_v2.95b8a1e85377.json",
   "papers": "data/papers.a2e9f3f7dded.json",
-  "news": "data/news/index.290f2fae0084.json",
+  "news": "data/news/index.3e8dcabf79e1.json",
   "letters": "data/letters.57590f761c03.json",
-  "graveyard": "data/graveyard.8b51deb34488.json",
+  "graveyard": "data/graveyard.dccf2373dfdd.json",
   "eliminated": "data/eliminated.04f970f63533.json",
   "atlas": "data/atlas.ae2c2d9b5cdf.json",
   "vocabulary": "data/vocabulary.40de17ef7008.json"
  },
  "counters": {
-  "checked": 18710,
-  "conjecture": 9969,
-  "refuted": 9685,
-  "lemmas": 38847,
-  "checked_last_hour": 851,
-  "messages_today": 983
+  "checked": 20187,
+  "conjecture": 9705,
+  "refuted": 11125,
+  "lemmas": 41503,
+  "checked_last_hour": 863,
+  "messages_today": 1686
  }
 }
