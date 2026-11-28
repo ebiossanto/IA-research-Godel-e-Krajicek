@@ -682,6 +682,17 @@ contém. Não sei provar; é o experimento matemático mais concreto desta lista
 # 8. Referências
 
 - **[artigo]** J. Krajíček, *On NP∩coNP proof complexity generators*, arXiv:2506.20221v4, 23 Mar 2026.
+- **[Kra26-zk]** J. Krajíček, *A proof complexity perspective on effectively zero-knowledge proofs*,
+  arXiv:2607.13540v1, 15 jul 2026. (verif. HTML: texto visível + refs, salvos em
+  `fontes/arxiv_2607.13540v1.html`; **preprint preliminar → (A)-nc**) — reformula as ZK efetivas de
+  Ilango (ECCC TR25-190) na linguagem de lógica e usa a teoria de geradores de provas para tornar o
+  conceito ZK genuíno sob conjectura de gerador duro + lista comum aleatória; **não menciona
+  `DD_P`/2506.20221** (varredura do texto).
+- **[RWZ26]** H. Ren, Y. Wang, Y. Zhong, *Hardness of Range Avoidance and Proof Complexity Generators
+  from Demi-Bits*, ITCS 2026 (aceito). (verif. via listas de [Kra26-zk] e arXiv:2604.04830) —
+  **range avoidance** (o complemento dos geradores) a partir de demi-bits; ligação direta com esta
+  frente D e com a palestra de H. Ren no programa INI-LFC (24 nov 2026, ver
+  `varredura_web/VARREDURA_WEB_2026-11-27.md` P5).
 - **[8]/[Kra11]** J. Krajíček, *On the proof complexity of the Nisan–Wigderson generator based on a hard
   NP∩coNP function*, J. Math. Logic 11(1):11–27, 2011.
 - **[11]/[Kra20]** J. Krajíček, *A limitation on the KPT interpolation*, LMCS 16(3):9, 2020

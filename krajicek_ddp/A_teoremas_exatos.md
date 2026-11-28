@@ -223,8 +223,10 @@ cadeia `M ⊆ M* ⊆ M'`, e sem a condição extra em `M`. É a tensão que cria
 > `M' ⊨ T_PV ∧ ¬φ ∈ SAT`. "`M*` satisfies the last axiom of `S`:
 > `M* ⊨ ∀i<m (¬α_i) ∈ SAT` **(8)** **as it preserves the `Σ^b_1(PV)`-properties from `M`**."
 > Seja `σ ∈ M'` atribuição aos átomos `r` falsificando `φ` em `M'`; `σ = (σ_i)_{i<m}`,
-> logo "exist `i_0 < m` com `M' ⊨ σ_{i_0} : P ⊢ α_{i_0}`. **But by (7) `i_0` is also
+> logo "exist `i_0 < m` com `M' ⊨ σ_{i_0} : P ⊢ α_{i_0}`. **But by (7) `i_o` is also
 > already in `M*`** and hence by (8) we get `M' ⊨ (¬α_{i_0}) ∈ SAT`.
+> *(sic — o artigo (HTML v5, §3) escreve `i_o`, **letra `o`**, neste trecho; `i_0` no passo
+> anterior — transcrição corrigida pelo referee r4 de 26/11/2026 contra a fonte primária.)*
 > That contradicts **`Ref_P`**: `x : P ⊢ y → (¬y) ∉ SAT`, which holds in `M'` as it
 > models `T_PV`."
 

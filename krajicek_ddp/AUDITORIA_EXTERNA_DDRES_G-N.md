@@ -12,22 +12,34 @@
 
 ## §A. `DD_Res ∈ P` — Teorema 4.3 (`C_disjuncao_viavel.md` §2)
 
-### A.1 Enunciado (verbatim, citado da fonte)
+### A.1 Enunciado (verbatim — transcrição literal de `C_disjuncao_viavel.md` §2.2–§2.3)
 
-> **Lema 4.1 (B) — recorte.** Para refutação `Π` de `Λ` por resolução **com
-> enfraquecimento**, algoritmo calcula `E_i ⊆ D_i` tal que: (a) inclusão; (b)
-> `(E_1,…,E_s)` é derivação de `Λ` por **resolução pura** com `E_s = ∅`;
-> (c) `|E_i| ≤ |D_i|` e custo `O(|Π|²)` no pior caso.
+> **Lema 4.1 (B) — recorte.** Seja `Π = (D_1,…,D_s)` uma refutação de `Λ` com
+> resolução **e** enfraquecimento. Existe algoritmo que calcula cláusulas
+> `E_1,…,E_s` tal que (a) `E_i ⊆ D_i` para todo `i`; (b) `(E_1,…,E_s)` é uma
+> derivação de `Λ` por **resolução pura** (sem enfraquecimento) com `E_s = ∅`;
+> (c) cada `E_i` usa no máximo `|D_i|` literais e o custo é `O(|Π|²)` no
+> pior caso (`O(Σ_i |D_i|·|D_{pares}|)` na prática).
 >
-> **Lema 4.2 (B) — pureza.** Se `Λ = Λ_1 ⊎ ⋯ ⊎ Λ_m` com `Λ_i` sobre átomos
-> disjuntos `X_i` e `(E_1,…,E_t)` derivação **pura** de `Λ` com `E_t = ∅`,
-> então (1) toda linha é **pura** (variáveis de um único `X_i`); (2) os pais
-> de `E_t = ∅` são puros sobre o **mesmo** lado `i*`.
+> **Lema 4.2 (B) — pureza.** Seja `Λ = Λ_1 ⊎ ⋯ ⊎ Λ_m` com `Λ_i` usando só
+> variáveis de `X_i` e `X_1,…,X_m` disjuntos. Se `(E_1,…,E_t)` é derivação por
+> resolução pura de `Λ` com `E_t = ∅`, então: (1) **toda** linha `E_j` usa
+> variáveis de um único `X_i` (linha *pura*); (2) se `E_t` é resolvente de
+> `E_a ∋ l` e `E_b ∋ ¬l`, então `E_a` e `E_b` são puras **sobre o mesmo lado**
+> `i*`.
 >
-> **Teorema 4.3 (B) — `DD_Res ∈ P`, sub-prova ótima.** Dado `Λ = ⨄_{i<m} Λ_i`
-> puro e `Π` refutação de `Λ` (com/s enfraquecimento, tree/dag), devolve em
-> `O(|Π|·m)` um `i*` com `Λ_{i*}` insatisfatível **e** refutação pura de
-> `Λ_{i*}` com ≤ `|Π|` linhas — logo FDP com `p(t) = t`.
+> **Teorema 4.3 (B) — `DD_Res ∈ P`, com sub-prova ótima.** Seja `Λ = ⨄_{i<m} Λ_i`
+> com `Λ_i` puro sobre `X_i` (disjuntos), e `Π` uma refutação de `Λ` por
+> resolução (com ou sem enfraquecimento, tree-like ou dag-like). Em tempo
+> `O(|Π|·m)` (com constante pequena; na prática linear em `|Π|`) devolve-se um
+> índice `i*` com `Λ_{i*}` insatisfatível (logo, na convenção da Seção 2.1,
+> `α_{i*} ∈ TAUT`), junto de uma **refutação pura de `Λ_{i*}` com no máximo
+> `|Π|` linhas**.
+
+*Corolário imediato (da fonte, §2.3 Comentários):* a FDP com polinômio
+`p(t) = t`. *Nota de custo (referee prosa×Lean r1):* o enunciado declara
+`O(|Π|·m)`, mas o passo (1) aplica o Lema 4.1 (`O(|Π|²)`) — o total honesto é
+`O(|Π|² + |Π|·m)`; ver A.3(d).
 
 ### A.2 Prova em 5 passos (para auditor)
 
@@ -79,16 +91,16 @@ texto já declara: "os experimentos não provam nada".
 
 | Frente | Enunciado (status) | O que o auditor checa |
 |---|---|---|
-| **F1** | Lacuna **verbatim** no passo (5): "But by (7) `i_o` is also already in M∗" — igualdade de comprimentos de `Log` não implica `i₀ ∈ M*` **(A)+leitura**; vale em v4 **e** v5/LMCS | Confrontar com arXiv:2506.20221v4 e v5; é a mesma lacuna? |
+| **F1** | Lacuna **verbatim** no passo (5): "But by (7) `i_o` is also already in M∗" — igualdade de comprimentos de `Log` não implica `i₀ ∈ M*` **(A)+leitura**; vale em v4 **e** v5/LMCS (verificação: `CONTEXTO_COMUM.md` §11/10 "em ambas as versões" + `G_CONTEXTO_FORCING.md` §1.1; **conferido contra a fonte primária em 26–27/11/2026** — HTMLs salvos em `fontes/arxiv_2506.20221v4/v5.html`: lacuna presente **nas duas**; v4 = *Theorem 4*, v5 = *Theorem 3* — renumeração confirmada; eqs. (7)/(8)) | **RESPONDIDO:** é a mesma lacuna nas duas versões (arXiv HTML, P10 do lint) |
 | **G1** | `Log(M[G]) = Log(M)` no forcing de Kra95/98 → **`(F-b')` refutado (P)** | O argumento de filtragem do forcing transfere mesmo com o predicado de observabilidade? |
 | **G2** | Configuração de reparo `T_PV`+falsificador+`(F-sent)` é **ZFC-falsa** (reductio, "Teorema 2.1"); `R3 ≡ BB` (§2.3) **(P)** | A reductio usa só o que a semente de fato tem? |
-| **H1** | Sem coleção sharply-bounded disponível para a refutação; convenção de abertas (§1.3) **(P)** | A indisponibilidade de BB é mesmo necessária? |
+| **H1** | Semente de coleção sem refutação EF **finita** (retração S1): a finitude foi retraída — **Q-compactness aberta (§1.3)**; a indisponibilidade de BB para a refutação é declarada em `G2 §2.3` ("`R3 ≡ BB`") **(P)** | A indisponibilidade de BB é mesmo necessária? |
 | **I1** | Ultrapoderes **não servem** — Łoś transfere sentenças (`A.7`) **(A)+(P)** | A aplicação de Łoś está correta no nosso uso? |
 | **J1** | **Teorema K**: em todo `M_0 ⊨ T_PV+(S2)(S3)(S4)` não existe `F` com `∀i<m Fals(F(i),α_i)` (⇒ `m` não-padrão); **K.2**: `T_PV+BB+(S2)(S3)(S4)` **inconsistente** **(P)** | Núcleo do projeto — verificar a diagonalização de K e a montagem/coleta morta de K.2 |
 | **J2** | **K-FP′** (consequência formal de K) **(P)** | Corolário formal corretamente derivado? |
 | **L1** | **L.1**: `T_PV+(S4) ⊢ ∀rφ(r)` (`¬φ` internamente insatisfatível); **L.3′**: C.3 negativa incondicionalmente; **L.3a**: `α` não-padrão; **L.4**: `φ` exemplifica a incompletude de pps **(P)** | A prova de L.1 (pinça do `i_0`) e o alcance de L.3′ |
 | **M** | **M.0**: `m` não-padrão; **M.1**: sem falsificador global; **M.2**: `C_{N_s} ≡ ⊥` **condicional à semântica de `τ_N`** (fecha sob `q` total (R1 e alternativa); **pode falhar** sob `q` parcial com merge — Q1 da carta); **M.3**: nomes padrão inofensivos **(P), condicionais** | **M.2 NÃO é incondicional** — checar o condicional; Q1 da carta decide |
-| **N1** | **N.1**: refutação interna de `{C_{N_s}}` ⟺ `M_0 ⊨ EF ⊢ Taut(α)` (**sentença fechada**; escopo R1/`q`-total); **N.2**: dicotomia (α)/(C1′); **N.3**: residuais **(P)**, condicionais | A redução N.1 (seletor `s(v)`, `σ_s`); convenção aberta→fechada |
+| **N1** | **N.1**: refutação interna de `{C_{N_s}}` ⟺ `M_0 ⊨ EF ⊢ Taut(α)` (**sentença fechada**; escopo R1/`q`-total); **N.2**: dicotomia (α)/(C1′); **N.3**: residuais **(P)**, condicionais | A redução N.1 (seletor `s(v)`, `σ_s`); convenção aberta→fechada (N1 §0.3) |
 | **N2** | **R-α = lema (∗′)** — construção **não-elementar**, rota compacidade **(C)**; ameaça a `¬∃e Der(e,Taut(α̂))` em 4 formas; **N2.3′**: modelo omitente + `G_eff` não-demonstrável **sobre `T_S^eff`** (Σ₁-sonoridade); lado (β)-global **não excluído** **(P)+(C)** | (∗′) é o aberto; a rota Σ₁ (completude formalizada) — e a ressalva co-r.e. de `T_PV` |
 | **C2** | **C2.1** (teorema, subclass de largura-k); **C2.2** = **programa** (obrigações (O1)–(O5)); **C2.3**: família **alternante (C)** | Ver §A (a mesma auditoria cobre C2.1); (O1)–(O5) estão no `C2_ddres_k.md` |
 | **Q2** | **Q2.1**: (Q) full-range + `τ_n(Con T)∈TAUT` ⟹ `T ⊢ Con(T)` — **impossível** (Gödel II); instância full-range computável transfere **trivialmente**; **Q2.2**: `(Q)|_{Σ₁}` vale (τ total, cutoff, `|τ|=2^{p(n)}`) **(P)** | O enunciado de (Q) em `27_TEOREMA_Q_...md` vs Q2.1; a ponte Σ₁ |

@@ -274,6 +274,11 @@ insatisfatível e `α_{i*}` é tautologia. O número de linhas é ≤ `s = |Π|`
 passo é linear (testar `vars(linha) ⊆ X_i` é `O(|Π|·m)` no total). □
 
 **Comentários.**
+- **(B) Nota de custo (referee prosa×Lean r1, 26/11/2026):** o enunciado acima
+  declara `O(|Π|·m)`, mas o passo (1) aplica o Lema 4.1, de custo `O(|Π|²)` no
+  pior caso — o total honesto é `O(|Π|² + |Π|·m)` (cota combinada já usada em
+  `C2_ddres_k.md:73`; tensão registrada em `AUDITORIA_EXTERNA_DDRES_G-N.md`
+  §A.3(d), a cargo do auditor arbitrar).
 - **(B)** Tree-like é subcaso (uma árvore é um DAG). Dag-like coberto.
 - **(B)** O teorema dá a **FDP com polinômio `p(t) = t`** (ótimo) para resolução
   — reprovando, de forma autocontida e construtiva, o fato citado em [Gar24]
@@ -689,4 +694,15 @@ no resumo oficial consultado durante este trabalho (arXiv/ECCC/Dagstuhl/LIPIcs).
 - [KPS90] Krajíček, Pudlák, Sgall, *Interactive computations of optimal solutions*, MFCS 1990. (= [15] do artigo, modelo S-T; verif. no artigo)
 - [KPT91] Krajíček, Pudlák, Takeuti, *Bounded arithmetic and the polynomial hierarchy*, APAL 52 (1991) 143–153. (= [16] do artigo, teorema KPT; verif. no artigo)
 - [PS21] Pich, Santhanam, STOC 2021, 223–233. (= [17] do artigo; verif. no artigo)
+- [Kra26-fdp] Krajíček, *Failure of the strong feasible disjunction property*, arXiv:2604.04830v3
+  (11 out 2026). (verif. HTML: texto visível + lista de refs completa, salvos em
+  `fontes/arxiv_2604.04830v3.html`; **preprint não-referido → (A)-nc**) — refuta a **FDP forte**
+  para sistemas fortes o bastante sob duas hipóteses (circuitos exponenciais para linguagens em E
+  mesmo com oráculo NP; demi-bit de Rudich); ferramentas: gadget generator [K25, Thm.4.2.7],
+  Ilango (ECCC TR25-190) e **Ren–Wang–Zhong [RWZ26]**. **Não menciona Resolução, enfraquecimento
+  nem `DD_P`** (varredura do texto integral) — portanto o escopo do Lema 4.1 acima segue **sem
+  cobertura nas fontes consultadas** (a busca de prior art via `letters` permanece aberta, §A.3).
+  Relaciona-se com a remark final do [Artigo] ("strong FDP falha para strong pps, cf. [K25]").
+- [RWZ26] H. Ren, Y. Wang, Y. Zhong, *Hardness of Range Avoidance and Proof Complexity Generators
+  from Demi-Bits*, ITCS 2026 (aceito). (verif. via listas de [Kra26-fdp] e [Kra26-zk])
 - [Artigo] Krajíček, *On NP∩coNP proof complexity generators*, arXiv:2506.20221v4 (23 Mar 2026). (texto integral verificado na versão HTML)

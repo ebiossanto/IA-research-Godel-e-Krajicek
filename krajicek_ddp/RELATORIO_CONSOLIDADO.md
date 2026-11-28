@@ -455,8 +455,8 @@ repositório pode saltá-la.
    validação externa — fórmula padronizada no §0 acima, no `README.md` e no
    `INDICE.md`.
 2. **M.2 condicional (P2)**: condicionalidade à semântica de `τ_N` (`q` total ×
-   `q` parcial com merge) explicitada em **todos** os resumos (§6.4, §7.6, README
-   item 5, INDICE DD7) — **Q1** da carta decide.
+   `q` parcial com merge) explicitada em **todos** os resumos (§6.4, §7 item 6,
+   README item 5, INDICE DD7) — **Q1** da carta decide.
 3. **Compilação reproduzida (P3)**: `lake build` na raiz **em 12/10/2026** →
    `Build completed successfully (4 jobs)`, com exatamente os **2 `sorry`s**
    documentados (`lean4/Gothic_Generators/DDP.lean:628` e `:690`); nenhum `sorry`
